@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การสร้างเส้นทางข้อมูล</TITLE>
+<META NAME="description" CONTENT="การสร้างเส้นทางข้อมูล">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node100.html">
+<LINK REL="previous" HREF="node96.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node99.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1957"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1951"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1945"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1953"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1955"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1958"
+  HREF="node99.html">สร้างเส้นทางข้อมูล</A>
+<B> Up:</B> <A NAME="tex2html1952"
+  HREF="node91.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<B> Previous:</B> <A NAME="tex2html1946"
+  HREF="node97.html">วิธีการกระตุ้นด้วยสัญญาณนาฬิกา</A>
+ &nbsp; <B>  <A NAME="tex2html1954"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1956"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00740000000000000000">
+การสร้างเส้นทางข้อมูล</A>
+</H1>
+<P>
+<I>การสร้างเส้นทางข้อมูล (Datapath) ของโปรเซสเซอร์ MIPS เริ่มจากการศึกษาส่วนประกอบของเส้นทางข้อมูล ปรือเรียกว่า Data Elements สำหรับการทำงานของแต่ละคำสั่ง  <A NAME="22043"></A>
+</I>
+<P>
+<I>ในรูป <A HREF="#fig:5.5">5.8</A> แสดงส่วนประกอบของเส้นทางข้อมูลที่ประกอบด้วย Instruction Memory, Program Counter, และ ALU ในส่วนประกอบแรก Instruction Memory มีหน้าที่เก็บคำสั่งที่ประกอบกันเป็นโปรแกรม และให้คำสั่งออกมาที่เอาท์พุท เมื่อได้รับตำแหน่งของคำสั่งนั้นๆ Program Counter หรือ PC มีไว้สำหรับเก็บค่าแอดเดรสของคำสั่งปัจจุบันในการประมวลผล ในส่วนสุดท้ายเราต้องการ ALU สำหรับเพิ่มค่าแอดเดรสของคำสั่ง โดย ALU นี้ทำหน้าที่บวกอย่างเดียวและถูกเรียกว่า Adder <A NAME="22109"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.5"></A><A NAME="24020"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.8:</STRONG>
+ส่วนประกอบของเส้นทางข้อมูลที่ประกอบด้วย Memory, Program Counter, และ ALU</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="632" HEIGHT="194" ALIGN="BOTTOM" BORDER="0"
+ SRC="img291.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.5.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในการประมวลผลคำสั่ง เราเริ่มจากการเรียก (Fetch) คำสั่งจาก Instruction Memory ออกมา และเตรียมตัวการเรียกคำสั่งต่อไป โดยการเพิ่มค่าแอดเดรสของ PC ขึ้น 4 รูป <A HREF="#fig:5.6">5.9</A> แสดงการนำเอาส่วนประกอบต่างๆ ในรูป <A HREF="#fig:5.5">5.8</A> มาต่อกันเพื่อทำการเรียกคำสั่งและเพิ่มค่าคำสั่งสำหรับวงรอบต่อไป
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.6"></A><A NAME="24021"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.9:</STRONG>
+ส่วนของเส้นทางข้อมูลสำหรับการเรียกคำสั่งและเพิ่มค่าคำสั่งสำหรับวงรอบต่อไป</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="401" HEIGHT="313" ALIGN="BOTTOM" BORDER="0"
+ SRC="img292.png"
+ ALT="\includegraphics[width=3.5in]{fig/Chapter_5/Figure_5.6.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>พิจารณาคำสั่งประเภท R-Type  ตำสั่งในลักษณะนี้ต้องอ่านค่าจากรีจีสเตอร์สองตัว และทำการประมวลผลโดยใช้ ALU ตามฟังก์ชั่นฟิลด์ของคำสั่ง จากนั้นทำการเขียนผลลัพธ์กลับลงในรัจีสเตอร์ ตัวอย่างของคำสั่งเหล่านี้ได้แต่ add, sub, and, or, และ slt
+</I>
+<P>
+<I>โปรเซสเซอร์ MIPS มีรีจีสเตอร์ขนาด 32 บิต จำนวน 32 ตัวที่เก็บไว้ในส่วนประกอบที่ชื่อว่า Register File หรือ หรือ แฟ้มรีจีสเตอร์  โดยสามารถทำการอ่านหรือเขียนรีจีสเตอร์ที่กำหนด โดยในคำสั่งประเภท R-Type เราต้องการอ่านค่ารีจีสเตอร์สองตัว ดังนั้นจึงต้องการอินพุทสำหรับระบุรีจีสเตอร์ที่ต้องการอ่านสองตัว และเอาท์พุทแสดงค่าของรีจีสเตอร์สองตัวเช่นกัน  ในการเขียนรีจีสเตอร์ เราต้องใช้อินพุทสำหรับระบุรีจีสเตอร์ และ อินพุทสำหรับข้อมูลที่ต้องกาารเขียน อีกทั้งสัญญาณที่อนุญาตให้เขียนในรีจีสเตอร์ ที่ต้อง assert ที่ขอบสัญญาณนาฬิกา  การกำหนดค่ารีจีสเตอร์ที่ทำการอ่านหรือเขียนทำผ่านสายสัญญาณ 5 เส้น จาก <IMG
+ WIDTH="65" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img293.png"
+ ALT="$2^{5} = 32$"> เพื่ออ้างอิงรีจีสเตอร์ 32 ตัว <A NAME="22327"></A>
+</I>
+<P>
+<I>รูป <A HREF="#fig:5.7">5.10</A> แสดง Register File และ ALU ขนาด 32 บิต  ALU 32 บิต มีอินพุตขนาด 32 บิตสองชุด และมีเอาท์พุทขนาด 32 บิตหนึ่งชุด และสัญญาณ Zero ที่ใช้ในการเปรียบเทียบ สัญญานควบคุม 4 บิตสำหรับการควบคุมการทำงานของ ALU ตามฟังก์ชั่นต่างๆ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.7"></A><A NAME="22356"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.10:</STRONG>
+Register File และ ALU ขนาด 32 บิต</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="234" ALIGN="BOTTOM" BORDER="0"
+ SRC="img294.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.7.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>สำหรับคำสั่งการถ่ายโอนข้อมูล จากหน่วยความจำ มายังรีจีสเตอร์ เช่น 
+<TT>lw $t1, offset_value($t2)</TT> 
+หรือ  <TT>sw $t1, offset_value($t2)</TT> คำสั่งเหล่านี้จะทำการคำนวณแอดเดรสของหน่วยความจำข้อมูล (Data Memory) โดยการบวกค่า 16 บิต หลังของคำสั่งเข้ากับรีจีสเตอร์ฐาน (Base Register) ซึ่งการบวกค่าดังกล่าวใช้งาน ALU ในรูป <A HREF="#fig:5.7">5.10</A> เช่นเดียวกัน 
+<A NAME="22399"></A><A NAME="22400"></A>
+</I>
+<P>
+<I>ในการบวกค่า Base Register และ Offset ดังกล่าว เราต้องการส่วนประกอบที่เรียกว่า Sign Extend ในการขยายเครื่องหมายของส่วน Offset ที่เป็นส่วนหนึ่งของคำสั่งที่มีขนาด 16 บิต โดยการทำการขยายให้ได้เท่ากับ 32 บิต เพื่อให้สามารถทำการบวกกับค่า 32 บิตของ Base Register ได้พอดี โดยรักษาความถูกต้องของเครื่องหมายไว้ด้วย  รูป <A HREF="#fig:5.8">5.11</A> แสดงส่วนประกอบทั้งสอง
+<A NAME="22449"></A> 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.8"></A><A NAME="24022"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.11:</STRONG>
+หน่วยความจำข้อมูล (Data Memory) และ Sign Extend</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="403" HEIGHT="231" ALIGN="BOTTOM" BORDER="0"
+ SRC="img295.png"
+ ALT="\includegraphics[width=3.5in]{fig/Chapter_5/Figure_5.8.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>คำสั่งประเภทที่สามที่พิจารณาคือคำสั่ง Branch คำสั่ง <TT>beq</TT> มีตัวกระทำสามตัว ได้แก่ ตำแหน่งของรีจีสเตอร์สองตัวเพื่อตรวจสอบความเท่ากัน และ Offset ขนาด 16 บิต ที่กำหนดตำแหน่งของคำสั่งที่จะทำต่อไป โดยการคำนวณ Branch Target Address จากตำแหน่งของ Program Counter คำสั่ง Branch อยู่ในรูปแบบ <TT>beq $t1, $t2, offset</TT> ในการคำนวณค่า  Branch  Target Address สามารถทำโดยการบวกค่า Offset เข้ากับ PC โดยต้องพิจารณาถึง <A NAME="22504"></A>
+</I>
+<P>
+<UL>
+<LI>สถาปัตยกรรมชุดคำสั่งของ MIPS กำหนดว่า Branch Target Address คำนวณจากฐานแอดเดรสของคำสั่งต่อจากคำสั่ง Branch นั้น เนื่องจากเราคำนวณ <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> แล้ว สามารถนำมาใช้ได้
+</LI>
+<LI>สถาปัตยกรรมชุดคำสั่งกำหนดให้ Offset เป็น Word Offset เพื่อเพิ่มย่านการทำงานของ  Branch Target Address เพิ่มขึ้นสี่เท่า โดยการ shift right สองบิต นั้นคือการคำนวน  Branch Target Address จะต้องทำการ shift left กลับสองบิตเช่นกัน
+</LI>
+</UL>
+<P>
+<I>นอกจากการคำนวณ  Branch Target Address แล้ว เราจะต้องเลือกว่าจะทำ Branch หรือไม่ ถ้าทำ Branchเรียกว่า Branch Taken ถ้าไม่ทำ Branch หรือ ทำคำสั่งต่อไปเรียกว่า Branch Not Taken โดยดูจากการทดสอบเงื่อนไขว่าเป็นจริงหรือไม่  
+<A NAME="22576"></A> <A NAME="22577"></A>
+</I>
+<P>
+<I>ในเส้นทางข้อมูลของคำสั่ง Branch ทำการประมวลผลสองอย่าง ได้แก่ การคำนวณ  Branch Target Address และการเปรียบเทียบค่ารีจีสเตอร์ว่าตรงตามเงื่อนไขหรือไม่  รูป <A HREF="#fig:5.9">5.12</A> แสดงส่วนของเส้นทางสำหรับการประมวลคำสั่ง Branch โดยแยก Adder สำหรับคำนวณ  Branch Target Address ออกมาจาก ALU และเพิ่ม Sign Extension และ Shift left เพื่อให้ได้ค่าของ Offset ที่ถูกต้อง ถ้าค่าเอาท์พุต Zero ของ ALU asserted หมายความว่าค่าในรีจีสเตอร์ทั้งสองมีค่าเท่ากัน <A NAME="22628"></A> <A NAME="22629"></A>
+</I>
+<P>
+<I>สำหรับคำสั่ง jump เราแทนที่ 28 บิตของ PC ด้วย 26 บิตหลังของคำสั่ง โดยการ Shift left 2 บิต
+<A NAME="22639"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.9"></A><A NAME="24023"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.12:</STRONG>
+ส่วนของเส้นทางสำหรับการประมวลคำสั่ง Branch</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="574" HEIGHT="417" ALIGN="BOTTOM" BORDER="0"
+ SRC="img296.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.9.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html1959"
+  HREF="node99.html">สร้างเส้นทางข้อมูล</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1957"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1951"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1945"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1953"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1955"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1958"
+  HREF="node99.html">สร้างเส้นทางข้อมูล</A>
+<B> Up:</B> <A NAME="tex2html1952"
+  HREF="node91.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<B> Previous:</B> <A NAME="tex2html1946"
+  HREF="node97.html">วิธีการกระตุ้นด้วยสัญญาณนาฬิกา</A>
+ &nbsp; <B>  <A NAME="tex2html1954"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1956"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

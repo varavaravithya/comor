@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>หน่วยความจำเสมือน</TITLE>
+<META NAME="description" CONTENT="หน่วยความจำเสมือน">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node169.html">
+<LINK REL="previous" HREF="node157.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node161.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2893"
+  HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2887"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2881"
+  HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2889"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2891"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2894"
+  HREF="node161.html">การแทนที่และการค้นหาเพจ</A>
+<B> Up:</B> <A NAME="tex2html2888"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2882"
+  HREF="node159.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+ &nbsp; <B>  <A NAME="tex2html2890"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2892"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00950000000000000000">
+หน่วยความจำเสมือน</A>
+</H1>
+<P>
+<I>หน่วยความจำเสมือน (Virtual Memory) เป็นเทคนิคในการใช้หน่วยความจำหลัก (Main Memory) ให้เสมือนเป็น Cache สำหรับ แหล่งข้อมูลลำดับที่สอง เพื่อให้โปรแกรมหลายโปรแกรมสามารถใช้หน่วยความจำร่วมกันได้อย่างปลอดภัยและมีประสิทธิภาพ และสามารถถอดหรือสลับ โปรแกรมออกจากหน่วยความจำหลักที่มีขนาดเล็ก  
+และมีความจุอย่างจำกัดได้ หน่วยความจำเสมือนทำหน้าที่ในการแปลงตำแหน่งอ้างอิงของโปรแกรมที่เรียกว่า ตำแหน่งอ้างอิงเสมือน (Virtual Address) ให้เป็นตำแหน่งอ้างอิงแท้จริง (physical address) ซึ่งก็คือตำแหน่งอ้างอิงในหน่วยความจำหลักนั่นเอง กระบวนการแปลงตำแหน่งอ้างอิงนี้เอง ที่ทำให้สามารถให้โปรแกรมหลายโปรแกรมทำงานร่วมกันได้ในระบบ Multitasking และสามารถป้องกันตำแหน่งอ้างอิงของโปรแกรมจากโปรแกรมอื่น 
+<A NAME="35479"></A><A NAME="35480"></A>
+</I>
+<P>
+<I>Block ของหน่วยความจำเสมือนจะถูกเรียกว่า เพจ (Page) และเรียกเหตุการณ์ ที่เกิดขึ้นเมื่อเพจที่ต้องการไม่อยู่ในหน่วยความจำหลักว่า Page Fault) 
+</I>
+<P>
+<I>ในรูปที่ <A HREF="#fig:f0720">7.13</A> แสดงให้เห็นหน่วยความจำของตำแหน่งอ้างอิงเสมือน ซึ่งจะถูกแปลงไปยังหน่วยความจำหลัก กระบวนการแปลงนี้เรียกว่า การแปลงตำแหน่งอ้างอิง (Address Mapping หรือ Address Translation) <A NAME="35523"></A><A NAME="35524"></A> 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0720"></A><A NAME="38098"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.13:</STRONG>
+หน่วยความจำของตำแหน่งอ้างอิงเสมือน ที่ถูกแปลงไปยังหน่วยความจำหลัก</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="417" HEIGHT="308" ALIGN="BOTTOM" BORDER="0"
+ SRC="img456.png"
+ ALT="\includegraphics[width=3.65in]{fig/Chapter_7/f0720.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ปัจจุบันนี้ หน่วยความจำทั้งสองลำดับชั้น ที่ถูกควบคุมโดยหน่วยความจำเสมือน ได้แก่ DRAMs และ แผ่นจานแม่เหล็ก (Magnetic disk) 
+</I>
+<P>
+<I>รูปที่ <A HREF="#fig:f0720">7.13</A> ในหน่วยความจำเสมือน บล็อกของหน่วยความจำที่เรียกว่าเพจนั้น จะถูกแปลงจากกลุ่มของตำแหน่งอ้างอิง 
+ซึ่งเรียกว่าตำแหน่งอ้างอิงเสมือน ไปเป็นกลุ่มของตำแหน่งอ้างอิงแท้จริง 
+</I>
+<P>
+<I>หน่วยความจำเสมือนยังทำให้การโหลดโปรแกรมเพื่อการประมวลผลทำได้ง่ายขึ้น โดยการกำหนดตำแหน่งใหม่ (Relocation)<A NAME="35595"></A> 
+ ซึ่งจะแปลงตำแหน่งอ้างอิงเสมือนที่ถูกเรียกใช้โดยโปรแกรม ไปเป็นตำแหน่งอ้างอิงแท้จริงก่อนที่จะนำไปเรียกใช้หน่วยความจำ 
+ การกำหนดตำแหน่งใหม่นี้ทำให้สามารถโหลดโปรแกรมได้ทุกที่ในหน่วยความจำหลัก 
+ หน่วยความจำเสมือนที่ใช้ในปัจจุบัน สามารถกำหนดตำแหน่งของโปรแกรมให้เป็นกลุ่มของบล็อกแบบจำกัดขนาด (Fixed-Size Block) 
+ ซึ่งจะทำให้ไม่ต้องทำการค้นหาบล็อกของหน่วยความจำที่อยู่ติดกัน 
+</I>
+<P>
+<I>จากรูปที่ <A HREF="#fig:f0721">7.14</A> ตำแหน่งอ้างอิงเสมือนจะถูกแบ่งออกเป็น หมายเลขเพจเสมือน (Virtual Page Number) และ เพจออฟเซท (Page Offset) <A NAME="35680"></A><A NAME="35681"></A> 
+ หมายเลขเพจเสมือนจะถูกแปลงเป็น หมายเลขเพจแท้จริง (Physical Page Number) ซึ่งจะประกอบเป็นส่วนแรกของตำแหน่งอ้างอิงแท้จริง 
+ ในขณะที่เพจออฟเซท ซึ่งไม่มีการเปลี่ยนแปลง จะประกอบเป็นส่วนส่วนหลังของตำแหน่งอ้างอิงแท้จริง 
+ ซึ่งจำนวนบิทในเพจออฟเซทนี่เองที่เป็นตัวกำหนดขนาดของแต่ละเพจ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0721"></A><A NAME="38099"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.14:</STRONG>
+การ Mapping ระหว่างแอดเดรส Virtual และ Physical</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="291" ALIGN="BOTTOM" BORDER="0"
+ SRC="img457.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_7/f0721.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูปที่ <A HREF="#fig:f0721">7.14</A> การแปลงจากตำแหน่งอ้างอิงเสมือนเป็นตำแหน่งอ้างอิงแท้จริง
+</I>
+<P>
+<I>การออกแบบระบบหน่วยความจำเสมือนนั้น ถูกกำหนดโดยจำนวนของการเกิดเพจฟอล์ท นั่นคือ 
+</I>
+<P>
+<UL>
+<LI>เพจควรมีขนาดใหญ่เพียงพอที่จะสามารถลดเวลาในการเรียกใช้ได้ 
+</LI>
+<LI>ควรมีการดำเนินการที่สามารถลดอัตราการเกิดเพจฟอล์ท เช่น การแทนที่อย่างสมบูรณ์ (Fully Associative Placement) ของเพจ
+</LI>
+<LI>การดำเนินการกับเพจฟอล์ทสามารถกระทำโดยซอฟ์ทแวร์ได้ เนื่องจากมีโอเวอร์เฮด (Overhead) น้อยกว่าเวลาในการเข้าถึงแผ่นจานบันทึก (Disk)
+</LI>
+<LI>ควรใช้ในการเขียนแบบ ไรท์แบค (Write-back) เนื่องจากการเขียนแบบ ไรท์ธรู (Write-through) นั้นจะใช้เวลาในการเขียนนาน 
+</LI>
+</UL>
+<P>
+<I>บล็อกที่มีขนาดไม่แน่นอนเรียกว่าเซกเมนเตชั่น (Segmentation) ประกอบด้วย 2 ส่วน ได้แก่ หมายเลขเซกเมนต์ (Segment Number) ซึ่งจะถูกแปลงไปเป็นตำแหน่งอ้างอิงแท้จริง และ เซกเมนต์ออฟเซท (Segment Offset) ซึ่งจะถูกเพิ่มเข้าไปเพื่อระบุตำแหน่งอ้างอิงแท้จริง เนื่องจากเซกเมนต์มีขนาดไม่แน่นอน จึงต้องมีการตรวจสอบขอบเขตเพื่อให้แน่ใจว่าออฟเซทนั้นอยู่ในเซกเมนต์ <A NAME="35888"></A>
+</I>
+<P>
+<I>ประโยขน์ของเซกเมนเตชั่นคือ สามารถรองรับวิธีการป้องกันและใช้พื้นที่ตำแหน่งอ้างอิงที่มีประสิทธิภาพมากขึ้น อย่างไรก็ตาม ข้อเสียของเซกเมนเตชั่นคือ จะต้องแยกดำเนินการกับตำแหน่งอ้างอิงทั้งสองส่วน คือ หมายเลขเซกเมนต์ และ ออฟเซท แต่เพจนั้นมีขอบเขตระหว่าง หมายเลขเพจกับออฟเซท อย่างชัดเจนอยู่แล้ว 
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2895"
+  HREF="node161.html">การแทนที่และการค้นหาเพจ</A>
+<UL>
+<LI><A NAME="tex2html2896"
+  HREF="node162.html">การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2897"
+  HREF="node163.html">เพจฟอล์ท</A>
+<UL>
+<LI><A NAME="tex2html2898"
+  HREF="node164.html">การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2899"
+  HREF="node165.html">การทำให้การแปลงตำแหน่งอ้างอิงทำได้เร็วขึ้น: Translation-Lookaside Buffer (TLB)</A>
+<LI><A NAME="tex2html2900"
+  HREF="node166.html">การรวมหน่วยความจำเสมือน, TLB และแคช</A>
+<LI><A NAME="tex2html2901"
+  HREF="node167.html">การทำให้หน่วยความจำเสมือนมีความปลอดภัย</A>
+<LI><A NAME="tex2html2902"
+  HREF="node168.html">การดำเนินการกับ TLB ที่ขาดหายไป และ เพจฟอล์ท</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2893"
+  HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2887"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2881"
+  HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2889"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2891"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2894"
+  HREF="node161.html">การแทนที่และการค้นหาเพจ</A>
+<B> Up:</B> <A NAME="tex2html2888"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2882"
+  HREF="node159.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+ &nbsp; <B>  <A NAME="tex2html2890"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2892"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

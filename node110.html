@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</TITLE>
+<META NAME="description" CONTENT="ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node109.html">
+<LINK REL="up" HREF="node108.html">
+<LINK REL="next" HREF="node111.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2129"
+  HREF="node111.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2123"
+  HREF="node108.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2119"
+  HREF="node109.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2125"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2127"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2130"
+  HREF="node111.html">การจัดการกับ Exception</A>
+<B> Up:</B> <A NAME="tex2html2124"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Previous:</B> <A NAME="tex2html2120"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+ &nbsp; <B>  <A NAME="tex2html2126"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2128"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00760200000000000000"></A>
+<A NAME="25996"></A>
+<BR>
+ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา
+</H3>
+<P>
+<I>ในการทดสอบประสิทธิภาพของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา โดยใช้ SPECTINT2000 มีส่วนประกอบของคำสั่งดังต่อไปนี้  25% load (1% load byte + 24% load word), 10% stores ((1% store byte + 9% store word), 11% branches (6% beq, 5% bne), 2% jumps (1% jal + 1%jr), และ 52% ALU จงคำนวณ CPI ของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา
+</I>
+<P>
+<I>ในคำสั่งต่างๆ มีจำนวนวงรอบการทำงานดังต่อไปนี้
+</I>
+<P>
+<UL>
+<LI>Loads: 5
+</LI>
+<LI>Stores: 4
+</LI>
+<LI>ALU Instruction: 4
+</LI>
+<LI>Branches: 3
+</LI>
+<LI>Jumps: 3
+</LI>
+</UL>
+<P>
+<I>CPI สามารถแสดงได้โดย
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPI &=& \frac{CPU~clock~cycles}{Instruction~Count} = \frac{\sum Instruction~count_i \times CPI_i}{Instruction~Count}\\
+&=& \sum  \frac{Instruction~Count_i}{Instruction~Count} \times CPI_i
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img270.png"
+ ALT="$\displaystyle CPI$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="436" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img323.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;clock&nbsp;cycles}{Instruction&nbsp;Count} = \frac{\sum Instruction&nbsp;count_i \times CPI_i}{Instruction&nbsp;Count}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.6)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="263" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img324.png"
+ ALT="$\displaystyle \sum \frac{Instruction&nbsp;Count_i}{Instruction&nbsp;Count} \times CPI_i$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>โดยที่อัตราส่วน  
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{Instruction~Count_i}{Instruction~Count}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="162" HEIGHT="46" BORDER="0"
+ SRC="img325.png"
+ ALT="\begin{displaymath}
+\frac{Instruction&nbsp;Count_i}{Instruction&nbsp;Count}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>เป็นความถี่ของคำสั่งสำหรับคำสั่งชุด <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> เราสามารถแทนที่สมการได้
+</I>
+<P>
+<I><!-- MATH
+ $CPI = 0.25\times 5 + 0.10\times 4 + 0.52 \times 4 + 0.11\times 3 + 0.02\times 3 = 4.12$
+ -->
+<IMG
+ WIDTH="549" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img326.png"
+ ALT="$CPI = 0.25\times 5 + 0.10\times 4 + 0.52 \times 4 + 0.11\times 3 + 0.02\times 3 = 4.12$">
+</I>
+<P>
+<I>จะพบว่าค่า CPI ที่คำนวณได้ดีกว่า CPI สำหรับกรณีที่แย่ที่สุดคือ 5.0 ที่ทุกคำสั่งทำงานที่จำนวนวงรอบสัญญาณนาฬิกาเท่ากันทั้งหมด
+</I>
+<P>
+<I>การออกแบบชุดควบคุมโปรเซสเซอร์แบบหลายวงรอบการทำงานนั้น ทำโดยใชั Finite State Machine ซึ่งผลลัพธ์ของวงจรดังกล่าวเป็นการทำงานที่ใช้สถานะของวงจรประกอบในการทำงาน ที่ซึ่งผลของสถานะปัจจุบัน จะขึ้นอยู่กับสถานะการทำงานในวงรอบการทำงานที่แล้ว และสัญญาณอินพุทที่ป้อนเข้า โดยในที่นี้สัญญาณอินพุทคือ Opcode ที่ปรากฎในคำสั่งนั้นเอง  รูป <A HREF="#fig:5.31">5.31</A> แสดงการทำงานระดับสูงของการควบคุม Finite State Machine โดยการทำงานเริ่มจากการ Fetch คำสั่ง และแบ่งการทำงานออกเป็น 4 สาย เพื่อให้สามารถทำงานตามลักษณะต่างๆ ได้ซึ่งคำสั่งดังกล่าวไแบ่งเป็นกลุ่มได้แก่ Memory Access, R-Type, Branch, Jump <A NAME="26189"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.31"></A><A NAME="26438"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.31:</STRONG>
+การทำงานระดับสูงของการควบคุม Finite State Machine</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="575" HEIGHT="209" ALIGN="BOTTOM" BORDER="0"
+ SRC="img327.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.31.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>จากรูป <A HREF="#fig:5.37">5.32</A> แสดง Finite State Machine ที่นำมาใช้งานในชุดควบคุม 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.37"></A><A NAME="26439"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.32:</STRONG>
+Finite State Machine ที่นำมาใช้งานในชุดควบคุม ที่เป็น Moore Machine</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="574" HEIGHT="781" ALIGN="BOTTOM" BORDER="0"
+ SRC="img328.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.37.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:5.38">5.33</A> แผนภูมิแสดงสถานะ (State Diagram) สำหรับชุดควบคุม ที่มีขั้นตอนดังต่อไปนี้
+<A NAME="26228"></A>
+</I>
+<P>
+<OL>
+<LI>Instruction Fetch
+</LI>
+<LI>Instruction Decode/ Register Fetch
+</LI>
+<LI>Execution ที่แบ่งออกเป็น 4 สายย่อย 
+
+<OL>
+<LI>Memory address computation
+</LI>
+<LI>Execute R-Type
+</LI>
+<LI>Branch completion 
+</LI>
+<LI>Jump completion
+</LI>
+</OL> 
+</LI>
+<LI>Memory Access
+
+<OL>
+<LI>Memory Access (lw)
+</LI>
+<LI>Memory Access (sw)
+</LI>
+<LI>R-type completion
+</LI>
+</OL> 
+</LI>
+<LI>Memory Read completion
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.38"></A><A NAME="26440"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.33:</STRONG>
+แผนภูมิ State Diagram สำหรับชุดควบคุม</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="572" HEIGHT="502" ALIGN="BOTTOM" BORDER="0"
+ SRC="img329.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.38.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2129"
+  HREF="node111.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2123"
+  HREF="node108.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2119"
+  HREF="node109.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2125"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2127"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2130"
+  HREF="node111.html">การจัดการกับ Exception</A>
+<B> Up:</B> <A NAME="tex2html2124"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Previous:</B> <A NAME="tex2html2120"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+ &nbsp; <B>  <A NAME="tex2html2126"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2128"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>เลขทศนิยม (Floating Point)</TITLE>
+<META NAME="description" CONTENT="เลขทศนิยม (Floating Point)">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node68.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node41.html">
+<LINK REL="next" HREF="node60.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1364"
+  HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1358"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1352"
+  HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1360"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1362"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1365"
+  HREF="node60.html">รูปแบบการนำเสนอ Floating-Point</A>
+<B> Up:</B> <A NAME="tex2html1359"
+  HREF="node41.html">การคำนวณ</A>
+<B> Previous:</B> <A NAME="tex2html1353"
+  HREF="node58.html">ตัวอย่างการหาร</A>
+ &nbsp; <B>  <A NAME="tex2html1361"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1363"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00570000000000000000">
+เลขทศนิยม (Floating Point)</A>
+</H1>
+<P>
+<I>นอกเหนือจากการคำนวณเลขจำนวนเต็มที่มีเครื่องหมายหรือไม่มีเครื่องหมายแล้ว คอมพิวเตอร์ MIPS ยังรองรับการคำนวณเลขทศนิยมหรือเศษส่วน  ซึ่งทางคณิตศาสตร์เรียกว่าเลขจำนวนจริง ตัวอย่างของเลขจำนวนจริงได้แก่
+</I>
+<P>
+<UL>
+<LI><!-- MATH
+ $3.1415925\ldots_{ten}(\pi)$
+ -->
+<IMG
+ WIDTH="159" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img140.png"
+ ALT="$3.1415925\ldots_{ten}(\pi)$">
+</LI>
+<LI><!-- MATH
+ $2.71828\ldots_{ten} (e)$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img141.png"
+ ALT="$2.71828\ldots_{ten} (e)$">
+</LI>
+<LI><!-- MATH
+ $0.000000001_{ten}$
+ -->
+<IMG
+ WIDTH="124" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img142.png"
+ ALT="$0.000000001_{ten}$"> or <!-- MATH
+ $1.0_{ten}\times 10^{-9}$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img143.png"
+ ALT="$1.0_{ten}\times 10^{-9}$"> (seconds in a nanosecond)
+</LI>
+<LI><!-- MATH
+ $3,155,760,000_{ten}$
+ -->
+<IMG
+ WIDTH="144" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img144.png"
+ ALT="$3,155,760,000_{ten}$"> or <!-- MATH
+ $3.15576_{ten} \times 10^{9}$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img145.png"
+ ALT="$3.15576_{ten} \times 10^{9}$"> (seconds in a typical century)
+</LI>
+</UL>
+<P>
+<I>ในกรณีสุดท้าย จะสังเกตว่าค่าที่แสดงมีค่ามากกว่าที่จะแสดงได้ในตัวแปรที่เห็นจำนวนเต็มขนาด 32 บิต ที่ใช้ในคอมพิวเตอร์ MIPS <!-- MATH
+ $(-2^{31} -> (2^{31}-1))$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img146.png"
+ ALT="$(-2^{31} -&gt; (2^{31}-1))$"> และการนำเสนอตัวเลขทางด้านหลังของสองตัวอย่างสุดท้าย เรียกว่า Scientific Notation ที่มีเพียงหลักเดียวก่อนจุดทศนิยม ลักษณะนี้เรียกว่า Normalized Number ที่มีเพียงหลักเดียวก่อนหน้าจุดทศนิยม ตัวอย่างเช่น <!-- MATH
+ $1.0\times 10^{-9}$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img147.png"
+ ALT="$1.0\times 10^{-9}$"> เป็นตัวเลข Normalized แต่ <!-- MATH
+ $0.1\times 10^{-8}$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img148.png"
+ ALT="$0.1\times 10^{-8}$"> หรือ <!-- MATH
+ $10.0\times 10^{-10}$
+ -->
+<IMG
+ WIDTH="105" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img149.png"
+ ALT="$10.0\times 10^{-10}$"> ไม่ใช่ตัวเลขที่ Normalized <A NAME="14905"></A>
+</I>
+<P>
+<I>สำหรับเลขฐานสองเราสามารถแสดงอยู่ในรูปของ Scientific Notation ได้เช่นเดียวกัน 
+</I>
+<P>
+<I><!-- MATH
+ $1.0_{two} \times 2^{-1}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img150.png"
+ ALT="$1.0_{two} \times 2^{-1}$">
+</I>
+<P>
+<I>โดยที่จุดทศนิยมเราเรียกว่าจุด Binary Point แทน Decimal Point ในเลขฐานสิบ การทำให้ตัวเลขเป็นแบบ Normalized ในเลขไบนารี่ เราสามารถเลื่อนบิตไปทางซ้ายหรือขวา ให้มีเพียงหนึ่งหลักอยู่ทางซ้ายมือของจุดทศนิยมหรือ  Binary Point
+</I>
+<P>
+<I>คอมพิวเตอร์แสดงระบบตัวเลขดังกล่าวโดยมีชื่อเรียกว่าเป็น ``Floating Point'' เนื่องจากเป็นการแสดงค่าที่จุดทศนิยมสามารถเลื่อนไปมาได้ โดยมีรูปแบบเป็น
+</I>
+<P>
+<I><!-- MATH
+ $1.xxxxxxxxxx_{two} \times 2^{yyyy}$
+ -->
+<IMG
+ WIDTH="210" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img151.png"
+ ALT="$1.xxxxxxxxxx_{two} \times 2^{yyyy}$">
+</I>
+<P>
+<I>การที่ใช้ Scientific Notation ในการนำเสนอตัวเลขมีข้อดี คือ 1) เป็นรูปแบบเดียวกันสำหรับแลกเปลี่ยนเลขทศนิยม 2) การคำนวณต่างๆ ที่เป็นระบบเลขทศนิยมสามารถใช้ตัวเลขในลักษณะนี้ 3) เนื่องจากรูปแบบตัวเลขที่เป็น Normalized เริ่มจาก <IMG
+ WIDTH="41" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img152.png"
+ ALT="$1.xx$"> ระบบตัวเลขดังกล่าวเพิ่มความถูกต้องในการคำนวณเนื่องจาก ศูนย์ที่นำหน้าถูกเลื่อนมา และแทนที่ด้วยข้อมูลตัวเลขทางขวามือ<A NAME="15030"></A>
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html1366"
+  HREF="node60.html">รูปแบบการนำเสนอ Floating-Point</A>
+<LI><A NAME="tex2html1367"
+  HREF="node61.html">การแสดงเลข Floating-Point</A>
+<LI><A NAME="tex2html1368"
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
+<LI><A NAME="tex2html1369"
+  HREF="node63.html">การบวกเลข Floating-Point</A>
+<LI><A NAME="tex2html1370"
+  HREF="node64.html">การคูณ Floating-Point</A>
+<LI><A NAME="tex2html1371"
+  HREF="node65.html">คำสั่ง Floating-Point ใน MIPS คอมพิวเตอร์</A>
+<LI><A NAME="tex2html1372"
+  HREF="node66.html">ความถูกต้องและความละเอียดในการคำนวณ</A>
+<LI><A NAME="tex2html1373"
+  HREF="node67.html">การปัดเศษโดยใช้ Guard</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

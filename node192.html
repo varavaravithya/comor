@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ระดับความสำคัญในการ Interrupt</TITLE>
+<META NAME="description" CONTENT="ระดับความสำคัญในการ Interrupt">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node193.html">
+<LINK REL="previous" HREF="node191.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node193.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3387"
+  HREF="node193.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3381"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3375"
+  HREF="node191.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3383"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3385"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3388"
+  HREF="node193.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+<B> Up:</B> <A NAME="tex2html3382"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3376"
+  HREF="node191.html">การติดต่อสื่อสารกับหน่วยประมวลผล</A>
+ &nbsp; <B>  <A NAME="tex2html3384"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3386"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001053000000000000000">
+ระดับความสำคัญในการ Interrupt</A>
+</H2>
+<P>
+<I>กลไกการ interrupt ส่วนมากจะแบ่งความสำคัญออกเป็นหลายระดับ ในระบบปฏิบะติการ UNIX ใช้ 4-6 ระดับ ความสำคัญเหล่านี้เป็นตัวบอกถึงลำดับให้กับหน่วยประมวลผลว่ากระบวนการไหนควรจะถูก interrupt ก่อนหรือหลัง
+</I>
+<P>
+<I>การสนับสนุนระดับความสำคัญของการ interrupt MIPS จะอนุญาตให้ระบบปฏิบัติการ implement policy เหมือนกับที่ MIPS เข้าใช้งาน TLB misses ได้อย่างไร </I>
+<P>
+<I>Status register จะเป็นตัวบอกว่าใครสามารถ interrupt ได้ ถ้าบิต interrupt enable เป็น 0 แสดงว่าไม่มีใครสามารถ interrupt ได้ กลุ่มของ interrupt ที่ถูกกรองออกจะอยู่ใน interrupt mask field และจะมีบิตใน mask ที่ตรงกับแต่ละบิตใน pending interrupt field ของ Cause register ในการเปิด interrupt ที่ตรงกัน จะต้องมีค่า 1 ใน mask field ที่ตำแหน่งของบิตนั้น เมื่อเกิด interrupt ขึ้น ระบบปฏิบัติการสามารถหาสาเหตุได้ใน exception code field ของ Status register 0 หมายถึงเกิด interrupt ส่วนค่าอื่นๆ 
+</I>
+<P>
+<I>ขั้นตอนที่จำเป็นต้องเกิดขึ้นในการเกิด interrupt
+</I>
+<OL>
+<LI>ทำลอจิก AND pending interrupt field กับ interrupt mask field เพื่อดูว่า enable interrupt ตัวไหนที่สามารถเป็น culprit สำเนาที่สร้างจาก register สองตัวนี้จะเรียกใช้ mfc0 instruction 
+</LI>
+<LI>เลือก interrupt ที่มีความสำคัญสูงกว่า 
+</LI>
+<LI>บันทึก interrupt mash field ของ Status register
+</LI>
+<LI>เปลี่ยน interrupt mash field ให้เป็น disable สำหรับทุก interrupt ที่มีความสำคัญเท่ากันหรือน้อยกว่า 
+</LI>
+<LI>บันทึก processor state ที่จำเป็นต้องเรียกใช้ interrupt
+</LI>
+<LI>ในการอนุญาตให้ interrupt ตัวที่มีความสำคัญสูงกว่าทำงาน ต้องเซ็ท interrupt enable bit ของ Cause register ให้เป็น 1
+</LI>
+<LI>เรียกใช้ interrupt routine ที่เหมาะสม
+</LI>
+<LI>ก่อนที่จะคืนสถานะ ต้องเซ็ท interrupt enable bit ของ Cause register ให้เป็น 0 เพื่ออนุญาตให้เรียก interrupt mask field ให้กลับมาดังเดิม
+</LI>
+</OL>
+<P>
+<I>interrupt priority level (IPL) จะถูกเก็บในหน่วยความจำของ process และทุกๆ process จะให้ค่า IPL ที่ค่า IPL ต่ำสุด interrupt ทั้งหมดจะมีสถานะ permit ที่ต่า IPL สูงสุด interrupt ทั้งหมดจะถูก block การเพิ่มและลดของ IPL เกิดจากการเปลี่ยนแปลงใน interrupt mask field ของ Status register ส่วน least significant bit 2 ตัวของ pending interrupt และ interrupt mask field มีไว้สำหรับ software interrupt ซึ่งมีความสำคัญต่ำกว่าและจะทำงานเมื่อ interrupt ที่มีความสำคัญสูงกว่าทำงานเสร็จแล้ว
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3387"
+  HREF="node193.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3381"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3375"
+  HREF="node191.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3383"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3385"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3388"
+  HREF="node193.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+<B> Up:</B> <A NAME="tex2html3382"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3376"
+  HREF="node191.html">การติดต่อสื่อสารกับหน่วยประมวลผล</A>
+ &nbsp; <B>  <A NAME="tex2html3384"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3386"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

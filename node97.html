@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>วิธีการกระตุ้นด้วยสัญญาณนาฬิกา</TITLE>
+<META NAME="description" CONTENT="วิธีการกระตุ้นด้วยสัญญาณนาฬิกา">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node96.html">
+<LINK REL="up" HREF="node96.html">
+<LINK REL="next" HREF="node98.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1943"
+  HREF="node98.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1937"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1933"
+  HREF="node96.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1939"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1941"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1944"
+  HREF="node98.html">การสร้างเส้นทางข้อมูล</A>
+<B> Up:</B> <A NAME="tex2html1938"
+  HREF="node96.html">หลักการออกแบบวงจรลอจิก</A>
+<B> Previous:</B> <A NAME="tex2html1934"
+  HREF="node96.html">หลักการออกแบบวงจรลอจิก</A>
+ &nbsp; <B>  <A NAME="tex2html1940"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1942"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00730100000000000000">
+วิธีการกระตุ้นด้วยสัญญาณนาฬิกา</A>
+</H3>
+<P>
+<I>วิธีการกระตุ้นด้วยสัญญาณนาฬิกานิยามเวลาที่สัญญาณสามารถถูกอ่านหรือถูกเขียน  ที่สำคัญคือถ้าข้อมูลถูกอ่านและเขียนในเวลาเดียวกันค่าที่อ่านได้จะเป็นค่าเก่าที่เก็บไว้ก่อนหน้า หรือเป็นค่าที่เพิ่งถูกเขียนลงไป หรือยิ่งกว่านั้นคือเป็นข้อมูลผสมกันระหว่างข้อมูลทั้งสอง  ซึ่งการระบุวิธีการกระตุ้นด้วยสัญญาณนาฬิกาจะเป็นการป้องกันปัญหาดังกล่าว
+</I>
+<P>
+<I>เราสมมุติวิธีการกระตุ้นด้วยสัญญาณนาฬิกา แบบ edge-triggered ซึ่งค่าต่างๆ จะถูกเปลี่ยนค่าเมื่อเกิดการเปลี่ยนแปลงของขอบสัญญาณนาฬิกา การกำหนดในลักษณะนี้ค่าอินพุทจะถูกเขียนในวงรอบก่อนหน้า และจะแสดงค่าที่เอาท์พุทในวงรอบต่อไป 
+<A NAME="21801"></A>
+</I>
+<P>
+<I>รูป <A HREF="#fig:5.3">5.6</A> แสดง State Element สองชุดที่รายล้อมอยู่รอบวงจรลอจิก ที่ทำงานอยู่ในกรอบของวงรอบลัญญาณนาฬิกา สัญญาณจะเดินทางจาก Element 1 ผ่านวงจรลอจิก Combinational และไปยัง State Element 2 เวลาในการเดินทางผ่านวงจร Combinational คือเวลาของคาบสัญญาณนาฬิกา <A NAME="21837"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.3"></A><A NAME="24017"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.6:</STRONG>
+วงจรลอจิกแบบ Combinational, State Element และ การเปลี่ยนแปลงของสัญญาณนาฬิกา</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="459" HEIGHT="134" ALIGN="BOTTOM" BORDER="0"
+ SRC="img289.png"
+ ALT="\includegraphics[width=4in]{fig/Chapter_5/Figure_5.3.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>เพื่อลดความซับซ้อน ในรูป <A HREF="#fig:5.3">5.6</A> เราไม่ได้แสดงสายควบคุมการเขียน (Write Signal)  เนื่องจากในวงจรลักษณะดังกล่าว การเขียนใน State Element จะเกิดขึ้นทุกวงรอบสัญญาณนาฬิกา ในกรณีที่การเปลี่ยนค่าของ State Element เกิดขึ้นตามการควบคุมภายนอก จึงจำเป็นต้องมีสัญญาณควบคุมการเขียนแยกต่างหาก  <A NAME="21893"></A>
+</I>
+<P>
+<I>วิธีการกระตุ้นด้วยสัญญาณนาฬิกาโดยใช้ขอบสัญญาณนาฬิกา ทำให้สามารถอ่านและเขียนค่ารีจีสเตอร์ในวงรอบสัญญาณนาฬิการเดียวกัน จากรูป <A HREF="#fig:5.4">5.7</A> ไม่ว่าการเขียนจะเกิดขึ้นที่ขอบขาขึ้นหรือขอบขาลง เนื่องจากค่าของ Combinational Logic มีการเปลี่ยนแปลงเฉพาะขอบของสัญญาณนาฬิกา จึงไม่มีการป้อนกลับของสัญญาณเมื่อใช้งานวงจรลอจิกด้วยวิธีการกระตุ้นด้วยสัญญาณนาฬิกา  สามารถศึกษาเพิ่มเติมในรายละเอียดเรื่อง Setup time และ Settling Time <A NAME="21965"></A> <A NAME="21966"></A>
+</I>
+<P>
+<I>ในกรณีที่มีสายสัญญาณมากกว่าหนึ่งเส้น เราสามารถรวมกันแสดงในรูปเป็นเส้นหนา ขนาด 16 บิต หรือ 32 บิต เพื่อความง่านในการพิจารณารูป
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.4"></A><A NAME="24018"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.7:</STRONG>
+วิธีการกระตุ้นด้วยสัญญาณนาฬิกาโดยใช้ขอบสัญญาณนาฬิกา ที่การอ่านและเขียนสามารถทำได้ในวงรอบสัญญาณนาฬิการเดียวกัน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="345" HEIGHT="81" ALIGN="BOTTOM" BORDER="0"
+ SRC="img290.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_5/Figure_5.4.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

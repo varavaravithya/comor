@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ความสามารถในการบริการของระบบ</TITLE>
+<META NAME="description" CONTENT="ความสามารถในการบริการของระบบ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node74.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1641"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1635"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1631"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1637"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1639"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1642"
+  HREF="node78.html">การพิจารณาตัววัดประสิทธิภาพ</A>
+<B> Up:</B> <A NAME="tex2html1636"
+  HREF="node74.html">ตัววัดประสิทธิภาพ</A>
+<B> Previous:</B> <A NAME="tex2html1632"
+  HREF="node76.html">อัตราความสำเร็จ</A>
+ &nbsp; <B>  <A NAME="tex2html1638"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1640"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00643000000000000000">
+ความสามารถในการบริการของระบบ</A>
+</H2>
+<P>
+<I>โดยทั่วไปอัตราผลสำเร็จของงานเพิ่มขึ้นในขณะที่ภาระงานในระบบเพิ่มขึ้น เมื่อถึงจุดหนึ่งอัตราความสำเร็จ จะไม่เพิ่มขึ้นมากเท่าขณะแรกเริ่มหรืออาจลดลง ดังแสดงในรูป <A HREF="#fig:capacity">4.4</A> อัตราผลสำเร็จสูงสุดของระบบที่สามารถเป็นไปได้ในสภาวะอุดมคติเรียกว่า System Capacity <A NAME="18278"></A>. ในระบบเครือข่ายอัตราผลสำเร็จสูงสุดเรียกว่า แบนวิทท์ (Bandwidth<A NAME="18286"></A>) ซึ่งมักจะมีหน่วยเป็นบิตต่อวินาที  (bps) 
+</I>
+<P>
+<I>ในบางครั้ง ขณะที่อัตราผลสำเร็จของงานสูงมาก ค่าเวลาตอบสนองก็มีค่ามากเกินกว่าที่จะสามารถยอมรับได้ ในกรณีนั้น เราจึงมักจะพิจารณาค่าอัตราผลสำเร็จที่สามารถทำได้ภายใต้การกำหนดของเวลาตอบสนอง หรืออาจเรียกว่าความสามารถที่ทำได้ <A NAME="20198"></A> (Usable Capacity<A NAME="18344"></A>) 
+</I>
+<P>
+<I>ในการทำงานส่วนใหญ่ เรามักจะพิจารณาช่วงการเปลี่ยนแปลงของอัตราผลสำเร็จกับเวลาตอบสนองเป็นจุดทำงานของระบบ เช่น แสดงในรูป <A HREF="#fig:capacity">4.4</A> หลังจากจุดดังกล่าวเวลาตอบสนองเพิ่มขึ้นมากจนไม่สามารถยอมรับได้ ในขณะซึ่งอัตราผลสำเร็จเพิ่มขึ้นไม่มากนัก ก่อนจุดเปลี่ยนผันเวลาตอบสนองมีการเพิ่มขึ้นอย่างช้าๆ แต่อัตราความสำเร็จเพิ่มขึ้นอย่างรวดเร็วเมื่อภาระงานเพิ่มขึ้น อัตราผลสำเร็จที่จุดเปลี่ยนผันเรียกว่า มี Knee Capacity <A NAME="18418"></A> ซึ่งมักจะอยู่ในรูปของภาระงาน ตัวอย่างเช่น จำนวนผู้ใช้งานในระบบ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:capacity"></A><A NAME="20199"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.4:</STRONG>
+อัตราผลสำเร็จที่สามารถทำได้ของระบบ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="321" HEIGHT="330" ALIGN="BOTTOM" BORDER="0"
+ SRC="img225.png"
+ ALT="\includegraphics[width=2.8in]{fig/capacity.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>อัตราส่วนของอัตราผลสำเร็จต่ออัตราผลสำเร็จสูงสุด เรียกว่าประสิทธิภาพ (Efficiency<A NAME="18451"></A>) เช่น ถ้าอัตราผลสำเร็จของเครือข่ายอินเตอร์เน็ตมีเพียง 25 %
+</I>
+<P>
+<I>ภาระงาน <A NAME="20200"></A> (Utilization<A NAME="18463"></A>) ภาระงานของทรัพยากรวัดเป็นส่วนของเวลาที่ทรัพยากรทำงานหารด้วยเวลาทั้งหมด เวลาที่ทรัพยากรไม่ได้ใช้งานเรียกว่า <EM>Idle Time<A NAME="18487"></A></EM>  
+</I>
+<P>
+<I>ผู้ดูแลระบบมักจะสนใจว่าทรัพยากรที่มีอยู่ ได้รับการใช้งานเท่าไรคุ้มค่าหรือไม่ ซึ่งจะดูจากค่าดังกล่าว 
+</I>
+<P>
+<I>ตัววัดประสิทธิภาพพื้นฐานอื่นๆ ประกอบด้วย
+</I>
+<P>
+<UL>
+<LI><B>ค่าความ<A NAME="20202"></A>ความน่าเชื่อถือของระบบ (Reliability<A NAME="18524"></A>)</B> วัดเป็นความน่าจะเป็นที่ระบบจะสามารถทำงานได้อย่างถูกต้อง ในช่วงเวลา <IMG
+ WIDTH="60" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.png"
+ ALT="$T_0-T$"> 
+
+<P>
+</LI>
+<LI><B>ความสามารถในการบริการของระบบ<A NAME="20203"></A> (Availability<A NAME="18549"></A>)</B> นิยามเป็น อัตราส่วนของเวลาที่ระบบสามารถให้บริการได้ 
+
+<P>
+</LI>
+<LI>เวลาที่ระบบไม่สามารถให้บริการได้เรียกว่า Downtime<A NAME="18568"></A> เวลาที่ระบบสามารถให้บริการได้เรียกว่า Uptime<A NAME="18577"></A> ค่าเฉลี่ยของ Uptime<A NAME="18579"></A> เรียกว่าค่า MTTF<A NAME="18582"></A> 
+</LI>
+</UL>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

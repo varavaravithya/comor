@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การปัดเศษโดยใช้ Guard</TITLE>
+<META NAME="description" CONTENT="การปัดเศษโดยใช้ Guard">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node66.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node68.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1482"
+  HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1476"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1472"
+  HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1478"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1480"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1483"
+  HREF="node68.html">หัวข้อสรุป</A>
+<B> Up:</B> <A NAME="tex2html1477"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Previous:</B> <A NAME="tex2html1473"
+  HREF="node66.html">ความถูกต้องและความละเอียดในการคำนวณ</A>
+ &nbsp; <B>  <A NAME="tex2html1479"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1481"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00570800000000000000">
+การปัดเศษโดยใช้ Guard</A>
+</H3>
+<P>
+<I>จงทำการบวก <!-- MATH
+ $2.56_{ten}\times 10^0$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img216.png"
+ ALT="$2.56_{ten}\times 10^0$"> ถึง <!-- MATH
+ $2.34_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img217.png"
+ ALT="$2.34_{ten}\times 10^2$"> สมมุติให้มี Significant 3 หลัก และปัดเศษให้เข้าใกล้เลขฐานสิบมากที่สุด  เริ่มจากมีการปัดเศษด้วยหลัก guard และ round  
+</I>
+<P>
+<I>เริ่มต้นจากการขยับ Exponent ให้ตรงกันโดย
+</I>
+<P>
+<I><!-- MATH
+ $2.56_{ten}\times 10^0$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img216.png"
+ ALT="$2.56_{ten}\times 10^0$"> เป็น  <!-- MATH
+ $0.0256_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img218.png"
+ ALT="$0.0256_{ten}\times 10^2$"> 
+</I>
+<P>
+<I>จากการนำเสนอจะมีหลัก guard และ round  โดย guard มีค่าเท่ากับ 5 และ round มีค่าเท่ากับ 6 ผลบวกจะได้
+</I>
+<P><PRE>
+             2.3400
+           + 0.0256
+           --------
+             2.3656
+</PRE>
+<P>
+<I>ดังนั้นผลบวกจะได้เท่ากับ <!-- MATH
+ $2.3656_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img219.png"
+ ALT="$2.3656_{ten}\times 10^2$"> โดยที่ 0-49 จะทำการปัดลง และ 51-99 จะทำการปัดขึ้น โดยจะได้ผลลัพธ์ <!-- MATH
+ $2.37_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img220.png"
+ ALT="$2.37_{ten}\times 10^2$">
+</I>
+<P>
+<I>ถ้าไม่ใช้ guard และ round บิตเราจะได้ 
+</I>
+<P><PRE>
+             2.34
+           + 0.02
+           ------
+             2.36
+</PRE>
+<P>
+<I>ได้ผลลัพธ์ <!-- MATH
+ $2.36_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img221.png"
+ ALT="$2.36_{ten}\times 10^2$"> ที่ได้ผลลัพธ์ผิดไปจากที่มี guard และ round ไป 0.01
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

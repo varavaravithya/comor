@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การสร้างคอมพิวเตอร์ MIPS พื้นฐาน</TITLE>
+<META NAME="description" CONTENT="การสร้างคอมพิวเตอร์ MIPS พื้นฐาน">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node95.html">
+<LINK REL="previous" HREF="node93.html">
+<LINK REL="up" HREF="node93.html">
+<LINK REL="next" HREF="node95.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1904"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1898"
+  HREF="node93.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1892"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1900"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1902"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1905"
+  HREF="node95.html">ภาพรวมของการออกแบบสร้าง</A>
+<B> Up:</B> <A NAME="tex2html1899"
+  HREF="node93.html">กล่าวนำ</A>
+<B> Previous:</B> <A NAME="tex2html1893"
+  HREF="node93.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html1901"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1903"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00720100000000000000">
+การสร้างคอมพิวเตอร์ MIPS พื้นฐาน</A>
+</H3>
+<P>
+<I>เพื่อลดความซับซ้อนในการเข้าใจ คอมพิวเตอร์ MIPS ที่ทำการอธิบายจะเป็นคอมพิวเตอร์ MIPS ที่บริการการทำคำสั่งพื้นฐานที่ได้แก่
+</I>
+<P>
+<UL>
+<LI>คำสั่งในการถ่ายโอนข้อมูลระหว่างโปรเซสเซอร์ และ หน่วยความจำ ได้แก่ load word (lw) และ store word (sw)
+</LI>
+<LI>คำสั่งในการบวกลบคูณหาร ได้แก่ add, sub, and, or, และ slt
+</LI>
+<LI>คำสั่ง Branch ได้แก่ branch equal (beq) และ jump (j)
+</LI>
+</UL>
+<P>
+<I>ในชุดคำสั่งที่กล่าวขั้นต้นไม่รวมคำสั่งสำหรับเลขจำนวนเต็มหลายชุด เช่น shift, multiply, และ divide อีกทั้งไม่รวมคำสั่งที่ทำการประมวลผลเลขทศนิยม อย่างไรก็ตามการขยายเพื่อครอบคลุมคำสั่งชุดดังใช้หลักการเดียวกัน
+</I>
+<P>
+<I>ในการออกแบบนี้เราจะเห็นถึงผลของชุดคำสั่งที่มีผลกระทบต่อการออกแบบสร้างคอมพิวเตอร์ และการออกแบบสร้างในรูปแบบต่างๆ จะกระทบต่อแง่มุมต่างกันเช่น Clock Rate หรือ CPI ของคอมพิวเตอร์ การออกแบบยังคำนึงถึงพื้นฐานการออกแบบที่ได้กล่าวมาแล้วเช่น Make the common case fast หรือ Simplicity favor regularity 
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

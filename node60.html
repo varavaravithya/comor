@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>รูปแบบการนำเสนอ Floating-Point</TITLE>
+<META NAME="description" CONTENT="รูปแบบการนำเสนอ Floating-Point">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node61.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1386"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1374"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1382"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1384"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1387"
+  HREF="node61.html">การแสดงเลข Floating-Point</A>
+<B> Up:</B> <A NAME="tex2html1381"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Previous:</B> <A NAME="tex2html1375"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+ &nbsp; <B>  <A NAME="tex2html1383"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1385"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00570100000000000000">
+รูปแบบการนำเสนอ Floating-Point</A>
+</H3>
+<P>
+<I>การออกแบบระบบตัวเลข Floating-Point <A NAME="15036"></A> ต้องทำการชั่งน้ำหนักระหว่างขนาดของส่วน <EM>Fraction</EM> และส่วน <EM>Exponent</EM> เนื่องด้วยทั้งสองส่วนเป็นการนำเสนอตัวเลขเดียวกันในขนาดที่จำกัด การที่จะเพิ่มขนาดของส่วนหนึ่งไป 1 บิต หมายถึงการลดขนาดของอีกส่วนหนึ่งลงหนึ่งบิต  ซึ่งเป็นการแลกเปลี่ยนระหว่างความละเอียดและช่วงการนำเสนอของตัวเลข การเพิ่ม Fraction เป็นการเพิ่มความละเอียดในการคำนวณ ในขณะที่การเพิ่ม Exponent เป็นการเพิ่มย่านการทำงาน โดยทั่วไปการใช้งาน Floating Point จะประกอบด้วยหลาย Word โดยจะได้แสดงต่อไป <IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img153.png"
+ ALT="$s$"> เป็นเครื่องหมายของเลข Floating Point ถ้า <IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img153.png"
+ ALT="$s$"> มีค่าเท่ากับหนึ่งหมายถึงเป็นเลขลบ ส่วนของ Exponent มีขนาดเท่ากับ 8-bit (รวมกับเครื่องหมายของ Exponent นั้นๆ ด้วย) ส่วนของ Fraction มีขนาด 23-bit ลักษณะการนำเสนอนี้เรียกว่า Sign and Magnitude เนื่องจากมีการแยกเครื่องหมายบวกลบใน Sign Bit ออกาจากตัวเลข 
+</I>
+<P>
+<I>
+<IMG
+ WIDTH="689" HEIGHT="87" ALIGN="BOTTOM" BORDER="0"
+ SRC="img172.png"
+ ALT="\includegraphics[width=6in]{fig/float1.eps}">
+</I>
+<P>
+<I>โดยทั่วไประบบเลข Floating Point จะแสดงอยู่ในรูปของ
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^S\times F\times 2^E$
+ -->
+<IMG
+ WIDTH="135" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img154.png"
+ ALT="$(-1)^S\times F\times 2^E$">
+</I>
+<P>
+<I>F เป็นค่าที่ได้มาจากส่วนของ Fraction และ E เป็นค่าที่ได้มาจากส่วนของ Exponent 
+<A NAME="15174"></A><A NAME="15175"></A><A NAME="15176"></A>
+</I>
+<P>
+<I>จากการแสดงตัวเลข Floating point ที่กล่าวมา คอมพิวเตอร์ MIPS สามารถแสดงค่าในช่วงที่กว้างมาก ตั้งแต่    <!-- MATH
+ $2.0_{ten} \times 10^{-38}$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img155.png"
+ ALT="$2.0_{ten} \times 10^{-38}$"> ถึง <!-- MATH
+ $2.0_{ten} \times 10^{38}$
+ -->
+<IMG
+ WIDTH="105" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img156.png"
+ ALT="$2.0_{ten} \times 10^{38}$"> ถึงแม้ว่าจะเป็นค่าที่มาก แต่ยังมีโอกาสที่จะเกิดการ overflow ขึ้นได้เช่นเดียวกับการคำนวณจำนวนเต็ม  การที่ตัวเลข Floating point เกิด overflow นั้น เกิดจากการที่ส่วนของ Exponent มีค่าเกินที่สามารถแสดงได้ ในกรณีที่ค่าของ Exponent มีค่าเป็นลบน้อยกว่าที่สามารถจะแสดงได้ ในกรณีนี้เรียกว่า underflow
+</I>
+<P>
+<I>ในกรณีที่ต้องการขยายช่วงการทำงานของเลข Floating Point เพิ่มขึ้น เพื่อช่วยในการลดโอกาสที่จะเกิด Overflow และเพิ่มความละเอียดในการคำนวณ รูปแบบอีกรูปแบบหนึ่งของการนำเสนอการแสดงค่า Floating Point ได้แก่รูปแบบ Double Precision โดยการนำเสนอแบบก่อนหน้าเรียกว่าการนำเสนอแบบ Single Precision  
+</I>
+<P>
+<I>การนำเสนอแบบ Double Precision ใช้ขนาดของ Word ในคอมพิวเตอร์ MIPS เป็นจำนวนสอง Words โดยที่ยังใช้งาน 1 bit สำหรับเป็นเครื่องหมาย และมีขนาดของ Exponent เท่ากับ 11 บิต และขนาดของ Fraction เท่ากับ 52 บิต แสดงดังต่อไปนี้
+<BR></I>
+<P>
+<I>
+<IMG
+ WIDTH="689" HEIGHT="168" ALIGN="BOTTOM" BORDER="0"
+ SRC="img173.png"
+ ALT="\includegraphics[width=6in]{fig/float2.eps}">
+</I>
+<P>
+<I>การแสดงตัวเลข Double Precision สามารถแสดงตัวเลขได้ในย่านของ  
+<!-- MATH
+ $2.0_{ten} \times 10^{-308}$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img157.png"
+ ALT="$2.0_{ten} \times 10^{-308}$"> ถึง <!-- MATH
+ $2.0_{ten} \times 10^{308}$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img158.png"
+ ALT="$2.0_{ten} \times 10^{308}$"> นอกจากการทำงานของระบบตัวเลข Double Precision จะเพิ่มย่านการทำงานแล้ว ระบบตัวเลข Double Precision ยังมีส่วนของที่เป็น Fraction กว้างมากทำให้สามารถคำนวณได้ละเอียดมากขึ้น  
+<A NAME="15343"></A>
+</I>
+<P>
+<I>รูปแบบการนำเสนอทั้งสองลักษณะดังกล่าวเป็นรูปแบบส่วนหนึ่งของมาตรฐาน IEEE 754 <A NAME="15355"></A> ที่มีการเริ่มใช้งานมาตั้งแต่ปี 1980 
+</I>
+<P>
+<I>การแสดงค่าของตัวเลข Normalized อยู่ในรูปของ 1.xxxxx ในมาตรฐาน IEEE 754 ได้ตัด 1 ตัวหน้าออกไปจากการนำเสนอตัวเลข เพราะฉะนั้นจะประหยัดได้หนึ่งบิต โดยทำการสำรอง Exponent ที่มีค่าเท่ากับ 0 สำหรับตัวเลข 0 เพื่อที่ฮาร์ดแวร์จะไม่ได้นำเลข 1 มานำหน้า ดังนั้น <!-- MATH
+ $00 \ldots 00_{two}$
+ -->
+<IMG
+ WIDTH="93" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img159.png"
+ ALT="$00 \ldots 00_{two}$"> แทนค่า 0 และตัวเลขอื่นๆ สามารถคำนวณได้จาก
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^S \times (1 + Fraction)\times 2^E$
+ -->
+<IMG
+ WIDTH="242" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img160.png"
+ ALT="$(-1)^S \times (1 + Fraction)\times 2^E$">
+</I>
+<P>
+<I>โดยที่บิตในส่วนของ Fraction แสดงค่าระหว่าง 0 กับ 1 และ E แสดงค่าของ Exponent ถ้าให้บิตจากซ้ายมาขวาของส่วน Fraction เป็น <!-- MATH
+ $s1, s2, s3, \ldots$
+ -->
+<IMG
+ WIDTH="106" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img161.png"
+ ALT="$s1, s2, s3, \ldots$"> จะได้
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^S \times(1 + (s1 \times 2^{(-1)}) + (s2 \times 2^{(-2)}) + (s3 \times 2^{(-3)}) + (s4 \times 2^{(-4)}) + \ldots)\times 2^E$
+ -->
+<IMG
+ WIDTH="655" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img162.png"
+ ALT="$
+(-1)^S \times(1 + (s1 \times 2^{(-1)}) + (s2 \times 2^{(-2)}) + (s3 \times 2^{(-3)}) + (s4 \times 2^{(-4)}) + \ldots)\times 2^E$">
+</I>
+<P>
+<I>สำหรับเลขอนันต์ หรือ เลขที่ไม่สามารถแสดงค่าได้นั้น ในมาตรฐาน IEEE 754 กำหนดสัญญลักษณ์ <IMG
+ WIDTH="48" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img163.png"
+ ALT="$NaN$"> หรือ Not a Number <A NAME="15442"></A> ในรูป <A HREF="#fig:NaN">3.13</A> แสดงรูปแบบของ 
+มาตรฐาน IEEE 754 ในการแสดงค่า Floating Point ในย่านต่างๆ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:NaN"></A><A NAME="16295"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.13:</STRONG>
+การแสดงค่าเลข Floating Point ในย่านต่างๆ ของ IEEE 754</CAPTION>
+<TR><TD><IMG
+ WIDTH="556" HEIGHT="224" BORDER="0"
+ SRC="img164.png"
+ ALT="\begin{figure}\centering
+\begin{tabular}{@{}ccccc@{}}\toprule
+\multicolumn{2}{c...
+...o &amp; 2047 &amp; nonzero &amp; NaN (Not a Number)\ \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>การเปรียบเทียบเลขในใช้งานระบบเลข Floating-Point เป็นการดำเนินการที่สำคัญอันหนึ่ง
+เช่น ใช้งานการเรียงเลขมากไปหาน้อยหรือน้อยไปหามาก เริ่มแรกสามารถเปรียบเทียบได้จากค่าของ 
+Exponent ถ้าเลข Exponent มีค่ามากกว่า หมายถึงเลขนั้นมีค่ามากกว่า ตราบใดที่ Exponent 
+มีเป็นบวกเครื่องหมายเหมือนกัน
+</I>
+<P>
+<I>ในกรณีที่ Exponent มีเครื่องหมายเป็นลบได้ด้วยจะส่งผลให้เกิดความยุ่งยากในการเปรียบเทียบตัวเลข เช่น <IMG
+ WIDTH="32" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img165.png"
+ ALT="$2^{-1}$"> มีค่า Exponent เป็น <IMG
+ WIDTH="80" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img166.png"
+ ALT="$11111111$"> และ 
+ <IMG
+ WIDTH="32" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img167.png"
+ ALT="$2^{+1}$"> มีค่า Exponent เป็น <IMG
+ WIDTH="80" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img168.png"
+ ALT="$00000001$">
+</I>
+<P>
+<I>การนำเสนอตัวเลข Floating-Point ที่เหมาะสมนั้นใช้ เลขที่ลบน้อยที่สุดให้เป็น <IMG
+ WIDTH="89" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img169.png"
+ ALT="$000\ldots 000$"> และ เลขบวกมากที่สุดให้เป็น <IMG
+ WIDTH="89" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img170.png"
+ ALT="$111\ldots 111$"> ซึ่งเรียกว่า Biased Notation <A NAME="15559"></A> โดยค่า bias จะนำมาลบออกจากค่าปกติที่เป็น Unsigned เพื่อให้ได้ค่ามี่ถูกต้อง 
+</I>
+<P>
+<I>IEEE 754 ใช้ค่า bias เป็นค่า 127 สำหรับ Single Precision และ 1023 สำหรับค่า Double Precision ค่า Floating Point สามารถคำนวณได้จาก 
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^S \times (1 + Fraction)\times 2^{(Exponent-Bias)}$
+ -->
+<IMG
+ WIDTH="341" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img171.png"
+ ALT="$(-1)^S \times (1 + Fraction)\times 2^{(Exponent-Bias)}$">
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1386"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1374"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1382"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1384"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1387"
+  HREF="node61.html">การแสดงเลข Floating-Point</A>
+<B> Up:</B> <A NAME="tex2html1381"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Previous:</B> <A NAME="tex2html1375"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+ &nbsp; <B>  <A NAME="tex2html1383"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1385"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

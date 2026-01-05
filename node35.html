@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap</TITLE>
+<META NAME="description" CONTENT="การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node29.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1000"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html994"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html990"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html996"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html998"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1001"
+  HREF="node36.html">คำสั่งอื่นๆ ของ MIPS</A>
+<B> Up:</B> <A NAME="tex2html995"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html991"
+  HREF="node34.html">การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</A>
+ &nbsp; <B>  <A NAME="tex2html997"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html999"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00470600000000000000">
+การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap</A>
+</H3>
+<P>
+<I>นอกจากการจัดสรรพื้นที่หน่วยความจำที่เป็น local สำหรับฟังก์ชั่น ผู้เขียนโปรแกรมต้องการการเก็บตัวแปร Static และตัวแปร Dynamics ในรูป <A HREF="#fig:heap">2.8</A> แสดงการจัดสรรบริเวณใช้งานของหน่วยความจำในคอมพิวเตอร์ MIPS โดยที่สแตกจะเริ่มจากแอดเดรสสูงลงมายังแอดเดรสต่ำ ในส่วนล่างของหน่วยความจำ ได้รับการสำรอง และตามมาด้วยตัวโปรแกรมที่เป็นภาษาเครื่องของ MIPS ที่เรียกว่า text segment เหนือ code เหล่านี้เป็น static data segment สำหรับเก็บค่าตัวแปร static และค่าคงที่ ในการใช้งานโปรแกรมมีบางส่วนที่มีการจัดสรรเนื้อที่ตามการใช้งาน และมีการเปลี่ยนแปลงระหว่างการทำงานของโปรแกรม  พื้นที่สำหรับการเก็บค่าของตัวแปรดังกล่าวเรียกว่าส่วน Heap <A NAME="10583"></A> ที่อยู่ในหน่วยความจำถัดขึ้นไป  
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:heap"></A><A NAME="10873"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.8:</STRONG>
+การจัดสรรบริเวณใช้งานของหน่วยความจำในคอมพิวเตอร์ MIPS</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="342" HEIGHT="267" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_2/Figure_2.17.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในภาษา C มีฟังก์ชั่นสำหรับทำการดังกล่าวคือ malloc() เพื่อจองพื้นที่ heap และสามารถ free เมื่อใช้งานเสร็จสิ้น  
+ถ้าใช้งานโปรแกรมที่มีการขอใช้หน่วยความจำแบบ Dynamics และไม่ได้เรียก frees หลังใช้งานเสร็จเรียกว่า Memory Leak  
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

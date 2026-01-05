@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>เส้นทางข้อมูลแบบไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="เส้นทางข้อมูลแบบไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node128.html">
+<LINK REL="previous" HREF="node117.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node127.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2390"
+  HREF="node127.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2384"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2378"
+  HREF="node125.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2386"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2388"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2391"
+  HREF="node127.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2385"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2379"
+  HREF="node125.html">Control Hazard</A>
+ &nbsp; <B>  <A NAME="tex2html2387"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2389"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00830000000000000000">
+เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+</H1>
+<P>
+<I>รูป <A HREF="#fig:6.9">6.9</A> แสดงเส้นทางข้อมูลของโปรเซสเซอร์ที่ทำงานในวงรอบเดียว จากในบทก่อน โดยแบ่งการทำงานออกเป็นสเตท 5 สเตท ซึ่งหมายความว่า ที่เวลาใดๆ จะมีคำสั่ง 5 คำสั่งทำงานอยู่พร้อมๆ กัน โดยมีการแบ่งดังต่อไปนี้ 
+</I>
+<P>
+<OL>
+<LI>IF: Instruction Fetch
+</LI>
+<LI>ID: Instruction Decode and Register File Read
+</LI>
+<LI>EX: Execution or Address Calculation
+</LI>
+<LI>MEM: Data Memory Access
+</LI>
+<LI>Write Back
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.9"></A><A NAME="31363"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.9:</STRONG>
+เส้นทางข้อมูลของโปรเซสเซอร์ที่ทำงานในวงรอบเดียว ที่มีการแบ่งการทำงานออกเป็นสเตท 5 สเตท</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="526" ALIGN="BOTTOM" BORDER="0"
+ SRC="img343.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.9.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ซึ่งในรูป <A HREF="#fig:6.9">6.9</A> เป็นการแบ่งเส้นทางข้อมูลเพื่อทำไพพ์ลายน์ อย่างคร่าวๆ ที่มีการเริ่มการประมวลผลจากทางซ้ายมาทางขวา
+</I>
+<P>
+<I>อย่างไรก็ตาม มีข้อยกเว้นสองประการได้แก่ 
+</I>
+<P>
+<OL>
+<LI>ในขั้นตอน Write Back ผลที่ได้ จะนำมาเขียนลงใน Register File ที่อยู่ส่วนกลางของเส้นทางข้อมูล
+</LI>
+<LI>การเลือกค่าใหม่ของ PC ซึ่งเลือกจาก <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> หรือจาก Branch Target Address
+</LI>
+</OL>
+<P>
+<I>วิธีหนึ่งในการแสดงการทำงานของไพพ์ลายน์ คือการแสดงภาพที่เหมือนประหนึ่งว่าแต่ละคำสั่งมีเส้นทางข้อมูลของตนเอง โดยแสดงการทำงานของคำสั่งต่างๆ เทียบกับแกนเวลา แสดงในรูป <A HREF="#fig:6.10">6.10</A> ซึ่งทั้งสามคำสั่งต้องการเส้นทางข้อมูลสามชุด เราสามารถทำได้โดยเพิ่มรีจีสเตอร์เพื่อเก็บค่าระหว่างสเตทของการทำงาน โดยอนุญาตให้มีการใช้งานส่วนประกอบร่วมกันในวงรอบการทำงานเดียวกัน
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.10"></A><A NAME="31364"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.10:</STRONG>
+การทำงานของไพพ์ลายน์ ประหนึ่งว่าแต่ละคำสั่งมีเส้นทางข้อมูลของตนเอง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="688" HEIGHT="421" ALIGN="BOTTOM" BORDER="0"
+ SRC="img344.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_6/Figure_6.10.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ค่าที่อ่านได้ รวมถึงสัญญาณควบคุมต่างๆจะต้องถูกเก็บไว้ในรีจีสเตอร์ที่เพิ่มขึ้นมาเพื่อใช้ในสเตทต่อไป  รูป <A HREF="#fig:6.11">6.11</A> แสดงไพพ์ลายน์รีจีสเตอร์ ที่แทรกอยู่ระหว่างสเตท ในแต่ละวงรอบการทำงานคำสั่งจะเคลื่อนจากไพพ์ลายน์รีจีสเตอร์จากสเตทหนึ่งไปยังสเตทต่อไป โดยการเรียกชื่อรีจีสเตอร์เหล่านี้โดยใช้เครื่องหมาย ``/'' ขั้นระหว่างสเตท เช่น IF/ID เป็นรีจีสเตอร์ระหว่างสเตท IF และ ID 
+</I>
+<P>
+<I>สามารถสังเกตได้ว่าในสเตท Write Back จะไม่มีรีจีสเตอร์เนื่องจาก สภาวะของโปรเซสเซอร์ถูกเก็บไว้ในรูปของการเขียนรีจีสเตอร์, Memory, หรือ PC จึงไม่จำเป็นต้องเก็บค่าสถานะของโปรเซสเซอร์ไว้ในรีจีสเตอร์อีก และคำสั่งก็ทำงานเสร็จสิ้นสมบูรณ์แล้ว
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.11"></A><A NAME="31365"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.11:</STRONG>
+โปรเซสเซอร์ที่ประกอบกับไพพ์ลายน์รีจีสเตอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="748" HEIGHT="343" ALIGN="BOTTOM" BORDER="0"
+ SRC="img345.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.11.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:6.12">6.12</A> ถึง <A HREF="#fig:6.14">6.14</A> แสดงการทำงานของไพพ์ลายน๎ โดยการแลเงารีจีสเตอร์ที่อยู่ระหว่างการทำงานในสเตทต่างๆ ซึ่งครึ่งทางซ้ายแสดงรีจีสเตอร์ขณะถูกอ่าน และ ครึ่งทางขวาแสดงรีจีสเตอร์ขณะถูกเขียน จะแสดงการทำงานของคำสั่ง <TT>lw</TT> ซึ่งแต่ละสเตทมีรายละเอียดการทำงานดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI><I>Instruction Fetch:</I> จากส่วนบนของรูป  <A HREF="#fig:6.12">6.12</A> แสดงการอ่านคำสั่งจากหน่วยความจำ โดยแอดเดรสใน PC และนำมาบันทึกใน IF/ID รีจีสเตอร์ ซึ่ง IF/ID มีลักษณะคล้ายกับ Instruction Register ในการทำงานของโปรเซสเซอร์แบบหลายวงรอบ ค่า PC จะถูกเพิ่ม 4 ตำแหน่งและเขียนลงไปใน PC เพื่อพร้อมทำงานในวงรอบต่อไป ซึ่งค่า PC + 4 นี้ถูกบันทึกไว้ในรีจีสเตอร์ IF/ID เช่นเดียวกันในกรณีของบางคำสั่งที่ต้องการใช้งานเช่น <TT>beq</TT> ซึ่งในสเตทนี้คอมพิวเตอร์ไม่รู้ว่าทำการ Fetch คำสั่งประเภทใด จึงจึเป็นต้องส่งต่อข้อมูลสำคัญไปยังสเตทต่อไป 
+
+<P>
+</LI>
+<LI><I>Instruction Decode และ Register File Read:</I> ในส่วนล่างของรูป  <A HREF="#fig:6.12">6.12</A> แสดงคำสั่งจากรีจีสเตอร์ IF/ID ที่ส่งค่าชื่อของรีจีสเตอร์สองตัว ที่ทำการอ่านจาก Register File สองตัว และฟิลด์ 16 บิต ส่วนหลังของคำสั่ง ที่ทำ Sign-extended และนำค่าทั้งสาม พร้อมกับค่า PC + 4 ผ่านไปเก็บไว้ที่รีจีสเตอร์ ID/EX   
+
+<P>
+</LI>
+<LI><I>Execute และ Adders Calculation:</I> รูป  <A HREF="#fig:6.13">6.13</A> แสดงคำสั่ง load ที่อ่านค่ารรีจีสเตอร์ 1 และ Sign-extended จากรีจีสเตอร์ ID/EX โดยทำการบวกที่ ALU และนำผลบวกมาใส่ไว้ที่รีจีสเตอร์ EX/MEM
+
+<P>
+</LI>
+<LI><I>Memory Access:</I>  จากส่วนบนของรูป  <A HREF="#fig:6.14">6.14</A> แสดงคำสั่ง load ที่อ่านค่าจากหน่วยความจำจากแอดเดรสในรีจีสเตอร์ EX/MEM ในไพพ์ลายน์ และทำการ load ค่าจากหน่วยความจำไปเก็บไว้ในรีจีสเตอร์ MEM/WB
+
+<P>
+</LI>
+<LI><I>Write Back:</I> ในส่วนล่างของรูป  <A HREF="#fig:6.14">6.14</A> แสดงขั้นตอนสุดท้าย ทำการอ่านค่าที่ load ได้จากหน่วยความจำที่อยู่ใน รีจีสเตอร์ MEM/WB นำมาเขียนกลับใน Register File ที่อยู่ส่วนกลางของรูป
+
+<P>
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.12"></A><A NAME="31366"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.12:</STRONG>
+IF และ ID, สองสเตทแรกในการทำงาน ของคำสั่ง <TT>lw</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="930" ALIGN="BOTTOM" BORDER="0"
+ SRC="img346.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.12.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.13"></A><A NAME="31367"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.13:</STRONG>
+สเตทที่สาม ทำการประมวลผล EX  ของคำสั่ง <TT>lw</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="412" ALIGN="BOTTOM" BORDER="0"
+ SRC="img347.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.13.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.14"></A><A NAME="31368"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.14:</STRONG>
+MEM และ WB, สเตทที่สี่และห้าในการทำงาน  ของคำสั่ง <TT>lw</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="748" HEIGHT="864" ALIGN="BOTTOM" BORDER="0"
+ SRC="img348.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.14.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<P>
+<I>จากไล่เรียงการทำงานของคำสั่ง <TT>load</TT> เรามาพิจารณาการทำงานของคำสั่ง <TT>store</TT> ที่มีการทำงาน 5 สเตท เช่นเดียวกัน โดยมีการทำงานดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI><I>Instruction Fetch:</I>  เริ่มจากการอ่านคำสั่งจากหน่วยความจำ โดยแอดเดรสใน PC และนำมาบันทึกใน IF/ID รีจีสเตอร์ ซึ่ง IF/ID มีลักษณะคล้ายกับ Instruction Register ในการทำงานของโปรเซสเซอร์แบบหลายวงรอบ ค่า PC จะถูกเพิ่ม 4 ตำแหน่งและเขียนลงไปใน PC เพื่อพร้อมทำงานในวงรอบต่อไป ซึ่งค่า PC + 4 นี้ถูกบันทึกไว้ในรีจีสเตอร์ IF/ID เช่นเดียวกันในกรณีของบางคำสั่งที่ต้องการใช้งานเช่น <TT>beq</TT> ซึ่งในสเตทนี้คอมพิวเตอร์ไม่รู้ว่าทำการ Fetch คำสั่งประเภทใด จึงจึเป็นต้องส่งต่อข้อมูลสำคัญไปยังสเตทต่อไป จากส่วนบนของรูป  <A HREF="#fig:6.12">6.12</A> ทำงานได้ทั้งการ load และ store
+
+<P>
+</LI>
+<LI><I>Instruction Decode และ Register File Read:</I> รีจีสเตอร์ IF/ID ที่ส่งค่าชื่อของรีจีสเตอร์สองตัว ที่ทำการอ่านจาก Register File สองตัว และฟิลด์ 16 บิต ส่วนหลังของคำสั่ง ที่ทำ Sign-extended และนำค่าทั้งสาม พร้อมกับค่า PC + 4 ผ่านไปเก็บไว้ที่รีจีสเตอร์ ID/EX   รวมเป็นค่า 32 บิต จำนวน 3 ชุด
+ในส่วนล่างของรูป  <A HREF="#fig:6.12">6.12</A> ยังสามารถใช้ได้อยู่เนื่องจาในขั้นตอนนี้ยังไม่รู้ว่าเป็นคำสั่งอะไร  ซึ่งทั้งสองสเตทแรกทำเหมือนกันทุกคำสั่ง 
+
+<P>
+</LI>
+<LI><I>Execute และ Adders Calculation:</I> รูป <A HREF="#fig:6.15">6.15</A> แสดงคำนวณแอดเดรส และเก็บไว้ในรีจีสเตอร์ EX/MEM และข้อมูลที่ได้จากการอ่านรีจีสเตอร์เพื่อเขียนลงหน่วยความจำ จะถูกส่งผ่านมายังรีจีสเตอร์ EX/MEM
+
+<P>
+</LI>
+<LI><I>Memory Access:</I> รูป <A HREF="#fig:6.16">6.16</A> เป็นการเขียนข้อมูลลงในหน่วยความจำ โดยข้อมูลที่จะเขียนถูกอ่านจากสเตทก่อนหน้าและถูกเก็บอยู่ในรีจีสเตอร์ ID/EX ซึ่ง
+
+<P>
+</LI>
+<LI><I>Write Back:</I> ในคำสั่ง store จะไม่มีการดำเนินการใดๆ ในสเตทนี้เนื่องจากการทำงานได้เสร็จสิ้นไปในวงรอบที่แล้ว คำสั่งจึงเพียงผ่านสเตทนี้ไป
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.15"></A><A NAME="31369"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.15:</STRONG>
+สเตทที่สาม ทำการประมวลผล EX  ของคำสั่ง <TT>sw</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="410" ALIGN="BOTTOM" BORDER="0"
+ SRC="img349.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.15.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.16"></A><A NAME="31370"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.16:</STRONG>
+MEM และ WB, สเตทที่สี่และห้าในการทำงาน  ของคำสั่ง <TT>sw</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="748" HEIGHT="862" ALIGN="BOTTOM" BORDER="0"
+ SRC="img350.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.16.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>จะสังเกตได้ว่าการทำงานของไพพ์ลายน์เป็นการผ่านข้อมูลหนึ่งๆ จากสเตทหนึ่งไปยังสเตทต่อไป โดยข้อมูลจะเก็บไว้ในรีจีสเตอร์ไพพ์ลายน์ ในคำสั่ง store เราต้องผ่านข้อมูลที่ได้จากการอ่านรีจีสเตอร์ในสเตท  ID ไปยัง ID/EX และส่งผ่านมายังรีจีสเตอร์ EX/MEM ในสเตท EX เพื่อเขียนลงหน่วยความจำในสเตท MEM
+</I>
+<P>
+<I>จากตัวอย่างทั้งสองจะเห็นได้ว่า การทำงานของไพพ์ลายน์เป็นการทำงานของส่วนประกอบต่างๆ เช่น Register File, ALU, Instruction Memory หรืออื่น ในสเตทหนึ่งๆ เท่านั้น
+</I>
+<P>
+<I>ในการ load เราต้องส่งผ่านรีจีสเตอร์ที่ทำการเขียนไปยังสเตทต่างๆ จนกระทั่งถึงรีจีสเตอร์ MEM/WB เพื่อที่จะใช้งานในการเขียนรีจีสเตอร์ที่ถูกต้องในสเตท WB 
+</I>
+<P>
+<I>รูป <A HREF="#fig:6.17">6.17</A> แสดงเส้นทางข้อมูลแบบไพพ์ลายน์ที่ถูกต้อง ที่มีการผ่านชื่อรีจีวเตอร์ ที่จะทำการเขียนตลอดไปยังสเตท WB รูป <A HREF="#fig:6.18">6.18</A> แสดงการแลเงาส่วนประกอบฮาร์ดแวร์ที่ใช้ในคำสั่ง load ของโปรเซสเซอร์ไพพ์ลายน์ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.17"></A><A NAME="31371"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.17:</STRONG>
+เส้นทางข้อมูลแบบไพพ์ลายน์ที่ถูกต้อง ที่มีการผ่านชื่อรีจีวเตอร์ ที่จะทำการเขียนตลอดไปยังสเตท WB</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="344" ALIGN="BOTTOM" BORDER="0"
+ SRC="img351.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.17.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.18"></A><A NAME="31372"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.18:</STRONG>
+การแลเงาส่วนประกอบฮาร์ดแวร์ที่ใช้ในคำสั่ง load ของโปรเซสเซอร์ไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="343" ALIGN="BOTTOM" BORDER="0"
+ SRC="img352.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.18.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2392"
+  HREF="node127.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2390"
+  HREF="node127.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2384"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2378"
+  HREF="node125.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2386"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2388"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2391"
+  HREF="node127.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2385"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2379"
+  HREF="node125.html">Control Hazard</A>
+ &nbsp; <B>  <A NAME="tex2html2387"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2389"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

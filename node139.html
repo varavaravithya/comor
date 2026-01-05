@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Exception บนไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="Exception บนไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node141.html">
+<LINK REL="previous" HREF="node132.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node140.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2574"
+  HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2568"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2562"
+  HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2570"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2572"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2575"
+  HREF="node140.html">Exception บนคอมพิวเตอร์ไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2569"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2563"
+  HREF="node138.html">เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ</A>
+ &nbsp; <B>  <A NAME="tex2html2571"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2573"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00880000000000000000"></A>
+<A NAME="30983"></A>
+<BR>
+Exception บนไพพ์ลายน์
+</H1>
+<P>
+<I>อีกรูปแบบหนึ่งของการเกิด Control Hazard เป็นผลมาจาก Exception พิจารณาคำสั่ง
+</I>
+<P><PRE>
+   add  $1, $2, $1
+</PRE>
+<P>
+<I>เมื่อเกิด overflow ในการคำนวณ เราจะต้องทำการย้ายการควบคุมไปยังชุดโปรแกรมย่อยสำหรับจัดการกับ Exception เนื่องจากป้องกันค่าผิดพลาดที่จะเกิดขึ้นในระบบ  
+</I>
+<P>
+<I>การจัดการกับ Exception มีลักษณะคล้ายกับ Branch โดยเริ่มจากการ Flush คำสั่งที่ตามคำสั่ง add ในไพพ์ลายน์ และทำการเรียกคำสั่งใหม่เข้ามา การ Flush ทำโดยเปลี่ยนคำสั่งในสเตท IF ให้เป็น nop และใส่ zero ไปในสัญญาณควบคุมในสเตท ID (ID.Flush) ในการเริ่ม Fetch คำสั่งจากแอดเดรส <!-- MATH
+ $8000 0180_{hex}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img380.png"
+ ALT="$8000 0180_{hex}$"> ที่เป็นตำแหน่งของชุดโปรแกรมย่อยสำหรับจัดการกับ Arithmetic Overflow เราสามารถทำได้โดยการเพิ่มอินพุทที่ระบุแอดเดรส <!-- MATH
+ $8000 0180_{hex}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img380.png"
+ ALT="$8000 0180_{hex}$"> ไปยัง Multiplexer ก่อนหน้า PC รูป <A HREF="#fig:6.42">6.40</A> แสดงเส้นทางข้อมูลของโปรเซสเซอร์แบบไพพ์ลายน์รองรับการเกิด Exception  หลังจากการเกิด Exception เราสามารถตั้งค่าสัญญาณ EX.Flush เพื่อป้องการการเขียนรีจีสเตอร์ในขั้นตอนการ WB 
+</I>
+<P>
+<I>ในขั้นตอนสุดท้ายคือการเก็บค่าแอดเดรสของคำสั่งที่ทำโห้เกิด Exception ลงใน Exception Program Counter (EPC) <A NAME="31128"></A> โดยการทำการบันทึกค่าแอดเดรส+ 4 และชุดโปรแกรมย่อยสำหรับจัดการกับ Exception จะทำการลบ 4 เพื่อให้ได้ค่าที่เหมาะสมต่อไป
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.42"></A><A NAME="31401"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.40:</STRONG>
+เส้นทางข้อมูลของโปรเซสเซอร์แบบไพพ์ลายน์รองรับการเกิด Exception</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="458" ALIGN="BOTTOM" BORDER="0"
+ SRC="img381.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.42.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2576"
+  HREF="node140.html">Exception บนคอมพิวเตอร์ไพพ์ลายน์</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

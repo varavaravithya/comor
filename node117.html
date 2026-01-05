@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>กล่าวนำ</TITLE>
+<META NAME="description" CONTENT="กล่าวนำ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node126.html">
+<LINK REL="previous" HREF="node116.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node118.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2256"
+  HREF="node118.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2250"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2244"
+  HREF="node116.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2252"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2254"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2257"
+  HREF="node118.html">การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2251"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2245"
+  HREF="node116.html">เป้าประสงค์</A>
+ &nbsp; <B>  <A NAME="tex2html2253"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2255"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00820000000000000000">
+กล่าวนำ</A>
+</H1>
+<P>
+<I>เทคนิคไพพ์ลายน์ (Pipeline) <A NAME="26734"></A> เป็นเทคนิคที่สำคัญในการประมวลผลคำสั่งที่สามารถเลื่อมซ้อนกันได้ ซึ่งเทคนิคนี้เป็นเทคนิคที่สำคัญที่ทำให้โปรเซสเซอร์สามารถทำงานได้เร็วขึ้น
+</I>
+<P>
+<I>เพื่อช่วยในการเข้าใจเราจะทำการเปรียบเทียบเชิงนัยกับการทำไพพ์ลายน์กับการทำความสะอาดเสื้อผ้า 
+การทำความสะอาดเสื้อผ้าโดยใช้เครื่องมีขั้นตอนดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI>นำเสื้อผ้าที่ยังไม่ได้ซักมาใส่ลงในเครื่องซักผ้า
+</LI>
+<LI>เมื่อซักผ้าเสร็จ นำผ้าจากเครื่องซัก ในไปใส่ในเครื่องอบแห้ง
+</LI>
+<LI>เมื่ออบแห้งดีแล้ว นำผ้าออกจากเครื่องเพื่อนำมาพับเก็บ
+</LI>
+<LI>นำผ้าที่พับเก็บมาใส่ในตู้ให้เรียบร้อย
+</LI>
+</OL>
+<P>
+<I>เมื่อดำเนินการตามขั้นตอนเสร็จสิ้น คนอื่นสามารถเริ่มซักผ้าของตนเองต่อไปได้
+</I>
+<P>
+<I>วิธีการไพพ์ลายน์สามารถลดเวลาการทำงานได้ดังแสดงในรูปที่ <A HREF="#fig:6.1">6.1</A>  เมื่อทำการซักผ้าเสร็จในเครื่องซักผ้าและนำมาใส่เครื่องอบ ผู้ที่รอบริการอยู่สามารถนำผ้าของตนเองเข้าซักได้ทันทีโดยไม่ต้องรอให้เสร็จทั้งกระบวนการ เมื่ออบผ้าชุดแรกเสร็จ สามารถนำผ้าชุดที่สองเข้าอบ และนำผ้าชุดที่สามเข้าซักได้ จากนั้น เมื่อพับผ้าชุดแรกเสร็จนำใส่ตู้ เราสามารถพับผ้าชุดที่สอง อบชุดที่สาม และซักผ้าชุดที่สี่ไปพร้อมกัน ในแต่ละขั้นตอนเรียกว่า ``สเตท'' (Stage) <A NAME="26957"></A> ในการทำไพพ์ลายน์ เวลาที่ใช้ในการซักผ้าในแต่ละชุดไม่ได้ลดลง แต่ในเวลาที่เท่ากันวิธีการไพพ์ลายน์สามารถทำงานให้ประสบความสำเร็จได้มากขึ้น ซึ่งเป็นการเพิ่มอัตราความสำเร็จของงานต่อเวลา
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.1"></A><A NAME="31349"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.1:</STRONG>
+การเปรียบเทียบเชิงอุปมาในการทำไพพ์ลายน์ของการซักผ้า</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="690" HEIGHT="564" ALIGN="BOTTOM" BORDER="0"
+ SRC="img332.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_6/Figure_6.1.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ถ้าในทุกสเตทของการทำงานใช้ระยะเวลาเท่ากัน และมีประมาณงานเพียงพอที่จะทำงานในระยะเวลานั้นๆ ประสิทธิภาพที่เพิ่มขึ้นของไพพ์ลายน์ (Speedup) <A NAME="27043"></A> เท่ากับจำนวนสเตทของไพพ์ลายน์ จากตัวอย่างที่มีสี่สเตท ระบบซักผ้าแบบไพพ์ลายน์มีความเร็วเพิ่มขึ้นเป็นสี่เท่า การซักผ้า 20 ตะกร้าโดยเทคนิคไพพ์ลายน์ใช้เวลาเป็น 5 เท่าของการซักหนึ่งตะกร้า การซักผ้า 20 ตะกร้าโดย ทำให้เสร็จทีละตะกร้าใช้เวลาเป็น 20 เท่าของการซักหนึ่งตะกร้า ในรูป <A HREF="#fig:6.1">6.1</A>  มี Speedup ที่ได้เท่ากับ 2.3 เนื่องจากไพพ์ลายน๎ยังไม่เต็ม ในการทำงานเมื่อเวลาผ่านไป Speedup ที่ได้จะมีค่าใกล้เคียง 4 มากขึ้น 
+</I>
+<P>
+<I>เมื่อนำวิธีการเดียวกันมาใช้งานกับโปรเซสเซอร์ เราสามารถแบ่งการทำงานได้เป็น 5 ขั้นตอน
+</I>
+<P>
+<OL>
+<LI>Fetch Instruction จากหน่วยความจำ
+</LI>
+<LI>Read Register และ ทำการ Decode คำสั่ง
+</LI>
+<LI>Execute หรือ Calculate Address
+</LI>
+<LI>Access Memory
+</LI>
+<LI>Write Result ในรีจีสเตอร์
+</LI>
+</OL>
+<P>
+<I>ดังนั้นโปรเเซสเซอร์ MIPS แบบไพพ์ลายน์ในบทนี้จะมี 5 สเตท
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2258"
+  HREF="node118.html">การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html2259"
+  HREF="node119.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2260"
+  HREF="node120.html">Pipeline Hazard</A>
+<UL>
+<LI><A NAME="tex2html2261"
+  HREF="node121.html">Structural Hazard</A>
+<LI><A NAME="tex2html2262"
+  HREF="node122.html">Data Hazard</A>
+<LI><A NAME="tex2html2263"
+  HREF="node123.html">การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+<LI><A NAME="tex2html2264"
+  HREF="node124.html">การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+<LI><A NAME="tex2html2265"
+  HREF="node125.html">Control Hazard</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

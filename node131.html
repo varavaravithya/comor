@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเกิด Data Hazards และ Stalls</TITLE>
+<META NAME="description" CONTENT="การเกิด Data Hazards และ Stalls">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node132.html">
+<LINK REL="previous" HREF="node129.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node132.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2458"
+  HREF="node132.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2452"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2446"
+  HREF="node130.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2454"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2456"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2459"
+  HREF="node132.html">Branch Hazard</A>
+<B> Up:</B> <A NAME="tex2html2453"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2447"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+ &nbsp; <B>  <A NAME="tex2html2455"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2457"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00860000000000000000">
+การเกิด Data Hazards และ Stalls</A>
+</H1>
+<P>
+<I>ในหลายกรณีเช่นการทำ load หรือ branch การ Forward ไม่สามารถที่จะแก้ไขปัญหา Hazard ได้ในรูป <A HREF="node140.html#fig:6.43">6.41</A> แสดงลักษณะการเกิดปัญหาดังกล่าว ที่ข้อมูลถูกอ่านจากหน่วยความจำในวงรอบที่ 4 ในขณะที่ ALU กำลังทำการคำนวณสำหรับคำสั่งที่ตามมา เราจำเป็นต้อง Stall ไพพ์ลายน์เพื่อให้โปรแกรมทำงานได้ถูกต้อง
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.34"></A><A NAME="31390"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.32:</STRONG>
+ลักษณะการเกิดปัญหาที่การ Forward ไม่สามารถที่จะแก้ไขปัญหา Hazard ได้</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="521" ALIGN="BOTTOM" BORDER="0"
+ SRC="img365.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.34.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ดังนั้นนอกเหนือจากส่วนควบคุมการ Forward  เราจำเป็นต้องมีส่วน Hazard Detection ที่จะทำการในส่วนของสเตท ID และแทรกการ Stall หลังการ load ที่มี Dependency  การตรวจสอบมีเงื่อนไขดังนี้
+<A NAME="30319"></A>
+</I>
+<P><PRE>
+   if (ID/EX.MemRead and
+      ((ID/EX.RegisterRt = IF/ID.RegisterRs) or
+        (ID/EX.RegisterRt = IF/ID.RegisterRt)))
+         stall the pipeline
+</PRE>
+<P>
+<I>ในบรรทัดแรกเป็นการตรวจสอบ การ load ค่าจากหน่วยความจำที่สเตท EX ว่ามีค่ารีจีสเตอร์ Destination ตรงกับค่า Rs หรือ Rt ในสเตท ID/EX ถ้าเป็นจริงจะทำการ Stall หนึ่งวงรอบการทำงาน และจากนั้นให้ส่วนการทำงาน Forward ดำเนินการต่อไป 
+</I>
+<P>
+<I>เมื่อทำการ Stall ในสเตท ID เราจะต้องทำการหยุดสเตท IF ด้วย มิฉะนั้นคำสั่งที่กำลัง Fetch อยู่ในสเตท IF จะหายไป ซึ่งสามารถทำได้โดยให้ค่า PC มีค่าเดิม ซึ่งการทำงานใน IF ก็จะอ่านค่าเดิมขึ้นมา ซึ่งในการหยุดดังกล่าว ชุดควบคุมจะใส่คำสั่งที่ไม่มีการประมวลผลใดๆ ที่เรียกว่า ``nop'' <A NAME="30400"></A> รูป <A HREF="#fig:6.35">6.33</A> แสดงการทำงานที่ Stall ไพพ์ลายน์ คำสั่ง and จะถูกชะลอไว้หนึ่งวงรอบการทำงาน
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.35"></A><A NAME="30415"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.33:</STRONG>
+การ Stall ไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="636" HEIGHT="406" ALIGN="BOTTOM" BORDER="0"
+ SRC="img366.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.35.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.36"></A><A NAME="31391"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.34:</STRONG>
+ชุดควบคุมโปรเซสเซอร์แบบไพพ์ลายน์ที่มีส่วน Forward และ Hazard Detection</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="460" ALIGN="BOTTOM" BORDER="0"
+ SRC="img367.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.36.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

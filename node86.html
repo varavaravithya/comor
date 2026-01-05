@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเปรียบเทียบการทำงานของโปรแกรม</TITLE>
+<META NAME="description" CONTENT="การเปรียบเทียบการทำงานของโปรแกรม">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node85.html">
+<LINK REL="up" HREF="node82.html">
+<LINK REL="next" HREF="node87.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1769"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1763"
+  HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1759"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1765"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1767"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1770"
+  HREF="node87.html">การประเมินประสิทธิภาพจริงของคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html1764"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Previous:</B> <A NAME="tex2html1760"
+  HREF="node85.html">การใช้ชุดสมการประสิทธิภาพ</A>
+ &nbsp; <B>  <A NAME="tex2html1766"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1768"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00690400000000000000">
+การเปรียบเทียบการทำงานของโปรแกรม</A>
+</H3>
+<P>
+<I>นักออกแบบคอมไพเลอร์ทดสอบโปรแกรมสองโปรแกรมบนคอมพิวเตอร์เครื่องหนึ่งโดยผู้ออกแบบฮาร์ดแวร์ได้ให้ข้อมูลดังต่อไปนี้
+</I>
+<P><TABLE CELLPADDING=3>
+<TR><TD></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I> CPI for this instruction class</I></TD>
+</TR>
+<TR><TD></TD>
+<TD ALIGN="CENTER"><I> A </I></TD>
+<TD ALIGN="CENTER"><I> B </I></TD>
+<TD ALIGN="CENTER"><I> C </I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+CPI </I></TD>
+<TD ALIGN="CENTER"><I> 1 </I></TD>
+<TD ALIGN="CENTER"><I> 2 </I></TD>
+<TD ALIGN="CENTER"><I> 3</I></TD>
+</TR>
+<TR><TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE>
+<P>
+<I>จากโปรแกรมภาษาระดับสูง นักออกแบบคอมไพเลอร์ได้หาจำนวนคำสั่งสำหรับโปรแกรมทั้งสองได้ดังต่อไปนี้
+</I>
+<P><TABLE CELLPADDING=3>
+<TR><TD></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I> CPI for this instruction class</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+ Code Sequence </I></TD>
+<TD ALIGN="CENTER"><I> A </I></TD>
+<TD ALIGN="CENTER"><I> B </I></TD>
+<TD ALIGN="CENTER"><I> C </I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+1 </I></TD>
+<TD ALIGN="CENTER"><I> 2 </I></TD>
+<TD ALIGN="CENTER"><I> 1 </I></TD>
+<TD ALIGN="CENTER"><I> 2</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+2 </I></TD>
+<TD ALIGN="CENTER"><I> 4 </I></TD>
+<TD ALIGN="CENTER"><I> 1 </I></TD>
+<TD ALIGN="CENTER"><I> 1</I></TD>
+</TR>
+<TR><TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE>
+<P>
+<I>จงตอบคำถามต่อไปนี้ 
+</I>
+<P>
+<OL>
+<LI>โปรแกรมใด ทำงานที่จำนวนคำสั่งมากกว่า
+</LI>
+<LI>โปรแกรมใดเร็วกว่า
+</LI>
+<LI>CPI ของแต่ละโปรแกรมมีค่าเท่าใด
+</LI>
+</OL>
+<P>
+<I>โปรแกรม 1 ประมวลผล <IMG
+ WIDTH="113" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img265.png"
+ ALT="$2+1+2 =5 $"> คำสั่ง โปรแกรม 2 ประมวลผล <IMG
+ WIDTH="113" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img266.png"
+ ALT="$4+1+1 =6 $"> คำสั่ง  ฉะนั้น โปรแกรมหนึ่ง
+ประมวลผลคำสั่งเป็นจำนวนน้อยกว่า
+</I>
+<P>
+<I>จากสมการคำนวณ CPU Clock Cycles จะได้
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~Clock~Cycles = \sum^n_{i=1}(CPI_i\times C_i)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="307" HEIGHT="55" BORDER="0"
+ SRC="img267.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;Clock&nbsp;Cycles = \sum^n_{i=1}(CPI_i\times C_i)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.18)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ซึ่งจะได้
+</I>
+<P>
+<I><A NAME="20011"></A>
+</I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~Clock~Cycles_1 = (2\times 1) + (1\times 2) + (2\times 3) = 2 + 2 + 6 = 10 cycles
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="554" HEIGHT="38" BORDER="0"
+ SRC="img268.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;Clock&nbsp;Cycles_1 = (2\times 1) + (1\times 2) + (2\times 3) = 2 + 2 + 6 = 10 cycles
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.19)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~Clock~Cycles =  (4\times 1) + (1\times 2) + (1\times 3) = 4 + 2 + 3 = 9 cycles
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="554" HEIGHT="38" BORDER="0"
+ SRC="img269.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;Clock&nbsp;Cycles = (4\times 1) + (1\times 2) + (1\times 3) = 4 + 2 + 3 = 9 cycles
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.20)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>จะพบว่าโปรแกรม 2 ทำงานเร็วกว่า ถึงแม้ว่าจะทำงานที่จำนวนคำสั่งมากกว่า ค่า CPI สามารถคำนวณได้จาก
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPI &=& \frac{CPU~clock~cycles}{Instruction~count} \\
+CPI_1 &=& \frac{CPU~clock~cycles_1}{Instruction~count_2} = \frac{10}{5} = 2\\
+CPI_2 &=& \frac{CPU~clock~cycles_2}{Instruction~count_2} = \frac{9}{6} = 1.5
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img270.png"
+ ALT="$\displaystyle CPI$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="159" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img271.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;clock&nbsp;cycles}{Instruction&nbsp;count}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.21)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="50" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img272.png"
+ ALT="$\displaystyle CPI_1$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="248" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img273.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;clock&nbsp;cycles_1}{Instruction&nbsp;count_2} = \frac{10}{5} = 2$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.22)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="50" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img274.png"
+ ALT="$\displaystyle CPI_2$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="253" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img275.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;clock&nbsp;cycles_2}{Instruction&nbsp;count_2} = \frac{9}{6} = 1.5$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.23)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>จากตัวอย่างขั้นต้นจะเห็นว่าเราไม่สามารถใช้ตัววัดตัวเดียวในการประเมินประสิทธิภาพได้  
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1769"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1763"
+  HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1759"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1765"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1767"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1770"
+  HREF="node87.html">การประเมินประสิทธิภาพจริงของคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html1764"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Previous:</B> <A NAME="tex2html1760"
+  HREF="node85.html">การใช้ชุดสมการประสิทธิภาพ</A>
+ &nbsp; <B>  <A NAME="tex2html1766"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1768"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแสดงเลข Floating-Point</TITLE>
+<META NAME="description" CONTENT="การแสดงเลข Floating-Point">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1400"
+  HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1394"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1388"
+  HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1396"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1398"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1401"
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
+<B> Up:</B> <A NAME="tex2html1395"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Previous:</B> <A NAME="tex2html1389"
+  HREF="node60.html">รูปแบบการนำเสนอ Floating-Point</A>
+ &nbsp; <B>  <A NAME="tex2html1397"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1399"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00570200000000000000">
+การแสดงเลข Floating-Point</A>
+</H3>
+<P>
+<I>จงแสดงเลข Floating Point ของ <IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$-0.75_{ten}$"> ในรูปแบบของ Single Precision และ Double Precision
+</I>
+<P>
+<I>แต่ละหลักของเลข Floating Point มีค่าดังต่อไปนี้
+</I>
+<P>
+<I><!-- MATH
+ $2^{-1} = 0.5, 2^{-2} = 0.25, 2^{-3} = 0.125, 
+ 2^{-4} = 0.0625, 
+ 2^{-5} = 0.03125, 
+ 2^{-6} = 0.015625, 
+ 2^{-7} = 0.0078125, 
+ 2^{-8} = 0.00390625, \ldots$
+ -->
+<IMG
+ WIDTH="964" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img175.png"
+ ALT="$2^{-1} = 0.5, 2^{-2} = 0.25, 2^{-3} = 0.125,
+2^{-4} = 0.0625,
+2^{-5} = 0.03125,
+2^{-6} = 0.015625,
+2^{-7} = 0.0078125,
+2^{-8} = 0.00390625, \ldots$">
+</I>
+<P>
+<I>เลข Floating Point <IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$-0.75_{ten}$"> สามารถแสดงได้เป็น <!-- MATH
+ $\frac{-3}{4_{ten}}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img176.png"
+ ALT="$\frac{-3}{4_{ten}}$"> หรือ <!-- MATH
+ $\frac{-3}{2^2_{ten}}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.png"
+ ALT="$\frac{-3}{2^2_{ten}}$">
+</I>
+<P>
+<I>โดยสามารถแสดงได้เป็น <!-- MATH
+ $\frac{-11_{two}}{2^2_{ten}}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.png"
+ ALT="$\frac{-11_{two}}{2^2_{ten}}$"> หรือ <IMG
+ WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.png"
+ ALT="$-0.11_{two}$">
+</I>
+<P>
+<I>ใน Scientific Notation สามารถเขียนได้เป็น <!-- MATH
+ $-0.11_{two}\times 2^0$
+ -->
+<IMG
+ WIDTH="115" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img180.png"
+ ALT="$-0.11_{two}\times 2^0$">
+</I>
+<P>
+<I>ทำการ Normalized จะได้ <!-- MATH
+ $-1.1_{two}\times 2^{-1}$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$-1.1_{two}\times 2^{-1}$">
+</I>
+<P>
+<I>ในเลข Floating Point แบบ Single Precision สามารถแสดงโดย
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^S\times (1+Fraction)\times 2^{(Exponent-127)}$
+ -->
+<IMG
+ WIDTH="332" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$(-1)^S\times (1+Fraction)\times 2^{(Exponent-127)}$">
+</I>
+<P>
+<I>เมื่อทำการลบค่า Bias จาก Exponent ของ <!-- MATH
+ $-1.1_{two}\times 2^{-1}$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img181.png"
+ ALT="$-1.1_{two}\times 2^{-1}$"> จะได้เท่ากับ
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^1\times (1+ .1000 0000 0000 0000 0000 000_{two})\times 2^{(126-127)}$
+ -->
+<IMG
+ WIDTH="459" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img183.png"
+ ALT="$(-1)^1\times (1+ .1000 0000 0000 0000 0000 000_{two})\times 2^{(126-127)}$">
+</I>
+<P>
+<I>เลข Floating Point <IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$-0.75_{ten}$"> ในรูปของไบนารี่จะได้
+<BR></I>
+<P>
+<I>
+<IMG
+ WIDTH="689" HEIGHT="87" ALIGN="BOTTOM" BORDER="0"
+ SRC="img185.png"
+ ALT="\includegraphics[width=6in]{fig/float3.eps}">
+</I>
+<P>
+<I>ส่วนของ Double Precision จะได้
+</I>
+<P>
+<I><!-- MATH
+ $(-1)^1\times (1+ .1000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000_{two})\times 2^{(1022-1023)}$
+ -->
+<IMG
+ WIDTH="740" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img184.png"
+ ALT="$(-1)^1\times (1+ .1000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000_{two})\times 2^{(1022-1023)}$">
+<BR></I>
+<P>
+<I>
+<IMG
+ WIDTH="689" HEIGHT="151" ALIGN="BOTTOM" BORDER="0"
+ SRC="img186.png"
+ ALT="\includegraphics[width=6in]{fig/float4.eps}">
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

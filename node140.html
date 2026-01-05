@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Exception บนคอมพิวเตอร์ไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="Exception บนคอมพิวเตอร์ไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node139.html">
+<LINK REL="up" HREF="node139.html">
+<LINK REL="next" HREF="node141.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2587"
+  HREF="node141.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2581"
+  HREF="node139.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2577"
+  HREF="node139.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2583"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2585"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2588"
+  HREF="node141.html">Static Multiple Issue</A>
+<B> Up:</B> <A NAME="tex2html2582"
+  HREF="node139.html">Exception บนไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2578"
+  HREF="node139.html">Exception บนไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2584"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2586"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00880100000000000000">
+Exception บนคอมพิวเตอร์ไพพ์ลายน์</A>
+</H3>
+<P>
+<I>พิจารณาชุดคำสั่ง
+</I>
+<P><PRE>
+   40 sub  $11, $2, $4
+   44 and  $12, $2, $5
+   48 or   $13, $2, $6
+   4C add   $1, $2, $1
+   50 slt  $15, $6, $7
+   54 lw   $16, 50($7)
+</PRE>
+<P>
+<I>สมมุติให้ชุดคำสั่งในการจัดการกับ Exception มีดังต่อไปนี้
+</I>
+<P><PRE>
+   40000040   sw  $25, 1000($0)
+   40000044   sw  $25, 1004($0)
+</PRE>
+<P>
+<I>รูป <A HREF="#fig:6.43">6.41</A> แสดงเหตุการณ์หลังจากการเกิด Exception ที่คำสั่ง add
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.43"></A><A NAME="31403"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.41:</STRONG>
+เหตุการณ์หลังจากการเกิด Exception ที่คำสั่ง add</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="913" ALIGN="BOTTOM" BORDER="0"
+ SRC="img382.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.43.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

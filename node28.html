@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงลูป while ในภาษา C</TITLE>
+<META NAME="description" CONTENT="การแปลงลูป while ในภาษา C">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node27.html">
+<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node29.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html898"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html892"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html888"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html894"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html896"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html899"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Up:</B> <A NAME="tex2html893"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<B> Previous:</B> <A NAME="tex2html889"
+  HREF="node27.html">การทำลูป (Loops)</A>
+ &nbsp; <B>  <A NAME="tex2html895"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html897"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00461300000000000000">
+การแปลงลูป while ในภาษา C</A>
+</H3>
+<P>
+<I>จากชุดคำสั่งของภาษา C
+</I>
+<P><PRE>
+while (save[i] == k)
+   i += 1;
+</PRE>
+<P>
+<I>สมมุติให้ตัวแปร i และ k อยู่ในรีจีสเตอร์ $s3 และ $s5 ตามลำดับ ตำแหน่งเริ่มต้นของอาเรย์ save อยู่ในรีจีสเตอร
+ $s6  จงเขียนภาษาแอสแซมบลีของ MIPS สำหรับชุดคำสั่ง while
+</I>
+<P>
+<I>ในขั้นแรกเราเริ่มจากการโหลดค่า save[i] จากหน่วยความจำมาเก็บไว้ในรีจีสเตอร์ การที่จะโหลดค่า save[i] นั้นจะต้องมีแอดเดรสของ save[i] ที่มีค่าเท่ากับ <IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.png"
+ ALT="$i \times 4$"> บวกกับค่าเริ่มต้นของอาเรย์ save ที่อยู่ในรีจีสเตอร์
+ $s6 เนื่องจาก MIPS สามารถเข้าถึงข้อมูลน้อยที่สุดได้ในระดับไบท์ ค่าของแอดเดรสจึงชี้ที่ 1 ไบท์ การเข้าถึงหนึ่ง Word จึงจำเป็นต้องคูณด้วย 4 จากที่ค่าสี่เป็นค่ายกกำลังของสองเราจึงสามารถทำการคูณโดยทำการเลื่อนบิตจากคำสั่ง sll เป็นค่าเท่ากับสองบิต  และเพิ่มเครื่องหมาย Loop เพื่อกำหนดตำแหน่งการทำซ้ำ
+</I>
+<P><PRE>
+Loop: sll $t1, $s3, 2 # Temp reg $t1 = 4 * i
+</PRE>
+<P>
+<I>เพื่อให้ได้ตำแหน่งหรือแอดเดรสของ save[i] เราจะต้องทำการบวกค่า $t1 กับค่าเริ่มต้นของอาเรย์  $s6 
+</I>
+<P><PRE>
+add $t1, $t1, $s6 # $t1 = address of save[i]
+</PRE>
+<P>
+<I>จากนั้นเราจะทำการโหลดค่าที่อยู่ในแอดเดรส save[i] เข้ามาในรีจีสเตอร์ $t0
+</I>
+<P><PRE>
+lw $t0, 0($t1) # Temp reg \$t0 = save[i]
+</PRE>
+<P>
+<I>คำสั่งต่อมาเป็นคำสั่งที่ทำการทดสอบลูป โดยจะออกจากลูปเมื่อ <IMG
+ WIDTH="94" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.png"
+ ALT="$save[i] \ne k$">
+</I>
+<P><PRE>
+bne $t0, $s5, Exit # go to Exit if save[i] != k
+</PRE>
+<P>
+<I>คำสั่งต่อมาคือการเพื่มค่า i = i + 1
+</I>
+<P><PRE>
+addi $s3, $s3, 1 #  i = i + 1
+</PRE>
+<P>
+<I>และ jump j กลับไปที่ Loop ออกจากลูปโดยการเพิ่มเครื่องหมาย Exit ก็เป็นการเสร็จสิ้น
+</I>
+<P><PRE>
+    j Loop # go to Loop
+Exit:
+</PRE>
+<P>
+<I>จากตัวอย่างขั้นต้นนำมาสู่สิ่งที่เรียกว่า <EM>Basic Block</EM> หมายถึงชุดของคำสั่งที่ไม่มีคำสั่ง branch หรือ jump อยู่ระหว่างกลาง นอกจากตรงจุดเริ่มต้น หรือจุดสิ้นสุดเท่านั้น
+</I>
+<P>
+<I>นอกจากคำสั่ง branch จากการทดสอบความเท่ากัน (beq) และไม่เท่ากัน (bne) แล้ว ชุคคำสั่งของ MIPS ยังมีคำสั่งสำหรับทดสอบค่าน้อยกว่า คำสั่งดังกล่าวคือคำสั่ง slt และ slti หรือเรียกว่า <EM>set on less than</EM>
+ตัวอย่างเช่น
+</I>
+<P><PRE>
+slt $t0, $s3, $s4
+</PRE>
+<P>
+<I>ค่าของ $t0 จะเท่ากับ 1 ถ้าค่าในรีจีสเตอร์ $s3 น้อยกว่า ค่าในรีจีสเตอร์ $s4 ถ้าต่างจากนี้ ค่าในรีจีสเตอร์  $t0 จะเท่ากับ 0 </I>
+<P>
+<I>การเปรียบเทียบกับค่าคงที่มีการใช้งานเป็นอย่างมากเช่นเดียวกัน ในการเปรียบเทียบกับค่า 0 เราสามารถเปรียบเทียบกับค่า $zero ได้ ในกรณีที่เปรียบเทียบกับค่าอื่น สามารถใชัคำสั่งดังต่อไปนี้
+</I>
+<P><PRE>
+slti $t0, $s2, 10
+</PRE>
+<P>
+<I>ค่าของ $t0 จะเท่ากับ 1 ถ้าค่าในรีจีสเตอร์ $s2 น้อยกว่า 10 ถ้าต่างจากนี้ ค่าในรีจีสเตอร์  $t0 จะเท่ากับ 0 </I>
+<P>
+<I>ในชุดคำสั่งของ MIPS นั้น ไม่มีคำสั่ง branch on less than เนื่องจากมีความซับซ้อนสูงเกินไป การทำงานโดยใช้สองคำสั่งเรียงต่อกันจะสามารถทำงานได้เร็วกว่า
+</I>
+<P>
+<I>สำหรับการทำ case/switch เราสามารถใช้ jump address table โดยระบุค่าของตำแหน่งแอดเดรสของ branch ต่างๆ ให้อยู่ในตาราง และเลือกตำแหน่งการ jump จากตารางนั้นๆ 
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html898"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html892"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html888"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html894"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html896"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html899"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Up:</B> <A NAME="tex2html893"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<B> Previous:</B> <A NAME="tex2html889"
+  HREF="node27.html">การทำลูป (Loops)</A>
+ &nbsp; <B>  <A NAME="tex2html895"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html897"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

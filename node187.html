@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>พื้นฐานของบัส</TITLE>
+<META NAME="description" CONTENT="พื้นฐานของบัส">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node188.html">
+<LINK REL="previous" HREF="node186.html">
+<LINK REL="up" HREF="node186.html">
+<LINK REL="next" HREF="node188.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3314"
+  HREF="node188.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3308"
+  HREF="node186.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3302"
+  HREF="node186.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3310"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3312"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3315"
+  HREF="node188.html">ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+<B> Up:</B> <A NAME="tex2html3309"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+<B> Previous:</B> <A NAME="tex2html3303"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+ &nbsp; <B>  <A NAME="tex2html3311"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3313"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001041000000000000000">
+พื้นฐานของบัส</A>
+</H2>
+<P>
+<I>บัสประกอบไปด้วยกลุ่มของสายควบคุม (Control lines) ใช้สำหรับสัญญาณ request และ acknowledgment  และใช้เป็นตัวบอกประเภทของข้อมูลบนสายข้อมูล และกลุ่มของสายข้อมูล (Data lines) ใช้รับส่งข้อมูลระหว่างต้นทางถึงปลายทาง ซึ่งรวมถึงคำสั่งที่ซับซ้อน และแอดแดรสต่างๆ 
+</I>
+<P>
+<I>บัสบางตัวจะแบ่งกลุ่มสายสัญญาณเป็นสองกลุ่ม เพื่อให้ส่งได้ทั้งข้อมูลและแอดเดรสภายในครั้งเดียวกัน ในกรณีนี้สายควบคุมจะถูกใช้ในการบอกว่าอะไรที่กำลังวิ่งอยู่ในบัส และทำหน้าที่เรียกใช้บัสโปรโตคอล และเพราะว่าบัสเป็นระบบที่มีการใช้งานร่วมกันกัน เราจึงต้องมีโปรโตคอลที่เหมาะสมในการตัดสินใจว่าใครจะใช้เป็นคนถัดไป
+</I>
+<P>
+<I>การทำงานหลักๆ ของบัสประกอบด้วยสองขั้นตอนคือการส่งแอดเดรสและการรับหรือส่งข้อมูล นิยามจากการทำงานที่กระทำกับหน่วยความจำ คือ ขั้นตอนการอ่านจะทำการส่งข้อมูลจากหน่วยความจำไปยังหน่วยประมวลผลและอุปกรณ์ I/O อื่นๆ และขั้นตอนการเขียน จะทำการเขียนข้อมูลลงบนหน่วยความจำ เพื่อหลีกเลี่ยงความสับสนเราจะเรียกว่า output และ input ตามลำดับ ซึ่งเป็นการอ้างอิงจากการทำงานของหน่วยประมวลผล กล่าวคือ input จะหมายถึงกระบวนการส่งข้อมูลจากอุปกรณ์ I/O ต่างๆ ไปยังหน่วยความจำที่ซึ่งหน่วยประมวลผลสามารถอ่านได้ และ output จะหมายถึงกระบวนการส่งข้อมูลไปยังอุปกรณ์ต่างๆ จากหน่วยความจำที่ซึ่งหน่วยประมวลผลสามารถเขียนได้
+</I>
+<P>
+<I>บัสแบ่งประเภทออกเป็น Processor-memory Buses กับ I/O buses โดย Processor-Memory buses จะมีขนาดสั้นและมีความเร็วสูง ในขณะที่  I/O buses จะมีความยาวมากกว่า และ สามารถเชื่อมต่ออุปกรณ์ได้หลายประเภทซึ่งอาจมีขนาดของ bandwidth ในการส่งข้อมูลที่แตกต่างกัน  บัส I/O จะไม่สามารถติดต่อหน่วยความจำได้โดยตรงแต่จะใช้ Processor-Memory หรือ Backplane Bus ในการติดต่อกับหน่วยความจำแทน สำหรับบัสแบบอื่นๆ ที่มีลักษณะแตกต่างไปจากนี้จะถูกจัดไว้ในกลุ่มพิเศษ เช่น graphic bus
+</I>
+<P>
+<I>เนื่องจากบัส I/O ใช้เพื่อรองรับการขยายตัวของอุปกรณ์และสนับสนุนอุปกรณ์ชนิดใหม่ ทำให้ต้องมีการกำหนดเป็นมาตราฐาน ใช้บ่งบอกคุณลักษณะของบัส เพื่อประโยชน์ต่อการที่นักพัฒนาจะออกแบบอุปกรณ์ชนิดใหม่ขึ้นมา และสามารถรับประกันได้ว่าสามารถเชื่อมต่อเข้ากับระบบที่มีอยู่ได้อย่างดี 
+</I>
+<P>
+<I>ระบบพื้นฐานสำหรับการติดต่อสื่อสารบนบัสมีสองประเภท ได้แก่ Synchronous และ Asynchronous ถ้าเป็นแบบ Synchronous จะรวมสัญญาณนาฬิกาเข้าไปในสายควบคุมและบังคับโปรโตคอลสำหรับการติดต่อสื่อสารให้สัมพันธ์กับสัญญาณนาฬิกา การติดต่อลักษณะนี้มีข้อเสียหลักๆ อยู่สองอย่าง อย่างแรก อุปกรณ์ทุกตัวบนบัสจำเป็นต้องทำงานที่อัตราสัญญาณนาฬิกาเดียวกัน สอง เนื่องจากปัญหา Clock Skew ทำให้บัสลักษณะนี้มีความยาวมากไม่ได้ที่ความเร็วสูง Processor-memory ส่วนใหญ่เป็นแบบ Synchronous เพราะอุปกรณ์ที่ติดต่อกันอยู่ใกล้กันมาก, มีจำนวนน้อย และถูกออกแบบมาให้ทำงานที่อัตราสัญญาณนาฬิกาสูง
+</I>
+<P>
+<I>Asynchronous Bus ไม่ใช้สัญญาณนาฬิกา ทำให้สามารถเชื่อมต่ออุปกรณ์ได้หลากหลาย มีความยาวได้มากกว่า โดยไม่ต้องกังวลในเรื่องของปัญหา Clock Skew และ Synchronization ทั้ง Firewire และ USB 2.0 เป็นแบบ Asynchronous ในการส่งข้อมูลระหว่างกันจะใช้ Handshaking Protocol ประกอบด้วยลำดับของขั้นตอนซึ่งทั้งผู้ส่งและผู้รับจะดำเนินการขั้นต่อไปได้ก็ต่อเมื่อทั้งสองฝ่ายยอมรับ รูป <A HREF="#fig:asyn">8.3</A> แสดงการทำงานของโปรโตคอลโดยอธิบายจากขั้นตอนในการติดต่อสื่อสาร
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:asyn"></A><A NAME="43651"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8.3:</STRONG>
+แสดงการกระจายข้อมูลสำหรับ RAID 4 เปรียบเทียบกับ RAID 5</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="514" HEIGHT="171" ALIGN="BOTTOM" BORDER="0"
+ SRC="img467.png"
+ ALT="\includegraphics{fig/Chapter_8/f0810.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>แม้ว่า Bandwidth ของบัสจะขึ้นอยู่กับการทำงานของโปรโตคอลว่าเป็นแบบ Synchronous หรือ Asynchronous และ Timing Characteristic ของบัสแล้ว ยังมีปัจจัยอื่นๆ ที่มีผลกระทบต่อ Bandwidth อีกหลายตัว ที่สำคัญคือความกว้างของ Data Bus และขึ้นอยู่กับว่าแต่ละครั้งของการส่งข้อมูลสนับสนุนการส่งข้อมูลแบบ Block หรือ Word
+</I>
+<P>
+<I>วิธีการอื่นในการเพิ่มประสิทธิภาพ Bandwidth บนบัสคือการปล่อยบัสให้ว่างในขณะที่ไม่มีการรับส่งข้อมูล โปรโตคอลลักษณะนี้เรียกว่า Split Transaction Protocol ข้อดีคือขณะที่ไม่มีการส่งข้อมูล บัสจะว่าง และโปรโตคอลจะอนุญาตให้คนอื่นสามารถใช้งานได้  ซึ่งจะช่วยเพิ่มประสิทธิภาพให้กับ Bandwidth ในระบบที่หน่วยความจำต้องทำงานหลายๆ งานที่มีการทับซ้อนกัน
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3314"
+  HREF="node188.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3308"
+  HREF="node186.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3302"
+  HREF="node186.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3310"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3312"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3315"
+  HREF="node188.html">ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+<B> Up:</B> <A NAME="tex2html3309"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+<B> Previous:</B> <A NAME="tex2html3303"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+ &nbsp; <B>  <A NAME="tex2html3311"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3313"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

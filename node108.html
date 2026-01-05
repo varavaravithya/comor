@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>โปรเซสเซอร์แบบทำงานหลายวงรอบ</TITLE>
+<META NAME="description" CONTENT="โปรเซสเซอร์แบบทำงานหลายวงรอบ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node111.html">
+<LINK REL="previous" HREF="node100.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node109.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2101"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2095"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2089"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2097"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2099"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2102"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<B> Up:</B> <A NAME="tex2html2096"
+  HREF="node91.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<B> Previous:</B> <A NAME="tex2html2090"
+  HREF="node107.html">ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว</A>
+ &nbsp; <B>  <A NAME="tex2html2098"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2100"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00760000000000000000">
+โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+</H1>
+<P>
+<I>ในการทำงานของโปรเซสเซอร์ เราสามารถแบ่งการประมวลผลคำสั่งออกเป็นขั้นๆ ตามส่วนประกอบของโปรเซสเซอร์ที่ถูกใช้งานในชั่วขณะนั้น จากหลักการดังกล่าว เราสามารถใช้ในการออกแบบโปรเซสเซอร์ที่ทำการประมวลผลคำสั่งโดยใช้หลายวงรอบของสัญญาณนาฬิกา  (Multicycle Implementation) 
+<A NAME="24523"></A> โดยทุกขั้นตอนของการทำงานจะใช้เวลาพอดีกับหนึ่งวงรอบสัญญาณนาฬิกา ซึ่งส่วนประกอบต่างๆ สามารถใช้งานได้มากกว่าหนึ่งครั้งในการประมวลผลคำสั่งหนึ่งๆ ตราบเท่าที่ทำงานคนละวงรอบสัญญาณนาฬิกา ในการใช้งานดังกล่าวเราสามารถใช้งานทรัพยากรต่างๆ ได้คุ้มค่ามากยิ่งขึ้น หรือสามารถลดส่วนประกอบลงได้ ซึ่งเป็นข้อได้เปรียบของการออกแบบลักษณะนี้  รูปที่ <A HREF="#fig:5.25">5.27</A> แสดงเส้นทางข้อมูลในภาพรวมของการออกแบบสร้างโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา โดยสามารถสรุปข้อแตกต่างได้ดังต่อไปนี้   
+</I>
+<P>
+<UL>
+<LI>มีหน่วยความจำเพียงชุดเดียว สำหรับทั้งคำสั่ง และข้อมูล
+</LI>
+<LI>มี ALU  เพียงชุดเดียวแทนที่ ALU และ Adder ในการออกแบบก่อนหน้า 
+</LI>
+<LI>มีรีจีสเตอร์เพิ่มเติมในการเก็บค่าจากส่วนประกอบหลักสำหรับเก็บค่าเอาท์พุท ในการประมวล
+ผลในวงรอบต่อไป    
+</LI>
+</UL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.25"></A><A NAME="26432"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.27:</STRONG>
+เส้นทางข้อมูลในภาพรวมของการออกแบบสร้างโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="574" HEIGHT="233" ALIGN="BOTTOM" BORDER="0"
+ SRC="img319.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.25.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>เมื่อหมดหนึ่งวงรอบสัญญาณนาฬิกาข้อมูลที่ต้องใช้ในวงรอบต่อไปจะถูกเก็บไว้ในรีจีสเตอร์ที่มีเพิ่มเติมขึ้นมา นอกเหนือจากข้อมูลที่เก็บไว้ใน PC หรือในหน่วยความจำ ดังนั้นตำแหน่งของรีจีสเตอร์จะกระจายอยู่เพื่อเก็บข้อมูลในการประมวลผลของคำสั่งที่ยังไม่เสร็จสิ้นในวงรอบต่อไป  ตำแหน่งของรีจีสเตอร์จะขึ้นอยู่กับว่าในวงรอบการทำงานนั้นๆ โปรเซสเซอร์ใช้งานส่วนประกอบใด  และมีข้อมูลใดที่จำเป็นต้องเกก็บไว้ใช้งานในวงรอบหน้า  ในการออกแบบโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกานั้น เราสมมุติให้การทำงานของส่วนประกอบสำคัญเช่น Memory Access, Register Access,หรือ ALU Operation สามารถทำงานได้ภายในหนึ่งสัญญาณนาฬิกา ดังนั้นข้อมูลใดๆ ที่ได้มาจากส่วนประกอบเหล่านี้จะถูกเก็บไว้ในรีจีสเตอร์ชั่วคราวสำหรับการใช้งานในวงรอบการทำงานต่อไป  รีจีสเตอร์เหล่านี้ประกอบด้วย
+</I>
+<P>
+<UL>
+<LI>Instruction Register และ Memory Data Register
+</LI>
+<LI>Register A และ Register B
+</LI>
+<LI>ALUOut Register
+</LI>
+</UL>
+<P>
+<I>มีเพียง Instruction Register ที่จำเป็นต้องมีสายควบคุมการเขียนเนื่องจากรีจีสเตอร์ตัวอื่นขั้นต้นสาสมารถเขียนได้ทุกวงรอบการทำงาน ยกเว้น Instruction Register ที่มีการเขียนทับในวงรอบที่มีการเปลี่ยนคำสั่งเท่านั้น จึงต้องคงค่าคำสั่งไว้ตลอดการทำงานของคำสั่งนั้นๆ 
+<A NAME="24859"></A>
+</I>
+<P>
+<I>ในการออกแบบสร้างโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา นั้นส่วนประกอบหลายชิ้นจะถูกใช้หลายครั้งในการประมวลผลคำสั่งหนึ่งๆ ดังนั้นเราต้องติดตั้ง Multiplexer เพิ่มเติม หรือขยายขนาดของ Multiplexer ตามความเหมาะสม  ในการทำงานของโปรเซสเซอร์แบบวงรอบเดียวใช้งาน ALU ทั้งสิ้นสามชุด แต่ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา มี ALU เพียงตัวเดียวซึ่งต้องทำหน้าที่ทังสามอย่างและต้องเพิ่มเติมเส้นทางข้อมูลดังต่อนี้
+</I>
+<P>
+<OL>
+<LI>เพิ่ม Multiplexer ที่ ALU input เพื่อเลือกระหว่าง A register และ PC
+</LI>
+<LI>ขยาย Multiplexer ที่ ALU input ล่าง จาก 2 เป็น 4 เพื่อรองรับ เลข 4 สำหรับทำการคำนวณ <IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img305.png"
+ ALT="$PC = PC+4$"> และ การคำนวณ Branch โดยมี  Sign Extend และ Shift Left 2 ประกอบการคำนวณ
+</LI>
+</OL>
+<P>
+<I>รูป <A HREF="#fig:5.26">5.28</A> แสดงรายละเอียดเส้นทางข้อมูลของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา การที่เพิ่ม รีจีสเตอร์และ Multiplexer ทำให้สามารถลดหน่วยความจำจากสองเหลือหนึ่งชุด และจัด ALU ออกสองชุด เนื่องจาก รีจีสเตอร์และ Multiplexer มีราคาถูกกว่าหน่วยความจำและ ALU มาก การออกแบบลักษณะนี้จะสามารถลดราคาของฮาร์ดแวร์ได้มาก
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.26"></A><A NAME="26433"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.28:</STRONG>
+รายละเอียดเส้นทางข้อมูลของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="633" HEIGHT="298" ALIGN="BOTTOM" BORDER="0"
+ SRC="img320.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.26.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:5.27">5.29</A> แสดงสัญญาณควบคุมสำหรับประกอบการทำงานของเส้นทางข้อมูลของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา ในการรองรับการทำงานของคำสั่ง Branch และ Jump การกำหนดค่า PC มีการทำงานได้สามวิธี <A NAME="25046"></A><A NAME="25047"></A>
+</I>
+<P>
+<OL>
+<LI>จาก Output ของ ALU เราสามารถคำนวณ <IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img305.png"
+ ALT="$PC = PC+4$"> ได้ และนำค่าที่ได้เขียนลง PC โดยตรง
+</LI>
+<LI>จากรีจีสเตอร์ ALUOut เราเก็บค่าแอดเดรสของ Branch ที่ทำการคำนวณได้ และนำค่าที่ได้เขียนลง PC ต่อไป
+</LI>
+<LI>จาก 26 บิตล่าง ของคำสั่งใน Instruction Register เราทำการ Shift Left สองตำแหน่ง และ นำมาต่อกับ 4 บิตบนของ ALU เพื่อทำคำสั่ง jump
+</LI>
+</OL>
+<P>
+<I>ในการเปลี่ยนค่าของ PC มีการทำงานสองลักษณะได้แก่ การเปลี่ยนค่าแบบไม่มีเงื่อนไข และการเปลี่ยนค่าแบบมีเงื่อนไข ในการทำคำสั่ง Branch ค่า PC จะถูกเปลี่ยนค่าเฉพาะเมื่อค่าในรีจีสเตอร์มีค่าเท่ากันเท่านั้น  ดังนั้นการเปลี่ยนค่า PC จะใช้สัญญาณควบคุมสองเส้นได้แก่ PCWrite สำหรับการเขียน PC ค่าใหม่แบบไม่มีเงื่อนไข และ PCWriteCond สำหรับหารเขียน PC ใหม่แบบมีเงื่อนไข
+</I>
+<P>
+<I>เราสามารถเขียนสัญญาณควบคุมสำหรับ PC Write จากการดำเนินการทางตรรกะของสัญญาณ PCWrite, PCWriteCond, และ Zero แสดงในรูปที่ <A HREF="#fig:5.28">5.30</A> 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.27"></A><A NAME="26434"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.29:</STRONG>
+สัญญาณควบคุมสำหรับประกอบการทำงานของเส้นทางข้อมูลของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="454" ALIGN="BOTTOM" BORDER="0"
+ SRC="img321.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_5/Figure_5.27.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.28"></A><A NAME="26435"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.30:</STRONG>
+โปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา ที่รวมการทำงานของสัญญาณควบคุม ชุดควบคุม ในการเขียนค่า PC ใหม่</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="559" ALIGN="BOTTOM" BORDER="0"
+ SRC="img322.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_5/Figure_5.28.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2103"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<LI><A NAME="tex2html2104"
+  HREF="node110.html">ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2101"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2095"
+  HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2089"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2097"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2099"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2102"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<B> Up:</B> <A NAME="tex2html2096"
+  HREF="node91.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<B> Previous:</B> <A NAME="tex2html2090"
+  HREF="node107.html">ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว</A>
+ &nbsp; <B>  <A NAME="tex2html2098"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2100"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

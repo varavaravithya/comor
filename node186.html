@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>บัสและการเชื่อมต่อแบบภายใน</TITLE>
+<META NAME="description" CONTENT="บัสและการเชื่อมต่อแบบภายใน">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node189.html">
+<LINK REL="previous" HREF="node175.html">
+<LINK REL="up" HREF="node172.html">
+<LINK REL="next" HREF="node187.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3298"
+  HREF="node187.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3292"
+  HREF="node172.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3286"
+  HREF="node185.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3294"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3296"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3299"
+  HREF="node187.html">พื้นฐานของบัส</A>
+<B> Up:</B> <A NAME="tex2html3293"
+  HREF="node172.html">อุปกรณ์เก็บข้อมูลขนาดใหญ่</A>
+<B> Previous:</B> <A NAME="tex2html3287"
+  HREF="node185.html">สรุปเนิ้อหา RAID</A>
+ &nbsp; <B>  <A NAME="tex2html3295"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3297"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001040000000000000000">
+บัสและการเชื่อมต่อแบบภายใน</A>
+</H1>
+<P>
+<I>ในระบบคอมพิวเตอร์นั้น ส่วนของระบบย่อยภายในจำเป็นต้องมีการติดต่อสื่อสารกัน ไม่ว่าจะเป็นจากหน่วยประมวลผลไปยังหน่วยความจำรวมไปถึงอุปกรณ์ I/O ต่างๆ และนับเป็นเวลาหลายปีแล้วที่เราทำสิ่งเหล่านี้โดยอาศัยการเชื่อมต่อที่เรียกว่าบัส (Bus) <A NAME="40723"></A> ซึ่งเป็นระบบการเชื่อมต่อระบบย่อยหลายๆ ส่วนเข้าด้วยกันด้วยกลุ่มสายไฟกลุ่มเดียว ข้อดีคือมีความสะดวกและค่าใช้จ่ายที่ต่ำ สำหรับข้อเสียของบัสคือการเกิดปัญหาคอขวดขึ้นในการส่งข้อมูลซึ่งเป็นตัวจำกัดประสิทธิภาพในการเชื่อมต่อระหว่างอุปกรณ์ I/O ต่างๆ ในระบบ ถือเป็นปัญหาที่ท้าทายในการออกแบบระบบ
+</I>
+<P>
+<I>อีกเหตุผลหนึ่งคือเรื่องของข้อจำกัดทางกายภาพ อันได้แก่ความยาวของบัสและจำนวนของอุปกรณ์ I/O ที่เชื่อมต่อ ทำให้ไม่สามารถทำงานได้ที่ความเร็วเท่าที่ควรจะเป็น รวมถึงความจำเป็นที่ต้องสนับสนุนอุปกรณ์ที่มี latencies และอัตราการส่งข้อมูลที่แตกต่างกันมาก
+</I>
+<P>
+<I>ในหัวข้อนี้เราจะเน้นถึงปัญหาทั่วไปที่พบในการเชื่อมต่อกันระหว่างอุปกรณ์ I/O ต่างๆ, หน่วยประมวลผล และหน่วยความจำ แทนที่จะกล่าวถึงบัสเพียงอย่างเดียว
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html3300"
+  HREF="node187.html">พื้นฐานของบัส</A>
+<LI><A NAME="tex2html3301"
+  HREF="node188.html">ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

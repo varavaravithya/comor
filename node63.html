@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การบวกเลข Floating-Point</TITLE>
+<META NAME="description" CONTENT="การบวกเลข Floating-Point">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node64.html">
+<LINK REL="previous" HREF="node62.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node64.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1428"
+  HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1422"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1416"
+  HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1424"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1426"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1429"
+  HREF="node64.html">การคูณ Floating-Point</A>
+<B> Up:</B> <A NAME="tex2html1423"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Previous:</B> <A NAME="tex2html1417"
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
+ &nbsp; <B>  <A NAME="tex2html1425"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1427"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00570400000000000000">
+การบวกเลข Floating-Point</A>
+</H3>
+<P>
+<I>ตัวอย่างดังต่อไปนี้เป็นการแสดงการบวกเลข Floating Point ระหว่าง <!-- MATH
+ $9.999_{ten}\times 10^1 + 1.610_{ten}\times 10^{-1}$
+ -->
+<IMG
+ WIDTH="263" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img190.png"
+ ALT="$9.999_{ten}\times 10^1 + 1.610_{ten}\times 10^{-1}$"> โดยสมมุติให้มีเพียงสี่หลักสำหรับ Significant และ 2 หลัก สำหรับ Exponent
+</I>
+<P>
+<UL>
+<LI><B>Step 1:</B> ในเบื้องต้นเราต้องทำการเลื่อนจุดทศนิยมของตัวเลขที่มีค่า Exponent น้อยกว่า เพื่อที่จะทำให้เลขทั้งสองมีส่วนของ Exponent เท่ากัน
+<BR>
+<P>
+<!-- MATH
+ $1.610_{ten}\times 10^{-1} = 0.1610_{ten}\times 10^0 = 0.01610_{ten}\times 10^1$
+ -->
+<IMG
+ WIDTH="431" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img191.png"
+ ALT="$1.610_{ten}\times 10^{-1} = 0.1610_{ten}\times 10^0 = 0.01610_{ten}\times 10^1$">
+
+<P>
+ซึ่งเลข <!-- MATH
+ $0.01610_{ten}\times 10^1$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img192.png"
+ ALT="$0.01610_{ten}\times 10^1$"> มีส่วนของ Exponent เท่ากับตัวตั้ง <!-- MATH
+ $9.999_{ten}\times 10^1$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img193.png"
+ ALT="$9.999_{ten}\times 10^1$"> 
+
+<P>
+ดังนั้นในขั้นแรกจะทำการเลื่อน Significant ของเลขที่น้อยกว่าไปทางขวาจนกระทั่งค่าของ Exponent มีค่าเท่ากับค่าที่ใหญ่กว่า เนื่องจาก Significant มีเพียงสี่หลักหลังจากการเลื่อนจะได้
+
+<P>
+<!-- MATH
+ $0.016_{ten}\times 10^1$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img194.png"
+ ALT="$0.016_{ten}\times 10^1$">
+
+<P>
+</LI>
+<LI><B>Step 2:</B> ต่อมาทำการบวก Significands
+
+<P>
+<PRE>
+            9.999
+          + 0.016
+          -------
+           10.015
+</PRE>
+
+<P>
+ผลลัพธ์จะได้ <!-- MATH
+ $10.015_{ten}\times 10^1$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img195.png"
+ ALT="$10.015_{ten}\times 10^1$">
+
+<P>
+</LI>
+<LI><B>Step 3:</B> จากนั้นทำการ Normalized ตัวเลข
+
+<P>
+<!-- MATH
+ $10.015_{ten}\times 10^1 = 1.0015_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="273" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img196.png"
+ ALT="$10.015_{ten}\times 10^1 = 1.0015_{ten}\times 10^2$">
+
+<P>
+</LI>
+<LI><B>Step 4:</B> เนื่องจาก Significant มีเพียงสี่หลัก ซึ่งผลลัพธ์ที่ได้มีค่ามากกว่าจำนวนหลักที่มี
+
+<P>
+<!-- MATH
+ $1.0015_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img197.png"
+ ALT="$1.0015_{ten}\times 10^2$">
+
+<P>
+ทำการปัดเศษจะได้
+
+<P>
+<!-- MATH
+ $1.002_{ten}\times 10^2$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img198.png"
+ ALT="$1.002_{ten}\times 10^2$">
+</LI>
+</UL>
+<P>
+<I>รูป <A HREF="#fig:binaryFloatAdd">3.14</A> แสดงระเบียบวิธีการบวกเลขไบนารี Floating-Point ในขั้นตอนที่ 1 และ 2 มีลักษณะคล้ายกับตัวอย่างที่ได้แสดงขั้นต้น  โดยการปรับค่า Exponent ของเลขที่น้อยกว่าให้มีค่าเท่ากับเลขที่มากกว่า ในขั้นตอนที่ 3 ทำการ Normalized ผลลัพธ์ และทดสอบ overflow และ underflow
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:binaryFloatAdd"></A><A NAME="16303"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.14:</STRONG>
+แสดงระเบียบวิธีการบวกเลขไบนารี Floating-Point</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="460" HEIGHT="907" ALIGN="BOTTOM" BORDER="0"
+ SRC="img199.png"
+ ALT="\includegraphics[width=4in]{fig/Chapter_3/Figure_3.16.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:floatingPointAddHardware">3.15</A> แสดงโครงสร้างของฮาร์ดแวร์สำหรับบวกเลข Floating Point
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:floatingPointAddHardware"></A><A NAME="16304"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.15:</STRONG>
+ฮาร์ดแวร์สำหรับบวกเลข Floating-Point</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="689" HEIGHT="665" ALIGN="BOTTOM" BORDER="0"
+ SRC="img200.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_3/Figure_3.17.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

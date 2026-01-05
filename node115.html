@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node147.html">
+<LINK REL="previous" HREF="node91.html">
+<LINK REL="up" HREF="comor.html">
+<LINK REL="next" HREF="node116.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2197"
+  HREF="node116.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2191"
+  HREF="comor.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2185"
+  HREF="node114.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2193"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2195"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2198"
+  HREF="node116.html">เป้าประสงค์</A>
+<B> Up:</B> <A NAME="tex2html2192"
+  HREF="comor.html">comor</A>
+<B> Previous:</B> <A NAME="tex2html2186"
+  HREF="node114.html">งานมอบหมาย</A>
+ &nbsp; <B>  <A NAME="tex2html2194"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2196"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00800000000000000000">
+การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+</H1>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2199"
+  HREF="node116.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html2200"
+  HREF="node117.html">กล่าวนำ</A>
+<UL>
+<LI><A NAME="tex2html2201"
+  HREF="node118.html">การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html2202"
+  HREF="node119.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+</UL>
+<LI><A NAME="tex2html2203"
+  HREF="node120.html">Pipeline Hazard</A>
+<UL>
+<LI><A NAME="tex2html2204"
+  HREF="node121.html">Structural Hazard</A>
+<LI><A NAME="tex2html2205"
+  HREF="node122.html">Data Hazard</A>
+<LI><A NAME="tex2html2206"
+  HREF="node123.html">การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+<LI><A NAME="tex2html2207"
+  HREF="node124.html">การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+<LI><A NAME="tex2html2208"
+  HREF="node125.html">Control Hazard</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html2209"
+  HREF="node126.html">เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html2210"
+  HREF="node127.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2211"
+  HREF="node128.html">การควบคุมไพพ์ลายน์</A>
+<LI><A NAME="tex2html2212"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+<UL>
+<LI><A NAME="tex2html2213"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2214"
+  HREF="node131.html">การเกิด Data Hazards และ Stalls</A>
+<LI><A NAME="tex2html2215"
+  HREF="node132.html">Branch Hazard</A>
+<UL>
+<LI><A NAME="tex2html2216"
+  HREF="node133.html">สมมุติ Branch Not Taken</A>
+<LI><A NAME="tex2html2217"
+  HREF="node134.html">การลด Delay ของ Branch</A>
+<LI><A NAME="tex2html2218"
+  HREF="node135.html">Branch ใน ไพพ์ลายน์</A>
+<LI><A NAME="tex2html2219"
+  HREF="node136.html">การคาดเดา Branch แบบพลวัตร</A>
+<LI><A NAME="tex2html2220"
+  HREF="node137.html">Branch Delay Slot</A>
+<LI><A NAME="tex2html2221"
+  HREF="node138.html">เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2222"
+  HREF="node139.html">Exception บนไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html2223"
+  HREF="node140.html">Exception บนคอมพิวเตอร์ไพพ์ลายน์</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2224"
+  HREF="node141.html">Static Multiple Issue</A>
+<LI><A NAME="tex2html2225"
+  HREF="node142.html">Dynamic Schedule Issue</A>
+<LI><A NAME="tex2html2226"
+  HREF="node143.html">โปรเซสเซอร์ Pentium 4</A>
+<LI><A NAME="tex2html2227"
+  HREF="node144.html">กิจกรรม</A>
+<LI><A NAME="tex2html2228"
+  HREF="node145.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html2229"
+  HREF="node146.html">งานมอบหมาย</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

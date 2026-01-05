@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Control Hazard</TITLE>
+<META NAME="description" CONTENT="Control Hazard">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node124.html">
+<LINK REL="up" HREF="node120.html">
+<LINK REL="next" HREF="node126.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2376"
+  HREF="node126.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2370"
+  HREF="node120.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2366"
+  HREF="node124.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2372"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2374"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2377"
+  HREF="node126.html">เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2371"
+  HREF="node120.html">Pipeline Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2367"
+  HREF="node124.html">การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+ &nbsp; <B>  <A NAME="tex2html2373"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2375"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00822500000000000000"></A>
+<A NAME="28023"></A>
+<BR>
+Control Hazard
+</H3>
+<P>
+<I>Hazard ประเภทที่สามเกิดจากการที่ต้องการการตัดสินใจจากคำสั่งก่อนหน้าในการทำงาน ซึ่งจะเกิดได้ในคำสั่ง branch จะสังเกตได้ว่าคำสั่งที่เรียงกันมาจะถูก Fetch ทันทีหลังคำสั่ง Branch ซึ่งในขณะนั้นโปรเซสเซอร์เองอยู่ในระหว่างการ Decode คำสั่ง Branch (และ Fetch คำสั่งต่อมา) ซึ่งยังไม่รู้ว่าเป็นคำสั่งที่กำลัง Decode เป็นคำสั่งอะไร  ซึ่งเมื่อรู้ว่าเป็นคำสั่ง Branch จำเป็นต้องหยุดไพพ์ลายน์ก่อนเพื่อรอผลการตัดสินใจการควบคุม เพื่อจะได้ Fetch คำสั่งมาได้ถูก
+</I>
+<P>
+<I>สมมุติให้โปรเซสเซอร์มีฮาร์ดแวร์เพียงพอที่จะสามารถตัดสินใจ และคำนวณ Branch Target Address ได้ในสเตทที่ 2 การทำ Branch จะมีลักษณะดังรูป <A HREF="#fig:6.7">6.7</A> ที่แสดงการ Stall จาก Branch ที่ต้องรอ 200 ps ก่อนการทำงานต่อเนื่องกันไป
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.7"></A><A NAME="31360"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.7:</STRONG>
+การ Stall จาก Branch ที่ต้องรอ 200 ps ก่อนการทำงานต่อเนื่องกันไป ที่เกิดจาก Control Hazard</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="631" HEIGHT="244" ALIGN="BOTTOM" BORDER="0"
+ SRC="img341.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_6/Figure_6.7.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในกรณีที่ไม่สามารถเพิ่มฮาร์ดแวร์ให้สามารถตัดสินใจ และคำนวณ Branch Target Address ได้ในสเตทที่ 2 การ Stall จะเกิดเพิ่มมากขึ้นอีก ซึ่งอีกวิธีหนึ่งที่สามารถช่วยเพิ่มประสิทธิภาพได้คือการทำการคาดการณ์ Branch (Branch Prediction)<A NAME="28177"></A> 
+</I>
+<P>
+<I>คอมพิวเตอร์สามารถคาดการณ์ว่า Branch จะเป็นแบบ Not Taken ซึ่งสามารถแสดงการทำงานได้ในรูป <A HREF="#fig:6.8">6.8</A> ถ้ากรณีที่ Branch Taken ก็จะทำการ Stall ไพพ์ลายน์
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.8"></A><A NAME="31361"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.8:</STRONG>
+การทำ Branch Prediction แบบ Not Taken</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="631" HEIGHT="528" ALIGN="BOTTOM" BORDER="0"
+ SRC="img342.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_6/Figure_6.8.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ซึ่งการคาดการณ์ในลักษณะนี้สามารถเพิ่มความซับซ้อนได้มาก โดยหาวิธีที่จะคาดเดาการทำ Branch ให้ใกล้เคียงมากที่สุด ที่เรียกว่า Dynamic Branch Prediction <A NAME="28224"></A> ดังจะได้กล่าวต่อไปในบทหลัง 
+</I>
+<P>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

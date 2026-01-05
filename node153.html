@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การจัดการกับ Cache Miss</TITLE>
+<META NAME="description" CONTENT="การจัดการกับ Cache Miss">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node154.html">
+<LINK REL="previous" HREF="node152.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node154.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2797"
+  HREF="node154.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2791"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2785"
+  HREF="node152.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2793"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2795"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2798"
+  HREF="node154.html">การจัดการกับการ Write</A>
+<B> Up:</B> <A NAME="tex2html2792"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2786"
+  HREF="node152.html">การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</A>
+ &nbsp; <B>  <A NAME="tex2html2794"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2796"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00930300000000000000">
+การจัดการกับ Cache Miss</A>
+</H3>
+<P>
+<I>ในกรณีที่ Cache Hit โปรเซสเซอร์จะทำการอ่านตามปกติ ถ้าเกิด Cache Miss เริ่มจากชุดควบคุมหน่วยความจำตรวจพบการ Miss และทำการ Fetch ข้อมูลที่ต้องการจากหน่วยความจำ ในกรณีที่เกิด Cache Miss โปรเซสเซอร์จะทำการ Stall ไพพ์ลายน์ ทั้งโปรเซสเซอร์เพื่อรอข้อมูลจากหน่วยความจำในลำดับต่อไป โดยขั้นตอนการทำงานมีดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI>ส่ง PC ที่ชี้ตำแหน่งคำสั่งปัจจุบัน <IMG
+ WIDTH="81" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img426.png"
+ ALT="$(PC-4)$"> ไปยังหน่วยความจำ
+</LI>
+<LI>ส่งสัญญาณในการอ่านหน่วยความจำ และรอผล
+</LI>
+<LI>เขียนลงใน Cache โดยนำข้อมูล และ Tag ใส่ในตำแหน่งที่เหมาะสม และตั้งค่า Valid Bit
+</LI>
+<LI>ทำการ Restart คำสั่งใหม่จากแรกเริ่ม
+</LI>
+</OL>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

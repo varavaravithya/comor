@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การรวมหน่วยความจำเสมือน, TLB และแคช</TITLE>
+<META NAME="description" CONTENT="การรวมหน่วยความจำเสมือน, TLB และแคช">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node167.html">
+<LINK REL="previous" HREF="node165.html">
+<LINK REL="up" HREF="node160.html">
+<LINK REL="next" HREF="node167.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2983"
+  HREF="node167.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2977"
+  HREF="node160.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2971"
+  HREF="node165.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2979"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2981"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2984"
+  HREF="node167.html">การทำให้หน่วยความจำเสมือนมีความปลอดภัย</A>
+<B> Up:</B> <A NAME="tex2html2978"
+  HREF="node160.html">หน่วยความจำเสมือน</A>
+<B> Previous:</B> <A NAME="tex2html2972"
+  HREF="node165.html">การทำให้การแปลงตำแหน่งอ้างอิงทำได้เร็วขึ้น: Translation-Lookaside Buffer (TLB)</A>
+ &nbsp; <B>  <A NAME="tex2html2980"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2982"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00954000000000000000">
+การรวมหน่วยความจำเสมือน, TLB และแคช</A>
+</H2>
+<P>
+<I>เนื่องจากการทำงานของระบบหน่วยความจำเสมือน และแคชเป็นแบบระดับขั้น ดังนั้นข้อมูลจะปรากฏอยู่ในแคชไม่ได้ ถ้าข้อมูลนั้นไม่มีอยู่ในหน่วยความจำหลัก ระบบปฏิบัติการจะเป็นผู้ดำเนินการกับระบบหน่วยความจำที่เป็นลำดับขั้นนี้  แคชที่ใช้ตำแหน่งอ้างอิงเสมือน (Virtual Addressed Cache) คือแคชที่ถูกเรียกใช้ได้ด้วยตำแหน่งอ้างอิงเสมือน ซึ่งจะทำให้ TLB ไม่ถูกใช้งานมากจนเกินไป และลดเวลาที่เสียไปในแคช เนื่องจาก TLB จะไม่ถูกใช้จนกว่าแคชจะถูกเรียกใช้โดยปกติ แต่อาจทำให้เกิดเหตุการณ์ที่เพจเดียวมีตำแหน่งอ้างอิงเสมือนสองตำแหน่ง และจะทำให้เกิดปัญหาในการเขียนข้อมูล  แคชที่ใช้ตำแหน่งอ้างอิงเสมือนที่สมบูรณ์มักจะถูกออกแบบให้มีแคชและ TLB ที่จำกัด เพื่อลดเหตุการณ์ดังกล่าว หรืออาจจะให้ระบบปฏิบัติการเข้ามาดำเนินการ แสดงแผนภูมิในรูป <A HREF="#fig:f0726">7.18</A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0726"></A><A NAME="38108"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.18:</STRONG>
+TLB และแคช ซึ่งมีโปรเซสของการทำงานใน Intrinsity FastMATH ตั้งแต่การแปลงตำแหน่งอ้างอิงเสมือนไปจนถึงข้อมูล</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="745" HEIGHT="531" ALIGN="BOTTOM" BORDER="0"
+ SRC="img463.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/f0726.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

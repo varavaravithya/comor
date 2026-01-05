@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</TITLE>
+<META NAME="description" CONTENT="การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node110.html">
+<LINK REL="previous" HREF="node108.html">
+<LINK REL="up" HREF="node108.html">
+<LINK REL="next" HREF="node110.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2117"
+  HREF="node110.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2111"
+  HREF="node108.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2105"
+  HREF="node108.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2113"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2115"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2118"
+  HREF="node110.html">ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<B> Up:</B> <A NAME="tex2html2112"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Previous:</B> <A NAME="tex2html2106"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+ &nbsp; <B>  <A NAME="tex2html2114"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2116"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00760100000000000000">
+การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+</H3>
+<P>
+<I>จากรูปที่ <A HREF="node108.html#fig:5.28">5.30</A> เราจะมาพิจารณาการทำงานในแต่ละวงรอบของการประมวลผลในโปรเซสเซอร์แบบหลายวงรอบ  โดยมีจุดมุ่งหมายในการเพิ่มประสิทธิภาพการทำงาน เริ่มจากทำการแบ่งส่วนการทำงานออกให้มีการประมาณการทำงานเท่ากัน ตัวอย่างเช่นการทำงานของ ALU Operationหนึ่งครั้ง, Register File Access หนึ่งครั้ง, หรือ Memory Access หนึ่งครั้ง โดยที่สัญญาณนาฬิกาต้องครอบคลุมการทำงานดังกล่าวที่ยาวที่สุด หลังจากการทำงานในแต่ละวงรอบ ข้อมูลที่ประมวลผลได้จะถูกเก็บไว้ในรีจีสเตอร์ แต่เนื่องจากเราใช้งานวงจรที่ทำงานตามขอบสัญญาณนาฬิกา การทำงานของวงจรยังคงถูกต้องอยู่
+</I>
+<P>
+<I>ในการทำงานตามคำสั่งของคอมพิวเตอร์ MIPS ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกามีการทำงาน สาม ถึง ห้า วงรอบการทำงานสัญญาณนาฬิกา โดยประกอบด้วยขั้นตอนดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI><B>ขั้นตอน Instruction Fetch</B>
+
+<P>
+ทำการอ่านคำสั่งจากหน่วยความจำและคำนวณแอดเดรสสำหรับคำสั่งต่อไป 
+
+<P>
+<PRE>
+    IR &lt;= Memory[PC];
+    PC &lt;= PC + 4;
+</PRE>
+
+<P>
+เริ่มจากส่งค่า PC ไปยังหน่วยความจำ และทำการอ่านหน่วยความจำนั้น จากนั้นทำการเขียนคำสั่งลงใน Instruction Register (IR) และทำการบวกค่า PC ด้วยค่า 4 การทำงานในขั้นตอนนี้ ต้องทำการตั้งค่าสัญญาณควบคุม MemRead และ IRWrite จากนั้นทำการตั้งค่า IorD เป็น เพื่อทำการเลือกค่า PC เป็นแอดเดรสที่จะป้อนให้หน่วยความจำ  และตั้งค่า ALUSrcA เป็น 0 และ ALUSrcB เป็น 01 อีกทั้งตั้งค่า ALUOp เป็น 00 สุดท้ายเราต้องส่งค่า PC ที่เพิ่มค่าใหม่กลับเข้าไป โดยการตั้งค่า PC Source เป็น 00 และตั้งค่า PC Write โดยค่า PC ใหม่จะไม่ปรากฎจนกว่าจะขึ้นวงรอบใหม่
+<A NAME="25444"></A>
+
+<P>
+</LI>
+<LI><B>ขั้นตอน Instruction Decode และ Register Fetch </B>
+<A NAME="25446"></A><A NAME="25447"></A>
+
+<P>
+การงานทุกคำสั่งจำเป็นต้องทำ Instruction Fetch ซึ่งการทำงานในขั้นตอนต่างเป็นการทำงานที่จำเป็นสำหรับขั้นตอนนั้นๆ อย่างไรก็ตามการทำงานบางอย่างไม่เป็นผลเสียหรือส่งผลกระทบต่อการทำงานของวงรอบต่อไป เช่น การอ่านค่ารีจีสเตอร์ rs และ rt ซึ่งสามารถอ่านค่าโดยที่ว่าจำเป็นต้องใช้หรือไม่ โดยที่เมื่ออ่านค่าได้แล้วจะเป็บไว้ในรีจีสเตอร์ A และ B
+
+<P>
+ในวงรอบนี้เราสามารถคำนวณ Branch Target Address โดย ALU ซึ่งเราสามารถใช้งานในกรณีที่เป็นคำสั่ง Branch ในกรณีที่เป็นคำสั่งอื่นเราจะไม่สนใจค่าที่คำนวณได้ โดยที่ค่าที่ได้จะเก็บไว้ใน ALUOut <A NAME="25544"></A>
+
+<P>
+การประมวลผลต่างๆ ดังกล่าวขั้นต้น ที่ไม่ส่งผลเสียในการทำงาน มีรายละเอียดดังนี้
+
+<P>
+<PRE>
+    A &lt;= Reg[IR[25:31]];
+    B &lt;= Reg[IR[20:16]];
+    ALUOut &lt;= PC + (sign-extend (IR[15-0]) &lt;&lt; 2);
+</PRE>
+
+<P>
+โดยทำการอ่านค่ารีจีสเตอร์ rs และ rt จาก Register File และเก็บค่าที่ได้ไว้ในรีจีสเตอร์ A และ B โดยที่ค่าในรีจีสเตอร์ A และ B จะถูกเขียนทุกวงรอบ ในขั้นตอนนี้จะทำการคำนวณ ALUOut ด้วยและจะถูกใช้งานในวงรอบต่อไปในกรณีที่เป็นคำสั่ง Branch โดยตั้งค่า ALUSrcA เป็น 0, ALUSrcB เป็น 11, และค่า ALUOp เป็น 00  
+
+<P>
+</LI>
+<LI><B>ขั้นตอน Execution, Memory Address Computation, หรือ Branch Completion</B>
+<A NAME="25605"></A>
+
+<P>
+ในขั้นตอนนี้เป็นขั้นตอนแรกที่แต่ละคำสั่งทำงานต่างกัน ซึ่งขั้นอยู่กับว่าเป็นคำสั้งประเภทใดในการทำงาน โดยเราแบ่งคำสั่งออกเป็นชุดต่างๆ
+
+<P>
+<I>Memory Reference:</I>
+
+<P>
+<PRE>
+    ALUOut &lt;= A + sign-extend (IR[15:0]);
+</PRE>
+
+<P>
+ALU ทำการบวกค่าที่ได้เพื่อคำนวณค่าแอดเดรสของหน่วยความจำ โดยตั้งค่า ALUSrcA เป็น 1 และ ALUSrcB เป็น 10 อีกทั้งค่า ALUOp เป็น 00 สำหรับการบวก
+
+<P>
+<I>Arithmetic-logical Instruction (R-Type):</I>
+
+<P>
+<PRE>
+    ALUOut &lt;= A op B;
+</PRE>
+
+<P>
+สำหรับในคำสั่งกลุ่มนี้ ALU ทำการคำนวณผลตาม function code ที่ระบุในคำสั่ง โดยใช้ค่าที่อ่านได้จากรีจีสเตอร์ในวงรอบก่อนหน้า ซึ่งการทำงานดังกล่าวทำโดยการตั้งค่า ALUSrcA เป็น 1 และ ALUSrcB เป็น 00 อีกทั้งค่า ALUOp เป็น 10 
+
+<P>
+<I>Branch:</I>
+
+<P>
+<PRE>
+    if (A == B) PC &lt;= ALUOut;
+</PRE>
+
+<P>
+ในกรณีนี้ ALU จะถูกใช้สำหรับทำการเปรียบเทียบรีจีสเตอร์สองตัวที่อ่านได้ว่าเท่ากันหรือไม่ สัญญาณ Zero เป็นตัวบอกว่าจะทำ Branch หรือไม่ มีการตั้งค่า ALUSrcA เป็น 1 และ ALUSrcB เป็น 00 อีกทั้งค่า ALUOp เป็น 01 สำหรับทดสอบเท่ากัน และตั้งค่าสัญญาณ PCWriteCond สำหรับเปลี่ยนค่า PC ในกรณี มีการให้สัญญาณ Zero ค่า PCSource จะมีค่าเท่ากับ 01 เพื่อเขียนค่า ALUOut ลงไปใน PC จะเป็นได้ว่ามีการเขียน PC ในสองขั้นตอนได้แก่การเขียนจาก PC หลังทำการบวก 4 และหลังการคำนวณค่าที่ได้ใหม่จากการทำ Branch
+
+<P>
+<I>jump:</I>
+
+<P>
+<PRE>
+    bit fields x and y
+    PC &lt;= {PC[31:28], (IR[25:0]], 2'b00)};
+</PRE>
+
+<P>
+ค่าใน PC จะถูกแทนที่ด้วยแอดเดรสในการ Jump ทำการตั้งค่า PCSource ให้เขียน Jump Address ลงใน PC โดยตรง และตั้งค่า PCWrite
+
+<P>
+</LI>
+<LI><B>ขั้นตอน Memory Access หรือ R-Type Instruction Completion Step:</B>
+
+<P>
+ในขั้นตอนนี้ คำสั่ง load หรือ store จะเข้าในงานหน่วยความจำ  ส่วนของคำสั่ง R-Type จำทำการเขียนผลที่คำนวณได้กลับเข้าไปใน Register File เมื่อเกิดการอ่านค่าจากหน่วยความจำผลที่ได้จะถูกเก็บไว้ใน Memory Data Register (MDR) สำหรับการใช้งานในวงรอบต่อไป
+
+<P>
+<I>Memory Reference:</I>
+
+<P>
+<PRE>
+    ADR &lt;= Memory [ALUOut];
+</PRE>
+
+<P>
+หรือ
+
+<P>
+<PRE>
+    Memory [ALUOut] &lt;= B;
+</PRE>
+
+<P>
+ในคำสั่ง load ข้อมูลที่อ่านได้หนึ่ง Word จากหน่วยความจำจะถูกเขียนลงใน MDR ส่วนคำสั่ง Store ข้อมูลจะถูกเขียนลงในหน่วยความจำ โดยทั้งสองกรณีจะใช้ค่าแอดเดรสจากการคำนวณในรอบที่แล้วที่อยู่ใน ALUOut สำหรับคำสั่ง Store ข้อมูลที่ถูกจัดเก็บอยู่ในรีจีสเตอร์ B สายสัญญาณ MemRead หรือ MemWrite จะถูกตั้งค่าตามความเหมาะสม
+
+<P>
+<I>Arithmetic-logical Instruction (R-Type):</I>
+
+<P>
+<PRE>
+    Reg[IR[15:11]] &lt;= ALUOut;
+</PRE>
+
+<P>
+จากค่า ALUOut ที่ทำการคำนวณได้จาก ALU ตาม function code ในคำสั่งจากวงรอบห่อนหน้า จะถูกนำมาเขียนลง Register File โดยตั้งค่า RegDst ให้เป็น 1 เพื่อให้ค่า IR[15:11] ถูกนำมาเลือกค่า Write Register ค่า RegWrite จะต้องถูกตั้งค่า และ MemtoReg มีค่าเป็น 0 ในการทำงาน
+
+<P>
+</LI>
+<LI><B>ขั้นตอน Memory Read Completion</B>
+
+<P>
+ในขั้นตอนนี้เป็นการเขียนค่าที่ได้จากการอ่านค่าจากหน่วยความจำลงใน Register File
+
+<P>
+<I>load:</I>
+
+<P>
+<PRE>
+    Reg[IR[20:16] &lt;= MDR;
+</PRE>
+
+<P>
+ในการเขียนค่าที่อ่านได้จากหน่วยความจำที่อยู่ใน MDR จากวงรอบก่อนหน้า ทำโดยการตั้งค่า MemtoReg เป็น 1 และตั้งค่า RegWrite อีกทั้งค่า RegDst = 0 เพื่อเลือก rt (IR[20:16]) เป็นรีจีสเตอร์ที่ทำการเขียน 
+
+<P>
+</LI>
+</OL>
+<P>
+<I>การออกแบบชุดควบคุมสามารถออกแบบโดยใช้ Finite State Machine หรือ Microprogramming ซึ่งสามารถนำไปสร้างบน ROM, PLA หรือ ใช้โปรแกรม CAD ในการออกแบบ
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2117"
+  HREF="node110.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2111"
+  HREF="node108.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2105"
+  HREF="node108.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2113"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2115"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2118"
+  HREF="node110.html">ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<B> Up:</B> <A NAME="tex2html2112"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Previous:</B> <A NAME="tex2html2106"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+ &nbsp; <B>  <A NAME="tex2html2114"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2116"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

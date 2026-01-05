@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเรียกฟังก์ชั่นในฮาร์ดแวร์</TITLE>
+<META NAME="description" CONTENT="การเรียกฟังก์ชั่นในฮาร์ดแวร์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html912"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html906"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html900"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html908"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html910"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html913"
+  HREF="node30.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+<B> Up:</B> <A NAME="tex2html907"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html901"
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
+ &nbsp; <B>  <A NAME="tex2html909"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html911"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00470000000000000000">
+การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+</H1>
+<P>
+<I>ฟังก์ชั่น หรือ Procedure เป็นเครื่องมือที่สำคัญในการเขียนโปรแกรมที่มีลักษณะเป็นโครงสร้าง  ซึ่งมีส่วนช่วยเป็นอย่างมากที่จะทำให้โปรแกรมสามารถเข้าใจได้ง่ายขึ้น และมีส่วนทำให้สามารถนำส่วนของโปรแกรมกลับมาใช้งานได้ใหม่  ผู้เขียนโปรแกรมสามารถทำงานกับการเขียนฟังก์ชั่น ซึ่งเป็นส่วนแยกออกมาจากโปรแกรมหลัก และมีการส่งผ่านพารามิเตอร์ต่างๆ ระหว่างฟังก์ชั่น และโปรแกรมหลัก รวมถึงข้อมูลต่างๆ  ในการทำงานของฟังก์ชั่น โปรแกรมจะทำตามขั้นตอน 6 ขั้นตอน ดังต่อไปนี้
+<A NAME="10864"></A>
+<A NAME="9138"></A>
+</I>
+<P>
+<OL>
+<LI>เก็บค่าพารามิเตอร์ ต่างๆ ที่ฟังก์ชั่นต้องการใช้งาน ไว้ในที่ที่ฟังก์ชั่นสามารถเรียกใช้ได้
+</LI>
+<LI>ส่งผ่านการควบคุมให้ฟังก์ชั่น
+</LI>
+<LI>ให้ได้มาซึ่งทรัพยากรหน่วยความจำ ที่ฟังก์ชั่นต้องการใช้งาน
+</LI>
+<LI>ทำการประมวลผลตามที่กำหนด
+</LI>
+<LI>เก็บผลลัพธ์ของการประมวลผลในตำแหน่งที่โปรแกรมสามารถเรียกใช้งานได้
+</LI>
+<LI>คืนการควบคุมให้โปรแกรม จากตำแหน่งที่เริ่มเรียกใช้งานฟังก์ชั่น
+</LI>
+</OL>
+<P>
+<I>จากที่กล่าวขั้นต้น คอมพิวเตอร์ MIPS จึงมีการแบ่งรีจีสเตอร์ออกเป็นกลุ่มๆ เพื่อการเรียกฟังก์ชั่นดังต่อไปนี้
+</I>
+<P>
+<UL>
+<LI>$a0-$a3: ค่ารีจีสเตอร์ สำหรับส่งผ่านอาร์กูเมนต์ (Argument: ค่าตัวแปรที่ส่งผ่านฟังก์ชั่น) จำนวน 4 รีจีสเตอร์
+</LI>
+<LI>$v0-$v1: ค่ารีจีสเตอร์สำหรับเก็บค่าผลลัพธ์ ในการส่งคืนให้โปรแกรม จำนวน 2 ตัว
+</LI>
+<LI>$ra: ค่ารีจีสเตอร์ สำหรับเก็บ Return Address ที่ทำการเรียก
+</LI>
+</UL>
+<P>
+<I>ในชุดคำสั่ง MIPS มีคำสั่งเฉพาะสำหรับการเรียกฟังก์ชั่นได้แก่ jump-and-link (jal) ที่ทำการ jump ไปยังแอดเดรสของฟังก์ชั่นที่ถูกเรียก พร้อมทั้งเก็บค่าแอดเดรสของคำสั่งถัดไปไว้ใน $ra
+</I>
+<P>
+<I><A NAME="9276"></A>
+<A NAME="9277"></A>
+</I><PRE>
+jal ProcedureAddress
+</PRE>
+<P>
+<I>ในส่วนของ link เป็นการเก็บค่า return address ไว้ใน $ra 
+</I>
+<P>
+<I>การทำงานของคอมพิวเตอร์แบบ Store Program นั้นจะมีรีจีสเตอร์ที่เก็บตำแหน่งของคำสั่งที่กำลังถูกประมวลผลอยู่ รีจีสเตอร์นั้นมักมีชื่อเรียกว่า Program Counter หรือเรียกย่อว่า PC <A NAME="9314"></A> ในคอมพิวเตอร์ MIPS เรียกรีจีสเตอร์ตัวนี้ว่า <EM>Instruction Address Register</EM> คำสั่ง jal จะทำการเก็บค่า PC + 4 ไว้ในรีจีสเตอร์ $ra เพื่อการกลับมายังจุดเริ่มต้นหลังจากที่ทำงานในฟังก์ชั่นนั้นๆ เสร็จสิ้น
+</I>
+<P>
+<I>เพื่อรองรับการส่งผ่านการควบคุมของโปรแกรมกลับคืน สู่จุดเริ่มต้น ชุดคำสั่งของ MIPS มีคำสั่ง jump register (jr) สำหรับ jump ไปที่รีจีสเตอร์ที่กำหนด จากคำสั่ง
+</I>
+<P>
+<I><A NAME="9358"></A>
+</I><PRE>
+jr $ra
+</PRE>
+<P>
+<I>เป็นการ jump กลับมาที่โปรแกรมที่เป็นตัวเรียกฟังก์ชั่น หรือเรียกว่า caller ฟังก์ชั่นที่ถูกเรียกมีชื่อว่า callee ดังนั้นเมื่อทำการเรียกฟังก์ชั่น caller จะทำการเก็บค่าพารามิเตอร์ต่างๆ ที่ต้องการส่งผ่านลงในรีจีสเตอร์ $a0-$a3 และใช้คำสั่ง jal X ไปยังฟังก์ชั่น X ที่ต้องการเรียก เมื่อ callee ทำการประมวลผลจนเสร็จสิ้น callee จะเก็บค่าผลลัพธ์ไว้ใน $v0-$v1 และส่งคืนการควบคุมไปยังโปรแกรม caller โดยใช้คำสั่ง jr $ra
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html914"
+  HREF="node30.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+<LI><A NAME="tex2html915"
+  HREF="node31.html">การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น</A>
+<LI><A NAME="tex2html916"
+  HREF="node32.html">ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+<LI><A NAME="tex2html917"
+  HREF="node33.html">การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</A>
+<LI><A NAME="tex2html918"
+  HREF="node34.html">การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</A>
+<LI><A NAME="tex2html919"
+  HREF="node35.html">การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html912"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html906"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html900"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html908"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html910"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html913"
+  HREF="node30.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+<B> Up:</B> <A NAME="tex2html907"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html901"
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
+ &nbsp; <B>  <A NAME="tex2html909"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html911"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

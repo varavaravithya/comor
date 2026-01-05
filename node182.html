@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Block-Interleaved Parity (RAID 4)</TITLE>
+<META NAME="description" CONTENT="Block-Interleaved Parity (RAID 4)">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node183.html">
+<LINK REL="previous" HREF="node181.html">
+<LINK REL="up" HREF="node177.html">
+<LINK REL="next" HREF="node183.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3244"
+  HREF="node183.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3238"
+  HREF="node177.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3232"
+  HREF="node181.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3240"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3242"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3245"
+  HREF="node183.html">Distributed Block-Interleaved Parity(RAID 5)</A>
+<B> Up:</B> <A NAME="tex2html3239"
+  HREF="node177.html">RAID</A>
+<B> Previous:</B> <A NAME="tex2html3233"
+  HREF="node181.html">Bit-Interleaved Parity (RAID 3)</A>
+ &nbsp; <B>  <A NAME="tex2html3241"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3243"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION001032500000000000000">
+Block-Interleaved Parity (RAID 4)</A>
+</H3>
+<P>
+<I>RAID 4 จะใช้จำนวนหน่วยเก็บข้อมูลเป็นอัตราส่วนเท่ากับที่ใช้ใน RAID 3 แต่การเข้าถึงข้อมูลจะมีความแตกต่างกัน โดยพาริตี้จะถูกเก็บเป็นก้อน (block) แล้วทำการเชื่อมโยงโดยกลุ่มก้อนของข้อมูล
+</I>
+<P>
+<I>ใน RAID 3 ทุกการเข้าถึงข้อมูลไม่ว่าจะเป็นการอ่านหรือเขียนจะมีการทำงานกับทุกหน่วยเก็บข้อมูล ถึงแม้ว่าการเรียกใช้งานจะมีเพียงเล็กน้อยก็ตามทำให้การเข้าถึงข้อมูลแบบอิสระกลายเป็นการกำทำงานแบบขนาน จึงเป็นสาเหตุให้เกิดเป็น RAID ระดับ 4-6 การตรวจสอบข้อมูลในแต่ละเซคเตอร์จะถูกตรวจสอบเมื่อมีการอ่านเพื่อให้แน่ใจว่าข้อมูลที่อ่านมีความถูกต้อง ดังนั้นในการอ่านข้อมูลขนาดเล็กในแต่ละหน่วยเก็บข้อมูลจะเกิดขึ้นอย่างอิสระตราบเท่าที่ยังมีการเข้าถึงข้อมูลแบบเซคเตอร์เดียวอยู่ ในเชิงความหมายของ RAID การเข้าถึงข้อมูลขนาดเล็กจะกระทำเพียงหน่วยเก็บข้อมูลตัวเดียว และเมื่อมีการเข้าถึงข้อมูลขนาดใหญ่จึงค่อยกระทำกับหน่วยเก็บข้อมูลเป็นกลุ่มแทน
+</I>
+<P>
+<I>ส่วนการเขียนข้อมูลจะมีการทำงานที่ต่างไป โดยการเขียนข้อมูลขนาดเล็กแต่ละครั้งจะต้องทำการอ่านข้อมูลที่เหลือเพื่อใช้ในการสร้างพาริตี้ใหม่ด้วย 
+การเขียนข้อมูลขนาดเล็กจะต้องการข้อมูลเก่าและพาริตี้ตัวเก่าเพื่อทำการบันทึกข้อมูลใหม่ จากนั้นจะทำการเขียนข้อมูลพาริตี้ตัวใหม่ลงไปในหน่วยเก็บข้อมูลที่จัดเก็บข้อมูลพาริตี้ และเขียนข้อมูลใหม่ลงไปในหน่วยเก็บข้อมูล
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

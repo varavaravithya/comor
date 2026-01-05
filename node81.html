@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การวัดประสิทธิภาพ</TITLE>
+<META NAME="description" CONTENT="การวัดประสิทธิภาพ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node82.html">
+<LINK REL="previous" HREF="node80.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node82.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1697"
+  HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1691"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1685"
+  HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1693"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1695"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1698"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Up:</B> <A NAME="tex2html1692"
+  HREF="node70.html">ประสิทธิภาพของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1686"
+  HREF="node80.html">การวัดประสิทธิภาพเชิงเปรียบ</A>
+ &nbsp; <B>  <A NAME="tex2html1694"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1696"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00680000000000000000">
+การวัดประสิทธิภาพ</A>
+</H1>
+<P>
+<I>เวลาในการประมวลผลเป็นตัววัดประสิทธิภาพของคอมพิวเตอร์  คอมพิวเตอร์ที่ทำงานที่กำหนดให้ในเวลาที่สั้นที่สุด ถือว่าเป็นคอมพิวเตอร์ที่เร็วที่สุด  เวลาในการประมวลผลของโปรแกรม (Program Execution Time) วัดเป็น วินาทีต่อโปรแกรม การวัดเวลาสามารถแบ่งได้เป็น เวลานาฬิกา (Wall-Clock Time), เวลาตอบสนอง (Response Time), และเวลาที่ใช้ (Elapsed Time)<A NAME="19127"></A><A NAME="19128"></A><A NAME="19129"></A>
+</I>
+<P>
+<I>คอมพิวเตอร์ในปัจจุบันมักทำงานประมวลผลหลายโปรแกรมพร้อมกัน ในกรณีดังกล่าวเรามักจะทำการปรับปรุงอัตราความสำเร็จของงาน (Throughput) มากกว่าเวลาที่ใช้สำหรับโปรแกรมนั้นๆ เราสามารถแบ่งเวลาของโปรเซสเซอร์ในการคำนวณงานที่ทำการพิจารณาอยู่เรียกว่า CPU Execution Time หรือ CPU Time ซึ่งเป็นเวลาที่โปรเซสเซอร์ใช้ในการประมวลผลงานนั้นๆ และไม่รวมถึงเวลาที่รอการตอบสนองจาก I/O หรือ รอโปรแกรมอื่นๆ  CPU Time สามารถแบ่งย่อยไปอีกเป็น User CPU Time และ System CPU Time โดยที่  System CPU Time เป็นเวลาที่ระบบปฏิบัติการทำงานเพื่อบริการโปรแกรมที่ทำงานวัดประสิทธิภาพ อย่างไรก็ตาม ในปัจจุบันเป็นการยากที่จะแยกระหว่าง User CPU Time และ System CPU Time เนื่องจากระบบปฏิบัติการมีความซับซ้อนสูงขึ้น<A NAME="19228"></A> <A NAME="19229"></A><A NAME="19230"></A>
+</I>
+<P>
+<I>เพื่อความสอดคล้องในการพิจารณาประสิทธิภาพ เราพิจารณาประสิทธิภาพของระบบ (System Performance) ว่าเป็นเวลาที่ใช้ในการคำนวณบนระบบที่ไม่มีภาระงานอื่นนอกเหนือจาก โปรแกรมที่พิจารณา  และ ประสิทธิภาพของตัวประมวลผล (CPU Performance) เป็น CPU Time 
+</I>
+<P>
+<I>บางครั้งเราพิจารณาประสิทธิภาพเป็นเวลาที่คอมพิวเตอร์ที่ทำงานพื้นฐานเสร็จ ต่อวงรอบการทำงานหรือเรียกว่า Clock Cycle โดยมีระยะเวลาระหว่างวงรอบเรียกว่า Clock Period
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

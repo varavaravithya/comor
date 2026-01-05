@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การตรวจจับ Dependence</TITLE>
+<META NAME="description" CONTENT="การตรวจจับ Dependence">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node129.html">
+<LINK REL="up" HREF="node129.html">
+<LINK REL="next" HREF="node131.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2444"
+  HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2438"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2434"
+  HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2440"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2442"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2445"
+  HREF="node131.html">การเกิด Data Hazards และ</A>
+<B> Up:</B> <A NAME="tex2html2439"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+<B> Previous:</B> <A NAME="tex2html2435"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+ &nbsp; <B>  <A NAME="tex2html2441"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2443"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00850100000000000000">
+การตรวจจับ Dependence</A>
+</H3>
+<P>
+<I>จากชุดคำสั่ง
+</I>
+<P><PRE>
+   sub  $2,  $1, $3    # Register $2 written by sub
+   and  $12, $2, $5    # 1st operand ($2) depends on sub
+   or   $13, $6, $2    # 2nd operand ($2) depends on sub
+   add  $14, $2, $2    # 1st ($2) &amp; 2nd($2) depends on sub
+   sw   $15, 100($2)   # Base ($2) depends on sub
+</PRE>
+<P>
+<UL>
+<LI>sub-and เป็นประเภท 1a
+</LI>
+<LI>sub-or เป็นประเภท 1b, EX/MEM.RegisterRd = ID/EX.RegisterRt = $2
+</LI>
+<LI>sub-add ไม่เกิด Hazard เนื่องจากสามารถอ่านและเขียน Register File ในวงรอบเดียวกัน
+</LI>
+<LI>sub-sw ไม่เกิด Hazard เนื่องจากเขียน $2 Register File เรียบร้อยแล้ว
+</LI>
+</UL>
+<P>
+<I>เนื่องจากบางคำสั่งไม่มีการเขียนรีจีสเตอร์ ดังนั้นการตรวจสอบสัญญาณควบคุม RegWrite จะเป็นประโยชน์ประกอบในการตรวจสอบ Dependence โดยทำการ Forward เฉพาะเมื่อมีการตั้งค่า RegWrite 
+</I>
+<P>
+<I>รูป <A HREF="#fig:6.29">6.28</A> แสดง Dependency ระหว่างรีจีสเตอร์ไพพ์ลายน์และอินพุทของ ALU ซึ่งแสดงถึงการได้มาซึ่งผลลัพธ์ของการประมวลผล และป้อนกลับมาให้คำสั่งที่ตามมาโดยไม่เกิดการ Stall ซึ่งจากการตรวจจับ Hazard เราสามารถ Forward ค่ากลับมา โดยเพิ่ม Multiplexer ในตำแหน่งที่เหมาะสม 
+</I>
+<P>
+<I>ในรีจีสเตอร์ ID/EX  จะมีหมายเลข rt และ rs สำหรับตรวจจับ Hazard รูป  <A HREF="#fig:6.30">6.29</A> แสดงเส้นทางข้อมูลที่ไม่มีการ Forward และ มีการ Forward (ส่วนล่าง)
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.29"></A><A NAME="31385"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.28:</STRONG>
+Dependency ระหว่างรีจีสเตอร์ไพพ์ลายน์และอินพุทของ ALU</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="559" ALIGN="BOTTOM" BORDER="0"
+ SRC="img361.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.29.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.30"></A><A NAME="31386"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.29:</STRONG>
+เส้นทางข้อมูลที่ไม่มีการ Forward และ มีการ Forward (ส่วนล่าง)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="967" ALIGN="BOTTOM" BORDER="0"
+ SRC="img362.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.30.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>การตรวจจับ Hazard และการตั้งค่าสัญญาณที่จะแก้ไข Hazard มีรายละเอียดดังนี้ 
+</I>
+<P>
+<OL>
+<LI>EX hazard:
+
+<P>
+<PRE>
+   if  (EX/MEM.RegWrite
+   and (EX/MEM.RegisterRd != 0)
+   and (EX/MEM.RegisterRd = ID/EX.RegisterRs)) ForwardA =10
+
+   if  (EX/MEM.RegWrite
+   and (EX/MEM.RegisterRd != 0)
+   and (EX/MEM.RegisterRd = ID/EX.RegisterRt)) ForwardB =10
+</PRE>
+
+<P>
+เป็นการ Forward ค่าจากคำสั่งก่อนหน้า ไปยังอินพุทของ ALU
+
+<P>
+</LI>
+<LI>MEM Hazard:
+
+<P>
+<PRE>
+   if  (MEM/WB.RegWrite
+   and (MEM/WB.RegisterRd != 0)
+   and (MEM/WB.RegisterRd = ID/EX.RegisterRs)) ForwardA =01
+
+   if  (MEM/WB.RegWrite
+   and (MEM/WB.RegisterRd != 0)
+   and (MEM/WB.RegisterRd = ID/EX.RegisterRt)) ForwardB =01
+</PRE>
+</LI>
+</OL>
+<P>
+<I>ในกรณีที่มีชุดของคำสั่งที่อ่านและเขียนรีจีสเตอร์ตัวเดียวกันติดต่อกันเช่น
+</I>
+<P><PRE>
+  add $1, $1, $2
+  add $1, $1, $3
+  add $1, $1, $4
+  ...
+</PRE>
+<P>
+<I>การ Forward ของ MEM Hazard จะเป็น
+</I>
+<P><PRE>
+   if  (MEM/WB.RegWrite
+   and (MEM/WB.RegisterRd != 0)
+   and (EX/MEM.RegisterRd != and (ID/EX.RegisterRs)
+   and (MEM/WB.RegisterRd = ID/EX.RegisterRs)) ForwardA =01
+
+   if  (MEM/WB.RegWrite
+   and (MEM/WB.RegisterRd != 0)
+   and (EX/MEM.RegisterRd != and (ID/EX.RegisterRt)
+   and (MEM/WB.RegisterRd = ID/EX.RegisterRt)) ForwardB =01
+</PRE>
+<P>
+<I>รูป <A HREF="#fig:6.32">6.30</A> แสดงฮาร์ดแวร์ที่รองรับการ Forwarding สำหรับเส้นทางข้อมูลแบบไพพ์ลายน์
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.32"></A><A NAME="31387"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.30:</STRONG>
+ฮาร์ดแวร์ที่รองรับการ Forwarding สำหรับเส้นทางข้อมูลแบบไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="419" ALIGN="BOTTOM" BORDER="0"
+ SRC="img363.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.32.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:6.33">6.31</A> แสดงฮาร์ดแวร์ที่เพิ่มเติมสำหรับการตัดสินใจเลือก รีจีสเตอร์และค่า Immediate เพื่อจะเลือกระหว่างค่า Immediate และ ForwardB
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.33"></A><A NAME="31388"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.31:</STRONG>
+ฮาร์ดแวร์ที่เพิ่มเติมสำหรับการตัดสินใจเลือก รีจีสเตอร์และค่า Immediate เพื่อจะเลือกระหว่างค่า Immediate และ ForwardB</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="480" ALIGN="BOTTOM" BORDER="0"
+ SRC="img364.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.33.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2444"
+  HREF="node131.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2438"
+  HREF="node129.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2434"
+  HREF="node129.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2440"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2442"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2445"
+  HREF="node131.html">การเกิด Data Hazards และ</A>
+<B> Up:</B> <A NAME="tex2html2439"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+<B> Previous:</B> <A NAME="tex2html2435"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+ &nbsp; <B>  <A NAME="tex2html2441"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2443"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

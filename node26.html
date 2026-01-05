@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</TITLE>
+<META NAME="description" CONTENT="การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html872"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html866"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html860"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html868"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html870"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html873"
+  HREF="node27.html">การทำลูป (Loops)</A>
+<B> Up:</B> <A NAME="tex2html867"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<B> Previous:</B> <A NAME="tex2html861"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+ &nbsp; <B>  <A NAME="tex2html869"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html871"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00461100000000000000">
+การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</A>
+</H3>
+<P>
+<I>ตัวแปรห้าตัวประกอบด้วย f, g, h, i, และ j เก็บไว้ในรีจีสเตอร์ $s0 ถึง $s4 
+จงแปลงชุดคำสั่งต่อไปนี้ให้เป็นภาษาแอสแซมบลีของ MIPS
+</I>
+<P><PRE>
+if ( i == j ) f = g + h; else f = g - h;
+</PRE>
+<P>
+<I>รูป <A HREF="#fig:conditionalB">2.5</A> แสดงการทำงานของโปรแกรม ซึ่งประหนึ่งว่าการเขียนคำสั่งควรเริ่มจาก beq อย่างไรก็ตามการเขียนคำสั่งจะสามารถทำได้อย่างมีประสิทธิภาพมากกว่าโดยการเลือกคำสั่งทดสอบที่ทำงานตรงข้ามกัน เพื่อให้ชุดคำสั่งที่ตามมาเป็นชุดในคำสั่งในส่วนที่อยู่ใน then ของ if
+<A NAME="8586"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:conditionalB"></A><A NAME="10860"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.5:</STRONG>
+การทำงานของ Conditional Branch if-then-else กล่องทางซ้ายแสดงการทำงานในส่วนของ then ส่วนกล่องทางขวาแสดงการทำงานในส่วนของ else.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="482" HEIGHT="294" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.png"
+ ALT="\includegraphics[width=4.2in]{fig/Chapter_2/Figure_2.11.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P><PRE>
+bne $s3, $s4, Else # go to Else if i != j
+</PRE>
+<P>
+<I>คำสั่งต่อมาเป็นคำสั่งเพื่อทำการบวกได้แก่
+</I>
+<P><PRE>
+add $s0, $s1, $s2 # f = g + h (skipped if i != j)
+</PRE>
+<P>
+<I>หลังจากการบวกเราต้องออกจากชุดคำสั่ง if โดยการเรียกคำสั่ง j ซึ่งเป็นคำสั่ง unconditional branch 
+ที่เป็นการกำหนดการควบคุมไปสู่อีกตำแหน่งหนึ่งโดยไม่มีเงื่อนไข
+<A NAME="8649"></A>
+<A NAME="8650"></A>
+</I>
+<P><PRE>
+j Exit # go to Exit
+</PRE>
+<P>
+<I>ในส่วนของ else เราสามารถใช้หนึ่งคำสั่งและทำเครื่องหมายว่าเป็นจุดของการเริ่มชุดคำสั่งในส่วนของ Else เราจะได้
+</I>
+<P><PRE>
+Else: sub $s0, $s1, $s2 # f = g - h (skipped if i = j)
+Exit:
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

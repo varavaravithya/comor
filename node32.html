@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</TITLE>
+<META NAME="description" CONTENT="ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node29.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html960"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html954"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html948"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html956"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html958"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html961"
+  HREF="node33.html">การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</A>
+<B> Up:</B> <A NAME="tex2html955"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html949"
+  HREF="node31.html">การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น</A>
+ &nbsp; <B>  <A NAME="tex2html957"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html959"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00470300000000000000">
+ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+</H3>
+<P>
+<I>ฟังก์ชั่นหรือ Procedure ที่ไม่มีการเรียกฟังก์ชั่นอื่นเรียกว่า <EM>leaf procedure</EM><A NAME="9898"></A> ถ้าเป็นฟังก์ชั่นที่เรียกฟังก์ชั่นอื่นเรียกว่า <EM>nested procedure</EM> ในบางครั้งมีการออกแบบให้ฟังก์ชั่นมีการเรียกตัวเองที่เรียกว่า <EM>recursive procedure</EM> ที่ทำการโคลนตัวเองออกมา ดังนั้นเราจำเป็นต้องมีความระมัดระวังในการใช้งานรีจีสเตอร์เมื่อมีการเรียกฟังก์ชั่นเหล่านี้
+</I>
+<P>
+<I>ตัวอย่างเช่น ถ้าโปรแกรมหลักเรียกฟังก์ชั่น A ที่มีอาร์กูเมนต์ที่มีค่าเท่ากับ 3  โดยการเก็บค่า 3 ไว้ในรีจีสเตอร์ $a0 จากนั้นใช้คำสั่ง jal A ไปยังฟังก์ชั่น A ถ้าฟังก์ชั่น A เรียกฟังก์ชั่น B ต่อมาโดยคำสั่ง jal B ที่มีอาร์กูเมนต์ที่มีค่าเท่ากับ 7 ซึ่งก็จะถูกเก็บค่าไว้ใน $a0 เช่นกัน จากกรณีดังกล่าว การทำงานของฟังก์ชั่น A ยังไม่เสร็จสิ้น ซึ่งเกิดความขัดแย้งในการใช้งานรีจีสเตอร์ $a0 ด้วยกัน เช่นเดียวกับการใช้งานรีจีสเตอร์ $ra ในการเก็บค่า return address ของฟังก์ชั่น B ในการนี้จึงจำเป็นต้องมีวิธีการจัดการกับการใช้งานรีจีสเตอร์ดังกล่าว
+</I>
+<P>
+<I>วิธีการหนึ่งของการแก้ไขปัญหาดังกล่าว คือการเก็บค่ารีจีสเตอร์ที่ต้องรักษาค่าไว้ทั้งหมดลงในสแตก เช่นเดียวกับการเก็บค่ารีจีสเตอร์ $s caller จะทำการ push ค่าอาร์กูเมนต์รีจีสเตอร์ ($a0 - $a3) หรือ รีจีสเตอร์ชั่วคราว ($t0 - $t9)ใดๆ ที่ต้องการใช้งานหลังการเรียกฟังก์ชั่นอื่นลงไปยังสแตก  จากนั้น callee จะมีหน้าที่ในการ push ค่า $ra และ ค่า ($s0 - $s7) ใดๆ ที่ถูกใช้งานโดย callee ลงในสแตก โดยที่ stack pointer $sp จะถูกปรับตามการใช้งาน และรีจีสเตอร์ต่างๆ จะมีการคืนค่าตามที่ตั้งไว้ก่อนหน้า
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>กล่าวนำ</TITLE>
+<META NAME="description" CONTENT="กล่าวนำ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node150.html">
+<LINK REL="previous" HREF="node148.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node150.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2735"
+  HREF="node150.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2729"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2723"
+  HREF="node148.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2731"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2733"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2736"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Up:</B> <A NAME="tex2html2730"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2724"
+  HREF="node148.html">เป้าประสงค์</A>
+ &nbsp; <B>  <A NAME="tex2html2732"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2734"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00920000000000000000">
+กล่าวนำ</A>
+</H1>
+<P>
+<I>ในการพัฒนาโปรแกรมจากแรกเริ่ม นักเขียนโปรแกรมคาดหวังระบบคอมพิวเตอร์ที่มีหน่วยความจำความเร็วสูงที่มีขนาดใหญ่มากๆ ในบทนี้เราจะกล่าวถึงวิธีการที่จะสร้างระบบหน่วยความจำที่ทำงานได้ประหนึ่งว่ามีหน่วยความจำขนาดใหญ่ไม่จำกัด 
+</I>
+<P>
+<I>ถ้าเปรียบเทียบระบบหน่วยความจำ กับการอ่านหนังสือในห้องสมุด  ตัวอักษรผ่านสายตาและสะกดเป็นคำในสมองของผู้อ่าน นั้นเปรียบเหมือนนำข้อมูลเข้ารีจีสเตอร์ของสมองที่อยู่ตรงหน้าผาก (ตามแต่ท่านใดจะสมมุติว่าจิตอยู่ที่ใด) จากการอ่านหนังสือก็ทำการอ่านหน้าต่อหน้า เมื่อหมดหน้าก็ทำการพลิกหน้าใหม่  การอ่านระหว่างอักษรย่อมเร็วกว่าการอ่านระหว่างบรรทัด และเร็วกว่าการอ่านระหว่างหน้า เราสามารถอ่านสลับไปมาระหว่างหน้า บรรทัด และตัวอักษรได้ตามความต้องการ  ถ้าต้องการข้อมูลอื่นสามารถทำการเปลี่ยนเล่มหนังสือที่อยู่บนโต็ะเป็นลำดับต่อไป จากตัวอักษร คำ บรรทัด หน้า เล่ม และเล่มต่างๆ ที่อยู่บนโต็ะ ผู้อ่านสามารถค้นเพิ่มเติมได้บนชั้นหนังสือในลำดับต่อไป ซึ่งในแต่ละลำดับชั้นใช้เวลาเพิ่มขึ้นเรื่อยๆ การที่สามารถมีหนังสือหลายเล่มบนโต็ะ เราสามารถลดเวลาในการเดินไปยังชั้นหนังสือได้
+</I>
+<P>
+<I>ในระบบหน่วยความจะก็ใช้วิธีคล้ายกันที่โปรเซสเซอร์สามารถเข้าใช้งานหน่วยความจำขนาดเล็กที่มีความเร็วสูง ได้ แต่เราไม่จำเป็นต้องสามารถเข้าถึงหน่วยความจำทั้งหมดได้เท่ากันด้วยความน่าจะเป็นที่เท่ากัน  ซึ่งนำมาสู่สิ่งที่เรียกว่า Principle of Locality ซึ่งสามารถแบ่งออกได้เป็นสองระดับได้แก่ 
+<A NAME="32390"></A>
+</I>
+<P>
+<UL>
+<LI>Temporal Locality: เมื่อข้อมูลในหน่วยความจำถูกอ้างถึง ข้อมูลนั้นมีแนวโน้มจะถูกอ้างถึงอีกในเวลาอันใกล้
+</LI>
+<LI>Spatial Locality: เมื่อข้อมูลในหน่วยความจำถูกอ้างถึง ข้อมูลที่อยู่ใกล้เคียงกับข้อมูลที่พึ่งถูกอ้างอิงมีแนวโน้มจะถูกอ้างถึงอีกในเวลาอันใกล้ เช่น เมื่อคำสั่งหนึ่งถูก Fetch คำสั่งที่อยู่ต่อไปมีแนวโน้มว่าจะถูกเรียกใช้งานเป็นคำสั่งต่อไป
+</LI>
+</UL><I>
+<A NAME="32453"></A>
+<A NAME="32454"></A>
+</I>
+<P>
+<I>การเกิดขึ้นของ Locality เป็นสิ่งที่เกิดขึ้นตามธรรมชาติของการเขียนโปรแกรม เช่นการทำ Loop ที่คำสั่งเดิมหรือข้อมูลเดิมจะถูกนำมาใช้ครั้งแล้วครั้งเล่า ที่แสดงถึงการเกิดขึ้นของ Temporal Locality และโปรแกรมทีทำงานตามลำดับ มัลักษณะที่เป็น Spatial Locality หรือ Array ที่ถูกประมวลผลตามระเบียบวิธีก็มีลักษณะที่เป็น Spatial Locality
+</I>
+<P>
+<I>จาก Principle of Locality ผู้ออกแบบคอมพิวเตอร์ได้จัดระบบหน่วยความจำให้เป็นลำดับชั้น หรือเรียกว่า Memory Hierarchy ที่หน่วยความจำประกอบด้วยหลายลำดับชั้นที่มีความแตกต่างกันทั้งขนาดและความเร็วในการใช้งานข้อมูล  หน่วยความจำที่มีความเร็วสูง มักมีราคาแพงกว่าหน่วยความจำที่ช้ากว่า ดังนั้นหน่วยความจำที่มีความเร็วสูงจึงมีขนาดเล็กกว่า
+</I>
+<P>
+<I>ในปัจจุบันมีเทคโนโลยีหน่วยความจำที่ใช้งานอย่างแพร่หลายสามลักษณะได้แก่ SRAM, DRAM,  และ Magnetic Disk เทคโนโลยีที่ใช้ในหน่วยความจำหลักเป็น DRAM  (Dynamic Random Access Memory) <A NAME="32575"></A> <A NAME="32576"></A> <A NAME="32577"></A>  และหน่วยความจำที่อยู่ใกล้กับโปรเซสเซอร์อีกระดับหนึ่ง เป็นแบบ SRAM (Static Random Access Memory) ราคาต่อบิตของ DRAM นั้น ต่ำกว่า SRAM มาก เนื่องจาก DRAM มีความซับซ้อนของวงจรน้อยกว่า และสามารถบรรจุหน่วยความจำที่มีความหนาแน่นเป็นจำนวนมาก ลงไปในพื้นที่ซิลิกอน  ในลำดับต่อมาเป็นการเก็บในระดับ Magnetic Disk ที่ช้าที่สุด
+<BR></I>
+<P>
+<I>ในตารางข้างล่างแสดงค่าที่แตกต่างเชิงประสิทธิภาพ และราคาต่อ GB ในในปี 2547
+<BR></I>
+<P><TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER"><I>
+Memory Technology </I></TD>
+<TD ALIGN="CENTER"><I> Typical Access Time </I></TD>
+<TD ALIGN="CENTER"><I> $ per GB in 2004</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+SRAM </I></TD>
+<TD ALIGN="CENTER"><I> 0.5-5 ns </I></TD>
+<TD ALIGN="CENTER"><I> $4,000-$10,000</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+DRAM </I></TD>
+<TD ALIGN="CENTER"><I> 50-70 ns </I></TD>
+<TD ALIGN="CENTER"><I> $100= $200</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+Magnetic Disk </I></TD>
+<TD ALIGN="CENTER"><I> 5,000,000-20,000,000 ns </I></TD>
+<TD ALIGN="CENTER"><I> $0.50-$2</I></TD>
+</TR>
+<TR><TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE><I>
+<BR></I>
+<P>
+<I>เนื่องจากความแตกต่างระหว่างความเร็ว และราคาของหน่วยความจำแบบต่าง การออกแบบหน่วยความจำ จึงมักออกแบบเป็นลำดับชั้น ดังแสดงในรูป <A HREF="#fig:7.1">7.1</A> ที่ซึ่งหน่วยความจำที่มีความเร็วสูงอยู่ใกล้โปรเซสเซอร์ และลดหลั่นลงมาโดยใช้หน่วยความจำที่ถูกลงและมีขนาดใหญ่ในระดับล่าง  
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.1"></A><A NAME="34975"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.1:</STRONG>
+โครงสร้างของหน่วยความจำแบบลำดับชั้น</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="688" HEIGHT="407" ALIGN="BOTTOM" BORDER="0"
+ SRC="img387.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_7/Figure_7.1.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ระบบคอมพิวเตอร์มีการจัดการในลักษณะเป็นลำดับขั้น  โดยที่หน่วยความจำที่อยู่ใกล้โปรเซสเซอร์มากกว่าจะเป็น Subset ของหน่วยความจำในระดับต่อมา  และข้อมูลทั้งหมดเก็บไว้ในหน่วยความจำล่างสุด  ถ้าเราทำการใช้งานหน่วยความจำที่อยู่ห่างจากโปรเซสเซอร์ จะใช้เวลามากกว่าในการเข้าถึงหน่วยความจำ  
+</I>
+<P>
+<I>ระบบหน่วยความจำมีหลายลำดับชั้น  และข้อมูลที่ทำการคัดลอกส่งผ่านระหว่างลำดับชั้นที่ติดกัน ณ. เวลาใดๆ เมื่อส่งผ่านขึ้นหนึ่งระดับ เข้าใกล้โปรเซสเซอร์ จะเข้าถึงหน่วยความจำที่มีขนาดเล็กลงและมีความเร็วสูงขึ้น  รูป <A HREF="#fig:7.2">7.2</A> แสดงชุดของหน่วยความจำขนาดเล็กที่สุด ที่สามารถแสดง/หรือไม่ได้แสดงในระดับของหน่วยความจำสองลำดับชั้นใดๆ ซึ่งเรียกว่า Block <A NAME="32815"></A>  หรือ Line <A NAME="32816"></A> 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.2"></A><A NAME="34976"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.2:</STRONG>
+ชุดของหน่วยความจำขนาดเล็กที่สุด ที่สามารถแสดง/หรือไม่ได้แสดงในระดับของหน่วยความจำสองลำดับชั้นใดๆ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="308" HEIGHT="346" ALIGN="BOTTOM" BORDER="0"
+ SRC="img388.png"
+ ALT="\includegraphics[width=2.7in]{fig/Chapter_7/Figure_7.2.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>เมื่อข้อมูลได้ถูกสืบพบบนหน่วยความจำใรลำดับบน จะเรียกว่า ``Hit'' <A NAME="32851"></A> ถ้าข้อมูล <B>ไม่ได้</B> ถูกค้นพบบนหน่วยความจำใรลำดับบน จะเรียกว่า ``Miss'' <A NAME="32862"></A> เมื่อเกิดการ Miss ขึ้น ระบบควบคุมหน่วยความจำจะทำการสืบค้นต่อไปในลำดับล่างที่ติดกัน อัตราการ Hit หรือเรียกว่า Hit Ratio <A NAME="32882"></A> เป็นอัตราส่วนของการทำเข้าถึงหน่วนความจำที่สามารถพบได้ในหน่วยความจำระดับบน  ซึ่งค่าดังกล่าวใช้ในการวัดประสิทธิภาพของหน่วยความจำ  ค่า Miss Rate (1 - Hit Rate) เป็นค่าอัตราส่วนของการสืบค้นไม่พบในหน่วยความจำระดับบน
+</I>
+<P>
+<I>เนื่องจากประสิทธิภาพของหน่วยความจำ ส่งผลกระทบโดยตรงต่อ ประสิทธิภาพของระบบคอมพิวเตอร์ ดังนั้นเวลาที่เกิดการ Hit หรือ Miss มีความสำคัญต่อการพิจารณา  Hit Time <A NAME="32940"></A> หมายถึงค่าเวลาในการเข้าถึงหน่วยความจำในลำดับบนของระบบหน่วยความจำ ที่รวมถึงเวลาในการทำการตรวจสอบว่าเกิดการ Hit หรือ Miss หรือไม่ในการเกิดการเข้าถึงหน่วยความจำในแต่ละครั้ง  Miss Penalty 
+<A NAME="32974"></A> สื่อถึงค่าเวลาที่การนำ Block จากหน่วยความจำในลำดับต่อไปมาแทนที่ Block ในลำดับที่สูงขึ้นมาหนึ่งลำดับ บวกกับเวลาในการส่ง Block ดังกล่าวไปยังโปรเซสเซอร์ เนื่องจากหน่วยความจำในลำดับบนมีขนาดเล็กและความเร็วสูงกว่า ในลำดับต่อไป ซึ่ง Hit Time จะมีค่าน้อยกว่าการเข้าใช้หน่วยความจำในลำดับต่อไป ทำให้เป็นส่วนใหญ่ของการเกิด Miss Penalty 
+</I>
+<P>
+<I>รูป <A HREF="#fig:7.3">7.3</A> แสดงโครงสร้างของลำดับชั้นของหน่วยความจำ เมื่อระยะห่างระหว่างหน่วยความจำและโปรเซสเซอร์เพิ่มขึ้น ขนาดของหน่วยความจำจะเพิ่มขึ้น และ ความเร็วจะลดลง (ใช้เวลาเพิ่มขึ้น)
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.3"></A><A NAME="34978"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.3:</STRONG>
+โครงสร้างของลำดับชั้นของหน่วยความจำ เมื่อระยะห่างระหว่างหน่วยความจำและโปรเซสเซอร์เพิ่มขึ้น ขนาดของหน่วยความจำจะเพิ่มขึ้น และ ความเร็วจะลดลง (ใช้เวลาเพิ่มขึ้น)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="405" ALIGN="BOTTOM" BORDER="0"
+ SRC="img389.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_7/Figure_7.3.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2735"
+  HREF="node150.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2729"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2723"
+  HREF="node148.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2731"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2733"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2736"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Up:</B> <A NAME="tex2html2730"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2724"
+  HREF="node148.html">เป้าประสงค์</A>
+ &nbsp; <B>  <A NAME="tex2html2732"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2734"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

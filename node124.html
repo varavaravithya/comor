@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</TITLE>
+<META NAME="description" CONTENT="การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node125.html">
+<LINK REL="previous" HREF="node123.html">
+<LINK REL="up" HREF="node120.html">
+<LINK REL="next" HREF="node125.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2364"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2358"
+  HREF="node120.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2352"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2360"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2362"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2365"
+  HREF="node125.html">Control Hazard</A>
+<B> Up:</B> <A NAME="tex2html2359"
+  HREF="node120.html">Pipeline Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2353"
+  HREF="node123.html">การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+ &nbsp; <B>  <A NAME="tex2html2361"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2363"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00822400000000000000">
+การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+</H3>
+<P>
+<I>พิจารณาส่วนของโปรแกรมภาษา C ดังต่อไปนี้
+</I>
+<P><PRE>
+   A = B + E;
+   C = B + F;
+</PRE>
+<P>
+<I>สามารถเขียนเป็นภาษาเอสเซมบลี่ของ MIPS ได้ดังนี้ (สมมุติให้มี offset อยู่ที่รีจีสเตอร์ $t0)
+</I>
+<P><PRE>
+  lw  $t1, 0($t0)
+  lw  $t2, 4($t0)
+  add $t3, $\t1, $t2
+  sw  $t3, 12($t0)
+  lw  $t4, 8($t0)
+  add $t5, $t1, $t4
+  sw  $t5, 16($t0)
+</PRE>
+<P>
+<I>จงจัดเรียงคำสั่งใหม่ให้ไม่เกิด Hazard และยังมีการทำงานถูกต้อง
+</I>
+<P>
+<I>คำสั่ง add ทั้งสองคำสั่งก่อให้เกิด Data Hazard และ Stall เนื่องจากต้องใช้ค่าจากคำสั่ง lw ที่มาก่อนหน้า เราสามารถจัดเรียงคำสั่งไม่ให้เกิด Hazard ได้โดยการแยกคำสั่ง lw ออกจากกัน ดังแสดงต่อไปนี้
+</I>
+<P><PRE>
+  lw  $t1, 0($t0)
+  lw  $t2, 4($t0)
+  lw  $t4, 8($t0)
+  add $t3, $\t1, $t2
+  sw  $t3, 12($t0)
+  add $t5, $t1, $t4
+  sw  $t5, 16($t0)
+</PRE>
+<P>
+<I>ซึ่งจากชุดคำสั่งขั้นต้นจะทำงานเร็วกว่าสองวงรอบการทำงาน
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

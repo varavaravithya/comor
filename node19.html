@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแสดงคำสั่งในคอมพิวเตอร์</TITLE>
+<META NAME="description" CONTENT="การแสดงคำสั่งในคอมพิวเตอร์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node18.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html767"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html761"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html755"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html763"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html765"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html768"
+  HREF="node20.html">การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+<B> Up:</B> <A NAME="tex2html762"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html756"
+  HREF="node18.html">การเก็บตัวแปรการคำนวณในคอมพิวเตอร์ฮาร์ดแวร์</A>
+ &nbsp; <B>  <A NAME="tex2html764"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html766"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00450000000000000000">
+การแสดงคำสั่งในคอมพิวเตอร์</A>
+</H1>
+<P>
+<I>มนุษยชาติมีวิวัฒนาการเริ่มจากสะโพก <A NAME="tex2html24"
+  HREF="footnode.html#foot10847"><SUP>2.1</SUP></A> ที่มีมือในการจับต้องสิ่งของ และเป็นจุดเริ่มของการพัฒนาสมอง จากที่มีสิบนิ้วจึงเป็นเหตุให้เลขฐานสิบเป็นที่นิยมในการใช้งานในหมู่มนุษย์ปัจจุบัน  ซึ่งต่างจากคอมพิวเตอร์ที่แสดงข้อมูลตัวเลขโดยใช้เลขฐานสอง เช่น 123 ฐาน 10 มีค่าเท่ากับ 1111011 ฐาน 2 เนื่องจากข้อมูลในคอมพิวเตอร์ถูกเก็บไว้ในรูปของระดับความต่างศักดิ์ของระดับแรงดันสูง หรือแรงดันต่ำ จึงแสดงค่าต่างๆ ด้วยตัวเลขสองตัวคือ หนึ่ง กับ ศูนย์ การแสคงค่าข้อมูลต่างๆ เป็นการรวมกันของกลุ่มตัวเลขไบนารี่ หรือเรียกว่า ``บิท''  (binary digit หรือ บิท) ซึ่งมีค่าสองค่า สามารถแสดงได้หลายลักษณะเช่น (0, 1) (High, Low) (True, False)
+</I>
+<P>
+<I>ตัวคำสั่งของคอมพิวเตอร์จะเป็นการเก็บในลักษณะของกลุ่มของบิทเช่นเดียวกัน โดยคำสั่งจะแสดงด้วยตัวเลข ที่แบ่งออกเป็นช่วงต่างๆ มาประกอบกันเป็นคำสั่งหนึ่งๆ
+</I>
+<P>
+<I>ในการทำการประมวลผลของคอมพิวเตอร์ ``รีจีสเตอร์'' จะเป็นองค์ประกอบอันหนึ่งเสมอ ในการดำเนินการประมวลผลใดๆ  จึงจำเป็นต้องมีการระบุความสัมพันธ์ของรีจีสเตอร์ และตัวเลขต่างๆ ในภาษาแอสแซมบลี่ของ MIPS รีจีสเตอร์ <TT>$s0</TT> ถึง <TT>$s7</TT> เทียบเคียงกับรีจีสเตอร์ <TT>16</TT> ถึง <TT>23</TT> และ รีจีสเตอร์ <TT>$t0</TT> ถึง <TT>$t7</TT> เทียบเคียงกับรีจีสเตอร์ <TT>8</TT> ถึง <TT>15</TT> เพราะฉะนั้น   รีจีสเตอร์ <TT>$s0</TT> หมายถึง รีจีสเตอร์ <TT>16</TT>  และ รีจีสเตอร์ <TT>$s1</TT> หมายถึง รีจีสเตอร์ <TT>17</TT> เป็นต้น
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html769"
+  HREF="node20.html">การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+<LI><A NAME="tex2html770"
+  HREF="node21.html">ฟิลด์ของคำสั่ง MIPS</A>
+<LI><A NAME="tex2html771"
+  HREF="node22.html">การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</A>
+<LI><A NAME="tex2html772"
+  HREF="node23.html">แนวคิด ``Store Program''</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

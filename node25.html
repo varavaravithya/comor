@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>คำสั่งสำหรับการตัดสินใจ</TITLE>
+<META NAME="description" CONTENT="คำสั่งสำหรับการตัดสินใจ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node24.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html855"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html849"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html845"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html851"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html853"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html856"
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional</A>
+<B> Up:</B> <A NAME="tex2html850"
+  HREF="node24.html">การประมวลผลตรรกะ</A>
+<B> Previous:</B> <A NAME="tex2html846"
+  HREF="node24.html">การประมวลผลตรรกะ</A>
+ &nbsp; <B>  <A NAME="tex2html852"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html854"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00461000000000000000">
+คำสั่งสำหรับการตัดสินใจ</A>
+</H2>
+<P>
+<I>เราใช้งานคอมพิวเตอร์ เพื่อจุดประสงค์หลักได้แก่การคำนวณ การทำซ้ำ และการตัดสินใจ คำสั่งของการทำซ้ำ และการตัดสินใจ ใช้มากในหลายกรณี เช่น คำสั่ง if ใน MIPS คำสั่งในการตัดสินใจประกอบด้วย
+<A NAME="8471"></A>
+</I>
+<P><PRE>
+beq register1, register2, L1
+</PRE><I>
+<A NAME="8474"></A>
+</I>
+<P>
+<I>ในคำสั่ง beq ถ้าค่าใน register1 มีค่าเท่ากับ ค่าใน register2 คำสั่งจะกระโดดไปที่คำสั่งในตำแหน่ง L1 beq ย่อมาจาก branch if equal สำหรับคำสั่งต่อมา 
+</I>
+<P><PRE>
+bne register1, register2, L1
+</PRE><I>
+<A NAME="8495"></A>
+</I>
+<P>
+<I>ในกรณีที่ค่าใน register1 มีค่าไม่เท่ากับ ค่าใน register2 คำสั่งจะกระโดดไปที่คำสั่งในตำแหน่ง L1 ซึ่ง bnq 
+ย่อมาจาก branch if not equal คำสั่งเหล่านี้มักถูกเรียกว่า Conditional Branches
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html857"
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</A>
+<LI><A NAME="tex2html858"
+  HREF="node27.html">การทำลูป (Loops)</A>
+<LI><A NAME="tex2html859"
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

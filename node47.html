@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>แปลงค่าระหว่างบวกลบ</TITLE>
+<META NAME="description" CONTENT="แปลงค่าระหว่างบวกลบ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1197"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1191"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1185"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1193"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1195"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1198"
+  HREF="node48.html">การทำ Sign Extension</A>
+<B> Up:</B> <A NAME="tex2html1192"
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1186"
+  HREF="node46.html">เปรียบเทียบระบบเลข Signed และ Unsigned</A>
+ &nbsp; <B>  <A NAME="tex2html1194"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1196"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00530300000000000000">
+แปลงค่าระหว่างบวกลบ</A>
+</H3>
+<P>
+<I>ทำการแปลงค่า <IMG
+ WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$2_{ten}$"> ให้เป็น <IMG
+ WIDTH="53" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img101.png"
+ ALT="$-2_{tem}$"> และตรวจสอบผลลัพธ์
+<BR></I>
+<P>
+<I><!-- MATH
+ $2_{ten} = 0000 0000 0000 0000 0000 0000 0000 0010$
+ -->
+<IMG
+ WIDTH="359" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img102.png"
+ ALT="$2_{ten} = 0000 0000 0000 0000 0000 0000 0000 0010$">
+</I>
+<P>
+<I>ทำการแปลงค่า โดย Invert บิต และบวก 1 
+</I>
+<P><PRE>
+                   1111 1111 1111 1111 1111 1111 1111 1101 
+              +                                          1
+                 _________________________________________
+              =    1111 1111 1111 1111 1111 1111 1111 1110
+              =  -2
+</PRE>
+<P>
+<I>จากนั้นทำย้อนกลับ
+</I>
+<P><PRE>
+                   1111 1111 1111 1111 1111 1111 1111 1110
+</PRE>
+<P>
+<I>ทำการแปลงค่า โดย Invert บิต และบวก 1 
+</I>
+<P><PRE>
+                   0000 0000 0000 0000 0000 0000 0000 0001 
+              +                                          1
+                 _________________________________________
+              =    0000 0000 0000 0000 0000 0000 0000 0010
+              =  2
+</PRE>
+<P>
+<I>วิธีการต่อมา เราสามารถแปลงค่าไบนารี่ <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิต ไปเป็นค่าไบนารี่ที่มีขนาดมากกว่า <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิต  ตัวอย่างเช่นคำสั่งในชุดของ i-type ที่มีค่าต่างๆ เช่น ค่าคงที่ ขนาด 16 บิต ที่แสดงค่า  <IMG
+ WIDTH="95" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.png"
+ ALT="$-32,768_{ten}$"> <IMG
+ WIDTH="58" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$(-2^{15})$"> ถึง  <IMG
+ WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$32,768_{ten}$"> <IMG
+ WIDTH="76" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img107.png"
+ ALT="$(2^{15}-1)$"> ในการทำการคำนวณในคอมพิวเตอร์ MIPS จะต้องทำการแปลงค่าจาก 16 บิต ให้เป็น 32 บิต โดยการนำค่า Sign bit ที่เป็น Most Significant Bit ของค่าที่น้อยกว่า และนำมาเป็นค่าของบิตที่เหลือในช่องที่ทำการขยายบิตออกมาเป็น Word ใหม่ วิธีนี้เรียกว่า Sign Extension
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

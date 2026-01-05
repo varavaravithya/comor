@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ความสามารถในการพึ่งพาได้, ความน่าเชื่อถือ และความสะดวกในการเรียกใช้</TITLE>
+<META NAME="description" CONTENT="ความสามารถในการพึ่งพาได้, ความน่าเชื่อถือ และความสะดวกในการเรียกใช้">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node177.html">
+<LINK REL="previous" HREF="node175.html">
+<LINK REL="up" HREF="node175.html">
+<LINK REL="next" HREF="node177.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3154"
+  HREF="node177.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3148"
+  HREF="node175.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3142"
+  HREF="node175.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3150"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3152"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3155"
+  HREF="node177.html">RAID</A>
+<B> Up:</B> <A NAME="tex2html3149"
+  HREF="node175.html">ดิสก์ข้อมูลและความสามารถในการพึ่งพา</A>
+<B> Previous:</B> <A NAME="tex2html3143"
+  HREF="node175.html">ดิสก์ข้อมูลและความสามารถในการพึ่งพา</A>
+ &nbsp; <B>  <A NAME="tex2html3151"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3153"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001031000000000000000">
+ความสามารถในการพึ่งพาได้, ความน่าเชื่อถือ และความสะดวกในการเรียกใช้</A>
+</H2>
+<P>
+<I>คำว่าความสามารถในการพึ่งพาได้ (Dependability) เป็นคำศัพท์ที่หาความหมายในพจนานุกรมได้ยาก โดยในทางคอมพิวเตอร์ได้มีการให้ความหมายของคำนี้ไว้ว่า
+</I>
+<P>
+<I><I>ความน่าไว้วางใจของคอมพิวเตอร์คือคุณภาพในการให้บริการรวมถึงความน่าเชื่อถือที่สามารถให้บริการได้อย่างสมเหตุผล สามารถให้บริการติดต่อระหว่างผู้ใช้ภายในระบบกับผู้ใช้ต่างระบบได้อย่างถูกต้อง โดยการทำงานในส่วนต่างๆ จะได้รับการกำหนดพฤติกรรมคาดหวัง (Expected Behavior) ความล้มเหลว (Failure) ของระบบจะเกิดขึ้นก็ต่อเมื่อมีการทำงานที่นอกเหนือจากพฤติกรรมคาดหวังที่มีการกำหนดเอาไว้</I>
+</I>
+<P>
+<I>ดังนั้นเพื่อให้การทำงานมีความน่าไว้วางใจ จึงต้องใช้ข้อมูลพฤติกรรมคาดหวังของอุปกรณ์มากำหนดการทำงาน โดยผู้ใช้จะพบกับสถานะการให้บริการ 2 ประเภทดังนี้
+</I>
+<P>
+<OL>
+<LI>การให้บริการเป็นผลสำเร็จ หมายถึงการให้บริการสามารถทำงานได้ตามที่คาดหวังไว้
+</LI>
+<LI>การหยุดชะงักของบริการ หมายถึงการให้บริการทำงานไม่ตรงตามที่คาดหวังไว้
+</LI>
+</OL>
+<P>
+<I>ความน่าเชื่อถือเป็นการวัดความต่อเนื่องในการให้บริการที่เป็นผลสำเร็จ หรือเวลาที่ใช้ทำงานนับจากเวลาอ้างอิงจนกระทั่งระบบล้มเหลว ซึ่งจากนี้ไปจะใช้คำว่า MTTF (Mean Time to Failure) <A NAME="38991"></A> เป็นการวัดค่าความน่าเชื่อถือ  ส่วนการหยุดบริการสามารถวัดได้จากค่าของเวลาในการซ่อมแซมหรือ MTTR (mean time to repair) และเวลาในช่วงที่ระบบล้มเหลวหรือ MTBF (mean time between failures) <A NAME="39019"></A> ได้จากค่าของ MTTF + MTTR
+</I>
+<P>
+<I>ความสามารถในการบริการได้ (Availability) วัดได้จากการให้บริการที่เป็นผลสำเร็จโดยเป็นตัวแยกความแตกต่างระหว่างการให้บริการเป็นผลสำเร็จและการหยุดชะงักของการให้บริการ ค่าสถิติของความสะดวกในการเรียกใช้แสดงเป็นปริมาณได้ดังนี้
+</I>
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{displaymath}
+Availability = \frac{MTTF}{(MTTF+MTTR)}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="286" HEIGHT="51" BORDER="0"
+ SRC="img465.png"
+ ALT="\begin{displaymath}
+Availability = \frac{MTTF}{(MTTF+MTTR)}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+<I>การที่ทำให้ระบบล้มเหลว สามารถแบ่งสาเหตุเป็น 3 ข้อคือ ความล้มเหลวที่เกิดจากผู้ใช้งาน, ความล้มเหลวจากซอฟแวร์ และความล้มเหลวจากฮาร์ดแวร์ ซึ่งจากสถิติแล้วความล้มเหลวของระบบมักเกิดจากผู้ใช้งานเป็นส่วนใหญ่
+</I>
+<P>
+<I>ในการเพิ่มค่าของ MTTF สามารถทำได้ด้วยการเพิ่มคุณภาพของส่วนประกอบที่จะนำมาออกแบบระบบ ซึ่งในส่วนต่อไปจะระบุความหมายของความล้มเหลวแบบต่างๆ โดยความล้มเหลวของส่วนประกอบอื่นจะต้องไม่ทำให้ระบบล้มเหลว เพื่อให้ง่ายต่อการเข้าใจจะใช้คำว่าทำงานผิดพลาดสำหรับความล้มเหลวที่เกิดจากส่วนประกอบ วิธีที่ทำให้ค่า MTTF เพิ่มขึ้นมี 3 ข้อ ดังนี้
+</I>
+<P>
+<OL>
+<LI>หลีกเลี่ยงความผิดพลาด เพื่อป้องกันความผิดพลาดที่อาจเกิดขึ้น
+</LI>
+<LI>ยอมรับความผิดพลาด ใช้ระบบสำรองเพิ่มเติม (Redundant) เพื่อให้ระบบสามารถทำงานต่อได้เมื่อเกิดข้อผิดพลาดขึ้น โดยนำมาใช้กับระบบฮาร์ดแวร์เป็นหลัก
+</LI>
+<LI>คาดเดาการเกิดความผิดพลาด ทำการทำนายการผิดพลาดที่อาจเกิดขึ้น ซึ่งนำมาใช้ได้กับระบบฮาร์ดแวร์และซอฟต์แวร์
+</LI>
+</OL>
+<P>
+<I>ในการลดค่าของ MTTR จะช่วยเพิ่มความความสะดวกในการเรียกใช้ได้เช่นเดียวกับการเพิ่มค่า MTTF ยกตัวอย่างเช่นเครื่องมือตรวจสอบความผิดพลาด, ตรวจหาสาเหตุ และเครื่องมือแก้ไขจะช่วยเพิ่มเวลาในการแก้ไขความผิดพลาดจากผู้ใช้งาน, ซอฟต์แวร์ และฮาร์ดแวร์
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

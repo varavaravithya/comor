@@ -1,0 +1,1377 @@
+This is TeX, Version 3.14159 (Web2C 7.4.5) (format=latex 2004.11.7)  18 AUG 2005 20:05
+**./images.tex
+(./images.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+(/sw/share/texmf/tex/latex/base/report.cls
+Document Class: report 2001/04/21 v1.4e Standard LaTeX document class
+(/sw/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/sw/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) (/Users/vara/ComorLecture/llncsdoc.sty) (/sw/share/texmf/tex/generic/babel/ba
+bel.sty
+Package: babel 2001/03/01 v3.7h The Babel package
+(/sw/share/texmf/tex/generic/babel/english.ldf
+Language: english 2001/04/15 v3.3l English support from the babel system
+(/sw/share/texmf/tex/generic/babel/babel.def
+File: babel.def 2001/03/01 v3.7h Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+\l@canadian = a dialect from \language\l@english 
+) (/sw/share/texmf/tex/generic/babel/thai.ldf
+Language: thai 1999/06/21 v1.0d Thai support for the babel system
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `thai'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@thai = a dialect from \language0
+Loading the definitions for the Thai font encoding (/sw/share/texmf/tex/generic
+/babel/lthenc.def
+File: LTHenc.def 2000/05/10 v1.1 Thai Encoding
+)
+\th@year=\count89
+)) (/sw/share/texmf/tex/generic/babel/thswitch.sty
+LaTeX Info: Redefining \latintext on input line 7.
+) (/sw/share/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+(/sw/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(/sw/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+) (/sw/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+(/sw/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/sw/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+(/sw/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+\epsfxsize=\dimen106
+\epsfysize=\dimen107
+) (/sw/share/texmf/tex/latex/fancyheadings/fancyheadings.sty
+\headrulewidth=\dimen108
+\footrulewidth=\dimen109
+\plainheadrulewidth=\dimen110
+\plainfootrulewidth=\dimen111
+\headwidth=\dimen112
+\footruleskip=\dimen113
+) (/sw/share/texmf/tex/latex/misc/geometry.sty
+Package: geometry 2002/07/08 v3.2 Page Geometry
+\Gm@cnth=\count90
+\Gm@cntv=\count91
+\c@Gm@tempcnt=\count92
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@dimlist=\toks15
+(/sw/share/texmf/tex/latex/config/geometry.cfg
+File: geometry.cfg 2001/06/05 v1.0 teTeX (uncustomised setup)
+)) (/sw/share/texmf/tex/latex/misc/sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+) (/sw/share/texmf/tex/latex/misc/booktabs.sty
+Package: booktabs 2000/08/16 v1.61 publication quality tables
+\heavyrulewidth=\dimen118
+\lightrulewidth=\dimen119
+\cmidrulewidth=\dimen120
+\belowrulesep=\dimen121
+\belowbottomsep=\dimen122
+\aboverulesep=\dimen123
+\abovetopsep=\dimen124
+\cmidrulesep=\dimen125
+\cmidrulekern=\dimen126
+\defaultaddspace=\dimen127
+\@cmidrulewidth=\dimen128
+\@cmidla=\count93
+\@cmidlb=\count94
+\@aboverulesep=\dimen129
+\@belowrulesep=\dimen130
+\@thisruleclass=\count95
+\@lastruleclass=\count96
+\@thisrulewidth=\dimen131
+) (/sw/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write3
+\openout3 = `images.idx'.
+
+Writing index file images.idx
+(/sw/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+(/sw/share/texmf/tex/latex/config/color.cfg
+File: color.cfg 2001/08/31 v1.1 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 125.
+(/sw/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)) (/sw/share/texmf/tex/latex/base/inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+(/sw/share/texmf/tex/latex/base/latin1.def
+File: latin1.def 2001/07/10 v0.99a Input encoding file 
+))
+\sizebox=\box26
+\lthtmlwrite=\write4
+(./images.aux
+LaTeX Font Info:    Try loading font information for LTH+norasi on input line 2
+.
+(/sw/share/texmf/tex/generic/babel/lthnorasi.fd
+File: lthnorasi.fd 2000/05/09 v1.0 Thai font definitions
+))
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for LTH/norasi/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+-------------------- Geometry parameters
+paper: a4paper
+landscape: --
+twocolumn: --
+twoside: --
+asymmetric: --
+h-parts: 89.62709pt, 0.7\paperwidth , 89.6271pt (default)
+v-parts: 101.40665pt, 0.7\paperheight , 152.11pt (default)
+hmarginratio: 1:1
+vmarginratio: 2:3
+lines: --
+heightrounded: --
+bindingoffset: 0.0pt
+truedimen: --
+includehead: --
+includefoot: --
+includemp: --
+driver: 
+-------------------- Page layout dimensions and switches
+\paperwidth  597.50787pt
+\paperheight 845.04684pt
+\textwidth  349.0pt
+\textheight 673.43166pt
+\oddsidemargin  17.3571pt
+\evensidemargin 17.3571pt
+\topmargin  0.0pt
+\headheight 0.0pt
+\headsep    0.0pt
+\footskip   0.0pt
+\marginparwidth 35.0pt
+\marginparsep   10.0pt
+\columnsep  10.0pt
+\skip\footins  10.8pt plus 4.0pt minus 2.0pt
+\hoffset 0.0pt
+\voffset 0.0pt
+\mag 1000
+
+(1in=72.27pt, 1cm=28.45pt)
+-----------------------
+
+latex2htmlLength hsize=349.0pt
+
+latex2htmlLength vsize=673.43166pt
+
+latex2htmlLength hoffset=0.0pt
+
+latex2htmlLength voffset=0.0pt
+
+latex2htmlLength topmargin=0.0pt
+
+latex2htmlLength topskip=0.00003pt
+
+latex2htmlLength headheight=0.0pt
+
+latex2htmlLength headsep=0.0pt
+
+latex2htmlLength parskip=0.0pt plus 1.0pt
+
+latex2htmlLength oddsidemargin=17.3571pt
+
+latex2htmlLength evensidemargin=17.3571pt
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 154.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 154.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 154.
+l2hSize :tex2html_wrap_inline48782:8.7pt::8.7pt::16.00916pt.
+[1
+
+
+
+]
+l2hSize :tex2html_wrap_inline112:9.91026pt::0.0pt::16.5061pt.
+[2
+
+
+]
+l2hSize :figure8241:116.42532pt::0.0pt::349.0pt.
+[3
+
+
+]
+l2hSize :tex2html_wrap_inline10927:8.59999pt::8.59999pt::202.59087pt.
+[4
+
+
+]
+l2hSize :tex2html_wrap_inline16360:10.01027pt::10.01027pt::365.13942pt.
+
+Overfull \hbox (19.57944pt too wide) in paragraph at lines 231--232
+[]|[] 
+ []
+
+[5
+
+
+]
+l2hSize :tex2html_wrap_inline16362:10.01027pt::10.01027pt::190.02931pt.
+[6
+
+
+]
+l2hSize :tex2html_wrap_inline16372:8.59999pt::8.59999pt::122.16135pt.
+[7
+
+
+]
+l2hSize :tex2html_wrap_inline16536:10.01027pt::10.01027pt::103.64137pt.
+[8
+
+
+]
+l2hSize :tex2html_wrap_inline16570:10.8547pt::10.8547pt::410.8651pt.
+
+Overfull \hbox (65.30511pt too wide) in paragraph at lines 272--273
+[]|[] 
+ []
+
+[9
+
+
+]
+l2hSize :tex2html_wrap_inline16592:10.8547pt::10.8547pt::211.80083pt.
+[10
+
+
+]
+l2hSize :tex2html_wrap_inline16670:9.51027pt::0.0pt::15.4751pt.
+[11
+
+
+]
+l2hSize :tex2html_wrap_inline16678:10.01027pt::10.01027pt::77.07521pt.
+[12
+
+
+]
+l2hSize :displaymath19718:19.73326pt::0.0pt::349.0pt.
+[13
+
+
+]
+l2hSize :displaymath19768:19.73326pt::0.0pt::349.0pt.
+[14
+
+
+]
+l2hSize :displaymath19898:31.3999pt::0.0pt::349.0pt.
+[15
+
+
+]
+l2hSize :tex2html_wrap_inline31411:8.59999pt::8.59999pt::54.59026pt.
+[16
+
+
+]
+File: fig/Chapter_6/Figure_6.3.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.3.eps>
+Overfull \hbox (84.62pt too wide) detected at line 383
+ [] 
+ []
+
+l2hSize :tex2html_wrap52119:300.69882pt::0.0pt::349.0pt.
+[17
+
+
+]
+Overfull \hbox (25.87021pt too wide) detected at line 389
+\OML/cmm/m/it/12 Time between instruction[] \OT1/cmr/m/n/12 = []
+ []
+
+l2hSize :displaymath27350:27.96468pt::0.0pt::349.0pt.
+[18
+
+
+]
+l2hSize :displaymath27454:27.96468pt::0.0pt::349.0pt.
+[19
+
+
+]
+File: fig/Chapter_6/Figure_6.4.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.4.eps>
+Overfull \hbox (84.62pt too wide) detected at line 410
+ [] 
+ []
+
+l2hSize :tex2html_wrap52130:78.31969pt::0.0pt::349.0pt.
+[20
+
+
+]
+File: fig/Chapter_6/Figure_6.5.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.5.eps>
+Overfull \hbox (48.48499pt too wide) detected at line 416
+ [] 
+ []
+
+l2hSize :tex2html_wrap52134:143.2021pt::0.0pt::349.0pt.
+[21
+
+
+]
+File: fig/Chapter_6/Figure_6.6.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.6.eps>
+Overfull \hbox (84.62pt too wide) detected at line 422
+ [] 
+ []
+
+l2hSize :tex2html_wrap52138:173.70752pt::0.0pt::349.0pt.
+[22
+
+
+]
+File: fig/Chapter_6/Figure_6.7.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.7.eps>
+Overfull \hbox (48.48499pt too wide) detected at line 430
+ [] 
+ []
+
+l2hSize :tex2html_wrap52144:156.70587pt::0.0pt::349.0pt.
+[23
+
+
+]
+File: fig/Chapter_6/Figure_6.8.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.8.eps>
+Overfull \hbox (48.48499pt too wide) detected at line 436
+ [] 
+ []
+
+l2hSize :tex2html_wrap52148:335.0703pt::0.0pt::349.0pt.
+[24
+
+
+]
+File: fig/Chapter_6/Figure_6.9.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.9.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 443
+ [] 
+ []
+
+l2hSize :tex2html_wrap52153:332.8141pt::0.0pt::349.0pt.
+[25
+
+
+]
+File: fig/Chapter_6/Figure_6.10.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.10.eps>
+Overfull \hbox (84.62pt too wide) detected at line 449
+ [] 
+ []
+
+l2hSize :tex2html_wrap52158:268.24423pt::0.0pt::349.0pt.
+[26
+
+
+]
+File: fig/Chapter_6/Figure_6.11.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.11.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 455
+ [] 
+ []
+
+l2hSize :tex2html_wrap52162:216.47392pt::0.0pt::349.0pt.
+[27
+
+
+]
+File: fig/Chapter_6/Figure_6.12.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.12.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 461
+ [] 
+ []
+
+l2hSize :tex2html_wrap52166:586.75342pt::0.0pt::349.0pt.
+[28
+
+
+]
+File: fig/Chapter_6/Figure_6.13.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.13.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 467
+ [] 
+ []
+
+l2hSize :tex2html_wrap52170:261.77293pt::0.0pt::349.0pt.
+[29
+
+
+]
+File: fig/Chapter_6/Figure_6.14.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.14.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 473
+ [] 
+ []
+
+l2hSize :tex2html_wrap52174:545.59499pt::0.0pt::349.0pt.
+[30
+
+
+]
+File: fig/Chapter_6/Figure_6.15.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.15.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 479
+ [] 
+ []
+
+l2hSize :tex2html_wrap52178:261.77293pt::0.0pt::349.0pt.
+[31
+
+
+]
+File: fig/Chapter_6/Figure_6.16.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.16.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 485
+ [] 
+ []
+
+l2hSize :tex2html_wrap52182:545.59499pt::0.0pt::349.0pt.
+[32
+
+
+]
+File: fig/Chapter_6/Figure_6.17.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.17.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 491
+ [] 
+ []
+
+l2hSize :tex2html_wrap52186:216.47392pt::0.0pt::349.0pt.
+[33
+
+
+]
+File: fig/Chapter_6/Figure_6.18.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.18.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 497
+ [] 
+ []
+
+l2hSize :tex2html_wrap52190:216.47392pt::0.0pt::349.0pt.
+[34
+
+
+]
+File: fig/Chapter_6/Figure_6.19.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.19.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 504
+ [] 
+ []
+
+l2hSize :tex2html_wrap52195:330.53778pt::0.0pt::349.0pt.
+[35
+
+
+]
+File: fig/Chapter_6/Figure_6.20.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.20.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 510
+ [] 
+ []
+
+l2hSize :tex2html_wrap52199:192.44447pt::0.0pt::349.0pt.
+[36
+
+
+]
+File: fig/Chapter_6/Figure_6.21.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.21.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 516
+ [] 
+ []
+
+l2hSize :tex2html_wrap52203:256.63504pt::0.0pt::349.0pt.
+[37
+
+
+]
+File: fig/Chapter_6/Figure_6.22.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.22.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 523
+ [] 
+ []
+
+l2hSize :tex2html_wrap52208:320.73315pt::0.0pt::349.0pt.
+[38
+
+
+]
+Overfull \hbox (117.00749pt too wide) in paragraph at lines 528--539
+ [] 
+ []
+
+l2hSize :figure29581:151.22519pt::0.0pt::349.0pt.
+[39
+
+
+]
+File: fig/Chapter_6/Figure_6.26.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.26.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 548
+ [] 
+ []
+
+l2hSize :tex2html_wrap52218:226.89687pt::0.0pt::349.0pt.
+[40
+
+
+]
+File: fig/Chapter_6/Figure_6.27.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.27.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 554
+ [] 
+ []
+
+l2hSize :tex2html_wrap52222:331.75624pt::0.0pt::349.0pt.
+[41
+
+
+]
+File: fig/Chapter_6/Figure_6.28.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.28.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 561
+ [] 
+ []
+
+l2hSize :tex2html_wrap52227:331.38658pt::0.0pt::349.0pt.
+[42
+
+
+]
+File: fig/Chapter_6/Figure_6.29.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.29.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 568
+ [] 
+ []
+
+l2hSize :tex2html_wrap52232:354.39825pt::0.0pt::349.0pt.
+[43
+
+
+]
+File: fig/Chapter_6/Figure_6.30.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.30.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 574
+ [] 
+ []
+
+l2hSize :tex2html_wrap52236:612.9095pt::0.0pt::349.0pt.
+[44
+
+
+]
+File: fig/Chapter_6/Figure_6.32.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.32.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 580
+ [] 
+ []
+
+l2hSize :tex2html_wrap52240:265.40764pt::0.0pt::349.0pt.
+[45
+
+
+]
+File: fig/Chapter_6/Figure_6.33.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.33.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 586
+ [] 
+ []
+
+l2hSize :tex2html_wrap52244:304.75153pt::0.0pt::349.0pt.
+[46
+
+
+]
+File: fig/Chapter_6/Figure_6.34.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.34.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 593
+ [] 
+ []
+
+l2hSize :tex2html_wrap52249:330.53778pt::0.0pt::349.0pt.
+[47
+
+
+]
+File: fig/Chapter_6/Figure_6.35.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.35.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 599
+ [] 
+ []
+
+l2hSize :tex2html_wrap52253:257.01015pt::0.0pt::349.0pt.
+[48
+
+
+]
+File: fig/Chapter_6/Figure_6.36.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.36.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 605
+ [] 
+ []
+
+l2hSize :tex2html_wrap52257:289.75517pt::0.0pt::349.0pt.
+[49
+
+
+]
+File: fig/Chapter_6/Figure_6.37.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.37.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 612
+ [] 
+ []
+
+l2hSize :tex2html_wrap52262:330.89665pt::0.0pt::349.0pt.
+[50
+
+
+]
+File: fig/Chapter_6/Figure_6.38.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.38.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 621
+ [] 
+ []
+
+l2hSize :tex2html_wrap52269:614.22772pt::0.0pt::349.0pt.
+[51
+
+
+]
+File: fig/Chapter_6/Figure_6.39.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.39.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 628
+ [] 
+ []
+
+l2hSize :tex2html_wrap52274:218.16675pt::0.0pt::349.0pt.
+[52
+
+
+]
+File: fig/Chapter_6/Figure_6.40.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.40.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 635
+ [] 
+ []
+
+l2hSize :tex2html_wrap52279:348.40292pt::0.0pt::349.0pt.
+[53
+
+
+]
+l2hSize :displaymath30882:19.73326pt::0.0pt::349.0pt.
+[54
+
+
+]
+l2hSize :tex2html_wrap_inline31415:8.59999pt::8.59999pt::34.0487pt.
+[55
+
+
+]
+l2hSize :tex2html_wrap_inline31417:9.5pt::9.5pt::107.07132pt.
+[56
+
+
+]
+l2hSize :displaymath30937:18.39995pt::0.0pt::349.0pt.
+[57
+
+
+]
+l2hSize :tex2html_wrap_inline31419:8.59999pt::8.59999pt::103.03416pt.
+[58
+
+
+]
+l2hSize :tex2html_wrap_inline31421:8.59999pt::8.59999pt::34.0487pt.
+[59
+
+
+]
+l2hSize :tex2html_wrap_inline31423:8.59999pt::8.59999pt::103.03416pt.
+[60
+
+
+]
+File: fig/Chapter_6/Figure_6.41.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.41.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 688
+ [] 
+ []
+
+l2hSize :tex2html_wrap52291:288.06465pt::0.0pt::349.0pt.
+[61
+
+
+]
+l2hSize :tex2html_wrap_inline31425:8.59999pt::8.59999pt::61.72565pt.
+[62
+
+
+]
+File: fig/Chapter_6/Figure_6.42.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.42.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 701
+ [] 
+ []
+
+l2hSize :tex2html_wrap52298:288.61188pt::0.0pt::349.0pt.
+[63
+
+
+]
+File: fig/Chapter_6/Figure_6.43.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.43.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 708
+ [] 
+ []
+
+l2hSize :tex2html_wrap52303:573.87132pt::0.0pt::349.0pt.
+[64
+
+
+]
+File: fig/Chapter_6/Figure_6.45.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.45.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 715
+ [] 
+ []
+
+l2hSize :tex2html_wrap52308:292.85577pt::0.0pt::349.0pt.
+[65
+
+
+]
+File: fig/Chapter_6/Figure_6.49.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.49.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 722
+ [] 
+ []
+
+l2hSize :tex2html_wrap52313:236.3509pt::0.0pt::349.0pt.
+[66
+
+
+]
+File: fig/Chapter_6/Figure_6.50.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.50.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 729
+ [] 
+ []
+
+l2hSize :tex2html_wrap52318:315.02582pt::0.0pt::349.0pt.
+[67
+
+
+]
+File: fig/Chapter_6/Figure_6.51.eps Graphic file (type eps)
+<fig/Chapter_6/Figure_6.51.eps>
+Overfull \hbox (84.62pt too wide) detected at line 735
+ [] 
+ []
+
+l2hSize :tex2html_wrap52322:68.14014pt::0.0pt::349.0pt.
+[68
+
+
+]
+File: fig/Chapter_7/Figure_7.1.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.1.eps>
+Overfull \hbox (84.62pt too wide) detected at line 746
+ [] 
+ []
+
+l2hSize :tex2html_wrap52347:256.7594pt::0.0pt::349.0pt.
+[69
+
+
+]
+File: fig/Chapter_7/Figure_7.2.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.2.eps>
+l2hSize :tex2html_wrap52351:217.64714pt::0.0pt::349.0pt.
+[70
+
+
+]
+File: fig/Chapter_7/Figure_7.3.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.3.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 758
+ [] 
+ []
+
+l2hSize :tex2html_wrap52355:260.53781pt::0.0pt::349.0pt.
+[71
+
+
+]
+l2hSize :tex2html_wrap_inline35003:8.7pt::8.7pt::107.22232pt.
+[72
+
+
+]
+File: fig/Chapter_7/Figure_7.4.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.4.eps>
+l2hSize :tex2html_wrap52366:216.4772pt::0.0pt::349.0pt.
+[73
+
+
+]
+l2hSize :tex2html_wrap_inline35011:8.33331pt::0.0pt::22.63173pt.
+[74
+
+
+]
+l2hSize :displaymath33289:20.39995pt::0.0pt::349.0pt.
+[75
+
+
+]
+File: fig/Chapter_7/Figure_7.5.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.5.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 791
+ [] 
+ []
+
+l2hSize :tex2html_wrap52372:273.46796pt::0.0pt::349.0pt.
+[76
+
+
+]
+l2hSize :tex2html_wrap_inline35013:9.5pt::9.5pt::71.65132pt.
+[77
+
+
+]
+l2hSize :tex2html_wrap_inline35015:9.5pt::9.5pt::77.52626pt.
+[78
+
+
+]
+l2hSize :tex2html_wrap_inline35017:9.5pt::9.5pt::59.90144pt.
+[79
+
+
+]
+l2hSize :tex2html_wrap_inline35019:9.5pt::9.5pt::59.90144pt.
+[80
+
+
+]
+l2hSize :tex2html_wrap_inline35021:8.59999pt::8.59999pt::43.96751pt.
+[81
+
+
+]
+l2hSize :tex2html_wrap_inline35023:9.5pt::9.5pt::128.4359pt.
+[82
+
+
+]
+l2hSize :tex2html_wrap_inline35025:8.59999pt::8.59999pt::43.96751pt.
+[83
+
+
+]
+l2hSize :tex2html_wrap_inline35027:9.5pt::9.5pt::128.4359pt.
+[84
+
+
+]
+l2hSize :tex2html_wrap_inline35037:8.59999pt::8.59999pt::43.96751pt.
+[85
+
+
+]
+l2hSize :tex2html_wrap_inline35039:9.5pt::9.5pt::128.4359pt.
+[86
+
+
+]
+l2hSize :tex2html_wrap_inline35041:8.59999pt::8.59999pt::43.96751pt.
+[87
+
+
+]
+l2hSize :tex2html_wrap_inline35043:9.5pt::9.5pt::128.4359pt.
+[88
+
+
+]
+l2hSize :tex2html_wrap_inline35049:8.59999pt::8.59999pt::43.96751pt.
+[89
+
+
+]
+l2hSize :tex2html_wrap_inline35051:9.5pt::9.5pt::128.4359pt.
+[90
+
+
+]
+File: fig/Chapter_7/Figure_7.7.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.7.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 881
+ [] 
+ []
+
+l2hSize :tex2html_wrap52440:358.80498pt::0.0pt::349.0pt.
+[91
+
+
+]
+l2hSize :tex2html_wrap_inline35057:8.09999pt::0.0pt::14.49359pt.
+[92
+
+
+]
+l2hSize :tex2html_wrap_inline35059:10.8547pt::10.8547pt::45.47462pt.
+[93
+
+
+]
+l2hSize :tex2html_wrap_inline35061:9.5pt::9.5pt::88.26582pt.
+[94
+
+
+]
+l2hSize :tex2html_wrap_inline35065:9.5pt::9.5pt::356.1899pt.
+
+Overfull \hbox (10.62991pt too wide) in paragraph at lines 904--905
+[]|[] 
+ []
+
+[95
+
+
+]
+l2hSize :tex2html_wrap_inline35067:9.51027pt::0.0pt::15.4751pt.
+[96
+
+
+]
+l2hSize :tex2html_wrap_inline35069:9.51027pt::0.0pt::11.22504pt.
+[97
+
+
+]
+l2hSize :tex2html_wrap_inline35071:9.51027pt::0.0pt::17.09998pt.
+[98
+
+
+]
+l2hSize :tex2html_wrap_inline35073:8.59999pt::8.59999pt::32.89146pt.
+[99
+
+
+]
+l2hSize :tex2html_wrap_inline35075:8.59999pt::8.59999pt::79.8495pt.
+[100
+
+
+]
+l2hSize :displaymath33719:20.39995pt::0.0pt::349.0pt.
+[101
+
+
+]
+l2hSize :displaymath33754:20.39995pt::0.0pt::349.0pt.
+[102
+
+
+]
+l2hSize :displaymath33760:27.96468pt::0.0pt::349.0pt.
+[103
+
+
+]
+l2hSize :displaymath33769:31.00029pt::0.0pt::349.0pt.
+[104
+
+
+]
+l2hSize :displaymath33774:31.00029pt::0.0pt::349.0pt.
+[105
+
+
+]
+l2hSize :displaymath33786:26.40007pt::0.0pt::349.0pt.
+[106
+
+
+]
+File: fig/Chapter_7/Figure_7.8.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.8.eps>
+Overfull \hbox (84.62pt too wide) detected at line 991
+ [] 
+ []
+
+l2hSize :tex2html_wrap52464:241.19661pt::0.0pt::349.0pt.
+[107
+
+
+]
+l2hSize :tex2html_wrap_inline35077:9.5pt::9.5pt::48.7541pt.
+[108
+
+
+]
+File: fig/Chapter_7/Figure_7.9.eps Graphic file (type eps)
+<fig/Chapter_7/Figure_7.9.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1006
+ [] 
+ []
+
+l2hSize :tex2html_wrap52472:300.56844pt::0.0pt::349.0pt.
+[109
+
+
+]
+l2hSize :tex2html_wrap_inline35079:8.59999pt::8.59999pt::121.68222pt.
+[110
+
+
+]
+l2hSize :displaymath34385:25.63136pt::0.0pt::349.0pt.
+[111
+
+
+]
+File: fig/Chapter_7/f0713.eps Graphic file (type eps)
+<fig/Chapter_7/f0713.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1027
+ [] 
+ []
+
+l2hSize :tex2html_wrap52479:282.08841pt::0.0pt::349.0pt.
+[112
+
+
+]
+l2hSize :tex2html_wrap_inline35081:8.59999pt::8.59999pt::121.68222pt.
+[113
+
+
+]
+l2hSize :tex2html_wrap_inline35083:8.59999pt::8.59999pt::121.68222pt.
+[114
+
+
+]
+l2hSize :tex2html_wrap_indisplay52484:8.7pt::8.7pt::56.67416pt.
+[115
+
+
+]
+l2hSize :tex2html_wrap_indisplay52486:9.5pt::9.5pt::302.89809pt.
+[116
+
+
+]
+l2hSize :tex2html_wrap_indisplay52487:8.83331pt::8.83331pt::89.64265pt.
+[117
+
+
+]
+l2hSize :displaymath34581:19.73326pt::0.0pt::349.0pt.
+[118
+
+
+]
+Overfull \hbox (1.27985pt too wide) detected at line 1072
+\OML/cmm/m/it/12 Read stall cycles \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^B \O
+ML/cmm/m/it/12 Read miss rate \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 Read miss p
+enalty
+ []
+
+l2hSize :displaymath34592:27.96468pt::0.0pt::349.0pt.
+[119
+
+
+]
+l2hSize :tex2html_wrap_indisplay52491:8.83331pt::8.83331pt::95.91873pt.
+[120
+
+
+]
+l2hSize :tex2html_wrap_indisplay52493:18.50014pt::18.50014pt::289.30164pt.
+[121
+
+
+]
+l2hSize :tex2html_wrap_indisplay52494:8.83331pt::8.83331pt::116.47064pt.
+[122
+
+
+]
+Overfull \hbox (39.64688pt too wide) detected at line 1098
+\OML/cmm/m/it/12 Memory stall clock cycles \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/1
+2 ^^B \OML/cmm/m/it/12 Miss rate \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 Miss pen
+alty
+ []
+
+l2hSize :displaymath34622:27.96468pt::0.0pt::349.0pt.
+[123
+
+
+]
+Overfull \hbox (23.66293pt too wide) detected at line 1107
+\OML/cmm/m/it/12 Memory stall clock cycles \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/1
+2 ^^B [] ^^B \OML/cmm/m/it/12 Miss penalty
+ []
+
+l2hSize :displaymath34626:27.96468pt::0.0pt::349.0pt.
+[124
+
+
+]
+l2hSize :displaymath34693:19.73326pt::0.0pt::349.0pt.
+[125
+
+
+]
+l2hSize :displaymath34717:19.73326pt::0.0pt::349.0pt.
+[126
+
+
+]
+l2hSize :tex2html_wrap_inline35085:8.7pt::8.7pt::111.92043pt.
+[127
+
+
+]
+l2hSize :tex2html_wrap_inline35087:8.59999pt::8.59999pt::78.52972pt.
+[128
+
+
+]
+l2hSize :tex2html_wrap_indisplay52503:16.9514pt::16.9514pt::163.26181pt.
+[129
+
+
+]
+l2hSize :tex2html_wrap_indisplay52505:16.9514pt::16.9514pt::153.49222pt.
+[130
+
+
+]
+l2hSize :tex2html_wrap_indisplay52507:16.81808pt::16.81808pt::94.20317pt.
+[131
+
+
+]
+l2hSize :tex2html_wrap_inline35089:10.38034pt::10.38034pt::54.80539pt.
+[132
+
+
+]
+l2hSize :tex2html_wrap_inline35093:8.59999pt::8.59999pt::43.33022pt.
+[133
+
+
+]
+l2hSize :displaymath34900:20.39995pt::0.0pt::349.0pt.
+[134
+
+
+]
+File: fig/Chapter_7/f0715.eps Graphic file (type eps)
+<fig/Chapter_7/f0715.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1183
+ [] 
+ []
+
+l2hSize :tex2html_wrap52517:206.03325pt::0.0pt::349.0pt.
+[135
+
+
+]
+File: fig/Chapter_7/f0716.eps Graphic file (type eps)
+<fig/Chapter_7/f0716.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1189
+ [] 
+ []
+
+l2hSize :tex2html_wrap52521:379.63423pt::0.0pt::349.0pt.
+[136
+
+
+]
+File: fig/Chapter_7/f0719.eps Graphic file (type eps)
+<fig/Chapter_7/f0719.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1195
+ [] 
+ []
+
+l2hSize :tex2html_wrap52525:402.8303pt::0.0pt::349.0pt.
+[137
+
+
+]
+File: fig/Chapter_7/f0720.eps Graphic file (type eps)
+<fig/Chapter_7/f0720.eps>
+l2hSize :tex2html_wrap52530:196.48505pt::0.0pt::349.0pt.
+[138
+
+
+]
+File: fig/Chapter_7/f0721.eps Graphic file (type eps)
+<fig/Chapter_7/f0721.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 1208
+ [] 
+ []
+
+l2hSize :tex2html_wrap52534:180.69048pt::0.0pt::349.0pt.
+[139
+
+
+]
+File: fig/Chapter_7/f0723.eps Graphic file (type eps)
+<fig/Chapter_7/f0723.eps>
+Overfull \hbox (84.62pt too wide) detected at line 1215
+ [] 
+ []
+
+l2hSize :tex2html_wrap52539:325.84769pt::0.0pt::349.0pt.
+[140
+
+
+]
+File: fig/Chapter_7/f0724.eps Graphic file (type eps)
+<fig/Chapter_7/f0724.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1223
+ [] 
+ []
+
+l2hSize :tex2html_wrap52545:379.4666pt::0.0pt::349.0pt.
+[141
+
+
+]
+l2hSize :tex2html_wrap_inline38113:10.01027pt::10.01027pt::79.3776pt.
+[142
+
+
+]
+l2hSize :tex2html_wrap_inline38115:10.01027pt::10.01027pt::74.91908pt.
+[143
+
+
+]
+File: fig/Chapter_7/f0725.eps Graphic file (type eps)
+<fig/Chapter_7/f0725.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1243
+ [] 
+ []
+
+l2hSize :tex2html_wrap52553:432.95293pt::0.0pt::349.0pt.
+[144
+
+
+]
+File: fig/Chapter_7/f0726.eps Graphic file (type eps)
+<fig/Chapter_7/f0726.eps>
+Overfull \hbox (120.75499pt too wide) detected at line 1250
+ [] 
+ []
+
+l2hSize :tex2html_wrap52558:337.95233pt::0.0pt::349.0pt.
+[145
+
+
+]
+File: fig/Chapter_8/f0801.eps Graphic file (type eps)
+<fig/Chapter_8/f0801.eps>
+Overfull \hbox (12.34999pt too wide) detected at line 1263
+ [] 
+ []
+
+l2hSize :tex2html_wrap52570:203.54541pt::0.0pt::349.0pt.
+[146
+
+
+]
+l2hSize :displaymath39069:28.63136pt::0.0pt::349.0pt.
+[147
+
+
+]
+File: fig/Chapter_8/fig19.eps Graphic file (type eps)
+<fig/Chapter_8/fig19.eps>
+l2hSize :tex2html_wrap52584:141.52875pt::0.0pt::349.0pt.
+[148
+
+
+]
+File: fig/Chapter_8/f0810.eps Graphic file (type eps)
+<fig/Chapter_8/f0810.eps>
+l2hSize :tex2html_wrap52592:107.40125pt::0.0pt::349.0pt.
+[149
+
+
+] (./images.aux) ) 
+Here is how much of TeX's memory you used:
+ 2196 strings out of 95847
+ 29171 string characters out of 1196009
+ 79029 words of memory out of 1000001
+ 5049 multiletter control sequences out of 10000+50000
+ 8478 words of font info for 25 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 32i,10n,21p,3421b,314s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on images.dvi (149 pages, 39648 bytes).

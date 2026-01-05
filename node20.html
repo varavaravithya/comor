@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</TITLE>
+<META NAME="description" CONTENT="การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html785"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html779"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html773"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html781"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html783"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html786"
+  HREF="node21.html">ฟิลด์ของคำสั่ง MIPS</A>
+<B> Up:</B> <A NAME="tex2html780"
+  HREF="node19.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html774"
+  HREF="node19.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+ &nbsp; <B>  <A NAME="tex2html782"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html784"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00450100000000000000">
+การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+</H3>
+<P>
+<I>จากคำสั่งภาษาเอสแซมบลี่ของ MIPS 
+</I>
+<P><PRE>
+add $t0, $s1, $s2
+</PRE>
+<P>
+<I>
+สามารถแปลงแอสแซมบลีออกมาเป็นภาษาเครื่องของ MIPS ได้เป็นตัวเลขได้ดังนี้
+<BR><A NAME="7349"></A>
+</I>
+<P>
+<I><IMG
+ WIDTH="457" HEIGHT="31" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="\includegraphics[width=4in]{fig/isaformat1.eps}">
+</I>
+<P>
+<I>
+แต่ละส่วนของคำสั่งเรียกว่า ฟิลด์  (Field) ฟิลด์แรก และ ฟิลด์สุดท้ายของคำสั่งเป็นตัวบอกคอมพิวเตอร์ MIPS 
+ว่าเป็นคำสั่งที่ระบุ เป็นคำสั่งบวก ฟิลด์ที่สองเป็นการบอกค่ารีจีสเตอร์ที่เป็นตัวกระทำการประมวลผลตัวแรก ในที่นี้คือ  
+<TT>$s1</TT> ที่มีค่าเท่ากับ 17 และต่อมาเป็นตัวแปรตัวที่สองได้แก่ <TT>$s2</TT> ที่มีค่าเท่ากับ 18 
+ในฟิลด์ที่สี่เป็นการระบุรีจีสเตอร์ที่เก็บผลลัพธ์  ได้แก่ <TT>$t0</TT> ที่มีค่าเท่ากับ 8  
+และแปลงเป็นไบนารี่ที่แสดงคำสั่งได้ดังนี้
+<BR></I>
+<P>
+<I><IMG
+ WIDTH="458" HEIGHT="54" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="\includegraphics[width=4in]{fig/isaformat2.eps}">
+</I>
+<P>
+<I>เพื่อแสดงความแตกต่างของคำสั่งแอสแซมบลี่ คำสั่งที่แสดงโดยตัวเลขขั้นต้นเรียกว่าภาษาเครื่อง หรือ Machine Language
+</I>
+<P>
+<I>โครงสร้างของคำสั่งที่แสดงเป็นฟิลด์ต่างๆ เรียกว่า รูปแบบของคำสั่งหรือ Instruction Format ในคอมพิวเตอร์ MIPS ขนาดของคำสั่งมีค่าคงที่คือเท่ากับ 32 บิท ที่มีขนาดเท่ากับขนาดข้อมูลหนี่ง Word การกำหนดขนาดของคำสั่งหนึ่งคำสั่งให้เท่ากับขนาดข้อมูลหนึ่ง Word นั้นทำให้การออกแบบทำได้ง่ายตามหลักการพื้นฐานการออกแบบ Simplicity favor regularity 
+</I>
+<P>
+<I>ส่วนใหญ่แล้วการเขียนคำสั่งสามารถเขียนได้โดยใช้ตัวเลขฐาน 16 ที่สามารถแปลงระหว่างเลขไบนารี่ได้โดยการจับกลุ่มเลขไบนารี่เป็นกลุ่ม 4 บิทและทำการแปลงโดยตรง (ลองไปทำดู) 
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การปรับปรุงประสิทธิภาพของแคช</TITLE>
+<META NAME="description" CONTENT="การปรับปรุงประสิทธิภาพของแคช">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node160.html">
+<LINK REL="previous" HREF="node150.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node158.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2851"
+  HREF="node158.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2845"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2839"
+  HREF="node156.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2847"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2849"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2852"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+<B> Up:</B> <A NAME="tex2html2846"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2840"
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2848"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2850"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00940000000000000000">
+การปรับปรุงประสิทธิภาพของแคช</A>
+</H1>
+<P>
+<I>เมื่อพิจารณาการ Stall ที่เกิดจาก Miss ค่าประสิทธิภาพของคอมพิวเตอร์ในรูปแบบของ CPU time จะเท่ากับ 
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPU~time &=& CPU~execution~clock~cycles + Memory stall~clock~cycles)\\
+& & \times Clock cycle time
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="94" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img433.png"
+ ALT="$\displaystyle CPU~time$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="486" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img434.png"
+ ALT="$\displaystyle CPU~execution~clock~cycles + Memory stall~clock~cycles)$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.9)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="146" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img435.png"
+ ALT="$\displaystyle \times Clock cycle time$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.10)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>ซึ่งวงรอบของ Memory Stall ส่วนใหญ่เกิดจาก Cache Miss โดยสามารถนิยามได้ดังนี้ 
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Memory~stall~clock~cycles = Read~stall~cycles + Write~stall~cycles
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="553" HEIGHT="37" BORDER="0"
+ SRC="img436.png"
+ ALT="\begin{displaymath}
+Memory~stall~clock~cycles = Read~stall~cycles + Write~stall~cycles
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.11)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I> 
+<A NAME="34583"></A>
+</I>
+<P>
+<I>ซึ่งสามารถเขียนตามความสัมพันธ์ของ Miss rate ได้ดังนี้
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Read~stall~cycles = \frac{Reads}{Program} \times Read~miss~rate \times Read~miss~penalty
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="555" HEIGHT="50" BORDER="0"
+ SRC="img437.png"
+ ALT="\begin{displaymath}
+Read~stall~cycles = \frac{Reads}{Program} \times Read~miss~rate \times Read~miss~penalty
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.12)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ในแคชแบบ Write Through ค่าการ Stall สามารถคำนวณได้จาก
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+Write~stall~cycles &=& \left ( \frac{Writes}{Program} \times Write~miss~rate \times Write~miss~penalty \right )\\
+ & & + Write~buffer~stalls
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="156" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img438.png"
+ ALT="$\displaystyle Write~stall~cycles$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="464" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img439.png"
+ ALT="$\displaystyle \left ( \frac{Writes}{Program} \times Write~miss~rate \times Write~miss~penalty \right )$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.13)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="189" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img440.png"
+ ALT="$\displaystyle + Write~buffer~stalls$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.14)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>ในแคชแบบ Write Through ส่วนใหญ่แล้ว Miss Penalty มีค่าใกล้เคียงกันสำหรับทั้งการ Read และ Write โดยสามารถ พิจารณา ค่า Miss rate เพียงค่าเดียว แสดงโดยสมการ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Memory~stall~clock~cycles = \frac{Memory~accesses}{Program} \times Miss~rate \times Miss~penalty
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="616" HEIGHT="50" BORDER="0"
+ SRC="img441.png"
+ ALT="\begin{displaymath}
+Memory~stall~clock~cycles = \frac{Memory~accesses}{Program} \times Miss~rate \times Miss~penalty
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.15)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Memory~stall~clock~cycles = \frac{Instructions}{Program} \times \frac{Misses}{Instruction} 
+\times Miss~penalty
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="591" HEIGHT="50" BORDER="0"
+ SRC="img442.png"
+ ALT="\begin{displaymath}
+Memory~stall~clock~cycles = \frac{Instructions}{Program} \times \frac{Misses}{Instruction}
+\times Miss~penalty
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.16)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2853"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+<LI><A NAME="tex2html2854"
+  HREF="node159.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2851"
+  HREF="node158.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2845"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2839"
+  HREF="node156.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2847"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2849"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2852"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+<B> Up:</B> <A NAME="tex2html2846"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2840"
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2848"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2850"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

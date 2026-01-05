@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</TITLE>
+<META NAME="description" CONTENT="การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node194.html">
+<LINK REL="previous" HREF="node192.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node194.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3401"
+  HREF="node194.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3395"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3389"
+  HREF="node192.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3397"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3399"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3402"
+  HREF="node194.html">Direct Memory Access กับ</A>
+<B> Up:</B> <A NAME="tex2html3396"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3390"
+  HREF="node192.html">ระดับความสำคัญในการ Interrupt</A>
+ &nbsp; <B>  <A NAME="tex2html3398"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3400"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001054000000000000000">
+การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+</H2>
+<P>
+<I>เราสามารถใช้หน่วยประมวลผลในการส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำโดยอาศัย polling กลไกทางเลือกอื่นที่ช่วยเพิ่มประสิทธิภาพคือการสร้างการส่งของ data interrupt driven ในกรณีนี้ ระบบปฏิบัติการจะยังคงส่งข้อมูลในจำนวนไบต์ขนาดเล็กติดต่อกับอุปกรณ์ แต่เพราะว่าการทำงานของ I/O เป็น interrupt driven ระบบปฏิบัติการจะทำงานอื่นได้ในขณะที่ข้อมูลกำลังอ่านหรือเขียนกับอุปกรณ์ เมื่อระบบปฏิบัติการสังเกตการ interrupt จากอุปกรณ์ มันจะอ่านสถานะเพื่อตรวจสอบความผิดพลาด ถ้าไม่มี ระบบปฏิบัติการสามารถส่งข้อมูลชิ้นต่อไปได้
+</I>
+<P>
+<I>แม้ว่า interrupt-driven I/O ช่วยแบ่งเบาภาระหน่วยประมวลผลจากการคอยสำหรับทุกเหตุการณ์ของ I/O แต่การใช้วิธีนี้ในการติดต่อกับ hard disk overhead ที่เกิดขึ้นก็ยังมากเกิน เนื่องจากมันสามารถผลาญการทำงานส่วนใหญ่ของหน่วยประมวลผล ในขณะที่ disk กำลังส่งข้อมูล สำหรับอุปกรณ์ bandwidth สูงเช่น hard disk การส่งข้อมูลประกอบด้วยส่วนหลักของ relatively large blocks ของข้อมูล (100 ถึง 1000 ไบต์) ดังนั้นนักออกแบบได้เกิดความคิดสร้างกลไกสำหรับลดภาระของหน่วยประมวลผล และให้ device controller ส่งข้อมูลโดยตรงกับหน่วยความจำโดยไม่ต้องใช้หน่วยประมวลผล กลไกนี้เรียกว่า direct memory access (DMA) กลไกการ interrupt ยังคงใช้อยู่โดยอุปกรณ์ติดต่อกับหน่วยประมวลผล แต่เพียงเฉพาะ I/O transfer ที่สมบูรณ์หรือเมื่อเกิดความผิดพลาดขึ้น
+</I>
+<P>
+<I>DMA ถูกรวมเข้าไปกับกลุ่มตัวควบคุมแบบพิเศษ และกลายเป็น bus master ในการติดต่อกับหน่วยความจำโดยตรง มีการทำงาน 3 ขั้นตอนคือ
+</I>
+<OL>
+<LI>หน่วยประมวลผล set up DMA โดยการเตรียม ID ของอุปกรณ์, กระบวนการทำงานบนอุปกรณ์, แอดเดรสของหน่วยความจำที่ข้อมูลจะถูกส่งไป และจำนวนของไบต์ที่จะส่ง 
+</LI>
+<LI>เมื่อเริ่มมีการส่งข้อมูล DMA จะเตรียมแอดเดรสของหน่วยความจำสำหรับอ่านหรือเขียน ถ้ามีการใช้มากกว่าหนึ่งเส้นทางบนบัส DMA จะสร้างแอดเดรสถัดไปและเริ่มส่งข้อมูล ด้วยกลไกนี้ทำให้ DMA สามารถส่งข้อมูลที่มีขนาดเป็นพันไบต์ได้โดยไม่ต้องพึ่งหน่วยประมวลผล DMA controller หลายตัวมีหน่วยความจำบางส่วนอยู่เพื่อให้สามารถทำงานอยู่ได้ขณะที่รอเป็น bus master  
+</LI>
+<LI>เมื่อ DMA ส่งข้อมูลเรียบร้อย controller จะ interrupt หน่วยประมวลผล
+</LI>
+</OL>
+<P>
+<I>แม้ว่า DMA จะถูกใช้เพื่อลดภาระของหน่วยประมวลผล แต่ถ้าหน่วยประมวลผลต้องการใช้หน่วยความจำก็จะเกิดการล่าช้า อันเนื่องจากหน่วยความจำถูกใช้สำหรับ DMA transfer การใช้ cache จะช่วยลดจำนวนครั้งของการเข้าถึงหน่วยความจำของหน่วยประมวลผลลง และ bandwidth ของหน่วยความจำจะมีพื้นที่ว่างพอสำหรับให้อุปกรณ์ I/O ใช้งาน
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

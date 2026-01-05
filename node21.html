@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ฟิลด์ของคำสั่ง MIPS</TITLE>
+<META NAME="description" CONTENT="ฟิลด์ของคำสั่ง MIPS">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node22.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html799"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html793"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html787"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html797"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html800"
+  HREF="node22.html">การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</A>
+<B> Up:</B> <A NAME="tex2html794"
+  HREF="node19.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html788"
+  HREF="node20.html">การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+ &nbsp; <B>  <A NAME="tex2html796"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html798"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00450200000000000000">
+ฟิลด์ของคำสั่ง MIPS</A>
+</H3>
+<P>
+<I>
+ฟิลด์ ของ MIPS มีการกำหนกชื่อดังต่อไปนี้
+<BR></I>
+<P>
+<I><IMG
+ WIDTH="458" HEIGHT="54" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="\includegraphics[width=4in]{fig/isaformat3.eps}">
+<BR></I>
+<P>
+<I>
+ในแต่ละฟิลด์ มีความหมายดังต่อไปนี้
+<BR></I>
+<P>
+<UL>
+<LI><I>op:</I> พื้นฐานการทำงานของคำสั่ง ซึ่งเรียกว่า opcode
+</LI>
+<LI><I>rs:</I> รีจีสเตอร์ ตัวแปรกระทำ ตัวแรก
+</LI>
+<LI><I>rt:</I> รีจีสเตอร์ ตัวแปรกระทำ ตัวสอง
+</LI>
+<LI><I>rd:</I> รีจีสเตอร์ ที่เก็บผลลัพธ์
+</LI>
+<LI><I>shamt:</I> ค่าของการเลื่อนตำแหน่ง 
+</LI>
+<LI><I>funct:</I> ฟังก์ชั่น เป็นฟิลด์ที่กำหนดการกระทำย่อยๆ ที่อธิบายเสริมกับพื้นฐานการทำงานของคำสั่ง 
+ หรือเรียกว่า function code
+</LI>
+</UL><I>
+<A NAME="7594"></A>
+</I>
+<P>
+<I>ในรูปแบบของคำสั่งขั้นต้นจะเป็นปัญหาเมื่อเกิดกรณีที่ตัวคำสั่งมีความต้องการขนาดในการแสดงค่าในฟิลด์ต่างๆ มากกว่ารูปแบบคำสั่งขั้นต้น  ตัวอย่างเช่นคำสั่ง load ที่ต้องระบุชื่อรีจีสเตอร์ที่ต้องการใช้งานถึงสองตัว ถ้าใช้รูปแบบของคำสั่งขั้นต้นจะเป็นการจำกัดค่าคงที่ในคำสั่ง load เพียง 5 บิท ซึ่งมีค่าเท่ากับ <IMG
+ WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img42.png"
+ ALT="$2^5$"> หรือ 32 เท่านั้น  5 บิทในฟิลด์ shamt มีค่าน้อยเกินไปที่จะสามารถใช้ประโยชน์ได้ 
+</I>
+<P>
+<I>จากที่เรากำหนดให้ขนาดของคำสั่งมีค่าคงที่เท่ากับ 32 บิท และมีรูปแบบเดียว เป็นการนำมาสู่หลักการพื้นฐานในการออกแบบคอมพิวเตอร์ หลักการสุดท้ายซึ่งได้แก่ 
+</I>
+<P>
+<BLOCKQUOTE><I>Design Principle 4: Good design demands good compromises. 
+</I></BLOCKQUOTE>
+<P>
+<I>จากหลักการดังกล่าว คำสั่งในคอมพิวเตอร์ MIPS มีการกำหนดให้มีขนาดของคำสั่งเท่ากันหมดคือ 32 บิท และมีรูปแบบคำสั่งที่แตกต่างกันสำหรับชุดคำสั่งต่างๆ รูปแบบแรกที่ได้แสดงมาเรียกว่ารูปแบบคำสั่งรีจีสเตอร์ หรือ <EM>R-type</EM> (Register) รูปแบบของคำสั่งอันอื่นได้แก่รูปแบบ <EM>I-type</EM> (Immediate) ที่ใช้สำหรับคำสั่งที่มีค่าคงที่ หรือคำสั่งสำหรับการถ่ายโอนข้อมูลระหว่างรีจีสเตอร์กับหน่วยความจำหลัก  รูปแบบ และตำแหน่งของฟิลด์ ใน I-Type มีการกำหนดดังต่อไปนี้
+<A NAME="7762"></A><A NAME="7763"></A>
+</I>
+<P>
+<I><IMG
+ WIDTH="457" HEIGHT="54" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="\includegraphics[width=4in]{fig/isaformat4.eps}">
+<BR></I>
+<P>
+<I>ขนาด 16 บิทของฟิลด์ Constant หรือ Address สามารถแสดงค่าระหว่าง <IMG
+ WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$\pm 2^{15}$"> หรือ 32,768 ไบท์ (<IMG
+ WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$\pm 2^{13}$"> หรือ 8192 words) จากค่าแอดเดรสในรีจีสเตอร์อ้างอิง  rs  เช่นเดียวกับค่าค่าที่ในคำสั่ง addi ที่ถูกจำกัดค่าค่งที่ในระหว่าง  <IMG
+ WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$\pm 2^{15}$"> 
+<A NAME="7794"></A><A NAME="7795"></A>
+</I>
+<P>
+<I>จากรูปแบบคำสั่งจะเห็นได้ว่าถ้าต้องการจำนวนรีจีสเตอร์มากกว่า 32 รูปแบบคำสั่งขั้นต้นจะต้องเพิ่มอีก 1 บิททั้งในฟิลด์ rs และ rt ทำให้จัดคำสั่งที่ประกอบด้วยชื่อของรีจีสเตอร์ต่างๆ ให้ลงพอดีในหนึ่ง Word ได้ยาก 
+</I>
+<P>
+<I>จากคำสั่งข้างล่าง
+</I>
+<P><PRE>
+lw $t0, 32($s3) # Temporary reg $t0 gets A[8]
+</PRE>
+<P>
+<I>นำค่า 19 (สำหรับ $s3) ใส่ลงในฟิลด์ rs และนำค่า 8 (สำหรับแสดงค่า $t0) ใส่ลงในฟิลด์ rt และค่า 32 ใส่ลงในฟิลด์แอดเดรส ในคำสั่ง load ฟิลด์ rt เป็นฟิลด์สำหรับเก็บค่าที่ได้จากการโหลดค่าจากหน่วยความจำ หรือเรียกว่า Destination Register
+</I>
+<P>
+<I>ถึงแม้มาการใช้รูปแบบคำสั่งหลายลักษณะ เช่น R-type และ I-type จะส่งผลให้ฮาร์ดแวร์มีความซับซ้อนขึ้น แต่จะสังเกตเห็นได้ว่าสามฟิลด์แรกในคำสั่ง R-type และ I-type มีขนาดเท่ากัน และอยู่ในตำแหน่งเดียวกัน และฟิลด์สุดท้ายของ  I-type มีขนาดพอดีกับสามฟิลด์สุดท้ายของคำสั่งรูปแบบ  R-type มารวมกัน
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html799"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html793"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html787"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html797"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html800"
+  HREF="node22.html">การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</A>
+<B> Up:</B> <A NAME="tex2html794"
+  HREF="node19.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html788"
+  HREF="node20.html">การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+ &nbsp; <B>  <A NAME="tex2html796"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html798"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

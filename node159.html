@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</TITLE>
+<META NAME="description" CONTENT="ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node158.html">
+<LINK REL="up" HREF="node157.html">
+<LINK REL="next" HREF="node160.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2879"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2873"
+  HREF="node157.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2869"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2875"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2877"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2880"
+  HREF="node160.html">หน่วยความจำเสมือน</A>
+<B> Up:</B> <A NAME="tex2html2874"
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<B> Previous:</B> <A NAME="tex2html2870"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2876"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2878"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00940200000000000000">
+ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+</H3>
+<P>
+<I>ใน Direct Mapping ใช้การกำหนดตำแหน่ง Block เฉพาะเพียงหนึ่งที่เท่านั้น โดยที่ไม่สามารถลงในตำแหน่งอื่นได้แม้ว่า จะมีพื้นที่ว่าง อีกทางหนึ่งเราให้ Block สามารถเลือกลงตำแหน่งใดก็ได้โดยการขยายขนาด Tag ให้มีขนาดเท่ากับแอดเดรสของ Block  วิธีการนี้เรียกว่า Fully Associative โดยเมื่อมีการเรียกใช้แคช ระบบควบคุมจะทำการสืบค้นทุก Block ในแคชว่าตรงหรือไม่ ซึ่งสามารถทได้แบบขนาน และทำการเปรียบเทียบค่า อย่างไรก็ตามตัวสืบค้นและเปรียบเทียบค่าต้องการฮาร์ดแวร์จำนวนมาก และ มีแนวโน้มต่อวงรอบสัญญาณนาฬิกา  ซึ่งในทางปฏิบัติสามารถทำได้กับจำนวน Block ไม่มากนัก
+</I>
+<P>
+<I>อีกวิธีหนึ่งในการเลือกลงช่องเป็นวิธีการที่อยู่ระหว่างการทำงานแบบ Direct Mapping และ Fully Associative วิธีการนี้เรียกว่า Set Associative Mapping  ในการจัดเรียงแบบ Set Associative หนึ่ง Block สามารถเลือกช่องลงได้ <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> ช่อง สำหรับแคชแบบ <IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img451.png"
+ ALT="$n-way$"> Set Associative  ที่ประกอบด้วย Set จำนวนหนึ่ง และในแต่ละ Set มี <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> Block  แต่ละ Set จะมีหมายเลขอ้างอิงในแคช ซึ่งใน Set จะมี Block ที่มีแอดเดรสดังต่อไปนี้ <A NAME="34897"></A><A NAME="34898"></A><A NAME="34899"></A>
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+(Block~number) modulo (Number~of~sets~in~the~cache)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="451" HEIGHT="38" BORDER="0"
+ SRC="img452.png"
+ ALT="\begin{displaymath}
+(Block~number) modulo (Number~of~sets~in~the~cache)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.21)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>การหา Block ในแคช ชุดควบคุมหน่วยความจำจะทำการสืบค้นทุก Block ใน Set แสดงในรูปที่ <A HREF="#fig:f0715">7.10</A>
+ที่ Block 12 สามารถมีช่องลงได้ สองช่องใน 2-way Set Associative Cache
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0715"></A><A NAME="34998"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.10:</STRONG>
+เปรียบเทียบตำแหน่งลงระหว่าง Direct Mapping, Set Associative Mapping, และ Fully Associative Mapping: Block 12 สามารถมีช่องลงได้ สองช่องใน 2-way Set Associative Cache</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="323" ALIGN="BOTTOM" BORDER="0"
+ SRC="img453.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/f0715.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:f0716">7.11</A> แสดง แคชขนาด 8 Block ที่ทำการใช้งานเป็นแบบ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, และ Fully Associative Mapping 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0716"></A><A NAME="34999"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.11:</STRONG>
+แคชขนาด 8 Block ที่ทำการใช้งานเป็นแบบ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, และ Fully Associative Mapping</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="745" HEIGHT="599" ALIGN="BOTTOM" BORDER="0"
+ SRC="img454.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/f0716.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:f0719">7.12</A> แสดงฮาร์ดแวร์ของแคชแบบ 4-way Set Associative 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0719"></A><A NAME="35000"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.12:</STRONG>
+ฮาร์ดแวร์ของแคชแบบ 4-way Set Associative</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="636" ALIGN="BOTTOM" BORDER="0"
+ SRC="img455.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/f0719.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>การเลือก Block ในการแทนที่สามารถใช้วิธีการ Least Recently Used (LRU) 
+<A NAME="34968"></A>
+</I>
+<P>
+<I>เราสามารถลด Miss  Penalty ได้โดยใช้ Multilevel Cache
+<A NAME="34973"></A> 
+</I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2879"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2873"
+  HREF="node157.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2869"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2875"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2877"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2880"
+  HREF="node160.html">หน่วยความจำเสมือน</A>
+<B> Up:</B> <A NAME="tex2html2874"
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<B> Previous:</B> <A NAME="tex2html2870"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2876"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2878"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

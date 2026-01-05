@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การออกแบบหนวยความจำรองรับการทำงานแคช</TITLE>
+<META NAME="description" CONTENT="การออกแบบหนวยความจำรองรับการทำงานแคช">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node155.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node157.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2837"
+  HREF="node157.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2831"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2827"
+  HREF="node155.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2833"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2835"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2838"
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<B> Up:</B> <A NAME="tex2html2832"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2828"
+  HREF="node155.html">ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
+ &nbsp; <B>  <A NAME="tex2html2834"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2836"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00930600000000000000">
+การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+</H3>
+<P>
+<I>หน่วยความจำหลักใช้เทคโนโลยี DRAM เป็นหลัก ถึงแม้ว่าเป็นการยากที่จะทำการลดเวลาในการอ่านค่า Word แรกจากหน่วยความจำมายังโปรเซสเซอร์ แต่เราสามารถลดเวลาเมื่อเกิดการ Miss ได้โดยการเพิ่ม Bandwidth ในการส่งผ่านข้อมูลระหว่างแคช และหน่วยความจำหลัก โดยสามารถส่งผ่าน Block ขนาดใหญ่ โดยใช้เวลาเท่ากับ Block ขนาดเล็ก <A NAME="34288"></A>
+</I>
+<P>
+<I>โปรเซสเซอร์ต่อเชื่อมกับหน่วยความจำโดยผ่านบัส ซึ่งสัญญาณนาฬิกาที่ควบคุมบัสช้ากว่าสัญญาณนาฬิกาบนโปรเซสเซอร์มาก เป็นเหตุผลหนึ่งที่ทำให้ Miss Penalty มีค่ามาก
+</I>
+<P>
+<I>สมมุติให้ค่าการเข้าถึงหน่วยความจำต่างๆ มีดังต่อไปนี้
+</I>
+<P>
+<UL>
+<LI>1 วงรอบการทำงานของบัสหน่วยความจำ ในการส่งแอดเดรส
+</LI>
+<LI>15 วงรอบการทำงานของบัสหน่วยความจำ สำหรับการอ่าน/เขียน DRAM
+</LI>
+<LI>1 วงรอบการทำงานของบัสหน่วยความจำ สำหรับการส่งข้อมูลหนึ่ง Word 
+</LI>
+</UL>
+<P>
+<I>ในกรณีที่ Block ในแคชมีขนาด 4 Words และ บัสมีขนาดกว้างหนึ่ง Word  ดังนั้น Miss Penalty จะเท่ากับ <!-- MATH
+ $1 + 4\times 15 + 4\times 1 = 65$
+ -->
+<IMG
+ WIDTH="197" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img428.png"
+ ALT="$1 + 4\times 15 + 4\times 1 = 65 $"> วงรอบการทำงานของบัสหน่วยความจำ ดังนั้น จำนวน Byte ที่ส่งผ่านต่อ วงรอบการทำงานของบัสหน่วยความจำ เท่ากับ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{4\times 4}{65} = 0.25
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="102" HEIGHT="46" BORDER="0"
+ SRC="img429.png"
+ ALT="\begin{displaymath}
+\frac{4\times 4}{65} = 0.25
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.8)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>รูป <A HREF="#fig:f0713">7.9</A> แสดงการออกแบบระบบหน่วยความจำสามลักษณะ  แบบที่สองเป็นการเพิ่ม Bandwidth ระหว่างแคชและหน่วยความจำหลัก  ทำให้สามารถส่งผ่านข้อมูลได้ทีละ Block  วิธีที่สามเป็นการเพิ่มขยายขนาดเฉพาะหน่วยความจำ แต่ขนาดของ Bus ยังเท่าเดิม  
+<A NAME="34424"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0713"></A><A NAME="34991"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.9:</STRONG>
+แนวทางพื้นฐานในการการออกแบบหนวยความจำรองรับการทำงานแคช</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="432" ALIGN="BOTTOM" BORDER="0"
+ SRC="img430.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/f0713.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในกรณีที่เพิ่มขนาดทั้งหน่วยความจำและบัสในกรณีที่สองนั้น Miss Penalty ของการเพิ่มขนาดเป็น สอง Word มีค่าเท่ากับ <!-- MATH
+ $1 + 2 \times 15 + 2\times 1 = 33$
+ -->
+<IMG
+ WIDTH="197" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img431.png"
+ ALT="$1 + 2 \times 15 + 2\times 1 = 33$"> ถ้าเพิ่มขนาดของหน่วยความจำและบัสเป็น 4 Word ค่า Miss Penalty จะมีค่าเท่ากับ  17 วงรอบการทำงาน  หรื่อเท่ากับ 0.48 Byte ที่ส่งผ่านต่อ วงรอบการทำงานของบัสหน่วยความจำ  และ 0.94 Byte ที่ส่งผ่านต่อ วงรอบการทำงานของบัสหน่วยความจำ  ตามลำดับ
+</I>
+<P>
+<I>แทนที่เราจะทำการขยายขนาดทั้งหน่วยความจำและบัส  เราสามารถจัดเรียงชิป DRAM ให้เป็น Bank เพื่อสามารถอ่านหลาย 
+Word ที่เรียงต่อกันใน Block ได้ในการส่งแอดเดรสครั้งเดียว  และทำการอ่านค่อออกมาพร้อมกัน  วิธีการดังกล่าวเรียกว่า Interleaving  ในระบบที่หนึ่ง Block มี 4 Words ค่า Miss Penalty จะมีค่าเท่ากับ  <!-- MATH
+ $1 + 1\times 15 + 4\times 1 = 20$
+ -->
+<IMG
+ WIDTH="197" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img432.png"
+ ALT="$1 + 1\times 15 + 4\times 1 = 20 $"> และได้ค่าจำนนวน Byte ที่ส่งผ่านต่อ วงรอบการทำงานของบัสหน่วยความจำ เท่ากับ 0.80 <A NAME="34554"></A>
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2837"
+  HREF="node157.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2831"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2827"
+  HREF="node155.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2833"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2835"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2838"
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<B> Up:</B> <A NAME="tex2html2832"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2828"
+  HREF="node155.html">ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
+ &nbsp; <B>  <A NAME="tex2html2834"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2836"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,441 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>แนวคิดของหน่วยความจำแคช</TITLE>
+<META NAME="description" CONTENT="แนวคิดของหน่วยความจำแคช">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node157.html">
+<LINK REL="previous" HREF="node149.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node151.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2749"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2743"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2737"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2745"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2747"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2750"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+<B> Up:</B> <A NAME="tex2html2744"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2738"
+  HREF="node149.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html2746"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2748"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00930000000000000000">
+แนวคิดของหน่วยความจำแคช</A>
+</H1>
+<P>
+<BLOCKQUOTE><I>Cache - a safe place to store things
+</I></BLOCKQUOTE>
+<P>
+<I>คำว่า ``แคช'' (Cache) <A NAME="33104"></A>  ใช้เรียก ลำดับชั้นของหน่วยความจำ ที่อยู่ระหว่างโปรเซสเซอร์ และหน่วยความจำหลัก  ซึ่งปัจจุบัน คำว่าแคชใช้แทนอุปกรณ์เก็บข้อมูลใดๆ ที่สามารถใช้ประโยชน์จากพื้นฐานของ Locality  ซึ่งหน่วยความจำแคชใช้งานอย่างแพร่หลายในส่วนของโปรเซสเซอร์ประสิทธิภาพสูง ถึงโปรเซสเซอร์ขนาดเล็ก
+</I>
+<P>
+<I>รูป <A HREF="#fig:7.4">7.4</A>  แสดงถึงหน่วยความจำแคชอย่างง่าย ก่อนและหลังการเรียกข้อมูล <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$X_n$"> ที่เมื่อเริ่มแรกไม่อยู่ในแคช ก่อนการเรียกใช้ข้อมูล  แคชมีค่า <!-- MATH
+ $X_1, X_2, X_3, \ldots, X_{n-1}$
+ -->
+<IMG
+ WIDTH="174" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img390.png"
+ ALT="$X_1, X_2, X_3, \ldots, X_{n-1}$"> ในขณะที่ <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$X_n$"> ไม่อยู่ในแคช เมื่อเกิดการ Miss ค่า <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$X_n$"> จะถูกนำจากหน่วยความจำหลักข้ามาในแคช ต่อไป
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.4"></A><A NAME="34980"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.4:</STRONG>
+การเรียกข้อมูลในหน่วยความจำแคชก่อน และหลังจากการเรียกค่า <IMG
+ WIDTH="29" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$X_n$"> ที่เมื่อเริ่มแรกไม่อยู่ในแคช</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="459" HEIGHT="340" ALIGN="BOTTOM" BORDER="0"
+ SRC="img391.png"
+ ALT="\includegraphics[width=4in]{fig/Chapter_7/Figure_7.4.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>จากรูป <A HREF="#fig:7.4">7.4</A> มีคำถามสองประการที่จะต้องตอบได้แก่ 
+</I>
+<P>
+<OL>
+<LI>จะรู้ได้อย่างไรว่าข้อมูลที่ต้องการอยู่ในแคช 
+</LI>
+<LI>จะทำอย่างไรเมื่อพบว่าข้อมูลอยู่ในแคช
+</LI>
+</OL>
+<P>
+<I>วิธีการที่ง่ายที่สุดในการกำหนดตำแหน่งของแอดเดรส ของแต่ละ Word ในหน่วยความจำในแคช โดยใช้การคำนวณ <IMG
+ WIDTH="40" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img392.png"
+ ALT="$mod$"> ของแอดเดรสในหน่วยความจำลงในแคช  ซึ่งการทำการดังกล่าว เรียกว่า Direct Mapped <A NAME="33271"></A>  ในโครงสร้างแคช มีการจัดสรรตำแหน่งเฉพาะในแคช สำหรับแอดเดรสหนึ่งๆ ในหน่วยความจำ โดยใช้สมการดังต่อไปนี้
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+(Block~address)~modulo~(Number~of~cache~blocks~in~the~cache)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="535" HEIGHT="38" BORDER="0"
+ SRC="img393.png"
+ ALT="\begin{displaymath}
+(Block~address)~modulo~(Number~of~cache~blocks~in~the~cache)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.5"></A><A NAME="34981"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.5:</STRONG>
+การทำ Direct Map บนแคชที่มี 8 ช่องและแสดงแอดเดรสของหน่วยความจำระหว่าง 0 ถึง 31 ที่มีการกำหนดให้ลงช่องเดียวกัน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="426" ALIGN="BOTTOM" BORDER="0"
+ SRC="img394.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_7/Figure_7.5.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>วิธีการกำหนดตำแหน่งระหว่างแคชกับหน่วยความจำในลักษณะนี้มีข้อดีคือความง่ายของวิธีการ ในกรณีที่หน่วยความจำแคชมีขนาดเป็นเลขของสองยกกำลัง  การทำการ modulo สามารถทำได้โดยตรงโดยการตัดบิตทางซ้ายของแอดเอรส มาใช้ในการอ้างอิงตำแหน่งในหน่วยความจำแคช  รูป <A HREF="#fig:7.5">7.5</A> แสดงแอดเครสของหน่วยความจำระหว่าง <!-- MATH
+ $1_{ten} (00001_{two})$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img395.png"
+ ALT="$1_{ten} (00001_{two})$"> และ <!-- MATH
+ $29_{ten} (11101_{two})$
+ -->
+<IMG
+ WIDTH="127" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img396.png"
+ ALT="$29_{ten} (11101_{two})$"> ที่ทำการเทียบกับตำแหน่ง <!-- MATH
+ $1_{ten}(001_{two})$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img397.png"
+ ALT="$1_{ten}(001_{two})$"> และ  <!-- MATH
+ $5_{ten}(101_{two})$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img398.png"
+ ALT="$5_{ten}(101_{two})$"> สำหรับแคชขนาด 8 words 
+</I>
+<P>
+<I>เนื่องจากในแต่ละตำแหน่งของแคชสามารถบรรจุแอดเดรสได้หลายตำแหน่งแทนที่กัน  วิธีการที่จะทำให้ทราบว่าแอดเดรสดังกล่าวเป็นของตำแหน่งใด แสดงโดยค่าของ Tag <A NAME="33419"></A> โดยที่ Tag จะเก็บส่วนที่เหลือของแอดเดรสเพื่อสำหรับตรวจสอบว่าตำแหน่งนั้นเป็นของแอดเดรสใด โดยการรวม Tag และตำแหน่งอ้างอิงในแคชเข้าด้วยกัน  ในรูป <A HREF="#fig:7.5">7.5</A> Tag จะมีขนาด 2 บิตจาก 5 บิตที่แสดงแอดเดรส  นอกจากนี้ยังมี Valid บิต สำหรับชี้ว่าในแคชมีข้อมูลที่มีตรงและสามารถใช้งานได้ เมื่อเริ่มแรกในการเปิดเครื่อง Valid บิตจะถูกตั้งค่าให้เป็น 0 เพื่อเมื่อถูกใช้งานจะได้นำค่ามาจากหน่วยความจำในลำดับต่อไป
+</I>
+<P><TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER"><I>
+Decimal address </I></TD>
+<TD ALIGN="CENTER"><I> Binary address </I></TD>
+<TD ALIGN="CENTER"><I> Hit or miss </I></TD>
+<TD ALIGN="CENTER"><I> Assigned cache block</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+of reference </I></TD>
+<TD ALIGN="CENTER"><I> of reference </I></TD>
+<TD ALIGN="CENTER"><I> in cache </I></TD>
+<TD ALIGN="CENTER"><I> (where found or placed</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+22 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img399.png"
+ ALT="$10110_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> miss </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(10110_{two} mod 8) = 110_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img400.png"
+ ALT="$(10110_{two} mod 8) = 110_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+26 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img401.png"
+ ALT="$11010_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> miss </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(11010_{two} mod 8) = 010_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img402.png"
+ ALT="$(11010_{two} mod 8) = 010_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+22 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img399.png"
+ ALT="$10110_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> hit </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(10110_{two} mod 8) = 110_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img400.png"
+ ALT="$(10110_{two} mod 8) = 110_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+26 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img401.png"
+ ALT="$11010_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> hit </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(11010_{two} mod 8) = 010_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img402.png"
+ ALT="$(11010_{two} mod 8) = 010_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+16 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img403.png"
+ ALT="$10000_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> miss </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(10000_{two} mod 8) = 000_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img404.png"
+ ALT="$(10000_{two} mod 8) = 000_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+3 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img405.png"
+ ALT="$00011_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> miss </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(00011_{two} mod 8) = 011_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img406.png"
+ ALT="$(00011_{two} mod 8) = 011_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+16 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img403.png"
+ ALT="$10000_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> hit </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(10000_{two} mod 8) = 000_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img404.png"
+ ALT="$(10000_{two} mod 8) = 000_{two}$"></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I> 
+18 </I></TD>
+<TD ALIGN="CENTER"><I> <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img407.png"
+ ALT="$10010_{two}$"> </I></TD>
+<TD ALIGN="CENTER"><I> miss </I></TD>
+<TD ALIGN="CENTER"><I> <!-- MATH
+ $(10010_{two} mod 8) = 010_{two}$
+ -->
+<IMG
+ WIDTH="208" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img408.png"
+ ALT="$(10010_{two} mod 8) = 010_{two}$"></I></TD>
+</TR>
+<TR><TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE>
+<P>
+<I>รูป <A HREF="#fig:7.7">7.6</A> แสดงแอดเดรสที่แบ่งออกเป็น
+</I>
+<P>
+<UL>
+<LI>Cache Index สำหรับอ้างอิงแคชในการเลือก Block ที่เหมาะสม
+</LI>
+<LI>Tag Field สำหรับการเปรียบเทียบกับแอดเดรสในการระบุตำแหน่งที่ถูกต้อง
+</LI>
+</UL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.7"></A><A NAME="34982"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.6:</STRONG>
+ในระบบแคชที่แสดงในรูป ส่วนล่างของแอดเดรสใช้เลือกตำแหน่งในแคช และเปรียบเทียบ tag ในการพิสูจน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="566" ALIGN="BOTTOM" BORDER="0"
+ SRC="img409.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_7/Figure_7.7.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>การอ้างอิงแคชประกอบกับ Tag ของ Block เป็นการระบบตำแหน่งของหน่วยความจำที่ต้องการใช้งาน เนื่องจากฟิลด์ index ใช้ในกาารอ้างอิง ขนาด <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิตของ index สามารถอ้างอิงได้ Word จะมีการจัดเรียงเป็น 4 bytes โดยจะไม่ใช้สองบิตสุดท้ายในการทำงานเนื่องจากเป็น Byte Offset
+</I>
+<P>
+<I>จำนวนบิตในแคช ขึ้นอยู่กับขนาดของแคช และขนาดของแอดเดรส เนื่องจากแคชประกอบด้วยทั้ง Data และ Tag Block หนึ่งๆ สามารถมีขนาดตั้งแต่หนึ่ง Word ถึงหลายๆ Word ถ้าสมมุติให้ขนาดของแอดเดรสมีขนาด 32 บิต ในการอ้างอิงข้อมูลขนาดหนึ่ง Byte และ ขนาดของ Direct Mapping มีขนาดเท่ากับ <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img126.png"
+ ALT="$2^n$"> Blocks ที่มีขนาด <IMG
+ WIDTH="27" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img410.png"
+ ALT="$2^m$"> Words และ <IMG
+ WIDTH="76" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img411.png"
+ ALT="$2^(m+2)$"> ไบท์ โดยขนาดของฟิลด์ Tag เท่ากับ <IMG
+ WIDTH="144" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img412.png"
+ ALT="$32-(n+m+2)$"> บิต เนื่องจากใช้ <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิต สำหรับ index และ m บิต สำหรับการอ้างอิง Word ในแต่ละ Block และ 2 บิตสำหรับการอ้างอิง Byte ใน Word  ขนาดของแคชจึงเท่ากับ <!-- MATH
+ $2^n\times (m\times 32 +(32-n-m-2)+1) = 2^n\times (m\times 32 + 31 -n-m)$
+ -->
+<IMG
+ WIDTH="566" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img413.png"
+ ALT="$2^n\times (m\times 32 +(32-n-m-2)+1) = 2^n\times (m\times 32 + 31 -n-m)$"> 
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2751"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+<LI><A NAME="tex2html2752"
+  HREF="node152.html">การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</A>
+<LI><A NAME="tex2html2753"
+  HREF="node153.html">การจัดการกับ Cache Miss</A>
+<LI><A NAME="tex2html2754"
+  HREF="node154.html">การจัดการกับการ Write</A>
+<LI><A NAME="tex2html2755"
+  HREF="node155.html">ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
+<LI><A NAME="tex2html2756"
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2749"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2743"
+  HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2737"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2745"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2747"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2750"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+<B> Up:</B> <A NAME="tex2html2744"
+  HREF="node147.html">หน่วยความจำ</A>
+<B> Previous:</B> <A NAME="tex2html2738"
+  HREF="node149.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html2746"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2748"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Distributed Block-Interleaved Parity(RAID 5)</TITLE>
+<META NAME="description" CONTENT="Distributed Block-Interleaved Parity(RAID 5)">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node184.html">
+<LINK REL="previous" HREF="node182.html">
+<LINK REL="up" HREF="node177.html">
+<LINK REL="next" HREF="node184.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3258"
+  HREF="node184.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3252"
+  HREF="node177.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3246"
+  HREF="node182.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3254"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3256"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3259"
+  HREF="node184.html">P+Q Redundancy (RAID 6)</A>
+<B> Up:</B> <A NAME="tex2html3253"
+  HREF="node177.html">RAID</A>
+<B> Previous:</B> <A NAME="tex2html3247"
+  HREF="node182.html">Block-Interleaved Parity (RAID 4)</A>
+ &nbsp; <B>  <A NAME="tex2html3255"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3257"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION001032600000000000000">
+Distributed Block-Interleaved Parity(RAID 5)</A>
+</H3><I>
+ผลของการจัดการของ RAID 4 อันมีประสิทธิภาพทำให้สามารถนำมาใช้งานได้สำหรับการอ่านและเขียนข้อมูลขนาดใหญ่รวมถึงการอ่านและเขียนข้อมูลขนาดเล็ก แต่ความยุ่งยากของ RAID 4 คือต้องมีการอ่านข้อมูลเก่าก่อนทุกครั้งที่จะทำการเขียนข้อมูลทำให้เกิดความล่าช้าในการบันทึก
+</I>
+<P>
+<I>เพื่อแก้ปัญหาความล้าช้าในการบันทึกข้อมูลของ RAID 4 ข้อมูลของพาริตี้จึงได้มีการปรับให้มีการบันทึกลงไปในหน่วยเก็บข้อมูลทุกตัวแทนที่จะมีการบันทึกลงในหน่วยเก็บข้อมูลเพียงตัวเดียวและได้เกิดเป็น RAID 5 ขึ้น
+</I>
+<P>
+<I>ในรูปที่&nbsp;<A HREF="#fig:raid4vsraid5">8.2</A> แสดงการกระจายข้อมูลสำหรับ RAID 4 เปรียบเทียบกับ RAID 5 ซึ่งจากที่เห็นจะพบว่าข้อมุลพาริตี้ใน RAID 5 มีการกระจายข้อมูลของพาริตี้ไแตามหน่วยเก้บข้อมูลตัวอื่นๆ แทนที่จะเก็บเอาไว้ที่เดียวเช่นใน RAID 4
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:raid4vsraid5"></A><A NAME="43647"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8.2:</STRONG>
+แสดงการกระจายข้อมูลสำหรับ RAID 4 เปรียบเทียบกับ RAID 5</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="428" HEIGHT="225" ALIGN="BOTTOM" BORDER="0"
+ SRC="img466.png"
+ ALT="\includegraphics{fig/Chapter_8/fig19.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

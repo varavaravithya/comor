@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ตัวอย่างการหาร</TITLE>
+<META NAME="description" CONTENT="ตัวอย่างการหาร">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node57.html">
+<LINK REL="up" HREF="node56.html">
+<LINK REL="next" HREF="node59.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1350"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1344"
+  HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1340"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1346"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1348"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1351"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<B> Up:</B> <A NAME="tex2html1345"
+  HREF="node56.html">การหาร</A>
+<B> Previous:</B> <A NAME="tex2html1341"
+  HREF="node57.html">ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+ &nbsp; <B>  <A NAME="tex2html1347"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1349"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00560200000000000000">
+ตัวอย่างการหาร</A>
+</H3>
+<P>
+<I>จงหาร <IMG
+ WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img110.png"
+ ALT="$7_{ten}$"> ด้วย <IMG
+ WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img100.png"
+ ALT="$2_{ten}$"> หรือ <!-- MATH
+ $0000 0111_{two}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img135.png"
+ ALT="$0000 0111_{two}$"> ด้วย <!-- MATH
+ $0000 0010_{two}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img136.png"
+ ALT="$0000 0010_{two}$">
+</I>
+<P>
+<I>รูป <A HREF="#fig:dividestep">3.11</A> แสดงค่าในรีจีสเตอร์ต่างๆ ในแต่ละขั้นตอนของการคำนวณ โดยได้ผลการหารเท่ากับ 3 เหลือเศษ 1 โดยในขั้นตอนจะมีเท่ากับ <IMG
+ WIDTH="48" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img137.png"
+ ALT="$n+1$"> ขั้นตอนในการหาร  ในขั้นตอนการตรวจสอบค่ามากกว่าหรือน้อยกว่าศูนย์จะทดสอบเพียงค่าของ Sign bit เท่านั้น  
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:dividestep"></A><A NAME="16290"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.11:</STRONG>
+ตัวอย่างการหารตามระเบียบวิธี ในรูป <A HREF="node57.html#fig:fig3.11">3.10</A></CAPTION>
+<TR><TD><IMG
+ WIDTH="658" HEIGHT="539" BORDER="0"
+ SRC="img138.png"
+ ALT="\begin{figure}\centering
+\begin{tabular}{@{}clccc@{}}\toprule
+Iteration &amp; Step &amp;...
+...iv right &amp; 0011 &amp; 0000 0001 &amp; 0000 0001\ \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>วิธีการหารที่ได้กล่าวมาขั้นต้นสามารถปรับปรุงให้ทำงานได้เร็วขึ้นและมีฮาร์ดแวร์ที่ถูกลง ความเร็วในการคำนวณที่เพิ่มชึ้นได้มาจากเราทำการ shift ตัวตั้งหารและผลลัพธ์ ในเวลาเดียวกับการลบค่า โดยสามารถลดจำนวนรีจีสเตอร์จากการใช้งานพื้นที่ของรีจีสเตอร์ที่ยังไม่ได้มีการใช้งาน  รูป
+<A HREF="#fig:improveDivide">3.12</A> แสดงฮาร์ดแวร์ที่ทำการปรับปรุง  
+</I>
+<P>
+<I>การหารแบบมีเครื่องหมายทำโดยการบันทึกเครื่องหมายของตัวหาร และตัวตั้งหารจากนั้นทำการเปลี่ยนเครื่องหมายของผลลัพธ์ในกรณีที่เครื่องหมายไม่ตรงกัน
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:improveDivide"></A><A NAME="16291"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.12:</STRONG>
+ฮาร์ดแวร์สำหรับการหารที่ได้รับการปรับปรุง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="516" HEIGHT="263" ALIGN="BOTTOM" BORDER="0"
+ SRC="img139.png"
+ ALT="\includegraphics[width=4.5in]{fig/Chapter_3/Figure_3.13.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในคอมพิวเตอร์ MIPS นั้นมีคำสั่งสำหรับการหารได้แก่ divide <TT>(div)</TT> และ divide unsigned <TT>(divu)</TT> คำสั่ง  <TT>(mflo)</TT> และ <TT>(mfhi)</TT> สามารถใช้ในการนำผลลัพธ์ของการหารมาใส่ไว้ในรีจีสเตอร์ของ MIPS (ที่มี 32 ตัว) ตามที่ต้องการ <A NAME="14803"></A><A NAME="14804"></A>
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

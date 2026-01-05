@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</TITLE>
+<META NAME="description" CONTENT="ตัวอย่างระบบแคช: Intrinsity FastMATH Processor">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node156.html">
+<LINK REL="previous" HREF="node154.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node156.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2825"
+  HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2819"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2813"
+  HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2821"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2823"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2826"
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+<B> Up:</B> <A NAME="tex2html2820"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2814"
+  HREF="node154.html">การจัดการกับการ Write</A>
+ &nbsp; <B>  <A NAME="tex2html2822"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2824"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00930500000000000000">
+ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
+</H3>
+<P>
+<I>โปรเซสเซอร์ Intrinsity FastMATH เป็นแบบไพพ์ลายน์ 12 สเตท รูป <A HREF="#fig:7.9">7.8</A> แสดง Data Cache ของโปรเซสเซอร์ดังกล่าว ที่ประกอบดัวย 16KB, 4K Words และมี Block ขนาด 16 Words
+</I>
+<P>
+<I>ในการอ่านข้อมูลจากแคชค่อนข้างตรงไปตรงมา โดยมีขั้นตอนดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI>ส่งแอดเดรสไปยังแคช
+</LI>
+<LI>ถ้ามีสัญญาณ Hit, Word ที่ร้องขอจะอยู่ที่ Data Lines เนื่องจากหนึ่ง Block มี 16 Words จึงต้องใช้ Multiplexer ในการเลือกค่าที่ถูกต้อง 
+</LI>
+<LI>ในกรณีที่เกิดการ Miss เราจะส่งแอดเดรสไปยังหน่วยความจำหลัก เมื่อได้ข้อมูลมาจะทำการเขียนลงในแคชและอ่านค่าต่อไป
+</LI>
+</OL>
+<P>
+<I>ในกรณีของ Intrinsity FastMATH รองรับการทำงานทั้ง Write Through และ Write Back ซึ่งขึ้นอยู่กับระบบปฏิบัติการในการเลือก และมี Write Buffer หนึ่งที่
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.9"></A><A NAME="34989"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.8:</STRONG>
+ Data Cache ของโปรเซสเซอร์ Intrinsity FastMATH </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="473" ALIGN="BOTTOM" BORDER="0"
+ SRC="img427.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_7/Figure_7.9.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

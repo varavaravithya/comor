@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ระบบบัสและเน็ตเวิร์กของ Pentium 4</TITLE>
+<META NAME="description" CONTENT="ระบบบัสและเน็ตเวิร์กของ Pentium 4">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node187.html">
+<LINK REL="up" HREF="node186.html">
+<LINK REL="next" HREF="node189.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3326"
+  HREF="node189.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3320"
+  HREF="node186.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3316"
+  HREF="node187.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3322"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3324"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3327"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Up:</B> <A NAME="tex2html3321"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+<B> Previous:</B> <A NAME="tex2html3317"
+  HREF="node187.html">พื้นฐานของบัส</A>
+ &nbsp; <B>  <A NAME="tex2html3323"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3325"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001042000000000000000">
+ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+</H2>
+<P>
+<I>ระบบ I/O ของ PC ที่ใช้หน่วยประมวลผลเป็น Pentium 4 จะเห็นว่าต่อเข้ากับส่วนต่างๆ ผ่านทางชิปหลัก 2 ตัว ซึ่งชิปตัวที่อยู่ถัดจากหน่วยประมวลผลจะทำหน้าที่ควบคุมการติดต่อกับหน่วยความจำ เรียกว่า north bridge และอีกตัวซึ่งอยู่ถัดมาทำหน้าที่ควบคุมการติดต่อกับอุปกรณ์ I/O ต่างๆ เรียกว่า south bridge
+</I>
+<P>
+<I>north bridge มีพื้นฐานอยู่บน DMA controller เชื่อมต่อหน่วยประมวลผลเข้ากับหน่วยความจำ, AGP graphic bus และชิป south bridge ส่วน south bridge จะเชื่อมต่อเข้ากับ north bridge และอุปกรณ์ I/O อื่นๆ ในกระบวนการผลิตเพื่อนำออกไปใช้งาน chip set เหล่านี้จะมีหลายชนิด เพื่อเป็นตัวเลือกในการนำไปใช้งาน </I>
+<P>
+<I>ชิปทั้งสองตัวนี้ได้แสดงให้เห็นถึงการพัฒนาการทำงานจากลักษณะใช้งานร่วมกันแบบขนานไปสู้การเชื่อมต่อแบบ serial point-to-point ที่มีความเร็วสูง โดยแสดงผ่านทาง ATA และ PCI
+</I>
+<P>
+<I>Serial ATA พัฒนามาจากบัสแบบ parallel ATA ซึ่งนำไปใช้กับ magnetic และ optical disks ทำการส่งข้อมูลที่ 150 MB/sec เปรียบเทียบกับบัสแบบ parallel ATA-100 ที่ทำงานที่ 100 MB/sec มีความยาวสูงสุดถึง 1 เมตรซึ่งมากกว่าความยาวสูงสุดของ ATA-100 ถึง 2 เท่า ใช้สายไฟแค่ 7 เล้น กับ 2-wire data channel ในแต่ละทิศทาง เปรียบเทียบกับ ATA-100 ที่ใช้สายถึง 80 เส้น 
+</I>
+<P>
+<I>PCI Express พัฒนามาจากบัส PCI ที่ใช้สายไฟร่วมกัน 32-64 เส้น ให้ทำงานที่ 33 MHz-133MHz ด้วย bandwidth สูงสุดที่ 132-1064 MB/sec  ส่วน PCI Express ใช้สายไฟเพียงแค่ 4 เส้นในแต่ละทิศทาง โดยทำงานที่ 625 MHz รองรับ 300 MB/sec ต่อทิศทาง bandwidth ต่อขาของ PCI Express มีขนาดเป็น 5-10 เท่าของทั่วไป
+</I>
+<P>
+<I>บัสและเน็ตเวิร์กได้จัดเตรียม electrical interconnection ระหว่าง อุปกรณ์, หน่วยประมวลผล และหน่วยความจำ รวมถึงนิยามโปรโตคอลในระดับต่ำสุดสำหรับการติดต่อสื่อสาร ด้วยระดับพื้นฐานนี้เราจำเป็นต้องนิยาม hardware และ software protocol สำหรับควบคุมการส่งข้อมูลระหว่างอุปกรณ์ I/O กับหน่วยความจำ และสำหรับหน่วยประมวลผลในการระบุคำสั่งสำหรับอุปกรณ์ I/O ต่างๆ โดยหัวข้อนี้เราจะพูดถึงในส่วนถัดไป
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

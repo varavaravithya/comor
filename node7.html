@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>จากโปรแกรมสู่การทำงาน</TITLE>
+<META NAME="description" CONTENT="จากโปรแกรมสู่การทำงาน">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node3.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html574"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html568"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html562"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html570"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html572"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html575"
+  HREF="node8.html">ประวัติการพัฒนาของคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html569"
+  HREF="node3.html">แนวคิดของการพัฒนาเทคโนโลยีคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html563"
+  HREF="node6.html">ประเภทและคุณลักษณะคอมพิวเตอร์</A>
+ &nbsp; <B>  <A NAME="tex2html571"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html573"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00340000000000000000">
+จากโปรแกรมสู่การทำงาน</A>
+</H1>
+<P>
+<I>โปรแกรมประยุกต์ทั่วไป เช่น โปรแกรมประมวลผลคำ หรือโปรแกรมฐานข้อมูลขนาดใหญ่ จะประกอบด้วย การเขียนโปรแกรมเป็นหมื่นเป็นแสนบรรทัด และต้องทำงานร่วมกับซอฟต์แวร์ไลบรารี่ต่างๆ ที่มีการทำงานอันซับซ้อน ซึ่งมีหน้าที่สำหรับการสนับสนุนโปรแกรมประยุกต์นั้นๆ อย่างไรก็ตาม ในความเป็นจริงคอมพิวเตอร์ฮาร์ดแวร์มีความสามารถในการทำการประมวลผลคำสั่งที่พื้นฐานมากๆ จากการประยุกต์ใช้งานของโปรแกรมที่มีการใช้งานซับซ้อน มีระบบที่จะแปลงมาสู่คำสั่งพื้นฐานระดับล่าง ซึ่งการทำงานจะต้องผ่านระดับชั้นของซอฟต์แวร์หลายชั้น เพื่อที่จะแปลงหรือแปลการทำงานระดับสูงมาเป็นคำสั่งพื้นฐานที่คอมพิวเตอร์สามารถทำงานได้
+</I>
+<P>
+<I>ลำดับชั้นของซอฟต์แวร์เหล่านี้ มีลักษณะเป็นลำดับชั้นที่แน่ชัด โดยที่โปรแกรมประยุกต์อยู่วงนอกสุด, ซอฟต์แวร์ระบบอยู่ตรงกลางระหว่างฮาร์ดแวร์, และโปรแกรมประยุกต์ แสดงในรูป <A HREF="#fig:softwareLevel"
+ NAME="2881">1.3</A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:softwareLevel"></A><A NAME="2882"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.3:</STRONG>
+ลำดับชั้นของซอฟต์แวร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="288" HEIGHT="288" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="\includegraphics[width=2.5in]{fig/Chapter_1/Figure_1.3ill.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ซอฟต์แวร์ระบบมีหลายลักษณะ เราสามารถแบ่งซอฟต์แวร์ระบบได้เป็น 2 ลักษณะใหญ่ๆ ได้แก่ ระบบปฏิบัติการ (Operating System) และตัวแปลภาษา (Compiler) ระบบปฏิบัติการจะทำงานเพื่อเชื่อมต่อระหว่างโปรแกรมผู้ใช้งาน และระบบฮาร์ดแวร์ 
+ ระบบปฏิบัติการจะให้บริการในหลายลักษณะรวมถึงฟังก์ชั่นในการใช้งานคอมพิวเตอร์ โดยมีหน้าที่สำคัญดังต่อไปนี้
+<A NAME="1695"></A><A NAME="1696"></A>
+<A NAME="1697"></A><A NAME="1698"></A>
+</I>
+<P>
+
+<UL>
+<LI>ดูแลการทำงาน และ การรับข้อมูลเข้าออก 
+</LI>
+<LI>จัดสรรหน่วยความจำ และหน่วยเก็บข้อมูล
+</LI>
+<LI>จัดการให้คอมพิวเตอร์สามารถใช้งานร่วมกันได้อย่างมีประสิทธิภาพ สำหรับโปรแกรมประยุกต์ใช้งานหลายๆ ตัวได้พร้อมๆกัน
+</LI>
+</UL>
+<P>
+<I>ตัวอย่างของระบบปฏิบัติการในปัจจุบันได้แก่ Windows, Linux, และ MacOS
+</I>
+<P>
+<I>ตัวแปลภาษา (Compiler) ทำหน้าที่แปลภาษาที่เขียนในภาษาระดับสูง เช่น ภาษาซี หรือ ภาษาจาวา ลงมาเป็นคำสั่ง ที่ฮาร์ดแวร์สามารถประมวลผลได้ จากการแปลงภาษาระดับสูงที่มีความซับซ้อนลงมาเป็นภาษาระดับล่างที่ฮาร์ดแวร์สามารถประมวลผลได้ในลักษณะพื้นฐาน ตัวแปลภาษาจึงต้องมีความซับซ้อนสูงไปด้วย
+</I>
+<P>
+<I>ในอุปกรณ์อีเล็กทรอนิกส์ เราสามารถส่ง
+สัญญาณระหว่างอุปกรณ์อีเล็กทรอนิกส์ต่างๆ ได้ในลักษณะเปิดปิดสวิตซ์ ที่เป็นการส่งสัญญาณไฟฟ้า สัญลักษณ์ 2 ลักษณะ ที่ใช้ในระบบคอมพิวเตอร์ได้แก่ 0 กับ 1 เราจึงพิจารณาให้ภาษาเครื่องนั้นอยู่ในเลขฐานสอง แต่ละสัญลักษณ์เรียกว่า 1 บิต คอมพิวเตอร์จะทำตามคำสั่ง ซึ่งคำสั่งเป็นกลุ่มของบิตที่คอมพิวเตอร์จะสามารถเข้าใจได้ ตัวอย่างเช่น
+</I>
+<P><PRE>
+1000110010100000
+</PRE>
+<P>
+<I>คำสั่งดังกล่าวเป็นการสั่งให้คอมพิวเตอร์ทำการบวกเลข 2 ชุด
+</I>
+<P>
+<I>ในระยะแรกนั้น นักเขียนโปรแกรมจะติดต่อสื่อสารคอมพิวเตอร์คำสั่งที่ระบบเป็นตัวเลขฐานสอง แต่งานในลักษณะดังกล่าว เป็นงานที่มีกระบวนงานที่ล่าช้าและใช้เวลามากในการเข้าใจ เพื่อแก้ปัญหาดังกล่าว จึงมีความพยายามสร้างระบบภาษา ให้มีความใกล้เคียงกับระบบการคิดของมนุษย์ ในช่วงแรก มีการแปลระบบภาษาดังกล่าวให้เป็นเลขฐานสอง โดยใช้คน อย่างไรก็ตามวิธีการดังกล่าวยังใช้เวลามากอยู่ จึงมีผู้คิดค้นโปรแกรมเพื่อแปลระบบภาษาดังกล่าว ให้เป็นคำสั่งในตัวเลขฐานสอง ในตอนแรกโปรแกรมนั้นถูกเรียกว่า Assembler โดยโปรแกรมจะทำการแปลงคำสั่งที่มีลักษณะเป็นสัญลักษณ์ให้มนุษย์เข้าใจง่าย ไปเป็นเลขฐานสอง ตัวอย่างเช่น
+<A NAME="1951"></A>
+</I>
+<P><PRE>
+add a, b
+</PRE>
+<P>
+<I>
+Assembler จะทำการแปลให้เป็น
+</I>
+<P><PRE>
+1000110010100000
+</PRE>
+<P>
+<I>คำสั่งขั้นต้นเป็นการบอกให้คอมพิวเตอร์บวกตัวเลข 2 ตัวได้แก่ <IMG
+ WIDTH="15" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$a$"> และ <IMG
+ WIDTH="13" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$b$"> 
+ซึ่งลักษณะการใช้งานดังกล่าวจึงเป็นที่มาของภาษาที่เรียกว่าแอสแซมบลี  (Assembly)
+</I>
+<P>
+<I>ถึงแม้ว่าจะมีการพัฒนาเป็นอย่างมากจากแนวคิดข้างต้น ภาษาแอสแซมบลี ยังห่างไกลกับการใช้งานจริง นักเขียนโปรแกรมจะต้องเขียนคำสั่งทุกคำสั่งในภาษาแอสแซมบลี ซึ่งเป็นการบังคับให้นักเขียนโปรแกรมจะต้องมีแนวคิดเหมือนกับการทำงานของเครื่อง ความต้องการให้คอมพิวเตอร์สามารถทำงานได้ตามความต้องการของมนุษย์มีสูงมากในปัจจุบัน สังคมจึงได้ลงทุนเป็นจำนวนมากที่จะดำเนินการหาวิธีการพัฒนาการสั่งงานคอมพิวเตอร์ให้สามารถทำงานได้ตามที่คนต้องการ จึงเป็นจุดผลักดันให้เกิดการพัฒนาภาษาคอมพิวเตอร์ต่างๆ เป็นจำนวนมาก
+</I>
+<P>
+<I>จากการที่โปรแกรมมีความสามารถที่จะแปลงภาษาหนึ่งไปยังอีกภาษาหนึ่ง จึงเป็นที่มาให้เกิดการพัฒนาภาษาโปรแกรมระดับสูงที่ Compiler จะแปลงภาษานั้นๆ ให้ออกมาเป็นคำสั่ง
+</I>
+<P>
+<I>Compiler จะเอื้อให้นักเขียนโปรแกรมเขียนคำสั่งในลำดับสูงเช่น <IMG
+ WIDTH="46" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$a + b$"> 
+</I>
+<P><PRE>
+a + b;
+</PRE>
+<P>
+<I>และ Compiler จะทำการแปลงออกมาเป็นภาษาแอสแซมบลี  ดังต่อไปนี้
+</I>
+<P><PRE>
+add a, b
+</PRE>
+<P>
+<I>จากนั้น Assembler จะทำการแปลงคำสั่งแอสแซมบลี ให้เป็นตัวเลขฐานสอง ได้ดังนี้
+</I>
+<P><PRE>
+1000110010100000
+</PRE>
+<P>
+<I>รูป <A HREF="#fig:softwareCompiler">1.4</A> แสดงลำดับขั้นของการแปลงในภาษาต่างๆ  จากภาษาระดับสูง มาเป็นภาษาแอสเซมบลี และภาษาเครื่องตามลำดับ
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:softwareCompiler"></A><A NAME="2883"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.4:</STRONG>
+ลำดับขั้นของการแปลงในภาษาต่างๆ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="402" HEIGHT="713" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="\includegraphics[width=3.5in]{fig/Chapter_1/Figure_1.4ill.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ส่วนประกอบของคอมพิวเตอร์ได้แก่ ส่วนรับข้อมูลเข้า ส่วนส่งข้อมูลออก หน่วยความจำ เส้นทางส่งข้อมูล และส่วนควบคุม
+เส้นทางส่งข้อมูลและส่วนควบคุมมักถูกเรียกว่า ตัวประมวลผล รูป <A HREF="#fig:comOr">1.5</A> 
+แสดงโครงสร้างการทำงานคอมพิวเตอร์มาตรฐาน 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:comOr"></A><A NAME="2884"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.5:</STRONG>
+โครงสร้างการทำงานคอมพิวเตอร์มาตรฐาน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="449" HEIGHT="277" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="\includegraphics[width=3.9in]{fig/Chapter_1/Figure_1.5ill.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:desktop">1.6</A> แสดงคอมพิวเตอร์แบบตั้งโต๊ะ ที่ประกอบด้วย คีย์บอร์ด เม้าส์ จอภาพ 
+และตัวกล่องที่บรรจุฮาร์ตแวร์อยู่ภายใน ที่มองไม่เห็นได้แก่ อุปกรณ์เครือข่ายที่สามารถต่อเชื่อมไปยังเครื่องอื่น 
+ ในภาพนี้จะเห็นอุปกรณ์คอมพิวเตอร์ที่สำคัญ 2 ชิ้นได้แก่ อุปกรณ์รับข้อมูลเข้า ได้แก่ แป้นคีย์บอร์ด และหน้าจอ จากเทคโนโลยีโทรทัศน์ จอ CRT สามารถสแกนภาพได้ครั้งละ 1 เส้นในอัตรา 30 ถึง 75 ครั้งต่อนาที ทำให้ผู้ใช้งานไม่สามารถสังเกตการกระพริบได้ของหน้าจอ แต่ละรูป 
+ <A HREF="#fig:screen">1.7</A> แสดงการทำงานของจอภาพแสดงผล ที่ประกอบด้วย เมทริกส์ของภาพ ที่มีการแสดงรูปจากการประกอบกันของ
+ พิกเซลที่แสดงผลสี <A NAME="2885"></A><A NAME="2311"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:desktop"></A><A NAME="2886"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.6:</STRONG>
+คอมพิวเตอร์แบบตั้งโต็ะ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="414" HEIGHT="312" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="\includegraphics[width=3.6in]{fig/Chapter_1/Figure_1.6psd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:screen"></A><A NAME="2887"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.7:</STRONG>
+การทำงานของหน้าจอแสดงผล</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="447" HEIGHT="203" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="\includegraphics[width=3.9in]{fig/Chapter_1/Figure_1.7ill.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:insideDesktop">1.8</A>  แสดงภายในของเครื่องคอมพิวเตอร์ที่ประกอบด้วย แหล่งจ่ายไฟฟ้า แผงวงจรหลัก ตัวเล่นซีดี Zip Drive
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:insideDesktop"></A><A NAME="2888"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.8:</STRONG>
+ภายในเครื่องคอมพิวเตอร์แบบตั้งโต๊ะ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="518" HEIGHT="384" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="\includegraphics[width=4.5in]{fig/Chapter_1/Figure_1.8psd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ส่วนสำคัญในคอมพิวเตอร์นั้นได้แก่ ตัวโปรเซสเซอร์ ซึ่งในรูป <A HREF="#fig:intelChip">1.9</A> แสดงถึงภาพขยายของโปรเซสเซอร์ ชิป Pentium IV
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:intelChip"></A><A NAME="2889"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.9:</STRONG>
+ภาพขยายของโปรเซสเซอร์ ชิป Pentium IV</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="345" HEIGHT="448" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_1/Figure_1.9Apsd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>หน่วยความจำที่ใช้ในเครื่องคอมพิวเตอร์ในรูปสร้างจาก DRAM  คำว่า DRAM ย่อมาจาก Dynamic Random Access Memory โดยที่หน่วยความจำหลายตัวถูกนำมาใช้ร่วมกันหลายตัวเพื่อจะเก็บคำสั่งและข้อมูลและโปรแกรมหนึ่งๆ ในตัวโปรเซสเซอร์มีหน่วยความจำอีกอย่างเรียกว่า หน่วยความจำแคช ประกอบด้วยหน่วยความจำขนาดเล็ก แต่รวดเร็วมากแต่มีหน้าที่เป็นบัฟเฟอร์ ให้กับหน่วยความจำแบบ DRAM  หน่วยความจำแบบแคช ใช้เทคโนโลยีแตกต่างจาก DRAM โดยที่หน่วยความจำแบบแคชใช้เทคโนโลยี SRAM ที่มีขนาดต่อหน่วยใหญ่กว่าและราคาแพงกว่า <A NAME="2459"></A><A NAME="2460"></A>
+</I>
+<P>
+<I>หน่วยความจำที่กล่าวมาจะเก็บข้อมูลได้ก็ต่อเมื่อมีพลังงานหล่อเลี้ยงอยู่ พลังงานที่ว่านี้คือพลังงานไฟฟ้า ในอีกทางหนึ่งถ้าเราต้องการเก็บข้อมูลให้ไม่หายไปในขณะที่ไม่มีพลังงานไฟฟ้าเราสามารถเก็บได้ในแผ่นจานแม่เหล็กหรือฮาร์ดดิสก์  ฮาร์ดดิสก์เป็นอุปกรณ์เก็บรักษาข้อมูลที่ประกอบด้วยจานแม่เหล็กหมุนด้วยความเร็วสูง (4,500-15,000 รอบต่อนาที) โดยที่ข้อมูลไม่หายไปเมื่อปิดพลังงานที่ส่งไปเลี้ยง 
+รูป <A HREF="#fig:harddisk">1.10</A> แสดงภายในของฮาร์ดดิสก์ ที่มีจาน 10 แผ่นและหัวอ่าน ตัวอย่างอื่นๆ ของการเก็บข้อมูลลักษณะนี้ได้แก่ Optical Disk ได้แก่ DVD, CD, เทปแม่เหล็ก, หรือ Flash Memory รูป  <A HREF="#fig:memoryExpansion">1.11</A> แสดงการขยายตัวของหน่วยความจำ DRAM เมื่อเทียบกับเวลา
+<A NAME="2561"></A><A NAME="2562"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:harddisk"></A><A NAME="2890"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.10:</STRONG>
+ภายในของฮาร์ดดิสก์ ที่ประกอบด้วยแผ่นจานแม่เหล็ก และหัวอ่าน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="345" HEIGHT="438" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_1/Figure_1.11psd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:memoryExpansion"></A><A NAME="2891"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.11:</STRONG>
+แนวโน้มการขยายขนาดของหน่วยความจำ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="572" HEIGHT="254" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_1/Figure_1.13ill.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>กว่าจะมาเป็นโปรเซสเซอร์ชิปจะต้องผ่านกระบวนการหลายขั้นตอน รูป <A HREF="#fig:febprocess">1.12</A> แสดงขั้นตอนพื้นฐานในการทำโปรเซสเซอร์ชิป Pentium IV หลังจากที่ได้ท่อนซิลิกอน ซึ่งเป็นท่อนวงกลมขนาดเส้นผ่านศูนย์กลาง 8 ถึง 12 นิ้ว และยาว 12 ถึง 24 นิ้ว ท่อนซิลิกอนดังกล่าวจะถูกหั่นบางๆ อย่างระมัดระวังออกมาเป็นเวเฟอร์ที่มีความหนาน้อยกว่า 0.1 นิ้ว จากนั้นเวฟเฟอร์ก็ถูกผ่านขั้นตอนต่างๆ เป็นจำนวนมาก ซึ่งเป็นขั้นตอนทางเคมี เพื่อจะสร้างทรานซิสเตอร์ตัวนำและฉนวนในตำแหน่งที่เหมาะสม จากนั้นก็ผ่านขั้นตอนการทดสอบแต่ละตัวและแยกตัวโปรเซสเซอร์ออกมาจากเวเฟอร์ จากนั้นทำการบรรจุ ใส่ขา และตัวบรรจุกล่อง จากนั้นทำการทดสอบอีกครั้งก่อนส่งถึงผู้ใช้งาน  รูป <A HREF="#fig:wafer">1.13</A>  แสดงเวเฟอร์ขนาด 8 นิ้ว ที่บรรจุโปรเซสเซอร์     โดยโปรเซสเซอร์แต่ละตัวจะมีขนาด 250 ตารางมิลิเมตร และประกอบด้วยตัวทรานซิสเตอร์ 5 ล้านตัว ใช้เทคโนโลยี 0.18 ไมครอน <A NAME="2726"></A><A NAME="2892"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:febprocess"></A><A NAME="2893"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.12:</STRONG>
+กระบวนการทำชิปโปรเซสเซอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="573" HEIGHT="308" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_1/Figure_1.14.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:wafer"></A><A NAME="2894"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.13:</STRONG>
+เวเฟอร์ขนาด 8 นิ้ว ที่บรรจุโปรเซสเซอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="344" HEIGHT="344" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_1/Figure_1.15psd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>จากที่ตัวโปรเซสเซอร์ทำงานได้อย่างรวดเร็ว จึงต้องคำนึงถึงปัญหาของอุณหภูมิอย่างมาก เนื่องจากกินกำลังงานไฟฟ้ามาก ลองพิจารณาดูถึงโปรเซสเซอร์ Intel Pentium IV ใช้พลังงาน 82 วัตต์ที่จะต้องนำออกมาจากตัวชิบ ซึ่งจะมีพื้นที่ผิวใหญ่มาก รูป <A HREF="#fig:heatsink">1.14</A> แสดงแผงระบายความร้อนที่ออกแบบมาขนาดใหญ่ที่จะกระจายความร้อนออกจากตัวโปรเซสเซอร์ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:heatsink"></A><A NAME="2895"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.14:</STRONG>
+แผงระบายความร้อนที่ออกแบบมาขนาดใหญ่ที่จะกระจายความร้อนออกจากตัวโปรเซสเซอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="345" HEIGHT="262" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="\includegraphics[width=3in]{fig/Chapter_1/Figure_1.16psd.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>จากที่ผ่านมาเราพบว่า คอมพิวเตอร์มีอัตราการเพิ่มของประสิทธิภาพ 2 เท่า ทุก 18 เดือน ให้ดูแนวโน้มในรูป 
+<A HREF="#fig:performanceGain">1.15</A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:performanceGain"></A><A NAME="2896"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1.15:</STRONG>
+แนวโน้มประสิทธิภาพของคอมพิวเตอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="569" HEIGHT="415" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_1/Figure_1.17.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html574"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html568"
+  HREF="node3.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html562"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html570"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html572"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html575"
+  HREF="node8.html">ประวัติการพัฒนาของคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html569"
+  HREF="node3.html">แนวคิดของการพัฒนาเทคโนโลยีคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html563"
+  HREF="node6.html">ประเภทและคุณลักษณะคอมพิวเตอร์</A>
+ &nbsp; <B>  <A NAME="tex2html571"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html573"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

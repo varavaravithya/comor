@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Bit-Interleaved Parity (RAID 3)</TITLE>
+<META NAME="description" CONTENT="Bit-Interleaved Parity (RAID 3)">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node182.html">
+<LINK REL="previous" HREF="node180.html">
+<LINK REL="up" HREF="node177.html">
+<LINK REL="next" HREF="node182.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3230"
+  HREF="node182.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3224"
+  HREF="node177.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3218"
+  HREF="node180.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3226"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3228"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3231"
+  HREF="node182.html">Block-Interleaved Parity (RAID 4)</A>
+<B> Up:</B> <A NAME="tex2html3225"
+  HREF="node177.html">RAID</A>
+<B> Previous:</B> <A NAME="tex2html3219"
+  HREF="node180.html">Error Detecting and Correcting</A>
+ &nbsp; <B>  <A NAME="tex2html3227"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3229"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION001032400000000000000">
+Bit-Interleaved Parity (RAID 3)</A>
+</H3>
+<P>
+<I>ค่าความสะดวกในการเรียกใช้งานของระบบสำรองเพิ่มเติมประเภทนี้สามารถลดลงได้จากจำนวนของหน่วยเก็บข้อมูลที่ใช้งานโดยลดได้จากค่า 1/N เมื่อ N คือจำนวนของหน่วยเก็บข้อมูลที่นำมาจัดทำระบบสำรองเพิ่มเติม วิธีนี้แทนที่จะใช้การนำเอาข้อมูลต้นฉบับทั้งหมดเก็บไว้ในหน่วยเก็บข้อมูลแต่ละตัว ก็เปลี่ยนไปใช้วิธีการเก็บข้อมูลเฉพาะที่ต้องการทำสำรองเพิ่มเติมเพื่อที่จะทำการกู้ข้อมูลให้กับหน่วยเก็บข้อมูลที่ทำงานล้มเหลว ในการอ่านและเขียนข้อมูลจะทำกับกลุ่มของหน่วยเก็บข้อมูลโดยจะมีหน่วยเก็บข้อมูลพิเศษหนึ่งตัวที่จะทำหน้าที่เก็บข้อมูลตรวจสอบสำหรับกรณีที่เกิดความล้มเหลวของหน่วยเก็บข้อมูล RAID 3 เป็นที่นิยมในแอพพลิเคชั่นที่มีกลุ่มของข้อมูลจำนวนมาก เช่นงานมัลติมีเดียและงานทางด้านวิทยาศาสต์
+</I>
+<P>
+<I>พาริตี้เป็นวิธีการหนึ่งที่นำมาใช้ โดยจะมีหน่วยเก็บข้อมูลพิเศษหนึ่งตัวคอยตรวจเช็คข้อมูลของหน่วยเก็บข้อมูลทุกตัว หากผลรวมของกลุ่มที่ทำการเก็บข้อมูลมีการผิดพลาดก้จะนำข้อมูลจากหน่วยเก็บข้อมูลพิเศษมาสร้างเป็นข้อมูลที่ถูกต้องได้
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

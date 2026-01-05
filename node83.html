@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเพิ่มประสิทธิภาพ</TITLE>
+<META NAME="description" CONTENT="การเพิ่มประสิทธิภาพ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node84.html">
+<LINK REL="previous" HREF="node82.html">
+<LINK REL="up" HREF="node82.html">
+<LINK REL="next" HREF="node84.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1729"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1723"
+  HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1717"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1725"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1727"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1730"
+  HREF="node84.html">Clock Cycles per Instruction</A>
+<B> Up:</B> <A NAME="tex2html1724"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Previous:</B> <A NAME="tex2html1718"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+ &nbsp; <B>  <A NAME="tex2html1726"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1728"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00690100000000000000">
+การเพิ่มประสิทธิภาพ</A>
+</H3>
+<P>
+<I>โปรแกรมที่เราสนใจใช้เวลาในการประมวลผลบนคอมพิวเตอร์ A เป็นเวลา 10 วินาที โดยคอมพิวเตอร์ A ทำงานที่ความเร็วสัญญาณนาฬิกา 4 GHz สมมุติว่าเรากำลังทำการออกแบบคอมพิวเตอร์ B ที่จะสามารถทำงานประมวลผลบนโปรแกรมเดียวกันได้โดยใช้เวลาเพียง 6 วินาที การออกแบบสามารถลด Clock cycle time ได้ แต่จะกระทบต่อจำนวนวงรอบของสัญญาณนาฬิกาที่ทำงานในโปรแกรมเป็นอัตรา 1.2 เท่า จงหาความเร็วสัญญาณนาฬิกาที่จะสามารถทำได้ตามความต้องการดังกล่าว
+</I>
+<P>
+<I>เริ่มจากการคำนวณจำนวนสัญญาณนาฬิกาสำหรับโปรแกรมที่ทำงานบนคอมพิวเตอร์ A
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~time_A = \frac{CPU~clock~cycles_A}{Clock~rate_A}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="286" HEIGHT="49" BORDER="0"
+ SRC="img244.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;time_A = \frac{CPU&nbsp;clock&nbsp;cycles_A}{Clock&nbsp;rate_A}
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+10~seconds = \frac{CPU~clock~cycles_A}{4\times 10^9\frac{cycles}{second}}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="276" HEIGHT="54" BORDER="0"
+ SRC="img245.png"
+ ALT="\begin{displaymath}
+10&nbsp;seconds = \frac{CPU&nbsp;clock&nbsp;cycles_A}{4\times 10^9\frac{cycles}{second}}
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~clock~cycles_A = 10~seconds\times 4\times 10^9\frac{cycles}{second} = 40\times 10^9 cycles
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="554" HEIGHT="46" BORDER="0"
+ SRC="img246.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;clock&nbsp;cycles_A = 10&nbsp;seconds\times 4\times 10^9\frac{cycles}{second} = 40\times 10^9 cycles
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>CPU time สำหรับคอมพิวเตอร์ B สามารถคำนวณได้จากสมการต่อไปนี้
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~time_B =\frac{ 1.2\times CPU~clock~cycles_A}{Clock~rate_B}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="334" HEIGHT="49" BORDER="0"
+ SRC="img247.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;time_B =\frac{ 1.2\times CPU&nbsp;clock&nbsp;cycles_A}{Clock&nbsp;rate_B}
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+6~seconds = \frac{ 1.2\times 40\times 10^9 cycles}{Clock~rate_B}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="271" HEIGHT="51" BORDER="0"
+ SRC="img248.png"
+ ALT="\begin{displaymath}
+6&nbsp;seconds = \frac{ 1.2\times 40\times 10^9 cycles}{Clock&nbsp;rate_B}
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Clock~rate_B =\frac{ 1.2\times 40\times 10^9 cycles}{6~seconds} = \frac{8\times 10^9 cycles}{second} = 8 GHz
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="506" HEIGHT="48" BORDER="0"
+ SRC="img249.png"
+ ALT="\begin{displaymath}
+Clock&nbsp;rate_B =\frac{ 1.2\times 40\times 10^9 cycles}{6&nbsp;seconds} = \frac{8\times 10^9 cycles}{second} = 8 GHz
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ดังนั้นคอมพิวเตอร์ B จะต้องมีความเร็วสัญญาณนาฬิกาที่ 8 GHz
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

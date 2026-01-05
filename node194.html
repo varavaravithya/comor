@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Direct Memory Access กับ Memory System</TITLE>
+<META NAME="description" CONTENT="Direct Memory Access กับ Memory System">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node193.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node195.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3413"
+  HREF="node195.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3407"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3403"
+  HREF="node193.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3409"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3411"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3414"
+  HREF="node195.html">กิจกรรม</A>
+<B> Up:</B> <A NAME="tex2html3408"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3404"
+  HREF="node193.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+ &nbsp; <B>  <A NAME="tex2html3410"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3412"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001055000000000000000">
+Direct Memory Access กับ Memory System</A>
+</H2><I>
+เมื่อ DMA ถูกรวมเข้าไปในระบบ I/O ความสัมพันธ์ระหว่างระบบหน่วยความจำกับหน่วยประมวลผลก็เปลี่ยนไป ถ้าไม่มี DMA การเข้าถึงหน่วยความจำทั้งหมดจะมาจากหน่วยประมวลผล และทำงานผ่านทางกลไกการแปลงแอดเดรสและการเข้าถึง cache ถ้าหน่วยประมวลผลอ้าอิงถึง ด้วย DMA จะมีเส้นทางอื่นในการเข้าถึงหน่วยความจำ ความแตกต่างนี้ได้สร้างปัญหากับทั้งระบบ virtual memory และ ระบบ cache ปัญหาเหล่านี้แก้ได้ด้วยการรวมกันของเทคนิคทาง hardware และ การสนับสนุนของ software
+</I>
+<P>
+<I>ความยากในการมี DMA ใน virtual memory เกิดขึ้นเพราะ page มีทั้ง physical และ virtual address DMA ได้สร้างปัญหาสำหรับระบบที่ใช้ cache เพราะมันจะมีข้อมูลซ้ำ 2 ชุด คือใน cache กับในหน่วยความจำ และเพรา DMA สามารถเข้าถึงหน่วยความจำได้โดยตรงแทนที่จะใช้ cache ของหน่วยประมวลผล ค่าของตำแหน่งในหน่วยความจำที่ DMA กับหน่วยประมวลผลมองเห็นอาจจะแตกต่างกัน พิจารณาการอ่านจาก disk ที่ DMA เข้าถึงหน่วยความจำโดยตรง ถ้าบางตำแหน่งที่ DMA เขียนไปอยู่ใน cache หน่วยประมวลผลจะได้รับค่าเก่าเมื่ออ่าน เราเรียกปัญหานี้ว่า state data problem หรือ coherence problem
+</I>
+<P>
+<I>ปัญหาที่พบกับ virtual address คือ DMA จะต้องแปลง virtual address ไปเป็น physical address ปัญหาหลักที่พบกับการใช้ physical address ในการส่งข้อมูลบน DMA คือไม่สามารถข้าม page boundary ได้ง่ายๆ นั่นหมายถึงถ้าเราใช้ physical address เราจำเป็นต้องบังคับการส่งบน DMA ทั้งหมดให้อยู่ภายในหนึ่ง page 
+</I>
+<P>
+<I>วิธีหนึ่งที่จะให้ข้าม page ได้คือการให้ DMA ทำงานบน virtual address โดยให้ระบบปฏิบัติการจัดเตรียมการ mapping ไปเป็น physical address สำหรับการส่งข้อมูล ทำให้ไม่ต้องกังวลเกี่ยวกับตำแหน่งของ virtual page ในการส่งข้อมูล
+</I>
+<P>
+<I>เทคนิคอื่นที่ใช้สำหรับระบบปฏิบัติการที่จะแตกการส่งข้อมูลบน DMA ออกเป็นอนุกรม ซึ่งแต่ละอันถูกจำกัดให้อยู่ในหนึ่ง physical page และจะรวมกัน และถูกจัดการโดย I/O processor หรือ intelligent DMA
+</I>
+<P>
+<I>coherency problem สำหรับ I/O data หลีกเลี่ยงได้โดยใช้หนึ่งจากสามเทคนิคหลัก หนึ่งคือทำกิจกรรมของ I/O ผ่านทาง cache ซึ่งมั่นใจได้ว่าข้อมูลที่อ่านได้ล่าสุดขณะมีการเขียนปรับปรุงข้อมูลใน cache แต่วิธีการนี้ใช้ค่าใช้จ่ายสูงและมีผลกระทบต่อประสิทธิภาพของหน่วยประมวลผลมาก ทางเลือกที่สองคือการทำ cache flushing วิธีการนี้ต้องการการสนับสนุนจาก hardware เพียงเล็กน้อยและจะได้ประสิทธิภาพที่มากขึ้นถ้า software สามารถกระทำฟังก์ชั่นง่ายๆ และมีประสิทธิภาพ เพราะการ flush ของชิ้นส่วนใหญ่ของ cache จะเกิดขึ้นเฉพาะตอนเข้าถึง DMA block ซึ่งจะเกิดนานๆ ครั้ง วิธีการที่สามคือจัดเตรียมกลไกทาง hardware ในการเลือก flush การเข้าถึง cache hardware ที่ทำหน้าที่นี้ส่วนใหญ่จะอยู่ใน multiprocessor system และเทคนิคเดียวกันนี้ยังสามารถใช้ได้กับ I/O ซึ่งเราจะพูดถึงรายละเอียดเรื่องนี้ในบทที่ 9
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3413"
+  HREF="node195.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3407"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3403"
+  HREF="node193.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3409"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3411"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3414"
+  HREF="node195.html">กิจกรรม</A>
+<B> Up:</B> <A NAME="tex2html3408"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3404"
+  HREF="node193.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+ &nbsp; <B>  <A NAME="tex2html3410"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3412"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

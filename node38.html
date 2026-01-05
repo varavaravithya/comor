@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ฟังก์ชั่นการเรียงลำดับเลข</TITLE>
+<META NAME="description" CONTENT="ฟังก์ชั่นการเรียงลำดับเลข">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="node37.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1041"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1035"
+  HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1031"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1037"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1039"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1042"
+  HREF="node39.html">หัวข้อสรุป</A>
+<B> Up:</B> <A NAME="tex2html1036"
+  HREF="node37.html">การแปลงภาษา</A>
+<B> Previous:</B> <A NAME="tex2html1032"
+  HREF="node37.html">การแปลงภาษา</A>
+ &nbsp; <B>  <A NAME="tex2html1038"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1040"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00490100000000000000">
+ฟังก์ชั่นการเรียงลำดับเลข</A>
+</H3>
+<P>
+<I>เพื่อให้เกิดความเข้าใจมากยิ่งขึ้นในการแปลงภาษาแอสเซมบลี่ของคอมพิวเตอร์ MIPS  เราจึงมาศึกษาการทำงานของฟังก์ชั่น swap และฟังก์ชั่น sort ที่เป็นการเรียงลำดับเลข
+</I>
+<P>
+<I>ในการเรียกฟังก์ชั่น มีขั้นตอนดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI>จัดสรรรีจีสเตอร์ สำหรับตัวแปรต่างๆ
+</LI>
+<LI>เขียนโค๊ดที่ทำงานตามโปรแกรม
+</LI>
+<LI>คืนค่ารีจีสเตอร์ให้มีค่าเดิมตามความเหมาะสม
+</LI>
+</OL>
+<P>
+<I>ฟังก์ชั่น swap ในภาษา C สามารถแสดงได้ดังนี้
+</I>
+<P><PRE>
+void swap(int v[], int k)
+{
+  int temp;
+  temp = v[k];
+  v[k] = v[k+1];
+  v[k+1] = temp;
+}
+</PRE>
+<P>
+<I>กำหนดให้ในฟังก์ชั่น swap มีตัวแปรอยู่ในรีจีสเตอร์ดังต่อไปนี้  $a0 และ $a1 เก็บค่า v และ k และให้ตัวแปร temp อยู่ใน $t0
+</I>
+<P>
+<I>เมื่อทำการแปลงให้เป็นภาษาแอสเซมบลี่ของ MIPS จะได้ดังนี้
+</I>
+<P><PRE>
+swap: sll $t1, $a1, 2   # reg $t1 = k * 4
+      add $t1, $a0, $t1 # reg $t1 = v + (k *4)
+                        # reg $t1 has the address of v[k]
+      lw $t0, 0($t1)    # reg $t0 (temp) = v[k]
+      lw $t2, 4($t1)    # reg $t2 = v[k+1]
+                        # refers to next element of v
+      sw $t2, 0($t1)    # v[k] = reg $t2
+      sw $t0, 4($t1)    # v[k+1] =ref $t0 (temp)
+</PRE>
+<P>
+<I>พิจารณาฟังก์ชั่น sort ที่เป็นการเรียงลำดับอย่างง่าย หรือเรียกว่า Bubble Sort ดังต่อไปนี้
+</I>
+<P><PRE>
+void sort(int v[], int n)
+{
+   int i, j;
+   for(i = 0; i &lt; n; i += 1 ){
+      for(j = i - 1; j &gt;= 0 &amp;&amp; v[j] &gt; v[j + 1]; j -= 1){
+         swap(v, j);
+      }
+   }
+}
+</PRE>
+<P>
+<I>ให้ v และ n อยู่ในรีจีสเตอร์ $a0 และ $a1 ตามลำดับ  และให้ $s0 เก็บตัวแปร i และ $s1 เก็บตัวแปร j ซึ่งสามารถแปลงเป็นภาษาแอสเซมบลี่ได้ดังนี้
+</I>
+<P><PRE>
+sort:    addi $sp, $sp, -20  # make room for stack for 5 registers
+         sw $ra, 16($sp)     # save $ra on stack
+         sw $s3, 12($sp)     # save $s3 on stack
+         sw $s2,  8($sp)     # save $s2 on stack
+         sw $s1,  4($sp)     # save $s1 on stack
+         sw $s0,  0($sp)     # save $s0 on stack
+# Procedure Body
+          move $s2, $a0       # copy parameter $a0 into $s2 (save $a0)      
+          move $s3, $a1       # copy parameter $a1 into $s3 (save $a1)
+         move $s0, $zero     # i = 0
+forltst: slt  $t0, $s0, $s3  # reg $t0 = 0 if $s0 &gt; $s3 (i &gt;= n)
+         beq  $t0, $zero, exit1 # go to exit1 if $s0 &gt;=$s3 (1 &gt;= n)
+         addi $s1, $zero, -1 # j = i - 1
+for2tst: slti $t0, $s1, 0    # reg $t0 = 1 if $s1 &lt; 0 (j &lt; 0)
+         bne  $t0, $zero, exit2 # go to exit2 if $s1 &lt; 0 (j &lt; 0)
+         sll  $t1, $s1, 2    # reg $t1 = j * 4
+         add  $t2, $s2, $t1  # reg $t2 = v + (j * 4)
+         lw   $t3, 0($t2)    # reg $t3 = v[j]
+         lw   $t4, 4($t2)    # reg $t4 = v[j+1]
+         slt  $t0, $t4, $t3  # reg $t0 = 0 if $t4 &gt;= $t3
+         beq  $t0, $zero, exit2  # go to exit2 if  $t4 &gt;= $t3
+# Pass parameter and call procedure
+         move $a0, $s2       # 1st parameter of swap is v 
+         move $a1, $s1       # 2st parameter of swap is j
+         jal  swap           # call swap function
+# Inner loop
+         addi $s1, $s1, -1   # j -= 1
+         j    for2tst        # jump to test for inner loop
+# Outer loop
+exit2:   addi $s0, $s0, 1    # i +=1
+         j    forltst        # jump to test for outer loop
+# Restore registers
+exit1:   lw $ra, 16($sp)     # restore $ra from stack
+         lw $s3, 12($sp)     # restore $s3 from stack
+         lw $s2, 8($sp)      # restore $s2 from stack
+         lw $s1, 4($sp)      # restore $s1 from stack
+         lw $s0, 0($sp)      # restore $s0 from stack
+         addi $sp, $sp, 20   # restore stack pointer
+         jr $ra              # return to caller
+</PRE><I>
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

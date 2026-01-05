@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การทำงานของเส้นทางข้อมูล</TITLE>
+<META NAME="description" CONTENT="การทำงานของเส้นทางข้อมูล">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node104.html">
+<LINK REL="previous" HREF="node102.html">
+<LINK REL="up" HREF="node100.html">
+<LINK REL="next" HREF="node104.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2033"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2027"
+  HREF="node100.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2021"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2029"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2031"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2034"
+  HREF="node104.html">รวบยอดชุดควบคุมคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html2028"
+  HREF="node100.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2022"
+  HREF="node102.html">การสร้างชุดควบคุมหลัก</A>
+ &nbsp; <B>  <A NAME="tex2html2030"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2032"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00750300000000000000">
+การทำงานของเส้นทางข้อมูล</A>
+</H3>
+<P>
+<I>จากข้อมูลของรูป <A HREF="node102.html#fig:5.17">5.19</A> ถึง <A HREF="node102.html#fig:5.18">5.20</A> เราสามารถออกแบบลอจิกของชุดควบคุมได้ ต่อไปเราจะแสดงการทำงานของคำสั่งต่างๆ โดยอธิบายการทำงานของสัญญาณควบคุมต่างๆ
+</I>
+<P>
+<I>รูป <A HREF="#fig:5.19">5.21</A> แสดงการทำงานของเส้นทางข้อมูลสำหรับคำสั่ง <TT>add $t1, $t2, $t3</TT> โดยทำในเพียงหนึ่งวงรอบของสัญญาณนาฬิกา การทำงานประกอบด้วยขั้นตอนดังต่อไปนี้ 
+</I>
+<P>
+<OL>
+<LI>เรียกคำสั่งตามตำแหน่งที่กำหนดใน PC และทำการเพิ่มค่า <IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img305.png"
+ ALT="$PC = PC+4$">
+</LI>
+<LI>อ่านค่ารีจีสเตอร์ $t1 และ $t2 จาก Register File ส่วนควบคุมหลักทำการประมวลสัญญาณควบคุมที่เหมาะสมในการทำงานของโปรเซสเซอร์
+</LI>
+<LI>ALU อ่านค่าจากรีจีสเตอร์ จาก Register File และ รับค่าการควบคุม 6 บิตจาก funct ฟิลด์ เพื่อระบุการทำงานของ ALU
+</LI>
+<LI>เขียนผลที่ได้จาก ALU ลงใน Register File โดยใช้บิต 15:11 ของคำสั่งเป็นตัวระบุรีจีสเตอร์
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.19"></A><A NAME="24037"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.21:</STRONG>
+การทำงานของเส้นทางข้อมูลสำหรับคำสั่ง <TT>add $t1, $t2, $t3</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="631" HEIGHT="491" ALIGN="BOTTOM" BORDER="0"
+ SRC="img306.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.19.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>เช่นเดียวกันสำหรับคำสั่ง load word ตัวอย่างเช่น <TT>lw $t1, offset($t2)</TT>  แสดงการทำงานของสัญญาณควบคุมในรูป <A HREF="#fig:5.20">5.22</A>  มีขั้นตอนการประมวลผล 5 ขั้นตอน ดังต่อไปนี้ 
+</I>
+<P>
+<OL>
+<LI>อ่านคำสั่งตามตำแหน่งที่กำหนดใน PC และทำการเพิ่มค่า <IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img305.png"
+ ALT="$PC = PC+4$">
+</LI>
+<LI>อ่านค่ารีจีสเตอร์ $t2 จาก Register File ส่วนควบคุมหลักทำการประมวลสัญญาณควบคุมที่เหมาะสมในการทำงานของโปรเซสเซอร์
+</LI>
+<LI>ALU อ่านค่าจากรีจีสเตอร์ จาก Register File และ บวกค่าที่ได้กับส่วนหลังของคำสั่งที่มีขนาด 16 บิต หลังจากการทำ Sign Extend และ Shift Left สองบิต
+</LI>
+<LI>ป้อนผลบวกที่ได้เข้าแอดเดรสของหน่วยความจำข้อมูล
+</LI>
+<LI>เขียนผลที่ได้จาก Data Memory ลงใน Register File โดยใช้บิต 20:16 ของคำสั่งเป็นตัวระบุรีจีสเตอร์
+</LI>
+</OL>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:5.20"></A><A NAME="24038"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.22:</STRONG>
+การทำงานของเส้นทางข้อมูลสำหรับคำสั่ง <TT>lw $t1, offset($t2)</TT></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="632" HEIGHT="479" ALIGN="BOTTOM" BORDER="0"
+ SRC="img307.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.20.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ต่อมาพิจารณาการทำงานของคำสั่ง <TT>beq $t1, $t2, offset</TT> ที่มีการทำงานคล้ายกับการทำงานของคำสั่งประเภท R-Type มาก แต่ ALU มีหน้าที่ในการระบุว่าคำสั่งต่อไปจะมาจาก <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> หรือมาจาก Branch Target Address  แสดงการทำงานของสัญญาณควบคุมในรูป <A HREF="node104.html#fig:5.21">5.24</A> ซึ่งมีการทำงานดังต่อไปนี้
+</I>
+<P>
+<OL>
+<LI>อ่านคำสั่งตามตำแหน่งที่กำหนดใน PC และทำการเพิ่มค่า <IMG
+ WIDTH="121" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img305.png"
+ ALT="$PC = PC+4$">
+</LI>
+<LI>อ่านค่ารีจีสเตอร์ $t1 และ $t2 จาก Register File 
+</LI>
+<LI>ALU ทำการลบค่าทั้งสองที่ได้จากการอ่านค่าจาก Register File ค่า <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> จะถูกบวกกับค่า Sign Extend และ Shift Left ของ 16 บิตหลังของคำสั่ง โดยได้ค่าเป็น Branch Target Address
+</LI>
+<LI>ผล Zero จาก ALU จะถูกใช้ในการเลือกคำสั่งต่อไปที่จะเก็บไว้ใน PC
+</LI>
+</OL>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2033"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2027"
+  HREF="node100.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2021"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2029"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2031"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2034"
+  HREF="node104.html">รวบยอดชุดควบคุมคอมพิวเตอร์</A>
+<B> Up:</B> <A NAME="tex2html2028"
+  HREF="node100.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2022"
+  HREF="node102.html">การสร้างชุดควบคุมหลัก</A>
+ &nbsp; <B>  <A NAME="tex2html2030"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2032"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

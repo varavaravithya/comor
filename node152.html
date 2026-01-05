@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</TITLE>
+<META NAME="description" CONTENT="การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node153.html">
+<LINK REL="previous" HREF="node151.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node153.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2783"
+  HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2777"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2771"
+  HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2779"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2781"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2784"
+  HREF="node153.html">การจัดการกับ Cache Miss</A>
+<B> Up:</B> <A NAME="tex2html2778"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2772"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2780"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2782"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00930200000000000000">
+การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</A>
+</H3>
+<P>
+<I>พิจารณาแคชที่มี 16 Blocks และแต่ละ Block มีขนาด 16 Bytes จะหาว่าแอดเดรส 1200 จะอยู่ Block ใด ในแคช
+</I>
+<P>
+<I>จากที่ 
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+(Block~address)~modulo~(Number~of~cache~blocks)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="425" HEIGHT="38" BORDER="0"
+ SRC="img420.png"
+ ALT="\begin{displaymath}
+(Block~address)~modulo~(Number~of~cache~blocks)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ที่ตำแหน่งของ Block อยู่ที่
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{Byte~address}{Bytes~per~block}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="132" HEIGHT="50" BORDER="0"
+ SRC="img421.png"
+ ALT="\begin{displaymath}
+\frac{Byte~address}{Bytes~per~block}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ใน Block นั้นๆ มีแอดเดรสอยู่ระหว่าง 
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left\lfloor \frac{Byte~address}{Bytes~per~block}\right\rfloor \times Bytes~per~block
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="305" HEIGHT="55" BORDER="0"
+ SRC="img422.png"
+ ALT="\begin{displaymath}
+\left\lfloor \frac{Byte~address}{Bytes~per~block}\right\rfloor \times Bytes~per~block
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>และ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left\lfloor\frac{Byte~address}{Bytes~per~block}\right\rfloor \times Bytes~per~block  + (Bytes~per~block-1)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="506" HEIGHT="55" BORDER="0"
+ SRC="img423.png"
+ ALT="\begin{displaymath}
+\left\lfloor\frac{Byte~address}{Bytes~per~block}\right\rfloor \times Bytes~per~block + (Bytes~per~block-1)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.6)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ดังนั้นที่ขนาด 16 Byte ต่อ Block ค่าตำแหน่งแอดเดรส 1200 จะอยู่ที่ Block  
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\left\lfloor\frac{1200}{16}\right\rfloor  = 75
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="99" HEIGHT="47" BORDER="0"
+ SRC="img424.png"
+ ALT="\begin{displaymath}
+\left\lfloor\frac{1200}{16}\right\rfloor = 75
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.7)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ที่อยู่ในแคช Block ที่ (75 modulo 64) = 11 และ Block นี้จะทำครอบคลุมแอดเดรสระหว่าง 1200 และ 1215
+</I>
+<P>
+<I>ขนาดของ Block จะส่งผลต่อ Miss Rate ดังแสดงในรุป <A HREF="#fig:7.8">7.7</A> จะเห็นว่าเมื่อเพิ่มขนาดของ Block แล้ว Miss Rate จะลดลง  ในขณะที่ขนาดของ Block ขยายเพิ่มมากขึ้นทำให้ จำนวน Block ในแคชมีจำนวนน้อยลง ทำให้มีการแทนที่ลงใน Block ที่มีจำนวนจำกัด ส่งผลให้ Miss Rate มีค่าสูงขึ้น เมื่อเพิ่มขนาดของ Block มากเข้าจะก่อให้เกิดปัญหาอีกลักษณะหนึ่งคือ เวลาที่ใช้เมื่อเกิดการ Miss จะมาก เนื่องจากต้องทำการแทนที่ Block ขนาดใหญ่จากหน่วยความจำลำดับต่อไป มายัง Block ในแคช  ซึ่งเวลาดังกล่าวสามารถลดลงได้โดยการใช้เทคนิค Early Start หรือ เทคนิค  Requested Word First
+<A NAME="33884"></A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:7.8"></A><A NAME="34985"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.7:</STRONG>
+กราฟแสดง Miss Rate เทียบกับขนาดของ Block</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="688" HEIGHT="375" ALIGN="BOTTOM" BORDER="0"
+ SRC="img425.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_7/Figure_7.8.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2783"
+  HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2777"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2771"
+  HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2779"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2781"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2784"
+  HREF="node153.html">การจัดการกับ Cache Miss</A>
+<B> Up:</B> <A NAME="tex2html2778"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<B> Previous:</B> <A NAME="tex2html2772"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2780"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2782"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

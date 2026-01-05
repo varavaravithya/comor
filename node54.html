@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ฮาร์ดแวร์ของการคูณแบบลำดับ</TITLE>
+<META NAME="description" CONTENT="ฮาร์ดแวร์ของการคูณแบบลำดับ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node52.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1296"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1290"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1284"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1292"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1294"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1297"
+  HREF="node55.html">ตัวอย่างวิธีการคูณ</A>
+<B> Up:</B> <A NAME="tex2html1291"
+  HREF="node52.html">การคูณ</A>
+<B> Previous:</B> <A NAME="tex2html1285"
+  HREF="node53.html">ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+ &nbsp; <B>  <A NAME="tex2html1293"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1295"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00550200000000000000">
+ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
+</H3>
+<P>
+<I>ในการที่จะจำลองวิธีการคูณที่เรียนมาในระดับประถมศึกษา สร้างฮาร์ดแวร์ในการคูณสามารถแสดงได้ในรูป 
+<A HREF="#fig:fig3.5">3.5</A> ซึ่งมีการวางระบบฮาร์ดแวร์เหมือนกับการคำนวณด้วยมือ 
+</I>
+<P>
+<I>สมมุติให้รีจีสเตอร์ที่เก็บตัวคูณ (Multiplier) มีขนาด 32 บิต และผลลัพธ์มีขนาด 64 บิต โดยมีค่าเริ่มต้นเท่ากับ 0 ในการคูณจะเป็นการเลื่อนตัวตั้งไปทางซ้าย ทีละบิตในแต่ละขั้นตอนที่ทำงานคำนวณ เพื่อให้ได้ผลลัพธ์จากการทำงานทั้งสิ้น 32 ขั้นตอน เริ่มจากการนำเอา Multiplicand มาใส่ไว้ใน 32 บิต ทางขวาของรีจีสเตอร์ และค่า 0 ใน 32 บิตทางด้านซ้าย จากนั้นทำการเลื่อนบิตมาทางซ้ายทีละบิต เพื่อนำผลบวกมารวมในผลลัพธ์ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.5"></A><A NAME="16276"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.5:</STRONG>
+ฮาร์ดแวร์ของการคูณแบบลำดับแบบแรก</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="517" HEIGHT="299" ALIGN="BOTTOM" BORDER="0"
+ SRC="img124.png"
+ ALT="\includegraphics[width=4.5in]{fig/Chapter_3/Figure_3.5.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>รูป <A HREF="#fig:fig3.6">3.6</A> แสดงวิธีการคูณโดยใช้ฮาร์ดแวร์ ที่ประกอบด้วยสามขั้นตอนหลัก จากการตรวจสอบบิตของตัวคูณ เพื่อเลือกว่าจะบวกด้วยตัวตั้ง หรือค่า 0 และในขั้นตอนที่สองเลื่อนบิตของผลลัพธ์ไปทางซ้ายหนึ่งบิต และในขั้นตอนสุดท้ายทำการเลื่อนค่าตัวคูณไปทางขวาหนึ่งบิตเพื่อเลือกบิตที่เหมาะสมในการคูณในรอบต่อไป  
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.6"></A><A NAME="16277"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.6:</STRONG>
+วิธีการคูณโดยใช้ฮาร์ดแวร์ในรูป <A HREF="#fig:fig3.5">3.5</A></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="493" HEIGHT="666" ALIGN="BOTTOM" BORDER="0"
+ SRC="img125.png"
+ ALT="\includegraphics[width=4.3in]{fig/Chapter_3/Figure_3.6.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>การคำนวณในแต่ละรอบประกอบด้วยการคำนวณสามขั้นตอน เพื่อที่จะให้ได้ผลลัพธ์ ต้องผ่านขั้นตอนจำนวน 32 รอบ เพราะฉะนั้นการคูณเลข 32 บิต ต้องการถึง 100 วงรอบสัญญาณนาฬิกา  อย่างไรก็ตาม ในโปรแกรม พบการบวกลบ มากกว่าการคูณประมาณ  5 ถึง 100 เท่า 
+</I>
+<P>
+<I>จากวิธีการที่นำเสนอ เราสามารถปรับปรุงให้เหลือเพียงหนึ่งวงรอบสัญญาณนาฬิกา ในหนึ่งรอบการคำนวณ  โดยการทำการคำนวณแบบขนานในการทำงาน 1. การเลื่อนตัวคูณ และตัวตั้ง 2. 3. การบวกตัวตั้งเมื่อบิตของตัวคูณเป็นหนึ่ง  โดยฮาร์ดแวร์ที่ทำการคำนวณดังกล่าวแสดงในรูป <A HREF="#fig:fig3.7">3.7</A> การปรับปรุงของฮาร์ดแวร์เพิ่มเติมโดยการลดขนาดของ ALU จาก 64 บิต เหลือ 32 บิต
+</I>
+<P>
+<I>บางครั้งถ้าเป็นการคูณที่ตัวคูณเป็น <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img126.png"
+ ALT="$2^n$"> เราสามารถใช้การ Shift Left ได้
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.7"></A><A NAME="16278"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.7:</STRONG>
+ฮาร์ดแวร์ของการคูณแบบลำดับที่ทำการปรับปรุง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="516" HEIGHT="263" ALIGN="BOTTOM" BORDER="0"
+ SRC="img127.png"
+ ALT="\includegraphics[width=4.5in]{fig/Chapter_3/Figure_3.7.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

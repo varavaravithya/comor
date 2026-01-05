@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Data Hazards และ Forwarding</TITLE>
+<META NAME="description" CONTENT="Data Hazards และ Forwarding">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node131.html">
+<LINK REL="previous" HREF="node128.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node130.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2431"
+  HREF="node130.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2425"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2419"
+  HREF="node128.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2427"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2429"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2432"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+<B> Up:</B> <A NAME="tex2html2426"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2420"
+  HREF="node128.html">การควบคุมไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2428"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2430"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00850000000000000000">
+Data Hazards และ Forwarding</A>
+</H1>
+<P>
+<I>จากตัวอย่างในหัวข้อที่แล้วแสดงถึงข้อดีของโปรเซสเซอร์แบบไพพ์ลายน์  และการทำงานของฮารด์แวร์แบบไพพ์ลายน์  จากรูป <A HREF="node127.html#fig:6.19">6.19</A> ถึง  <A HREF="node127.html#fig:6.21">6.21</A> เป็นชุดคำสั่งที่ไม่ขึ้นซึ่งกันและกัน หรือคำสั่งที่ตามมาไม่ได้ใช้ผลลัพธ์จากคำสั่งก่อนหน้า   ซึ่งในความเป็นจริงสามารถเกิด Hazard ได้ ดังในชุดคำสั่งดังต่อไปนี้
+</I>
+<P><PRE>
+   sub  $2,  $1, $3    # Register $2 written by sub
+   and  $12, $2, $5    # 1st operand ($2) depends on sub
+   or   $13, $6, $2    # 2nd operand ($2) depends on sub
+   add  $14, $2, $2    # 1st ($2) &amp; 2nd($2) depends on sub
+   sw   $15, 100($2)   # Base ($2) depends on sub
+</PRE>
+<P>
+<I>ในสี่คำสั่งหลัง การประมวลผลขึ้นอยู่กับผลในรีจีสเตอร์ $2 ที่จะต้องได้จากคำสั่งแรก  ถ้าในรีจีสเตอร์ $2 มีค่า 10 ก่อนการ Sub และมีค่า -20 หลังการลบ นักเขียนโปรแกรมต้องการใช้ค่า -20 หลังจากคำสั่งแรก
+</I>
+<P>
+<I>รูป <A HREF="#fig:6.28">6.27</A> แสดงการประมวลผลชุดคำสั่งขั้นต้น ซึ่งค่า $2 จะเปลี่ยนค่าที่วงรอบที่ 5 เมื่อคำสั่ง sub ทำการเขียนค่าที่คำนวณได้ลงในรีจีสเตอร์ 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.28"></A><A NAME="31383"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.27:</STRONG>
+การประมวลผลชุดคำสั่งที่เกิด Hazard ที่ $2</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="523" ALIGN="BOTTOM" BORDER="0"
+ SRC="img360.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.28.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>Hazard แรกที่สามารถแก้ไขได้โดยใช้ฮาร์ดแวร์ได้แก่ Register File ถ้าเราทำการเขียน Register File ในครึ่งวงรอบนาฬิกาแรก และอ่าน Register File ในครึ่งวงรอบนาฬิกาหลังก็จะไม่เกิด Hazard
+</I>
+<P>
+<I>จากรูป <A HREF="#fig:6.28">6.27</A> ค่าในรีจีสเตอร์ $2 จะมีค่าเท่ากับ -20 หลังวงรอบการทำงานที่ 5 ดังนั้น คำสั่ง and, or, add, และ sw จะได้ค่า 10 ที่เป็นค่าที่ผิดไป 
+</I>
+<P>
+<I>จะสามารถสังเกตได้ว่าค่า -20 จากคำสั่ง sub จะคำนวณได้หลังจากวงรอบที่ 3 ซึ่งคำสั่ง and และ or ต้องการค่าดังกล่าวเมื่อเริ่มวงรอบที่ 4 และ 5 ตามลำดับ เราสามารถทำงานต่อไปได้ถ้าเราทำการ Forward ค่าที่คำนวณได้ ทันที โดยไม่จำเป็นต้องรอจนกระทั่งค่าดังกล่าวเขียนลง Register File โดยเราสามารถเปรียบเทียบชื่อรีจีสเตอร์ที่จะทำการเขียน (Destination Register) กับรีจีสเตอร์ที่คำสั่งที่ตามมาจะทำการอ่านในสเตทก่อนหน้า ว่าตรงกันหรือไม่ ถ้าตรงกันก็ทำการ Forward หรือ Bypass ค่าที่ถูกต้องมาทำการคำนวณโดยตรง 
+</I>
+<P>
+<I>ชื่อรีจีสเตอร์ในสเตทต่างๆ กำหนดเพื่อตรวจสอบการเกิด Hazard เช่น ID/EX.RegisterRs คือหมายเลขรีจีสเตอร์ Rs ที่อยู่ในรีจีสเตอร์ ID/EX จากการกำหนดดังกล่าว Hazard จะเกิดขึ้นในกรณีดังต่อไปนี้
+</I>
+<P>
+<UL>
+<LI>1a. EX/MEM.RegisterRd = ID/EX.RegisterRs
+</LI>
+<LI>1b. EX/MEM.RegisterRd = ID/EX.RegisterRt
+</LI>
+<LI>2a. MEM/WB.RegisterRd = ID/EX.RegisterRs
+</LI>
+<LI>2b. MEM/WB.RegisterRd = ID/EX.RegisterRt
+</LI>
+</UL>
+<P>
+<I>จากชุดคำสั่งขั้นต้น Hazard แรกที่เกิดขึ้น เกิดจาก $2 ระหว่างผลลัพธ์ของ   sub  $2,  $1, $3   และตัวดำเนินการตัวแรกของ   and  $12, $2, $5   เนื่องจาก . EX/MEM.RegisterRd = ID/EX.RegisterRs = $2
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html2433"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2431"
+  HREF="node130.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2425"
+  HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2419"
+  HREF="node128.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2427"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2429"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2432"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+<B> Up:</B> <A NAME="tex2html2426"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2420"
+  HREF="node128.html">การควบคุมไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2428"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2430"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

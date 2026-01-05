@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การใช้ชุดสมการประสิทธิภาพ</TITLE>
+<META NAME="description" CONTENT="การใช้ชุดสมการประสิทธิภาพ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node82.html">
+<LINK REL="next" HREF="node86.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1757"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1745"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1753"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1755"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1758"
+  HREF="node86.html">การเปรียบเทียบการทำงานของโปรแกรม</A>
+<B> Up:</B> <A NAME="tex2html1752"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Previous:</B> <A NAME="tex2html1746"
+  HREF="node84.html">Clock Cycles per Instruction</A>
+ &nbsp; <B>  <A NAME="tex2html1754"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1756"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00690300000000000000">
+การใช้ชุดสมการประสิทธิภาพ</A>
+</H3>
+<P>
+<I>สมมุติว่าเรามีคอมพิวเตอร์ที่ออกแบบต่างกันสองชุด แต่ทำงานบนชุดคำสั่งเดียวกัน คอมพิวเตอร์ A มี Clock cycle time เท่ากับ 250 ps และ CPI เท่ากับ 2.0 ในการทำงานของโปรแกรมหนึ่ง และคอมพิวเตอร์ B 
+มี Clock cycle time เท่ากับ 500 ps และ CPI เท่ากับ 1.2 ในการทำงานของโปรแกรมเดียวกัน จงหาว่าคอมพิวเตอร์เครื่องไหนเร็วกว่า และ เร็วกว่าเท่าไร
+</I>
+<P>
+<I>จากที่คอมพิวเตอร์ทั้งสองทำงานบนชุดคำสั่งเดียวกัน ถึงแม้จะมีการออกแบบต่างกัน แต่จะประมวลผลคำสั่งเป็นจำนวนเท่ากันสำหรับโปรแกรมเดียวกัน ให้จำนวนคำสั่งนั้นเรียกว่าค่า <IMG
+ WIDTH="14" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img251.png"
+ ALT="$I$"> จำนวน Clock cycles ของการประมวลผลของแต่ละเครื่องจะเท่ากับ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~clock~cycles_A = I \times 2.0
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="241" HEIGHT="37" BORDER="0"
+ SRC="img252.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;clock&nbsp;cycles_A = I \times 2.0
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~clock~cycles_B = I \times 1.2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="241" HEIGHT="37" BORDER="0"
+ SRC="img253.png"
+ ALT="\begin{displaymath}
+CPU~clock~cycles_B = I \times 1.2
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>เราสามารถคำนวณ CPU time สำหรับแต่ละเครื่อง ได้เท่ากับ  
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPU~time_A &=& CPU clock~cycles_A \times Clock~cycle~time_A\\
+ &=& I\times 2.0\times 250 ps = 500\times I ps
+\nonumber
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="105" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$\displaystyle CPU&nbsp;time_A$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="333" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img255.png"
+ ALT="$\displaystyle CPU clock&nbsp;cycles_A \times Clock&nbsp;cycle&nbsp;time_A$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.14)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="236" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img256.png"
+ ALT="$\displaystyle I\times 2.0\times 250 ps = 500\times I ps$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>และสำหรับคอมพิวเตอร์ B
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~time_B = I\times 1.2\times 500 ps = 600\times I ps
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="355" HEIGHT="37" BORDER="0"
+ SRC="img257.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;time_B = I\times 1.2\times 500 ps = 600\times I ps
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>จะเห็นได้ว่าคอมพิวเตอร์ A เร็วกว่า โดยคอมพิวเตอร์ A เร็วกว่าคอมพิวเตอร์ B เท่ากับ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{CPU~Performance_A}{CPU~Performance_B} = \frac{Execution~time_A}{Execution~time_B} =\frac{600\times I~ps}{500\times I~ps} = 1.2
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="516" HEIGHT="50" BORDER="0"
+ SRC="img258.png"
+ ALT="\begin{displaymath}
+\frac{CPU&nbsp;Performance_A}{CPU&nbsp;Performance_B} = \frac{Executio...
+...time_B} =\frac{600\times I&nbsp;ps}{500\times I&nbsp;ps} = 1.2
+\nonumber
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>สามารถสรุปได้ว่าคอมพิวเตอร์ A เร็วกว่าคอมพิวเตอร์ B 1.2 เท่า
+</I>
+<P>
+<I>เราสามารถเขียนสมการประสิทธิภาพพื้นฐานในรูปของความสัมพันธ์ระหว่าง จำนวนคำสั่ง (Instruction Count), CPI และ Clock cycle time:
+<A NAME="19767"></A>
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~time = Instruction~count \times CPI \times Clock~Cycle~Time
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="503" HEIGHT="37" BORDER="0"
+ SRC="img259.png"
+ ALT="\begin{displaymath}
+CPU~time = Instruction~count \times CPI \times Clock~Cycle~Time
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.15)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>หรือ
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~time = \frac{Instruction~count\times CPI}{Clock~rate}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="328" HEIGHT="46" BORDER="0"
+ SRC="img260.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;time = \frac{Instruction&nbsp;count\times CPI}{Clock&nbsp;rate}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.16)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>สมการขั้นต้นมีประโยชน์มากในการพิจารณาประสิทธิภาพ เนื่องจากเป็นสมการที่รวบรวมเฟคเตอร์ที่สำคัญสามตัวที่ส่งผลต่อประสิทธิภาพ เราสามารถเปรียบเทียบการออกแบบคอมพิวเตอร์ต่างๆ ตามเฟคเตอร์ทั้งสามตัวนี้  เราสามารถนับจำนวนคำสั่งในโปรแกรมได้ และอัตราสัญญาณนาฬิกาสามารถดูได้จากเอกสารรายละเอียดของโปรเซสเซอร์ ส่วนของ CPI จะค่อนข้างยากในการหา ในการทดสอบโปรแกรม และวัดเวลาในการประมวลผล เราสามารถใช้สมการขั้นต้นในการคำนวณค่าต่างๆ ทั้งสามได้ 
+</I>
+<P>
+<I>การวัดประสิทธิภาพพื้นฐานของคอมพิวเตอร์ สามารถแสดงได้จากสมการข้างล่าง
+</I>
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\fbox{
+$
+Time = \frac{Seconds}{Program} = 
+\frac{Instruction}{Program} = \frac{Clock~cycles}{Instruction} = \frac{Seconds}{Clock~cycle}
+$
+}
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="460" HEIGHT="47" BORDER="0"
+ SRC="img261.png"
+ ALT="\begin{displaymath}
+\fbox{
+$
+Time = \frac{Seconds}{Program} =
+\frac{Instruction...
+...ac{Clock&nbsp;cycles}{Instruction} = \frac{Seconds}{Clock&nbsp;cycle}
+$
+}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+<I>ในบางครั้งเราสามารถกำหนด CPI สำหรับคำสั่งที่แตกต่างกันได้ โดยกำหนด <IMG
+ WIDTH="48" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img262.png"
+ ALT="$CPI_i$"> สำหรับคำสั่ง <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> หรือชุดที่ <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> โดยสามารถคำนวณได้ใกล้เคียงกับประสิทธิภาพจริงได้มากขึ้น
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~clock~cycles = \sum^n_{i=1} (CPI_i\times C_i)
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="294" HEIGHT="55" BORDER="0"
+ SRC="img263.png"
+ ALT="\begin{displaymath}
+CPU~clock~cycles = \sum^n_{i=1} (CPI_i\times C_i)
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.17)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>โดยที่ <IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img264.png"
+ ALT="$C_i$"> เป็นจำนวนคำสั่งประเภท <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> ในโปรแกรมที่ทำการประมวลผล
+</I>
+<P>
+<I>การปรับปรุงคอมพิวเตอร์ในส่วนต่างๆ มีผลกระทบดังต่อไปนี้
+</I>
+<P>
+<UL>
+<LI>Algorithm -&gt; Instruction Count, possibly CPI
+</LI>
+<LI>Programmin Laguage -&gt; Instruction Count, CPI
+</LI>
+<LI>Compiler -&gt; Instruction Count, CPI
+</LI>
+<LI>Instruction Set Architecture -&gt; Instruction Count, Clock Rate, CPI
+</LI>
+</UL>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1757"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node82.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1745"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1753"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1755"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1758"
+  HREF="node86.html">การเปรียบเทียบการทำงานของโปรแกรม</A>
+<B> Up:</B> <A NAME="tex2html1752"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<B> Previous:</B> <A NAME="tex2html1746"
+  HREF="node84.html">Clock Cycles per Instruction</A>
+ &nbsp; <B>  <A NAME="tex2html1754"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1756"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

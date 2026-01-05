@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Throughput และ Response Time</TITLE>
+<META NAME="description" CONTENT="Throughput และ Response Time">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node80.html">
+<LINK REL="previous" HREF="node78.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node80.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1669"
+  HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1663"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1657"
+  HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1670"
+  HREF="node80.html">การวัดประสิทธิภาพเชิงเปรียบ</A>
+<B> Up:</B> <A NAME="tex2html1664"
+  HREF="node70.html">ประสิทธิภาพของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1658"
+  HREF="node78.html">การพิจารณาตัววัดประสิทธิภาพ</A>
+ &nbsp; <B>  <A NAME="tex2html1666"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1668"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00660000000000000000">
+Throughput และ Response Time</A>
+</H1>
+<P>
+<I>จงวิเคราะห์ว่าการเปลี่ยนแปลงข้างล่างเป็นการเพิ่ม Response Time หรือ Throughput หรือ ทั้งสองอย่าง
+</I>
+<P>
+<OL>
+<LI>เปลี่ยนตัวประมวลผลของคอมพิวเตอร์ให้เร็วขึ้น
+</LI>
+<LI>เพิ่มตัวประมวลผลขึ้นอีกตัวในลักษณะของ Multiple Procesors 
+</LI>
+</OL>
+<P>
+<I>ส่วนใหญ่แล้วการลดเวลาตอบสนองจะเป็นการเพิ่มอัตราผลสำเร็จ ดังนั้นในกรณีแรกจะเป็นการปรับปรุงทั้งเวลาตอบสนองและอัตราผลสำเร็จ ทั้งสองตัววัด ในกรณีที่สอง จะไม่มีงานใดสามารถทำให้เกิดผลสำเร็จได้เร็วขึ้น มีเพียงแต่อัตราผลสำเร็จเท่านั้นที่เพิ่มขึ้น แต่ในกรณีที่มีงานเป็นจำนวนมาก และเกิดการรอรับบริการขึ้น การปรับปรุงในกรณีที่สองก็จะเป็นการปรับปรุงเวลาบริการด้วยเช่นเดียวกัน
+ดังนั้นในระบบคอมพิวเตอร์ส่วนใหญ่ในความเป็นจริงการเปลี่ยนเวลาตอบสนองหรืออัตราผลสำเร็จมักจะส่งผลกระทบต่อกันเสมอ
+</I>
+<P>
+<I>ประสิทธิภาพของคอมพิวเตอร์ X สามารถ แสดงได้โดย
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Performance_X = \frac{1}{Execution~time_X}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="300" HEIGHT="49" BORDER="0"
+ SRC="img228.png"
+ ALT="\begin{displaymath}
+Performance_X = \frac{1}{Execution&nbsp;time_X}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>พิจารณาคอมพิวเตอร์ X และ คอมพิวเตอร์ Y ถ้าคอมพิวเตอร์ X มีประสิทธิภาพสูงกว่าคอมพิวเตอร์ Y เราจะได้
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Performance_X > Performance_Y
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="279" HEIGHT="37" BORDER="0"
+ SRC="img229.png"
+ ALT="\begin{displaymath}
+\nonumber
+Performance_X &gt; Performance_Y
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{1}{Execution~time_X} > \frac{1}{Execution~time_Y}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="316" HEIGHT="49" BORDER="0"
+ SRC="img230.png"
+ ALT="\begin{displaymath}
+\frac{1}{Execution&nbsp;time_X} &gt; \frac{1}{Execution&nbsp;time_Y}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Execution~time_Y > Execution~time_X
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="310" HEIGHT="36" BORDER="0"
+ SRC="img231.png"
+ ALT="\begin{displaymath}
+Execution&nbsp;time_Y &gt; Execution&nbsp;time_X
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>เนื่องจากเวลาในการทำงานของคอมพิวเตอร์ Y มากกว่าคอมพิวเตอร์ X ดังนั้นคอมพิวเตอร์ X จึงเร็วกว่าคอมพิวเตอร์ Y
+</I>
+<P>
+<I>ในการออกแบบคอมพิวเตอร์ เรามักจะเปรียบเทียบประสิทธิภาพของคอมพิวเตอร์อย่างเป็นรูปธรรมเชิงตัวเลข เราจะใช้คำว่าคอมพิวเตอร์ X เร็วกว่าคอมพิวเตอร์ Y เท่ากับ <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> เท่า หมายถึง
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{Performance_X}{Performance_Y} = n
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="166" HEIGHT="50" BORDER="0"
+ SRC="img232.png"
+ ALT="\begin{displaymath}
+\frac{Performance_X}{Performance_Y} = n
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P>
+<I>ถ้าคอมพิวเตอร์ X เร็วกว่าคอมพิวเตอร์ Y เท่ากับ <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> เท่า หมายถึงเวลาที่ใช้ประมวลผลบนคอมพิวเตอร์ Y ใช้เวลามากกว่า <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> เท่าเมื่อเทียบกับ เวลาที่ใช้ประมวลผลบนคอมพิวเตอร์ X
+</I>
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{Performance_X}{Performance_Y} = \frac{Execution~time_Y}{Execution~time_X} = n
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="340" HEIGHT="50" BORDER="0"
+ SRC="img233.png"
+ ALT="\begin{displaymath}
+\frac{Performance_X}{Performance_Y} = \frac{Execution&nbsp;time_Y}{Execution&nbsp;time_X} = n
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1669"
+  HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1663"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1657"
+  HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1670"
+  HREF="node80.html">การวัดประสิทธิภาพเชิงเปรียบ</A>
+<B> Up:</B> <A NAME="tex2html1664"
+  HREF="node70.html">ประสิทธิภาพของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1658"
+  HREF="node78.html">การพิจารณาตัววัดประสิทธิภาพ</A>
+ &nbsp; <B>  <A NAME="tex2html1666"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1668"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

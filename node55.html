@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ตัวอย่างวิธีการคูณ</TITLE>
+<META NAME="description" CONTENT="ตัวอย่างวิธีการคูณ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node52.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1308"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1302"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1298"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1304"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1306"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1309"
+  HREF="node56.html">การหาร</A>
+<B> Up:</B> <A NAME="tex2html1303"
+  HREF="node52.html">การคูณ</A>
+<B> Previous:</B> <A NAME="tex2html1299"
+  HREF="node54.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
+ &nbsp; <B>  <A NAME="tex2html1305"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1307"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00550300000000000000">
+ตัวอย่างวิธีการคูณ</A>
+</H3>
+<P>
+<I>ทำการคูณเลข <!-- MATH
+ $2_{ten}\times 3_{ten}$
+ -->
+<IMG
+ WIDTH="87" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img128.png"
+ ALT="$2_{ten}\times 3_{ten}$"> หรือ  <!-- MATH
+ $0010_{two}\times 0011_{two}$
+ -->
+<IMG
+ WIDTH="147" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img129.png"
+ ALT="$0010_{two}\times 0011_{two}$"> 
+</I>
+<P><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I>
+Iteration </I></TD>
+<TD ALIGN="LEFT"><I> Step </I></TD>
+<TD ALIGN="CENTER"><I> Multiplier </I></TD>
+<TD ALIGN="CENTER"><I> Multiplicand </I></TD>
+<TD ALIGN="CENTER"><I> Product </I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I> 
+0 </I></TD>
+<TD ALIGN="LEFT"><I> Initial Values </I></TD>
+<TD ALIGN="CENTER"><I> 0011 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0000</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I> 
+1 </I></TD>
+<TD ALIGN="LEFT"><I> 1a: 1-&gt;Product = Product + Mcant </I></TD>
+<TD ALIGN="CENTER"><I> 0011 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 2:  Shift left Multiplicand </I></TD>
+<TD ALIGN="CENTER"><I>   0011 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0100 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 3: Shift right Multiplier </I></TD>
+<TD ALIGN="CENTER"><I>  0001 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0100 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I> 
+2 </I></TD>
+<TD ALIGN="LEFT"><I> 1a: 1-&gt;Product = Product + Mcant </I></TD>
+<TD ALIGN="CENTER"><I> 0001 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0010 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 2: Shift left Multiplicand </I></TD>
+<TD ALIGN="CENTER"><I>   0001 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 1000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 3: Shift right Multiplier </I></TD>
+<TD ALIGN="CENTER"><I>  0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 1000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I> 
+3 </I></TD>
+<TD ALIGN="LEFT"><I> 1: 0-&gt;No Operation </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 1000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 2: Shift left Multiplicand </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I>  0001 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 3: Shift right Multiplier </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I>  0001 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER"><I> 
+4 </I></TD>
+<TD ALIGN="LEFT"><I> 1: 0-&gt;No Operation </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0001 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 2: Shift left Multiplicand </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I>   0010 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD ALIGN="LEFT"><I> 3: Shift right Multiplier </I></TD>
+<TD ALIGN="CENTER"><I> 0000 </I></TD>
+<TD ALIGN="CENTER"><I>  0010 0000 </I></TD>
+<TD ALIGN="CENTER"><I> 0000 0110</I></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD ALIGN="LEFT">&nbsp;</TD></TR>
+</TABLE>
+<P>
+<I>เราสามารถออกแบบฮาร์ดแวร์ที่ทำการคูณ ให้สามารถคูณได้รวดเร็วขึ้นโดยการเพิ่มฮาร์ดแวร์สำหรับการบวกในแต่ละบิตของตัวคูณ  โดยที่ทำการบวกตัวตั้งที่ทำการ AND กับบิตของตัวคูณ และผลลัพธ์ของตัวคูณก่อนหน้า ดังแสดงในรูป <A HREF="#fig:fig3.9">3.8</A>
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.9"></A><A NAME="16281"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.8:</STRONG>
+ฮาร์ดแวร์การคูณที่มีความเร็วสูง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="491" HEIGHT="798" ALIGN="BOTTOM" BORDER="0"
+ SRC="img130.png"
+ ALT="\includegraphics[width=4.3in]{fig/Chapter_3/Figure_3.9.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ในคอมพิวเตอร์ MIPS มีคำสั่งสำหรับการคูณดังต่อไปนี้ multiply <TT>(mult)</TT> และ multiply unsigned <TT>(multu)</TT> คำสั่ง  move from lo (<TT>mflo</TT>) เป็นการเรียกค่าผลลัพธ์ 32 บิต และ คำสั่ง <TT>mflo</TT> และ <TT>mfhi</TT> เป็นคำสั่งที่จะนำค่าผลลัพธ์เก็บไว้ในรีจีสเตอร์ที่ต้องการ
+<A NAME="14255"></A><A NAME="14256"></A><A NAME="14257"></A><A NAME="14258"></A>
+</I>
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1308"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1302"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1298"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1304"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1306"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1309"
+  HREF="node56.html">การหาร</A>
+<B> Up:</B> <A NAME="tex2html1303"
+  HREF="node52.html">การคูณ</A>
+<B> Previous:</B> <A NAME="tex2html1299"
+  HREF="node54.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
+ &nbsp; <B>  <A NAME="tex2html1305"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1307"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

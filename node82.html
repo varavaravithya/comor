@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</TITLE>
+<META NAME="description" CONTENT="ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node81.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node83.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1711"
+  HREF="node83.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1705"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1699"
+  HREF="node81.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1707"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1709"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1712"
+  HREF="node83.html">การเพิ่มประสิทธิภาพ</A>
+<B> Up:</B> <A NAME="tex2html1706"
+  HREF="node70.html">ประสิทธิภาพของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1700"
+  HREF="node81.html">การวัดประสิทธิภาพ</A>
+ &nbsp; <B>  <A NAME="tex2html1708"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1710"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00690000000000000000">
+ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+</H1>
+<P>
+<I>ผู้ใช้งานคอมพิวเตอร์ และผู้ออกแบบคอมพิวเตอร์ พิจารณาตัววัดประสิทธิภาพในหลายด้าน หลายลักษณะ ในเบื้องต้น การวัดประสิทธิภาพทำโดยการวัดจากเวลาที่ใช้ในการประมวลผลของโปรเซสเซอร์ (CPU Time) โดยมีสมการพื้นฐานของ CPU Time ดังนี้
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPU~execution~time & = & CPU~clock~cycles \times Clock~cycle~time\\
+for~a~program & &
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="181" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.png"
+ ALT="$\displaystyle CPU&nbsp;execution&nbsp;time$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="318" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img241.png"
+ ALT="$\displaystyle CPU&nbsp;clock&nbsp;cycles \times Clock&nbsp;cycle&nbsp;time$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.10)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="130" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img242.png"
+ ALT="$\displaystyle for&nbsp;a&nbsp;program$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.11)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>หรือสามารถแสดงในรูปของอัตราสัญญาณนาฬิกาจะได้
+</I>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPU~execution~time & = & \frac{CPU~clock~cycles~for~a~program}{Clock~rate}\\
+for~a~program & &
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="181" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.png"
+ ALT="$\displaystyle CPU&nbsp;execution&nbsp;time$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="289" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img243.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;clock&nbsp;cycles&nbsp;for&nbsp;a&nbsp;program}{Clock&nbsp;rate}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.12)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="130" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img242.png"
+ ALT="$\displaystyle for&nbsp;a&nbsp;program$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4.13)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P>
+<I>จากสมการข้างบนจะเป็นได้ว่า ประสิทธิภาพของคอมพิวเตอร์สามารถเพิ่มได้โดยการเพิ่มอัตราสัญญาณนาฬิกาหรือทำงานที่ความเร็วสัญญาณนาฬิกาเร็วขึ้น หรือทำการลดจำนวนสัญญาณนาฬิกาในการทำงานของโปรแกรม อย่างไรก็ตามมีหลายเทคนิคที่สามารถลดจำนวนสัญญานนาฬิกาในการทำงานของโปรแกรม จะเพิ่ม Clock cycle time มากขึ้น
+</I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html1713"
+  HREF="node83.html">การเพิ่มประสิทธิภาพ</A>
+<LI><A NAME="tex2html1714"
+  HREF="node84.html">Clock Cycles per Instruction (CPI)</A>
+<LI><A NAME="tex2html1715"
+  HREF="node85.html">การใช้ชุดสมการประสิทธิภาพ</A>
+<LI><A NAME="tex2html1716"
+  HREF="node86.html">การเปรียบเทียบการทำงานของโปรแกรม</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

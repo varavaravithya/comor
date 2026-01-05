@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>เปรียบเทียบระบบเลข Signed และ Unsigned</TITLE>
+<META NAME="description" CONTENT="เปรียบเทียบระบบเลข Signed และ Unsigned">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node47.html">
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1183"
+  HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1177"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1171"
+  HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1179"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1181"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1184"
+  HREF="node47.html">แปลงค่าระหว่างบวกลบ</A>
+<B> Up:</B> <A NAME="tex2html1178"
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1172"
+  HREF="node45.html">การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+ &nbsp; <B>  <A NAME="tex2html1180"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1182"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00530200000000000000">
+เปรียบเทียบระบบเลข Signed และ Unsigned</A>
+</H3>
+<P>
+<I>สมมุติให้ค่าในรีจีสเตอร์ $s0 มีค่าไบนารี่เท่ากับ
+</I>
+<P><PRE>
+1111 1111 1111 1111 1111 1111 1111 1111
+</PRE>
+<P>
+<I>และในรีจีสเตอร์ $s1 มีค่าไบนารี่เท่ากับ
+</I>
+<P><PRE>
+0000 0000 0000 0000 0000 0000 0000 0001
+</PRE>
+<P>
+<I>จงแสดงค่าผลลัพธ์ในรีจีสเตอร์ $to และ $t1 หลังจากการทำงานของคำสั่งดังต่อไปนี้
+</I>
+<P><PRE>
+slt $t0, $s0, $s1 # signed comparison
+sltu $t1, $s0, $s1 # unsigned comparison
+</PRE>
+<P>
+<I>ค่าใน $s0 จะมีค่าเท่ากับ -1 ในกรณีที่เป็นเลขจำนวนเต็ม และมีค่าเท่ากับ <!-- MATH
+ $4,294,967,295_{ten}$
+ -->
+<IMG
+ WIDTH="144" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img97.png"
+ ALT="$4,294,967,295_{ten}$">
+กรณีที่เป็นเลขจำนวนเต็มบวก และ$s1 จะมีค่าเท่ากับ 1 ทั้งสองกรณี  เพราะฉะนั้น ค่าในรีจีสเตอร์ $t0 จะมีค่าเท่ากับ 1 เนื่องจาก<!-- MATH
+ $-1_{ten} < 1_{ten}$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img98.png"
+ ALT="$-1_{ten} &lt; 1_{ten}$"> และ ค่าในรีจีสเตอร์ $t1 จะมีค่าเท่ากับ 0 เนื่องจาก  
+<!-- MATH
+ $4,294,967,295_{ten} > 1_{ten}$
+ -->
+<IMG
+ WIDTH="198" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img99.png"
+ ALT="$4,294,967,295_{ten} &gt; 1_{ten}$">
+</I>
+<P>
+<I>ในการแปลงค่าระหว่างเลขบวก และ เลขลบ สำหรับระบบเลข 2's สามารถทำได้ง่ายๆ โดยการสลับบิต 0 ให้เป็น 1 และ 1 ให้เป็น 0 (Invert bit) จากนั้นทำการบวกหนึ่งเข้าไปดังตัวอย่างต่อไปนี้
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

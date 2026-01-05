@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Branch ใน ไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="Branch ใน ไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node136.html">
+<LINK REL="previous" HREF="node134.html">
+<LINK REL="up" HREF="node132.html">
+<LINK REL="next" HREF="node136.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2520"
+  HREF="node136.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2514"
+  HREF="node132.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2508"
+  HREF="node134.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2516"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2518"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2521"
+  HREF="node136.html">การคาดเดา Branch แบบพลวัตร</A>
+<B> Up:</B> <A NAME="tex2html2515"
+  HREF="node132.html">Branch Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2509"
+  HREF="node134.html">การลด Delay ของ Branch</A>
+ &nbsp; <B>  <A NAME="tex2html2517"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2519"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00870300000000000000">
+Branch ใน ไพพ์ลายน์</A>
+</H3>
+<P>
+<I>จงแสดงการทำงานของชุดคำสั่งต่อไปนี้เมื่อ Branch Taken โดยสมมุติให้ไพพ์ลายน์ถูกออกแบบให้เป็นแบบสมมุติว่า Not Taken และการตัดสินใจ Branch อยู่ที่สเตท ID
+</I>
+<P><PRE>
+   36 sub  $10, $4, $8
+   40 beq   $1, $3, $7, # PC-relative branch to 40 + 4 + 7 * 4 = 72
+   44 and  $12, $2, $5
+   48 or   $13, $2, $6
+   52 add  $14, $4, $6
+   56 slt  $15, $6, $7
+   . . .
+   72 lw   $4, 50($7)
+</PRE>
+<P>
+<I>รูป <A HREF="#fig:6.38">6.36</A> แสดงการทำงานของชุดคำสั่งขณะที่ Branch Taken 
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.38"></A><A NAME="31394"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.36:</STRONG>
+การทำงานของชุดคำสั่งขณะที่ Branch Taken</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="976" ALIGN="BOTTOM" BORDER="0"
+ SRC="img369.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.38.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

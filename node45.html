@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</TITLE>
+<META NAME="description" CONTENT="การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1169"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1157"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1167"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1170"
+  HREF="node46.html">เปรียบเทียบระบบเลข Signed และ Unsigned</A>
+<B> Up:</B> <A NAME="tex2html1164"
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html1158"
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+ &nbsp; <B>  <A NAME="tex2html1166"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1168"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00530100000000000000">
+การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+</H3>
+<P>
+<I>จงแสดงค่าของเลขไบนารีดังต่อไปนี้เป็นเลขฐานสิบ
+<BR></I>
+<P>
+<I><!-- MATH
+ $1111 1111 1111 1111 1111 1111 1111 1100_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img92.png"
+ ALT="$
+1111 1111 1111 1111 1111 1111 1111 1100_{two}
+$">
+</I>
+<P>
+<I>นำไปแทนค่าในสมการจะได้
+<BR></I>
+<P>
+<I><!-- MATH
+ $(1\times -2^{31}) + (1\times 2^{30})  + (1\times 2^{29}) + \ldots + (1\times 2^2) 
++ (0\times 2^1) + (0\times 2^0)$
+ -->
+<IMG
+ WIDTH="581" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img93.png"
+ ALT="$(1\times -2^{31}) + (1\times 2^{30}) + (1\times 2^{29}) + \ldots + (1\times 2^2)
++ (0\times 2^1) + (0\times 2^0)
+$">
+</I>
+<P>
+<I><!-- MATH
+ $= -2^{31} + 2^{30}  + 2^{29} + \ldots + 2^2 + 0 + 0$
+ -->
+<IMG
+ WIDTH="306" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img94.png"
+ ALT="$= -2^{31} + 2^{30} + 2^{29} + \ldots + 2^2 + 0 + 0
+$">
+</I>
+<P>
+<I><!-- MATH
+ $= -2,147,483,648 + 2,147,483,644$
+ -->
+<IMG
+ WIDTH="300" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img95.png"
+ ALT="$= -2,147,483,648 + 2,147,483,644
+$">
+</I>
+<P>
+<I><IMG
+ WIDTH="69" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img96.png"
+ ALT="$
+= -4_{ten}
+$">
+</I>
+<P>
+<I>การทำการ บวก ลบ คูณ หาร กับ ตัวเลข 2's จะสามารถเกิดการ Overflow ได้เช่นเดียวกับตัวเลขที่ไม่มีเครื่องหมาย (unsigned Number) การเกิด Overflow สามารถตรวจสอบได้จากเครื่องหมายของ Sign bit ผิดไปจากที่ควรจะเป็น เช่น เลข ลบ มี Sign Bit เป็น 0 หรือ เลขบวก มี Sign Bit เป็น 1 
+</I>
+<P>
+<I>การโหลดค่าจากหน่วยความจำมายังรีจีสเตอร์ จำเป็นต้องคำนึงถึงชนิดของเลขว่ามีเครื่องหมาย บวก ลบ หรือไม่อย่างไร  การโหลดตัวเลขที่คำนึงถึงเครื่องหมาย จะทำการขยายเครื่องหมาย หรือ Sign Extension เช่น ถ้าเป็นเลขบวกก็ทำการเติม 0 ให้เติมที่ว่างจนถึงข้อมูลที่ทำการโหลดมา  ในการโหลดข้อมูลขนาด 32 บิต การจัดการสำหรับ Sign Number กับ Unsigned Number จะเหมือนกัน คอมพิวเตอร์ MIPS มีชุดคำสั่ง สำหรับการโหลดข้อมูลขนาดเล็กกว่าหนึ่ง Word ที่แยกการจัดการระหว่าง Signed และ Unsigned Number ดังนี้
+</I>
+<P>
+<UL>
+<LI><TT>lb</TT> load byte สำหรับ Signed Number และทำการขยายเครื่องหมายจากบิตทางขวาสุดของไบท์ และขยายเติม 24 บิตทางด้านซ้าย
+</LI>
+<LI><TT>lbu</TT> load byte สำหรับ Unsigned Number และเติม 0 ใน 24 บิตทางด้านซ้าย
+</LI>
+<LI><TT>lh</TT> load halfword สำหรับ Signed Number และทำการขยายเครื่องหมายจากบิต และขยายเติม 16 บิตทางด้านซ้าย
+</LI>
+<LI><TT>lhu</TT> load halfword สำหรับ Unsigned Number และเติม 0 ใน 16 บิตทางด้านซ้าย
+</LI>
+</UL>
+<P>
+<I><A NAME="12732"></A><A NAME="12733"></A><A NAME="12734"></A><A NAME="12735"></A>
+</I>
+<P>
+<I>ชุดคำสั่งในคอมพิวเตอร์ MIPS ยังมีคำสั่ง Set on less than ที่แยกกันระหว่างตัวเลขที่มีเครื่องหมายและไม่มีเครื่องหมาย ได้แก่ Set on less than  <TT>(slt)</TT>  และ Set on less than immediate  <TT>(slti)</TT>  สำหรับ Signed Number และ Set on less than unsigned  <TT>(sltu)</TT>  และ Set on less than immediate unsigned  <TT>(sltiu)</TT> 
+<A NAME="12754"></A><A NAME="12755"></A><A NAME="12756"></A><A NAME="12757"></A>
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</TITLE>
+<META NAME="description" CONTENT="การแปลงภาษา C สำหรับฟังก์ชั่น Recursive">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node29.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html974"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html968"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html962"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html970"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html972"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html975"
+  HREF="node34.html">การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</A>
+<B> Up:</B> <A NAME="tex2html969"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html963"
+  HREF="node32.html">ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+ &nbsp; <B>  <A NAME="tex2html971"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html973"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00470400000000000000">
+การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</A>
+</H3>
+<P>
+<I>การคำนวณ Factorial สามารถใช้งานฟังก์ชั่น Recursive ได้ดังต่อไปนี้
+</I>
+<P><PRE>
+int fact(int n)
+{
+   if (n &lt; 1) return (1);
+      else return (n * fact(n - 1));
+</PRE>
+<P>
+<I>จงเขียนเป็นภาษาแอสแซมบลีของ MIPS
+</I>
+<P>
+<I>ให้ตัวแปรพารามิเตอร์ n อยู่ในอาร์กูเมนต์รีจีสเตอร์ $a0 เมื่อฟังก์ชั่นเริ่มทำงานก็เริ่มจากการเก็บค่า $ra สำหรับ Return Address และ $a0 ลงในสแตก:
+</I>
+<P><PRE>
+fact:
+   addi $sp, $sp, -8 #adjust stack for 2 items
+   sw $ra, 4($sp) # save the return address
+   sw $a0, 0($sp) # save the argument n
+</PRE>
+<P>
+<I>เมื่อฟังก์ชั่น fact ถูกเรียกเป็นครั้งแรก คำสั่ง sw จะเก็บตำแหน่งของโปรแกรมที่เรียกฟังก์ชั่นสแตก จากนั้นคำสั่งต่อมาเป็นการตรวจสอบว่า n น้อยกว่าหนึ่งหรือไม่
+</I>
+<P><PRE>
+slti $t0, $a0, 1 # test for n &lt; 1
+beq $t0, $zero, L1 # if n &gt;= 1, go to L1
+</PRE>
+<P>
+<I>ถ้า n น้อยกว่า 1 ฟังก์ชั่น fact จะคืนค่า 1 โดยกำหนดให้ค่าใน value register $v0 มีค่าเท่ากับ 1 โดยการบวกค่าหนึ่งและรีจีสเตอร์ zero เข้าด้วยกัน และ jump ไปยัง return address
+</I>
+<P><PRE>
+addi $v0, $zero, 1 # return 1
+addi $sp, $sp, 8 # pop 2 items off stack
+jr $ra # return to after jal
+</PRE>
+<P>
+<I>ก่อนที่เราจะทำการ pop 2 words ออกจากสแตก เราควรโหลดค่ามาเก็บไว้ก่อน แต่ในกรณีที่ n &lt; 1 นั้น ค่า $a0 และ $ra ไม่มีการเปลี่ยนแปลงค่า จึงไม่จำเป็นต้องดำเนินการใดๆ
+</I>
+<P>
+<I>ในกรณีที่ n มีค่าไม่น้อยกว่าหนึ่ง  เราจะทำการลดค่า n และเรียกฟังก์ชั่น fact อีกครั้งหนึ่งด้วยค่าอาร์กูเมนต์ที่ลดลงหนึ่ง
+</I>
+<P><PRE>
+L1: addi $a0, $a0, -1 # n &gt;= 1: argument get (n - 1)
+    jal fact  # call fact with (n-1)
+</PRE>
+<P>
+<I>คำสั่งต่อมาเป็นคำสั่งหลังจากฟังก์ชั่น fact คืนค่ากลับมา หรือ return
+</I>
+<P><PRE>
+lw $a0, 0($sp) # return from jal: restore argument n
+lw $ra, 4($sp) # restore the return address
+addi $sp, $sp, 8 # adjust stack pointer to pop 2 items
+</PRE>
+<P>
+<I>จากนั้นทำการคำนวณผลลัพธ์ใส่ในรีจีสเตอร์ $v0 
+</I>
+<P><PRE>
+mul $v0, $a0, $v0 # return n * fact (n - 1)
+</PRE>
+<P>
+<I>และกลับไปยัง caller โดยการเรียกคำสั่ง
+</I>
+<P><PRE>
+jr $ra # return to caller
+</PRE>
+<P>
+<I>การเก็บค่าตัวแปรในภาษา C นั้นแบ่งออกเป็นสองส่วนได้แก่ automatic และ static ในการใช้งานตัวแปรต่างๆ ที่อยู่ในฟังก์ชั่น นั้นเป็นการกำหนดตัวแปรแบบ automatic ที่จะมีการใชังาน stack และรีจีสเตอร์ ตามหลักการที่กล่าวมา  ในส่วนของตัวแปรที่อยู่นอกฟังก์ชั่น และสามารถเข้าถึงใช้งานได้จากทุกๆ ฟังก์ชั่นเรียกว่า static variable โดยในคอมพิวเตอร์ MIPS จะกำหนดรีจีสเตอร์ อีกตัวหนึ่งเรียกว่า global register $gp สำหรับชี้ไปยังขัอมูลแบบ static
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

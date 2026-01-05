@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</TITLE>
+<META NAME="description" CONTENT="การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node163.html">
+<LINK REL="up" HREF="node163.html">
+<LINK REL="next" HREF="node165.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2955"
+  HREF="node165.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2949"
+  HREF="node163.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2945"
+  HREF="node163.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2951"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2953"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2956"
+  HREF="node165.html">การทำให้การแปลงตำแหน่งอ้างอิงทำได้เร็วขึ้น: Translation-Lookaside Buffer (TLB)</A>
+<B> Up:</B> <A NAME="tex2html2950"
+  HREF="node163.html">เพจฟอล์ท</A>
+<B> Previous:</B> <A NAME="tex2html2946"
+  HREF="node163.html">เพจฟอล์ท</A>
+ &nbsp; <B>  <A NAME="tex2html2952"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2954"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00952100000000000000">
+การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</A>
+</H3>
+<P>
+<I>ระบบปฏิบัติการส่วนมากจะใช้วิธีการประมาณเพจที่ใช้น้อยที่สุดอย่างคร่าวๆ ด้วยบิทอ้างอิง (use bit หรือ reference bit) ซึ่งจะถูกกำหนดให้เป็นหนึ่งเมื่อมีการเรียกใช้เพจ ระบบปฏิบัติการจะทำการล้างบิทอ้างอิงเป็นระยะๆ ดังนั้นจึงทำให้สามารถพิจารณาอย่างคร่าวๆ ได้ว่าเพจใดถูกใช้ภายในช่วงเวลานั้นๆ 
+</I>
+<P>
+<I>ตำแหน่งอ้างอิงขนาด 32 บิท ขนาดเพจ 4 กิโลไบท์ และช่องข้อมูลของตารางเพจมีขนาด 4 ไบท์ จะสามารถคำนวณขนาดของตารางเพจได้เป็น 
+</I>
+<P>
+<I>จำนวนช่องข้อมูลของตารางเพจ <!-- MATH
+ $= 2^{32} / 2^{12} = 2^{20}$
+ -->
+<IMG
+ WIDTH="130" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img460.png"
+ ALT="$= 2^{32} / 2^{12} = 2^{20} $">
+</I>
+<P>
+<I>ขนาดของตารางเพจ <!-- MATH
+ $= 2^{20} \times  2^2 = 4$
+ -->
+<IMG
+ WIDTH="123" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img461.png"
+ ALT="$= 2^{20} \times 2^2 = 4$"> เมกกะไบท์ 
+</I>
+<P>
+<I>นั่นคือ พื้นที่ในหน่วยความจำที่แต่ละโปรแกรมต้องการคือ 4 เมกกะไบท์ ซึ่งในคอมพิวเตอร์มักมีหลายโปรแกรมทำงานอยู่ร่วมกัน ทำให้ต้องการพื้นที่บนหน่วยความจำมาก ดังนั้นจึงจำเป็นต้องใช้เทคนิคในการลดขนาดของเพจในหน่วยความจำหลัก ได้แก่ 
+</I>
+<P>
+<OL>
+<LI>จำกัดขนาดของตารางเพจด้วยการตัวบันทึก เทคนิคนี้จะทำให้ตารางเพจมีขนาดใหญ่ขึ้นตามที่โปรเซสต้องการ 
+</LI>
+<LI>การแยกตารางออกเป็นตารางที่จำกัดขนาดสองตาราง เนื่องจากภาษาในการเขียนโปรแกรมส่วนมากมีการแบ่งการใช้หน่วยความจำออกเป็นสองส่วนคือ ส่วนที่เป็นสแตค (Stack) และส่วนที่เป็นฮีพ (Heap)
+</LI>
+<LI>ประยุกต์ใช้ แฮชชิง ฟังก์ชัน (Hashing Function) กับตำแหน่งอ้างอิงเสมือนซึ่งจะทำให้โครงสร้างข้อมูลในตารางเพจซึ่งจะทำให้ต้องการพื้นที่ในหน่วยความจำหลักเท่ากับจำนวนเพจแท้จริงเท่านั้น 
+</LI>
+<LI>ตารางเพจหลายระดับสามารถลดขนาดของตารางเพจได้ โดยเรียกตารางเพจระดับแรกว่าตารางเซกเมนต์ แต่ละช่องข้อมูลของตารางเซกเมนต์จะชี้ไปยังทุกเพจในเซกเมนต์ และชี้ไปยังตารางเพจสำหรับเซกเมนต์นั้น 
+</LI>
+<LI>ลดขนาดของหน่วยความจำหลักให้สอดคล้องกับตารางเพจ 
+</LI>
+</OL>
+<P>
+<I>ในการ Write Back จำต้องรู้ว่าเพจใดที่จะต้องถูกเขียนกลับลงบนแผ่นจานบันทึก ซึ่งทำได้โดยการเพิ่ม Dirty bit <A NAME="36836"></A> ลงในตารางเพจ เดอร์ทีบิทนี้จะถูกเซ็ตเป็นหนึ่งเมื่อมีการเขียนลงในเพจ 
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

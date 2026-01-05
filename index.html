@@ -1,0 +1,780 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>comor</TITLE>
+<META NAME="description" CONTENT="comor">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev_g.png"> 
+<A NAME="tex2html159"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html161"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html160"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html162"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<I>
+</I>
+<P>
+<DIV ALIGN="LEFT"><I><FONT SIZE="+2"><B>ชุดเอกสารคำสอน
+<BR>วิศวกรรมคอมพิวเตอร์
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR></B></FONT></I></DIV><I>
+
+<BR>
+</I>
+<DIV ALIGN="RIGHT"><I></I><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+2">
+เอกสารคำสอน 11-3404</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+2"> 
+โครงสร้างการทำงานของคอมพิวเตอร์</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+2"> 
+และภาษาแอสแซมบลี</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+2"> 
+(Computer Organization and Assembly Language)</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+2"> 
+</FONT></I><I><FONT SIZE="+2">Version 1.0</FONT></I></TD>
+</TR>
+</TABLE><I></I></DIV>
+<DIV ALIGN="LEFT"><I></I><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I></I><I><FONT SIZE="+2"></I></FONT></I><FONT SIZE="+1"><B>ผศ.&nbsp;ดร.&nbsp;วรา วราวิทย์</FONT><I><FONT SIZE="+1"><I></B></FONT></I><I></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+1"><I>
+ภาควิชาวิศวกรรมไฟฟ้า
+คณะวิศวกรรมศาสตร์</I></FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="LEFT"><I><FONT SIZE="+1"><I>
+สถาบันเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+</I></FONT></I></TD>
+</TR>
+</TABLE><I></I></DIV><I>
+
+
+
+</I>
+<DIV ALIGN="CENTER"><I><FONT SIZE="+2"><B>Course Syllabus
+<BR></B></FONT></I></DIV>
+<DIV ALIGN="CENTER">
+<DIV ALIGN="CENTER"><I><FONT SIZE="+2"><B><FONT SIZE="+1"><B>11-3304 Computer Organization and Assembly Language 
+<BR><IMG
+ WIDTH="30" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$2^{nd}$"> Semester 2004
+<BR></B></FONT></B></FONT></I></DIV><I><FONT SIZE="+2"><B></B></FONT></I></DIV>
+<P>
+<I>
+<BR>
+<BR>
+
+<FONT SIZE="+1"><B>Instructor:</B></FONT> Vara Varavithya
+<BR><B>Office:</B> Department of Electrical Engineering
+<BR><B>Tel:</B> 913-2500 Ext. 8120, Fax. 585-6149 
+<BR><B>E-Mail:</B>  vara@kmitnb.ac.th
+</I>
+<P>
+<I>
+<FONT SIZE="+1"><B>Course Outline:</B></FONT>
+</I>
+<P>
+<OL>
+<LI>Introduction to Computer Organization
+</LI>
+<LI>MIPS Assembly Language: Instruction Set Architecture,
+Instruction Format.
+</LI>
+<LI>MIPS Assembly Language: Function Call and Register Management in Assembly Language.
+</LI>
+<LI>Arithmetic Logic Unit: Computer Arithmetic,  Computer Hardware for Arithmetic, Design of ALU, Multipliers.
+</LI>
+<LI>Floating Point Calculation, IEEE 754 Standard.
+</LI>
+<LI>Datapath and Control: Single Cycle Datapath.
+</LI>
+<LI>Datapath and Control:  Multicycle Datapath.
+</LI>
+<LI>Performance of Computer Systems: Speed up factor and Benchmarks
+</LI>
+<LI>Processor Pipeline: Pipeline Processor, Control of Pipeline, and
+Data Hazard.
+</LI>
+<LI>Processor Pipeline:  Hazard Resolution by data forwarding and Branch Hazard. 
+</LI>
+<LI>Memory System: Memory Hierarchy, Caches, Performance of the
+Caches
+</LI>
+<LI>Memory System: Virtual Memory.
+</LI>
+<LI>Input/Output Interface and Secondary Storage: I/O Performance,
+Characteristic of I/O Devices, Bus, Interfacing I/O Devices to the Memory,
+Processor, and Operating System.
+</LI>
+<LI>Redundant Array of Inexpensive Disks (RAID 0-6) 
+</LI>
+</OL>
+<P>
+<I>
+<FONT SIZE="+1"><B>Reference Text:</B></FONT>
+</I>
+<OL>
+<LI> Computer Organization and Design, The Hardware/Software
+Interface, D. A. Patterson and J. L. Hennessy,
+Elsevier, Third Edition, ISBN 1-55860-604-1, 2005
+</LI>
+</OL>
+<P>
+<I>
+<FONT SIZE="+1"><B>Related Texts:</B></FONT>
+</I>
+<P>
+<OL>
+<LI> James M. Feldman and Charles T. Retter, Computer Architecture: A Designer's Text Based on a Generic RISC, McGraw-Hill, 1994.
+
+<P>
+</LI>
+<LI> John P. Hayes, Computer Architecture and Organization, 3rd edition, WCB/McGraw-Hill, 1998.
+
+<P>
+</LI>
+<LI> Arthur B. Maccabe, Computer Systems: Architecture, Organization, and Programming, Irwin, 1993.
+
+<P>
+</LI>
+<LI> M. Morris Mano, Computer Systems Architecture, 3rd edition, Prentice-Hall, 1993.
+
+<P>
+</LI>
+<LI> William Stallings, Computer Organization and Architecture, 5th edition, Prentice-Hall, 2000.
+
+<P>
+</LI>
+<LI> Andrew S. Tannenbaum, Structured Computer Organization, 4th edition, Prentice-Hall, 1999.
+
+<P>
+</LI>
+<LI> IEEE Standard for Binary Floating Pint Arithmetic, IEEE, 1985.
+</LI>
+</OL>
+<P>
+<I><FONT SIZE="+1"><B>Grading:</B></FONT>
+</I>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Homework</TD>
+<TD ALIGN="CENTER">10%</TD>
+<TD ALIGN="LEFT">Midterm</TD>
+<TD ALIGN="CENTER">30%</TD>
+<TD ALIGN="LEFT">Final Exam</TD>
+<TD ALIGN="CENTER">60%</TD>
+<TD ALIGN="LEFT">Total</TD>
+<TD ALIGN="CENTER">100%</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<I>
+<B>Policies:</B>
+</I>
+<P>
+<I>
+<FONT SIZE="-1">
+<B>Collaboration</B>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">You are free to work with others in interpreting assignments and on developing 
+facility with the software tools we will be using. However, the solutions to
+the assignments and exams have to be solely your own. Wherever appropriate, 
+you will be informed if you may work in groups.  If you choose to do so, you 
+will need to add a write up explaining the exact role that each person played 
+in the design and execution of the solution. This sheet should be signed by 
+all persons involved. 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">
+<B>Cheating</B>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">Cheating is a very serious offense. It will be dealt with in the most severe 
+manner allowable under University regulations. If caught cheating, you can 
+expect a failing grade and initiation of a cheating case in the University 
+system. 
+</FONT>
+</I>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html165"
+  HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html166"
+  HREF="node2.html">List of Figures</A>
+<LI><A NAME="tex2html167"
+  HREF="node3.html">แนวคิดของการพัฒนาเทคโนโลยีคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html168"
+  HREF="node4.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html169"
+  HREF="node5.html">กล่าวนำ</A>
+<LI><A NAME="tex2html170"
+  HREF="node6.html">ประเภทและคุณลักษณะคอมพิวเตอร์</A>
+<LI><A NAME="tex2html171"
+  HREF="node7.html">จากโปรแกรมสู่การทำงาน</A>
+<LI><A NAME="tex2html172"
+  HREF="node8.html">ประวัติการพัฒนาของคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html173"
+  HREF="node9.html">คอมพิวเตอร์อีเล็กทรอนิกส์เครื่องแรก</A>
+<LI><A NAME="tex2html174"
+  HREF="node10.html">การพัฒนาของคอมพิวเตอร์เชิงธุรกิจ</A>
+<LI><A NAME="tex2html175"
+  HREF="node11.html">การเติบโตและพัฒนาของเครื่องคอมพิวเตอร์แบบฝังตัว</A>
+</UL>
+<LI><A NAME="tex2html176"
+  HREF="node12.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html177"
+  HREF="node13.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html178"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html179"
+  HREF="node15.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html180"
+  HREF="node16.html">กล่าวนำ</A>
+<LI><A NAME="tex2html181"
+  HREF="node17.html">การทำงานของคอมพิวเตอร์ฮาร์ดแวร์</A>
+<LI><A NAME="tex2html182"
+  HREF="node18.html">การเก็บตัวแปรการคำนวณในคอมพิวเตอร์ฮาร์ดแวร์</A>
+<LI><A NAME="tex2html183"
+  HREF="node19.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html184"
+  HREF="node20.html">การแปลงภาษาแอสแซมบลี่มาเป็นภาษาเครื่อง</A>
+<LI><A NAME="tex2html185"
+  HREF="node21.html">ฟิลด์ของคำสั่ง MIPS</A>
+<LI><A NAME="tex2html186"
+  HREF="node22.html">การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</A>
+<LI><A NAME="tex2html187"
+  HREF="node23.html">แนวคิด ``Store Program''</A>
+</UL>
+<LI><A NAME="tex2html188"
+  HREF="node24.html">การประมวลผลตรรกะ</A>
+<UL>
+<LI><A NAME="tex2html189"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<UL>
+<LI><A NAME="tex2html190"
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</A>
+<LI><A NAME="tex2html191"
+  HREF="node27.html">การทำลูป (Loops)</A>
+<LI><A NAME="tex2html192"
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html193"
+  HREF="node29.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<UL>
+<LI><A NAME="tex2html194"
+  HREF="node30.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+<LI><A NAME="tex2html195"
+  HREF="node31.html">การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น</A>
+<LI><A NAME="tex2html196"
+  HREF="node32.html">ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+<LI><A NAME="tex2html197"
+  HREF="node33.html">การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</A>
+<LI><A NAME="tex2html198"
+  HREF="node34.html">การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</A>
+<LI><A NAME="tex2html199"
+  HREF="node35.html">การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap</A>
+</UL>
+<LI><A NAME="tex2html200"
+  HREF="node36.html">คำสั่งอื่นๆ ของ MIPS</A>
+<LI><A NAME="tex2html201"
+  HREF="node37.html">การแปลงภาษา</A>
+<UL>
+<LI><A NAME="tex2html202"
+  HREF="node38.html">ฟังก์ชั่นการเรียงลำดับเลข</A>
+</UL>
+<LI><A NAME="tex2html203"
+  HREF="node39.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html204"
+  HREF="node40.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html205"
+  HREF="node41.html">การคำนวณ</A>
+<UL>
+<LI><A NAME="tex2html206"
+  HREF="node42.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html207"
+  HREF="node43.html">กล่าวนำ</A>
+<LI><A NAME="tex2html208"
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html209"
+  HREF="node45.html">การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+<LI><A NAME="tex2html210"
+  HREF="node46.html">เปรียบเทียบระบบเลข Signed และ Unsigned</A>
+<LI><A NAME="tex2html211"
+  HREF="node47.html">แปลงค่าระหว่างบวกลบ</A>
+<LI><A NAME="tex2html212"
+  HREF="node48.html">การทำ Sign Extension</A>
+</UL>
+<LI><A NAME="tex2html213"
+  HREF="node49.html">การบวก และ การลบ</A>
+<UL>
+<LI><A NAME="tex2html214"
+  HREF="node50.html">การบวกลบค่าไบนารี่</A>
+<LI><A NAME="tex2html215"
+  HREF="node51.html">ALU</A>
+</UL>
+<LI><A NAME="tex2html216"
+  HREF="node52.html">การคูณ</A>
+<UL>
+<LI><A NAME="tex2html217"
+  HREF="node53.html">ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+<LI><A NAME="tex2html218"
+  HREF="node54.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
+<LI><A NAME="tex2html219"
+  HREF="node55.html">ตัวอย่างวิธีการคูณ</A>
+</UL>
+<LI><A NAME="tex2html220"
+  HREF="node56.html">การหาร</A>
+<UL>
+<LI><A NAME="tex2html221"
+  HREF="node57.html">ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+<LI><A NAME="tex2html222"
+  HREF="node58.html">ตัวอย่างการหาร</A>
+</UL>
+<LI><A NAME="tex2html223"
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
+<UL>
+<LI><A NAME="tex2html224"
+  HREF="node60.html">รูปแบบการนำเสนอ Floating-Point</A>
+<LI><A NAME="tex2html225"
+  HREF="node61.html">การแสดงเลข Floating-Point</A>
+<LI><A NAME="tex2html226"
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
+<LI><A NAME="tex2html227"
+  HREF="node63.html">การบวกเลข Floating-Point</A>
+<LI><A NAME="tex2html228"
+  HREF="node64.html">การคูณ Floating-Point</A>
+<LI><A NAME="tex2html229"
+  HREF="node65.html">คำสั่ง Floating-Point ใน MIPS คอมพิวเตอร์</A>
+<LI><A NAME="tex2html230"
+  HREF="node66.html">ความถูกต้องและความละเอียดในการคำนวณ</A>
+<LI><A NAME="tex2html231"
+  HREF="node67.html">การปัดเศษโดยใช้ Guard</A>
+</UL>
+<LI><A NAME="tex2html232"
+  HREF="node68.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html233"
+  HREF="node69.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html234"
+  HREF="node70.html">ประสิทธิภาพของคอมพิวเตอร์</A>
+<UL>
+<LI><A NAME="tex2html235"
+  HREF="node71.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html236"
+  HREF="node72.html">กล่าวนำ</A>
+<LI><A NAME="tex2html237"
+  HREF="node73.html">นิยามประสิทธิภาพคอมพิวเตอร์</A>
+<LI><A NAME="tex2html238"
+  HREF="node74.html">ตัววัดประสิทธิภาพ</A>
+<UL>
+<LI><A NAME="tex2html239"
+  HREF="node75.html">เวลาตอบสนอง</A>
+<LI><A NAME="tex2html240"
+  HREF="node76.html">อัตราความสำเร็จ</A>
+<LI><A NAME="tex2html241"
+  HREF="node77.html">ความสามารถในการบริการของระบบ</A>
+</UL>
+<LI><A NAME="tex2html242"
+  HREF="node78.html">การพิจารณาตัววัดประสิทธิภาพ</A>
+<LI><A NAME="tex2html243"
+  HREF="node79.html">Throughput และ Response Time</A>
+<LI><A NAME="tex2html244"
+  HREF="node80.html">การวัดประสิทธิภาพเชิงเปรียบ</A>
+<LI><A NAME="tex2html245"
+  HREF="node81.html">การวัดประสิทธิภาพ</A>
+<LI><A NAME="tex2html246"
+  HREF="node82.html">ประสิทธิภาพของตัวประมวลผล และองค์ประกอบอื่นๆ</A>
+<UL>
+<LI><A NAME="tex2html247"
+  HREF="node83.html">การเพิ่มประสิทธิภาพ</A>
+<LI><A NAME="tex2html248"
+  HREF="node84.html">Clock Cycles per Instruction (CPI)</A>
+<LI><A NAME="tex2html249"
+  HREF="node85.html">การใช้ชุดสมการประสิทธิภาพ</A>
+<LI><A NAME="tex2html250"
+  HREF="node86.html">การเปรียบเทียบการทำงานของโปรแกรม</A>
+</UL>
+<LI><A NAME="tex2html251"
+  HREF="node87.html">การประเมินประสิทธิภาพจริงของคอมพิวเตอร์</A>
+<LI><A NAME="tex2html252"
+  HREF="node88.html">กิจกรรม</A>
+<LI><A NAME="tex2html253"
+  HREF="node89.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html254"
+  HREF="node90.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html255"
+  HREF="node91.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<UL>
+<LI><A NAME="tex2html256"
+  HREF="node92.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html257"
+  HREF="node93.html">กล่าวนำ</A>
+<UL>
+<LI><A NAME="tex2html258"
+  HREF="node94.html">การสร้างคอมพิวเตอร์ MIPS พื้นฐาน</A>
+<LI><A NAME="tex2html259"
+  HREF="node95.html">ภาพรวมของการออกแบบสร้าง</A>
+</UL>
+<LI><A NAME="tex2html260"
+  HREF="node96.html">หลักการออกแบบวงจรลอจิก</A>
+<UL>
+<LI><A NAME="tex2html261"
+  HREF="node97.html">วิธีการกระตุ้นด้วยสัญญาณนาฬิกา</A>
+</UL>
+<LI><A NAME="tex2html262"
+  HREF="node98.html">การสร้างเส้นทางข้อมูล</A>
+<UL>
+<LI><A NAME="tex2html263"
+  HREF="node99.html">สร้างเส้นทางข้อมูล</A>
+</UL>
+<LI><A NAME="tex2html264"
+  HREF="node100.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<UL>
+<LI><A NAME="tex2html265"
+  HREF="node101.html">ชุดควบคุม ALU</A>
+<LI><A NAME="tex2html266"
+  HREF="node102.html">การสร้างชุดควบคุมหลัก</A>
+<LI><A NAME="tex2html267"
+  HREF="node103.html">การทำงานของเส้นทางข้อมูล</A>
+<LI><A NAME="tex2html268"
+  HREF="node104.html">รวบยอดชุดควบคุมคอมพิวเตอร์</A>
+<LI><A NAME="tex2html269"
+  HREF="node105.html">การออกแบบสร้าง jump</A>
+<LI><A NAME="tex2html270"
+  HREF="node106.html">ทำไมการออกแบบสร้างโปรเซสเซอร์แบบทำงานในวงรอบเดียวถึงไม่ถูกใช้ในปัจจุบัน</A>
+<LI><A NAME="tex2html271"
+  HREF="node107.html">ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว</A>
+</UL>
+<LI><A NAME="tex2html272"
+  HREF="node108.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<UL>
+<LI><A NAME="tex2html273"
+  HREF="node109.html">การแบ่งการประมวลผลออกเป็นส่วนๆ สำหรับการทำงานของโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+<LI><A NAME="tex2html274"
+  HREF="node110.html">ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+</UL>
+<LI><A NAME="tex2html275"
+  HREF="node111.html">การจัดการกับ Exception</A>
+<LI><A NAME="tex2html276"
+  HREF="node112.html">กิจกรรม</A>
+<LI><A NAME="tex2html277"
+  HREF="node113.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html278"
+  HREF="node114.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html279"
+  HREF="node115.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html280"
+  HREF="node116.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html281"
+  HREF="node117.html">กล่าวนำ</A>
+<UL>
+<LI><A NAME="tex2html282"
+  HREF="node118.html">การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html283"
+  HREF="node119.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+</UL>
+<LI><A NAME="tex2html284"
+  HREF="node120.html">Pipeline Hazard</A>
+<UL>
+<LI><A NAME="tex2html285"
+  HREF="node121.html">Structural Hazard</A>
+<LI><A NAME="tex2html286"
+  HREF="node122.html">Data Hazard</A>
+<LI><A NAME="tex2html287"
+  HREF="node123.html">การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+<LI><A NAME="tex2html288"
+  HREF="node124.html">การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+<LI><A NAME="tex2html289"
+  HREF="node125.html">Control Hazard</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html290"
+  HREF="node126.html">เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html291"
+  HREF="node127.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+</UL>
+<LI><A NAME="tex2html292"
+  HREF="node128.html">การควบคุมไพพ์ลายน์</A>
+<LI><A NAME="tex2html293"
+  HREF="node129.html">Data Hazards และ Forwarding</A>
+<UL>
+<LI><A NAME="tex2html294"
+  HREF="node130.html">การตรวจจับ Dependence</A>
+</UL>
+<LI><A NAME="tex2html295"
+  HREF="node131.html">การเกิด Data Hazards และ Stalls</A>
+<LI><A NAME="tex2html296"
+  HREF="node132.html">Branch Hazard</A>
+<UL>
+<LI><A NAME="tex2html297"
+  HREF="node133.html">สมมุติ Branch Not Taken</A>
+<LI><A NAME="tex2html298"
+  HREF="node134.html">การลด Delay ของ Branch</A>
+<LI><A NAME="tex2html299"
+  HREF="node135.html">Branch ใน ไพพ์ลายน์</A>
+<LI><A NAME="tex2html300"
+  HREF="node136.html">การคาดเดา Branch แบบพลวัตร</A>
+<LI><A NAME="tex2html301"
+  HREF="node137.html">Branch Delay Slot</A>
+<LI><A NAME="tex2html302"
+  HREF="node138.html">เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ</A>
+</UL>
+<LI><A NAME="tex2html303"
+  HREF="node139.html">Exception บนไพพ์ลายน์</A>
+<UL>
+<LI><A NAME="tex2html304"
+  HREF="node140.html">Exception บนคอมพิวเตอร์ไพพ์ลายน์</A>
+</UL>
+<LI><A NAME="tex2html305"
+  HREF="node141.html">Static Multiple Issue</A>
+<LI><A NAME="tex2html306"
+  HREF="node142.html">Dynamic Schedule Issue</A>
+<LI><A NAME="tex2html307"
+  HREF="node143.html">โปรเซสเซอร์ Pentium 4</A>
+<LI><A NAME="tex2html308"
+  HREF="node144.html">กิจกรรม</A>
+<LI><A NAME="tex2html309"
+  HREF="node145.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html310"
+  HREF="node146.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html311"
+  HREF="node147.html">หน่วยความจำ</A>
+<UL>
+<LI><A NAME="tex2html312"
+  HREF="node148.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html313"
+  HREF="node149.html">กล่าวนำ</A>
+<LI><A NAME="tex2html314"
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
+<UL>
+<LI><A NAME="tex2html315"
+  HREF="node151.html">ตัวอย่างจำนวนบิตในแคช</A>
+<LI><A NAME="tex2html316"
+  HREF="node152.html">การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</A>
+<LI><A NAME="tex2html317"
+  HREF="node153.html">การจัดการกับ Cache Miss</A>
+<LI><A NAME="tex2html318"
+  HREF="node154.html">การจัดการกับการ Write</A>
+<LI><A NAME="tex2html319"
+  HREF="node155.html">ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
+<LI><A NAME="tex2html320"
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+</UL>
+<LI><A NAME="tex2html321"
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<UL>
+<LI><A NAME="tex2html322"
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
+<LI><A NAME="tex2html323"
+  HREF="node159.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+</UL>
+<LI><A NAME="tex2html324"
+  HREF="node160.html">หน่วยความจำเสมือน</A>
+<UL>
+<LI><A NAME="tex2html325"
+  HREF="node161.html">การแทนที่และการค้นหาเพจ</A>
+<UL>
+<LI><A NAME="tex2html326"
+  HREF="node162.html">การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</A>
+</UL>
+<LI><A NAME="tex2html327"
+  HREF="node163.html">เพจฟอล์ท</A>
+<UL>
+<LI><A NAME="tex2html328"
+  HREF="node164.html">การเชื่อมโยงระหว่างฮาร์ดแวร์และซอฟ์ทแวร์</A>
+</UL>
+<LI><A NAME="tex2html329"
+  HREF="node165.html">การทำให้การแปลงตำแหน่งอ้างอิงทำได้เร็วขึ้น: Translation-Lookaside Buffer (TLB)</A>
+<LI><A NAME="tex2html330"
+  HREF="node166.html">การรวมหน่วยความจำเสมือน, TLB และแคช</A>
+<LI><A NAME="tex2html331"
+  HREF="node167.html">การทำให้หน่วยความจำเสมือนมีความปลอดภัย</A>
+<LI><A NAME="tex2html332"
+  HREF="node168.html">การดำเนินการกับ TLB ที่ขาดหายไป และ เพจฟอล์ท</A>
+</UL>
+<LI><A NAME="tex2html333"
+  HREF="node169.html">กิจกรรม</A>
+<LI><A NAME="tex2html334"
+  HREF="node170.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html335"
+  HREF="node171.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html336"
+  HREF="node172.html">อุปกรณ์เก็บข้อมูลขนาดใหญ่</A>
+<UL>
+<LI><A NAME="tex2html337"
+  HREF="node173.html">เป้าประสงค์</A>
+<LI><A NAME="tex2html338"
+  HREF="node174.html">กล่าวนำ</A>
+<LI><A NAME="tex2html339"
+  HREF="node175.html">ดิสก์ข้อมูลและความสามารถในการพึ่งพา</A>
+<UL>
+<LI><A NAME="tex2html340"
+  HREF="node176.html">ความสามารถในการพึ่งพาได้, ความน่าเชื่อถือ และความสะดวกในการเรียกใช้</A>
+<LI><A NAME="tex2html341"
+  HREF="node177.html">RAID</A>
+<UL>
+<LI><A NAME="tex2html342"
+  HREF="node178.html">No Redundancy (RAID 0)</A>
+<LI><A NAME="tex2html343"
+  HREF="node179.html">Mirroring (RAID 1)</A>
+<LI><A NAME="tex2html344"
+  HREF="node180.html">Error Detecting and Correcting Code (RAID 2)</A>
+<LI><A NAME="tex2html345"
+  HREF="node181.html">Bit-Interleaved Parity (RAID 3)</A>
+<LI><A NAME="tex2html346"
+  HREF="node182.html">Block-Interleaved Parity (RAID 4)</A>
+<LI><A NAME="tex2html347"
+  HREF="node183.html">Distributed Block-Interleaved Parity(RAID 5)</A>
+<LI><A NAME="tex2html348"
+  HREF="node184.html">P+Q Redundancy (RAID 6)</A>
+<LI><A NAME="tex2html349"
+  HREF="node185.html">สรุปเนิ้อหา RAID</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html350"
+  HREF="node186.html">บัสและการเชื่อมต่อแบบภายใน</A>
+<UL>
+<LI><A NAME="tex2html351"
+  HREF="node187.html">พื้นฐานของบัส</A>
+<LI><A NAME="tex2html352"
+  HREF="node188.html">ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+</UL>
+<LI><A NAME="tex2html353"
+  HREF="node189.html">การเชื่อมต่ออุปกรณ์</A>
+<UL>
+<LI><A NAME="tex2html354"
+  HREF="node190.html">การส่งคำสั่งไปยังอุปกรณ์ I/O</A>
+<LI><A NAME="tex2html355"
+  HREF="node191.html">การติดต่อสื่อสารกับหน่วยประมวลผล</A>
+<LI><A NAME="tex2html356"
+  HREF="node192.html">ระดับความสำคัญในการ Interrupt</A>
+<LI><A NAME="tex2html357"
+  HREF="node193.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+<LI><A NAME="tex2html358"
+  HREF="node194.html">Direct Memory Access กับ Memory System</A>
+</UL>
+<LI><A NAME="tex2html359"
+  HREF="node195.html">กิจกรรม</A>
+<LI><A NAME="tex2html360"
+  HREF="node196.html">หัวข้อสรุป</A>
+<LI><A NAME="tex2html361"
+  HREF="node197.html">งานมอบหมาย</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html362"
+  HREF="node198.html">Bibliography</A>
+<LI><A NAME="tex2html363"
+  HREF="node199.html">Index</A>
+<LI><A NAME="tex2html364"
+  HREF="node200.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev_g.png"> 
+<A NAME="tex2html159"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html161"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html160"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html162"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

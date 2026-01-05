@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การประมวลผลตรรกะ</TITLE>
+<META NAME="description" CONTENT="การประมวลผลตรรกะ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node29.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html839"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html833"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html827"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html835"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html837"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html840"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<B> Up:</B> <A NAME="tex2html834"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html828"
+  HREF="node23.html">แนวคิด ``Store Program''</A>
+ &nbsp; <B>  <A NAME="tex2html836"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html838"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00460000000000000000">
+การประมวลผลตรรกะ</A>
+</H1>
+<P>
+<I>นอกจากการประมวลผลข้อมูลที่กระทำในระดับ Word แล้ว ในหลายกรณี มีความจำเป็นต้องทำการประมวลผลในระดับส่วนของ Word หรือ ในระดับบิท เช่นการเรียกดูอักษรหนึ่งตัวขนาด 8 บิท ใน Word ในคอมพิวเตอร์ MIPS จึงมีชุดคำสั่งสำหรับประมวลผลตรรกะ เพื่อลดขั้นตอนต่างๆ เช่น การนำบิทเข้า หรือ ออก จาก Word รูป <A HREF="#fig:logical">2.4</A> แสดงตัวประมวลผลตรรกะระหว่างภาษา C และJAVA กับชุดคำสั่งของ MIPS  
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:logical"></A><A NAME="10857"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.4:</STRONG>
+ตัวประมวลผลตรรกะระหว่างภาษา C และ JAVA กับชุดคำสั่งของ MIPS</CAPTION>
+<TR><TD><IMG
+ WIDTH="554" HEIGHT="186" BORDER="0"
+ SRC="img49.png"
+ ALT="\begin{figure}\centering
+\begin{tabular}{cccc}\toprule
+Logical operations &amp; C op...
+...it-by-bit NOT &amp; $\sim$\ &amp; $\sim$\ &amp; nor\\ \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>ชุดของคำสั่งแรกเป็นชุดคำสั่งการเลื่อนบิต หรือ การ Shift  ซึ่งคำสั่งการเลื่อนบิต มีชุดคำสั่งเพื่อเลื่อนคำสั่งไปทางด้าน ซ้าย และ ทาง ขวา จากคำสั่ง sll และ srl ตามลำดับ  เมื่อทำการเลื่อนบิตแล้ว จะทำการใส่ค่า ศูนย์ ในบิตที่ถูกเลื่อนไป ตัวอย่างเช่น กรณีที่ $s0 มีค่า
+<BR></I>
+<P>
+<I>
+<!-- MATH
+ $0000 0000 0000 0000 0000 0000 0000 1001_{two} = 9_{ten}$
+ -->
+<IMG
+ WIDTH="381" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.png"
+ ALT="$0000 0000 0000 0000 0000 0000 0000 1001_{two} = 9_{ten}$">
+<BR></I>
+<P>
+<I>
+เมื่อใช้คำสั่ง sll โดยเลื่อนไป 4 บิต จะได้ค่าใหม่ดังต่อไปนี้
+<BR></I>
+<P>
+<I>
+<!-- MATH
+ $0000 0000 0000 0000 0000 0000 1001 0000_{two} = 144_{ten}$
+ -->
+<IMG
+ WIDTH="400" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.png"
+ ALT="$0000 0000 0000 0000 0000 0000 1001 0000_{two} = 144_{ten}$">
+<BR></I>
+<P>
+<I>สามารถแสดงค่าคำสั่งเอสแซมบลีได้ดังต่อไปนี้
+</I>
+<P><PRE>
+sll $t2, $s0, 4 # reg $t2 = reg $s0 &lt;&lt; 4 bits
+</PRE>
+<P>
+<I>ค่า 4 ในการเลื่อนบิตนั้น ในคำสั่ง MIPS จะใช้ฟิลด์ shamt ในการแสดงค่า ซึ่งสามารถแสดงดังต่อไปนี้
+</I>
+<P>
+<I><IMG
+ WIDTH="458" HEIGHT="55" ALIGN="BOTTOM" BORDER="0"
+ SRC="img63.png"
+ ALT="\includegraphics[width=4in]{fig/isaformat5.eps}"> 
+</I>
+<P>
+<I>การเลื่อนบิตไปทางซ้ายมีผลข้างเคียงที่สามารถใช้งานได้คือ การเลื่อนบิตไปทางซ้าย <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> บิต มีค่าเท่ากับการคูณตัวเลขเดิมด้วยค่า <IMG
+ WIDTH="19" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$2^i$">
+</I>
+<P>
+<I>คำสั่งที่สำคัญต่อมาได้แก่คำสั่ง <IMG
+ WIDTH="52" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$AND$"> คำสั่ง AND เป็นประโยชน์อย่างมากในการแยกฟิลด์ออกจากกัน เนื่องจากการทำ AND นั้น ทั้งสองตัวกระทำจะต้องมีค่าเป็นหนึ่ง จึงจะได้ผลลัพธ์เป็น หนึ่ง ตัวอย่าง ให้รีจีสเตอร์ $t2 เก็บค่า 
+</I>
+<P>
+<I><!-- MATH
+ $0000 0000 0000 0000 0000 1101 0000 0000_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.png"
+ ALT="$0000 0000 0000 0000 0000 1101 0000 0000_{two}$">
+<BR></I>
+<P>
+<I>
+และ รีจีสเตอร์ $t1 เก็บค่า 
+</I>
+<P>
+<I><!-- MATH
+ $0000 0000 0000 0000 0011 1100 0000 0000_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.png"
+ ALT="$0000 0000 0000 0000 0011 1100 0000 0000_{two}$">
+<BR></I>
+<P>
+<I>
+หลังจากเมื่อเรียกคำสั่ง 
+</I>
+<P><PRE>
+and $t0, $t1, $t2 # reg $t0 = reg $y1 &amp; reg $t2
+</PRE>
+<P>
+<I>
+ค่าในรีจีสเตอร์ $t0 จะได้เท่ากับ
+</I>
+<P>
+<I><!-- MATH
+ $0000 0000 0000 0000 0000 1100 0000 0000_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.png"
+ ALT="$0000 0000 0000 0000 0000 1100 0000 0000_{two}$">
+<BR></I>
+<P>
+<I>
+จากตัวอย่างขั้นต้น ถ้าจะใช้คำสั่ง <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.png"
+ ALT="$OR$"> 
+</I>
+<P><PRE>
+or $t0, $t1, $t2 # reg $t0 = reg $y1 | reg $t2
+</PRE>
+<P>
+<I>
+ผลลัพธ์ในค่าในรีจีสเตอร์ $t0 จะได้เท่ากับ
+</I>
+<P>
+<I><!-- MATH
+ $0000 0000 0000 0000 0011 1101 0000 0000_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.png"
+ ALT="$0000 0000 0000 0000 0011 1101 0000 0000_{two}$">
+<BR></I>
+<P>
+<I>
+คำสั่งสุดท้ายได้แก่คำสั่ง <IMG
+ WIDTH="50" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img60.png"
+ ALT="$NOT$"> และ <IMG
+ WIDTH="51" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img61.png"
+ ALT="$NOR$">
+</I>
+<P>
+<I>
+ถ้าใช้คำสั่ง nor
+</I>
+<P><PRE>
+nor $t0, $t1, $t2 # reg $t0 = ~(reg $y1 | reg $t2)
+</PRE>
+<P>
+<I>
+ผลลัพธ์ในค่าในรีจีสเตอร์ $t0 จะได้เท่ากับ
+</I>
+<P>
+<I><!-- MATH
+ $1111 1111 1111 1111 1100 0010 1111 1111_{two}$
+ -->
+<IMG
+ WIDTH="326" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img62.png"
+ ALT="$1111 1111 1111 1111 1100 0010 1111 1111_{two}$">
+<BR></I>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html841"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<UL>
+<LI><A NAME="tex2html842"
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</A>
+<LI><A NAME="tex2html843"
+  HREF="node27.html">การทำลูป (Loops)</A>
+<LI><A NAME="tex2html844"
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html839"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html833"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html827"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html835"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html837"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html840"
+  HREF="node25.html">คำสั่งสำหรับการตัดสินใจ</A>
+<B> Up:</B> <A NAME="tex2html834"
+  HREF="node14.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html828"
+  HREF="node23.html">แนวคิด ``Store Program''</A>
+ &nbsp; <B>  <A NAME="tex2html836"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html838"
+  HREF="node199.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

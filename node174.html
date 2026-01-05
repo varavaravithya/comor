@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>กล่าวนำ</TITLE>
+<META NAME="description" CONTENT="กล่าวนำ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node175.html">
+<LINK REL="previous" HREF="node173.html">
+<LINK REL="up" HREF="node172.html">
+<LINK REL="next" HREF="node175.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3116"
+  HREF="node175.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3110"
+  HREF="node172.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3104"
+  HREF="node173.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3112"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3114"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3117"
+  HREF="node175.html">ดิสก์ข้อมูลและความสามารถในการพึ่งพา</A>
+<B> Up:</B> <A NAME="tex2html3111"
+  HREF="node172.html">อุปกรณ์เก็บข้อมูลขนาดใหญ่</A>
+<B> Previous:</B> <A NAME="tex2html3105"
+  HREF="node173.html">เป้าประสงค์</A>
+ &nbsp; <B>  <A NAME="tex2html3113"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3115"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001020000000000000000">
+กล่าวนำ</A>
+</H1>
+<P>
+<I>สำหรับอุปกรณ์ที่เกี่ยวข้องกับการเก็บข้อมูลนั้นหากเกิดเหตุการณ์ไม่คาดคิดจนทำให้ข้อมูลที่เก็บอยู่เกิดการสูญหายขึ้นแล้ว อาจเป็นเรื่องที่ทำให้ผุ้ใช้งานต้องสูญเสียอย่างมาก ดังนั้นความสามารถในการพึ่งพาได้ (Dependability) ของอุปกรณ์เก็บข้อมูลต้องมีมากกว่าในส่วนของการคำนวณ จึงเป็นเหตุการเลือกใช้อุปกรณ์ที่เกี่ยวกับ I/O เน้นไปทางความน่าไว้วางใจและราคา ส่วนหน่วยประมวลผลและหน่วยความจำจะเน้นไปทางประสิทธิภาพและราคา 
+<A NAME="38368"></A>
+</I>
+<P>
+<I>ระบบของ I/O จะต้องมีการวางแผน เพื่อให้สามารถขยาย และรองรับอุปกรณ์ที่หลากหลาย ซึ่งไม่มีส่วนเกี่ยวข้องกับส่วนประมวลผล ความสามารถในการขยายนี้ รวมถึงความจุของการเก็บข้อมูล ที่เป็นอีกปัจจัยสำหรับระบบ I/O ด้วย แม้ว่าระบบอาจจะไม่ค่อยได้ติดต่อกับหน่วยเก็บข้อมูล (Disk Storage) ก็ตาม
+อย่างไรก็ดีระบบ I/O ก็ยังมีผลกระทบต่อประสิทธิภาพโดยตรง ตัวอย่างเช่น อุปกรณ์บางประเภท คำนึงถึงความสามารถในการเข้าถึง (Access Latency) ในขณะที่บางประเภทคำนึงถึงความสำคัญของอัตราความสำเร็จ (Throughput) เป็นหลัก นอกจากนี้ประสิทธิภาพยังเกี่ยวด้านอื่นของระบบอื่นอีกเช่น ลักษณะเฉพาะของอุปกรณ์ (Device Characteristic), จุดเชื่อมต่อระหว่างอุปกรณ์กับระบบอื่นๆ, การจัดลำดับขั้นของหน่วยความจำ (Memory Hierarchy) รวมทั้งประเภทของระบบปฏิบัติการด้วย ในรูปที่&nbsp;<A HREF="#fig:f0801">8.1</A> แสดงถึงโครงสร้างพื้นฐานของระบบ I/O ทุกส่วนประกอบตั้งแต่อุปกรณ์ I/O ที่ต่อกับหน่วยประมวลผลไปจนถึงการจัดการระบบจะส่งผลกระทบต่อความน่าไว้วางใจ ความสามารถในการต่อขยาย และประสิทธิภาพในการทำงานของส่วนที่มีอุปกรณ์ I/O ด้วย
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:f0801"></A><A NAME="43643"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8.1:</STRONG>
+โครงสร้างพื้นฐานของระบบ I/O</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="574" HEIGHT="321" ALIGN="BOTTOM" BORDER="0"
+ SRC="img464.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_8/f0801.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<I>อุปกรณ์ I/O มีมากมายหลายประเภท ซึ่งมีคุณลักษณะที่ใช้บ่งบอก 3 ประการดังนี้
+</I>
+<P>
+<UL>
+<LI>ลักษณะการทำงาน ทำหน้าที่ในการนำข้อมูลเข้า (input), ส่งข้อมูลออก (output) หรือเก็บข้อมูล (storage)
+</LI>
+<LI>ผู้ดำเนินการ เป็นผู้ที่กระทำเกี่ยวกับ I/O ได้แก่มนุษย์ หรือเครื่องจักร
+</LI>
+<LI>อัตราข้อมูล อัตราการส่งถ่ายข้อมูลสูงสุดระหว่างอุปกรณ์ I/O กับหน่วยความจำ
+</LI>
+</UL>
+<P>
+<I>ตัวอย่างเช่น แป้นพิมพ์เป็นอุปกรณ์นำข้อมูลเข้าถูกใช้โดยมนุษย์มีอัตราส่งถ่ายข้อมูลสูงสุดประมาณ 10 ไบต์ต่อวินาที ในขณะที่การแสดงผลทางกราฟฟิกใช้การส่งข้อมูลเป็นอย่างมาก
+</I>
+<P>
+<I>สำหรับการประเมินประสิทธิภาพของอุปกรณ์ I/O นั้นโดยมากจะใช้โปรแกรมประยุกต์เป็นตัววัด ซึ่งในบางระบบจะคำนึงถึงปริมาณข้อมูลเป็นหลัก โดยในกรณีนี้ความกว้างของช่องสัญญาณจะสำคัญที่สุด โดยความกว้างของช่องสัญญาณสามารถวัดได้สองวิธีดังนี้
+</I>
+<P>
+<OL>
+<LI>วัดจากปริมาณข้อมูลที่ผ่านเข้าระบบในช่วงระยะเวลาหนึ่ง
+</LI>
+<LI>วัดจากจำนวนคำสั่งของ I/O ที่ทำได้ต่อหนึ่งหน่วยเวลา
+</LI>
+</OL>
+<P>
+<I>ซึ่งวิธีการวัดที่ดีที่สุดนั้นขึ้นอยู่กับว่าอยู่ในสภาพแวดล้อมใด ยกตัวอย่างเช่นงานเกี่ยวกับมัลติมีเดียจะเป็นข้อมูลที่มีความยาวมากซึ่งต้องอาศัยการส่งถ่ายข้อมูลที่สูง แต่งานบางประเภทที่มีขนาดของข้อมูลไม่ใหญ่มากนักแต่มีจำนวนของข้อมูลจำนวนมากซึ่งต้องอาศัยความเร็วในการทำงานต่อคำสั่งที่รวดเร็ว
+</I>
+<P>
+<I>สำหรับแอพพลิเคชั่นอื่นอาจจะสนใจในเรื่องของการตอบสนองที่รวดเร็วเนื่องจากเป็นงานที่มีการสั่งงานแบบเล็กๆน้อยๆ ซึ่งในกรณีนี้การทำงานของอุปกรณ์ I/O จึงต้องอาศัยอุปกรณ์ที่มีความสามารถในการเข้าถึงข้อมูลอย่างรวดเร็วเพื่อให้ระบบสามารถทำงานได้อย่างมีประสิทธิภาพ
+</I>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>

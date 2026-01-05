@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การคาดเดา Branch แบบพลวัตร</TITLE>
+<META NAME="description" CONTENT="การคาดเดา Branch แบบพลวัตร">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node137.html">
+<LINK REL="previous" HREF="node135.html">
+<LINK REL="up" HREF="node132.html">
+<LINK REL="next" HREF="node137.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2534"
+  HREF="node137.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2528"
+  HREF="node132.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2522"
+  HREF="node135.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2530"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2532"
+  HREF="node199.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2535"
+  HREF="node137.html">Branch Delay Slot</A>
+<B> Up:</B> <A NAME="tex2html2529"
+  HREF="node132.html">Branch Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2523"
+  HREF="node135.html">Branch ใน ไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2531"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2533"
+  HREF="node199.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00870400000000000000">
+การคาดเดา Branch แบบพลวัตร</A>
+</H3>
+<P>
+<I>การสมมุติให้ Branch Not Taken ที่เป็นวิธีง่ายๆ แต่อาจทำงานได้ไม่ดีในกรณีที่ไพพ์ลายน์ลึกมากๆ ซึ่งมีวิธีหลายลักษณะที่จะคาดเดาผลของ Branch วิธีการหนึ่งคือการจำตำแหน่งของคำสั่ง Branch และผลการตัดสินใจครั้งก่อนหน้าเพื่อมาช่วยในการตัดสินใจในวงรอบปัจจุบัน ซึ่งวิธีการดังกล่าวเรียกว่า Dynamic Branch Prediction 
+</I>
+<P>
+<I>วิธีการหนึ่งสามารถทำโดยการใช้ Branch Prediction Buffer หรือ Branch History Table ที่เป็นหน่วยความจำขนาดเล็กที่เก็บแอดเดรสของคำสั่ง Branch โดยใช้ส่วนล่างของแอดเดรสในการอ้างอิง และมีบิตที่ระบุว่า Branch จะ Take หรือไม่ ซึ่งการทำการคาดเดาอาจใช้หนึ่งบิตหรือ หลายบิตก็ได้ โดยในรูป <A HREF="#fig:6.39">6.37</A> แสดงการคาดเดาแบบสองบิต
+</I>
+<P>
+<DIV ALIGN="CENTER"><A NAME="fig:6.39"></A><A NAME="31396"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.37:</STRONG>
+การคาดเดา Branch แบบสองบิต</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="575" HEIGHT="346" ALIGN="BOTTOM" BORDER="0"
+ SRC="img370.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_6/Figure_6.39.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2005-08-18
+</ADDRESS>
+</BODY>
+</HTML>
