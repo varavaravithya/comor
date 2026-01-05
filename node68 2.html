@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>การปัดเศษโดยใช้ Guard</TITLE>
-<META NAME="description" CONTENT="การปัดเศษโดยใช้ Guard">
+<TITLE>เธเธฒเธฃเธเธฑเธเนเธจเธฉเนเธเธขเนเธเน Guard</TITLE>
+<META NAME="description" CONTENT="เธเธฒเธฃเธเธฑเธเนเธจเธฉเนเธเธขเนเธเน Guard">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1499"
-  HREF="node69.html">หัวข้อสรุป</A>
+  HREF="node69.html">เธซเธฑเธงเธเนเธญเธชเธฃเธธเธ</A>
 <B> Up:</B> <A NAME="tex2html1493"
-  HREF="node60.html">เลขทศนิยม (Floating Point)</A>
+  HREF="node60.html">เนเธฅเธเธเธจเธเธดเธขเธก (Floating Point)</A>
 <B> Previous:</B> <A NAME="tex2html1489"
-  HREF="node67.html">ความถูกต้องและความละเอียดในการคำนวณ</A>
+  HREF="node67.html">เธเธงเธฒเธกเธเธนเธเธเนเธญเธเนเธฅเธฐเธเธงเธฒเธกเธฅเธฐเนเธญเธตเธขเธเนเธเธเธฒเธฃเธเธณเธเธงเธ</A>
  &nbsp; <B>  <A NAME="tex2html1495"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1497"
@@ -61,25 +61,25 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00570800000000000000">
-การปัดเศษโดยใช้ Guard</A>
+เธเธฒเธฃเธเธฑเธเนเธจเธฉเนเธเธขเนเธเน Guard</A>
 </H3><I></I>
 <P>
-<I><FONT SIZE="-1">จงทำการบวก <!-- MATH
+<I><FONT SIZE="-1">เธเธเธเธณเธเธฒเธฃเธเธงเธ <!-- MATH
  $2.56_{ten}\times 10^0$
  -->
 <IMG
  WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img216.png"
- ALT="$2.56_{ten}\times 10^0$"> ถึง <!-- MATH
+ ALT="$2.56_{ten}\times 10^0$"> เธเธถเธ <!-- MATH
  $2.34_{ten}\times 10^2$
  -->
 <IMG
  WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img217.png"
- ALT="$2.34_{ten}\times 10^2$"> สมมุติให้มี Significant 3 หลัก และปัดเศษให้เข้าใกล้เลขฐานสิบมากที่สุด  เริ่มจากมีการปัดเศษด้วยหลัก guard และ round  
+ ALT="$2.34_{ten}\times 10^2$"> เธชเธกเธกเธธเธเธดเนเธซเนเธกเธต Significant 3 เธซเธฅเธฑเธ เนเธฅเธฐเธเธฑเธเนเธจเธฉเนเธซเนเนเธเนเธฒเนเธเธฅเนเนเธฅเธเธเธฒเธเธชเธดเธเธกเธฒเธเธเธตเนเธชเธธเธ  เนเธฃเธดเนเธกเธเธฒเธเธกเธตเธเธฒเธฃเธเธฑเธเนเธจเธฉเธเนเธงเธขเธซเธฅเธฑเธ guard เนเธฅเธฐ round  
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">เริ่มต้นจากการขยับ Exponent ให้ตรงกันโดย
+<I><FONT SIZE="-1">เนเธฃเธดเนเธกเธเนเธเธเธฒเธเธเธฒเธฃเธเธขเธฑเธ Exponent เนเธซเนเธเธฃเธเธเธฑเธเนเธเธข
 </FONT></I>
 <P>
 <I><FONT SIZE="-1"><!-- MATH
@@ -88,7 +88,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG
  WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img216.png"
- ALT="$2.56_{ten}\times 10^0$"> เป็น  <!-- MATH
+ ALT="$2.56_{ten}\times 10^0$"> เนเธเนเธ  <!-- MATH
  $0.0256_{ten}\times 10^2$
  -->
 <IMG
@@ -97,7 +97,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$0.0256_{ten}\times 10^2$"> 
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">จากการนำเสนอจะมีหลัก guard และ round  โดย guard มีค่าเท่ากับ 5 และ round มีค่าเท่ากับ 6 ผลบวกจะได้
+<I><FONT SIZE="-1">เธเธฒเธเธเธฒเธฃเธเธณเนเธชเธเธญเธเธฐเธกเธตเธซเธฅเธฑเธ guard เนเธฅเธฐ round  เนเธเธข guard เธกเธตเธเนเธฒเนเธเนเธฒเธเธฑเธ 5 เนเธฅเธฐ round เธกเธตเธเนเธฒเนเธเนเธฒเธเธฑเธ 6 เธเธฅเธเธงเธเธเธฐเนเธเน
 </FONT></I>
 <P>
 <I></I><PRE>
@@ -107,13 +107,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
              2.3656
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">ดังนั้นผลบวกจะได้เท่ากับ <!-- MATH
+<I><FONT SIZE="-1">เธเธฑเธเธเธฑเนเธเธเธฅเธเธงเธเธเธฐเนเธเนเนเธเนเธฒเธเธฑเธ <!-- MATH
  $2.3656_{ten}\times 10^2$
  -->
 <IMG
  WIDTH="126" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img219.png"
- ALT="$2.3656_{ten}\times 10^2$"> โดยที่ 0-49 จะทำการปัดลง และ 51-99 จะทำการปัดขึ้น โดยจะได้ผลลัพธ์ <!-- MATH
+ ALT="$2.3656_{ten}\times 10^2$"> เนเธเธขเธเธตเน 0-49 เธเธฐเธเธณเธเธฒเธฃเธเธฑเธเธฅเธ เนเธฅเธฐ 51-99 เธเธฐเธเธณเธเธฒเธฃเธเธฑเธเธเธถเนเธ เนเธเธขเธเธฐเนเธเนเธเธฅเธฅเธฑเธเธเน <!-- MATH
  $2.37_{ten}\times 10^2$
  -->
 <IMG
@@ -122,7 +122,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$2.37_{ten}\times 10^2$">
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">ถ้าไม่ใช้ guard และ round บิตเราจะได้ 
+<I><FONT SIZE="-1">เธเนเธฒเนเธกเนเนเธเน guard เนเธฅเธฐ round เธเธดเธเนเธฃเธฒเธเธฐเนเธเน 
 </FONT></I>
 <P>
 <I></I><PRE>
@@ -132,13 +132,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
              2.36
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">ได้ผลลัพธ์ <!-- MATH
+<I><FONT SIZE="-1">เนเธเนเธเธฅเธฅเธฑเธเธเน <!-- MATH
  $2.36_{ten}\times 10^2$
  -->
 <IMG
  WIDTH="108" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img221.png"
- ALT="$2.36_{ten}\times 10^2$"> ที่ได้ผลลัพธ์ผิดไปจากที่มี guard และ round ไป 0.01
+ ALT="$2.36_{ten}\times 10^2$"> เธเธตเนเนเธเนเธเธฅเธฅเธฑเธเธเนเธเธดเธเนเธเธเธฒเธเธเธตเนเธกเธต guard เนเธฅเธฐ round เนเธ 0.01
 </FONT></I>
 <P>
 <I></I>

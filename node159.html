@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Ŵ�ѵ�Ңͧ Cache Miss ���������ö���͡ŧ��ͧ���ҡ���</TITLE>
-<META NAME="description" CONTENT="Ŵ�ѵ�Ңͧ Cache Miss ���������ö���͡ŧ��ͧ���ҡ���">
+<TITLE>ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</TITLE>
+<META NAME="description" CONTENT="ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2880"
-  HREF="node160.html">˹��¤���������͹</A>
+  HREF="node160.html">หน่วยความจำเสมือน</A>
 <B> Up:</B> <A NAME="tex2html2874"
-  HREF="node157.html">��û�Ѻ��ا����Է���Ҿ�ͧᤪ</A>
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
 <B> Previous:</B> <A NAME="tex2html2870"
-  HREF="node158.html">��äӹǳ����Է���Ҿ�ͧᤪ</A>
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
  &nbsp; <B>  <A NAME="tex2html2876"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2878"
@@ -61,22 +61,22 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00940200000000000000">
-Ŵ�ѵ�Ңͧ Cache Miss ���������ö���͡ŧ��ͧ���ҡ���</A>
+ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
 </H3>
 <P>
-<I>� Direct Mapping ���á�˹����˹� Block ੾����§˹�觷����ҹ�� �·���������öŧ㹵��˹������������ ���վ�鹷����ҧ �ա�ҧ˹�������� Block ����ö���͡ŧ���˹�㴡����¡�â��¢�Ҵ Tag ����բ�Ҵ��ҡѺ�ʹ��ʢͧ Block  �Ըա�ù�����¡��� Fully Associative ��������ա�����¡��ᤪ �к��Ǻ����зӡ���׺�鹷ء Block �ᤪ��ҵç������� �������ö���Ẻ��ҹ ��зӡ�����º��º��� ���ҧ�á�������׺��������º��º��ҵ�ͧ�����������ӹǹ�ҡ ��� ����������ǧ�ͺ�ѭ�ҳ���ԡ�  ���㹷ҧ��Ժѵ�����ö����Ѻ�ӹǹ Block ����ҡ�ѡ
+<I>ใน Direct Mapping ใช้การกำหนดตำแหน่ง Block เฉพาะเพียงหนึ่งที่เท่านั้น โดยที่ไม่สามารถลงในตำแหน่งอื่นได้แม้ว่า จะมีพื้นที่ว่าง อีกทางหนึ่งเราให้ Block สามารถเลือกลงตำแหน่งใดก็ได้โดยการขยายขนาด Tag ให้มีขนาดเท่ากับแอดเดรสของ Block  วิธีการนี้เรียกว่า Fully Associative โดยเมื่อมีการเรียกใช้แคช ระบบควบคุมจะทำการสืบค้นทุก Block ในแคชว่าตรงหรือไม่ ซึ่งสามารถทได้แบบขนาน และทำการเปรียบเทียบค่า อย่างไรก็ตามตัวสืบค้นและเปรียบเทียบค่าต้องการฮาร์ดแวร์จำนวนมาก และ มีแนวโน้มต่อวงรอบสัญญาณนาฬิกา  ซึ่งในทางปฏิบัติสามารถทำได้กับจำนวน Block ไม่มากนัก
 </I>
 <P>
-<I>�ա�Ը�˹��㹡�����͡ŧ��ͧ���Ըա�÷�����������ҧ��÷ӧҹẺ Direct Mapping ��� Fully Associative �Ըա�ù�����¡��� Set Associative Mapping  㹡�èѴ���§Ẻ Set Associative ˹�� Block ����ö���͡��ͧŧ�� <IMG
+<I>อีกวิธีหนึ่งในการเลือกลงช่องเป็นวิธีการที่อยู่ระหว่างการทำงานแบบ Direct Mapping และ Fully Associative วิธีการนี้เรียกว่า Set Associative Mapping  ในการจัดเรียงแบบ Set Associative หนึ่ง Block สามารถเลือกช่องลงได้ <IMG
  WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
  SRC="img103.png"
- ALT="$n$"> ��ͧ ����ѺᤪẺ <IMG
+ ALT="$n$"> ช่อง สำหรับแคชแบบ <IMG
  WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img451.png"
- ALT="$n-way$"> Set Associative  ����Сͺ���� Set �ӹǹ˹�� �������� Set �� <IMG
+ ALT="$n-way$"> Set Associative  ที่ประกอบด้วย Set จำนวนหนึ่ง และในแต่ละ Set มี <IMG
  WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
  SRC="img103.png"
- ALT="$n$"> Block  ���� Set ���������Ţ��ҧ�ԧ�ᤪ ���� Set ���� Block ������ʹ��ʴѧ���仹�� <A NAME="34897"></A><A NAME="34898"></A><A NAME="34899"></A>
+ ALT="$n$"> Block  แต่ละ Set จะมีหมายเลขอ้างอิงในแคช ซึ่งใน Set จะมี Block ที่มีแอดเดรสดังต่อไปนี้ <A NAME="34897"></A><A NAME="34898"></A><A NAME="34899"></A>
 </I>
 <P>
 <BR>
@@ -99,14 +99,14 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 <BR CLEAR="ALL"></DIV><P></P>
 <P>
-<I>����� Block �ᤪ �ش�Ǻ���˹��¤����Өзӡ���׺�鹷ء Block � Set �ʴ���ٻ��� <A HREF="#fig:f0715">7.10</A>
-��� Block 12 ����ö�ժ�ͧŧ�� �ͧ��ͧ� 2-way Set Associative Cache
+<I>การหา Block ในแคช ชุดควบคุมหน่วยความจำจะทำการสืบค้นทุก Block ใน Set แสดงในรูปที่ <A HREF="#fig:f0715">7.10</A>
+ที่ Block 12 สามารถมีช่องลงได้ สองช่องใน 2-way Set Associative Cache
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:f0715"></A><A NAME="34998"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.10:</STRONG>
-���º��º���˹�ŧ�����ҧ Direct Mapping, Set Associative Mapping, ��� Fully Associative Mapping: Block 12 ����ö�ժ�ͧŧ�� �ͧ��ͧ� 2-way Set Associative Cache</CAPTION>
+เปรียบเทียบตำแหน่งลงระหว่าง Direct Mapping, Set Associative Mapping, และ Fully Associative Mapping: Block 12 สามารถมีช่องลงได้ สองช่องใน 2-way Set Associative Cache</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER">
 <IMG
@@ -117,13 +117,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 </DIV>
 <P>
-<I>�ٻ <A HREF="#fig:f0716">7.11</A> �ʴ� ᤪ��Ҵ 8 Block ���ӡ����ҹ��Ẻ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, ��� Fully Associative Mapping 
+<I>รูป <A HREF="#fig:f0716">7.11</A> แสดง แคชขนาด 8 Block ที่ทำการใช้งานเป็นแบบ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, และ Fully Associative Mapping 
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:f0716"></A><A NAME="34999"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.11:</STRONG>
-ᤪ��Ҵ 8 Block ���ӡ����ҹ��Ẻ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, ��� Fully Associative Mapping</CAPTION>
+แคชขนาด 8 Block ที่ทำการใช้งานเป็นแบบ  Direct Mapping, 2-way Set Associative Mapping, 4-way Set Associative Mapping, และ Fully Associative Mapping</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER">
 <IMG
@@ -134,13 +134,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 </DIV>
 <P>
-<I>�ٻ <A HREF="#fig:f0719">7.12</A> �ʴ���������ͧᤪẺ 4-way Set Associative 
+<I>รูป <A HREF="#fig:f0719">7.12</A> แสดงฮาร์ดแวร์ของแคชแบบ 4-way Set Associative 
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:f0719"></A><A NAME="35000"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.12:</STRONG>
-��������ͧᤪẺ 4-way Set Associative</CAPTION>
+ฮาร์ดแวร์ของแคชแบบ 4-way Set Associative</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER">
 <IMG
@@ -151,11 +151,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 </DIV>
 <P>
-<I>������͡ Block 㹡��᷹�������ö���Ըա�� Least Recently Used (LRU) 
+<I>การเลือก Block ในการแทนที่สามารถใช้วิธีการ Least Recently Used (LRU) 
 <A NAME="34968"></A>
 </I>
 <P>
-<I>�������öŴ Miss  Penalty ������ Multilevel Cache
+<I>เราสามารถลด Miss  Penalty ได้โดยใช้ Multilevel Cache
 <A NAME="34973"></A> 
 </I>
 <P>
@@ -183,11 +183,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2880"
-  HREF="node160.html">˹��¤���������͹</A>
+  HREF="node160.html">หน่วยความจำเสมือน</A>
 <B> Up:</B> <A NAME="tex2html2874"
-  HREF="node157.html">��û�Ѻ��ا����Է���Ҿ�ͧᤪ</A>
+  HREF="node157.html">การปรับปรุงประสิทธิภาพของแคช</A>
 <B> Previous:</B> <A NAME="tex2html2870"
-  HREF="node158.html">��äӹǳ����Է���Ҿ�ͧᤪ</A>
+  HREF="node158.html">การคำนวณประสิทธิภาพของแคช</A>
  &nbsp; <B>  <A NAME="tex2html2876"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2878"

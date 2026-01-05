@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>���Ŵ Delay �ͧ Branch</TITLE>
-<META NAME="description" CONTENT="���Ŵ Delay �ͧ Branch">
+<TITLE>การลด Delay ของ Branch</TITLE>
+<META NAME="description" CONTENT="การลด Delay ของ Branch">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2507"
-  HREF="node135.html">Branch � 侾���¹�</A>
+  HREF="node135.html">Branch ใน ไพพ์ลายน์</A>
 <B> Up:</B> <A NAME="tex2html2501"
   HREF="node132.html">Branch Hazard</A>
 <B> Previous:</B> <A NAME="tex2html2495"
-  HREF="node133.html">���ص� Branch Not Taken</A>
+  HREF="node133.html">สมมุติ Branch Not Taken</A>
  &nbsp; <B>  <A NAME="tex2html2503"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2505"
@@ -62,13 +62,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00870200000000000000">
-���Ŵ Delay �ͧ Branch</A>
+การลด Delay ของ Branch</A>
 </H3>
 <P>
-<I>�����������Է���Ҿ�ͧ Branch ����ö�����¡��Ŵ���ҷ�������㹡óշ���Դ Branch Taken ���ͧ�ҡ��÷��ͺ Branch ``��ҡѺ'' �繡�÷ӧҹ������Ѻ��͹ ����ö�������� XOR ��� OR �ŷ������֧�դ�������������ҧ��õѴ�Թ� Branch ����൷ ID
+<I>การเพิ่มประสิทธิภาพของ Branch สามารถทำได้โดยการลดเวลาที่เสียไปในกรณีที่เกิด Branch Taken เนื่องจากการทดสอบ Branch ``เท่ากับ'' เป็นการทำงานที่ไม่ซับซ้อน สามารถทำได้โดยใช้ XOR และ OR ผลทั้งหมดจึงมีความเป็นไปได้ที่จะย้างการตัดสินใจ Branch มาในสเตท ID
 </I>
 <P>
-<I>��������¡�õѴ�Թ����ѧ ID �������öŴ��� Flush ŧ�������§ 1 ����觤�ͤ���觷��������൷ IF ��������ö�����¡�����ѭ�ҳ IF.Flush
+<I>เมื่อย้ายการตัดสินใจมายัง ID เราสามารถลดการ Flush ลงเหลือเพียง 1 คำสั่งคือคำสั่งที่อยู่ในสเตท IF ซึ่งสสามารถทำได้โดยการส่งสัญญาณ IF.Flush
 </I>
 <P>
 <BR><HR>

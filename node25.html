@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>���������Ѻ��õѴ�Թ�</TITLE>
-<META NAME="description" CONTENT="���������Ѻ��õѴ�Թ�">
+<TITLE>คำสั่งสำหรับการตัดสินใจ</TITLE>
+<META NAME="description" CONTENT="คำสั่งสำหรับการตัดสินใจ">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html856"
-  HREF="node26.html">����ŧ�ش����� if-then-else �� Conditional</A>
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional</A>
 <B> Up:</B> <A NAME="tex2html850"
-  HREF="node24.html">��û����żŵ�á�</A>
+  HREF="node24.html">การประมวลผลตรรกะ</A>
 <B> Previous:</B> <A NAME="tex2html846"
-  HREF="node24.html">��û����żŵ�á�</A>
+  HREF="node24.html">การประมวลผลตรรกะ</A>
  &nbsp; <B>  <A NAME="tex2html852"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html854"
@@ -61,10 +61,10 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00461000000000000000">
-���������Ѻ��õѴ�Թ�</A>
+คำสั่งสำหรับการตัดสินใจ</A>
 </H2>
 <P>
-<I>�����ҹ���������� ���ͨش���ʧ����ѡ�����äӹǳ ��÷ӫ�� ��С�õѴ�Թ� ����觢ͧ��÷ӫ�� ��С�õѴ�Թ� ���ҡ����¡ó� �� ����� if � MIPS �����㹡�õѴ�Թ㨻�Сͺ����
+<I>เราใช้งานคอมพิวเตอร์ เพื่อจุดประสงค์หลักได้แก่การคำนวณ การทำซ้ำ และการตัดสินใจ คำสั่งของการทำซ้ำ และการตัดสินใจ ใช้มากในหลายกรณี เช่น คำสั่ง if ใน MIPS คำสั่งในการตัดสินใจประกอบด้วย
 <A NAME="8471"></A>
 </I>
 <P><PRE>
@@ -73,7 +73,7 @@ beq register1, register2, L1
 <A NAME="8474"></A>
 </I>
 <P>
-<I>㹤���� beq ��Ҥ��� register1 �դ����ҡѺ ���� register2 ����觨С��ⴴ价������㹵��˹� L1 beq ����Ҩҡ branch if equal ����Ѻ����觵���� 
+<I>ในคำสั่ง beq ถ้าค่าใน register1 มีค่าเท่ากับ ค่าใน register2 คำสั่งจะกระโดดไปที่คำสั่งในตำแหน่ง L1 beq ย่อมาจาก branch if equal สำหรับคำสั่งต่อมา 
 </I>
 <P><PRE>
 bne register1, register2, L1
@@ -81,8 +81,8 @@ bne register1, register2, L1
 <A NAME="8495"></A>
 </I>
 <P>
-<I>㹡óշ����� register1 �դ�������ҡѺ ���� register2 ����觨С��ⴴ价������㹵��˹� L1 ��� bnq 
-����Ҩҡ branch if not equal ���������ҹ���ѡ�١���¡��� Conditional Branches
+<I>ในกรณีที่ค่าใน register1 มีค่าไม่เท่ากับ ค่าใน register2 คำสั่งจะกระโดดไปที่คำสั่งในตำแหน่ง L1 ซึ่ง bnq 
+ย่อมาจาก branch if not equal คำสั่งเหล่านี้มักถูกเรียกว่า Conditional Branches
 </I>
 <P>
 <BR><HR>
@@ -91,11 +91,11 @@ bne register1, register2, L1
 
 <UL>
 <LI><A NAME="tex2html857"
-  HREF="node26.html">����ŧ�ش����� if-then-else �� Conditional Branches</A>
+  HREF="node26.html">การแปลงชุดคำสั่ง if-then-else เป็น Conditional Branches</A>
 <LI><A NAME="tex2html858"
-  HREF="node27.html">��÷��ٻ (Loops)</A>
+  HREF="node27.html">การทำลูป (Loops)</A>
 <LI><A NAME="tex2html859"
-  HREF="node28.html">����ŧ�ٻ while ����� C</A>
+  HREF="node28.html">การแปลงลูป while ในภาษา C</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>

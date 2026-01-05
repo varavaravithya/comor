@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>��úǡ�Ţ Floating-Point</TITLE>
-<META NAME="description" CONTENT="��úǡ�Ţ Floating-Point">
+<TITLE>การบวกเลข Floating-Point</TITLE>
+<META NAME="description" CONTENT="การบวกเลข Floating-Point">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1429"
-  HREF="node64.html">��äٳ Floating-Point</A>
+  HREF="node64.html">การคูณ Floating-Point</A>
 <B> Up:</B> <A NAME="tex2html1423"
-  HREF="node59.html">�Ţ�ȹ��� (Floating Point)</A>
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
 <B> Previous:</B> <A NAME="tex2html1417"
-  HREF="node62.html">����ŧ亹�������Ţ�ҹ�Ժ</A>
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
  &nbsp; <B>  <A NAME="tex2html1425"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1427"
@@ -62,20 +62,20 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00570400000000000000">
-��úǡ�Ţ Floating-Point</A>
+การบวกเลข Floating-Point</A>
 </H3>
 <P>
-<I>������ҧ�ѧ���仹���繡���ʴ���úǡ�Ţ Floating Point �����ҧ <!-- MATH
+<I>ตัวอย่างดังต่อไปนี้เป็นการแสดงการบวกเลข Floating Point ระหว่าง <!-- MATH
  $9.999_{ten}\times 10^1 + 1.610_{ten}\times 10^{-1}$
  -->
 <IMG
  WIDTH="263" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img190.png"
- ALT="$9.999_{ten}\times 10^1 + 1.610_{ten}\times 10^{-1}$"> �����ص��������§�����ѡ����Ѻ Significant ��� 2 ��ѡ ����Ѻ Exponent
+ ALT="$9.999_{ten}\times 10^1 + 1.610_{ten}\times 10^{-1}$"> โดยสมมุติให้มีเพียงสี่หลักสำหรับ Significant และ 2 หลัก สำหรับ Exponent
 </I>
 <P>
 <UL>
-<LI><B>Step 1:</B> ����ͧ����ҵ�ͧ�ӡ������͹�ش�ȹ����ͧ����Ţ����դ�� Exponent ���¡��� ���ͷ��з�����Ţ����ͧ����ǹ�ͧ Exponent ��ҡѹ
+<LI><B>Step 1:</B> ในเบื้องต้นเราต้องทำการเลื่อนจุดทศนิยมของตัวเลขที่มีค่า Exponent น้อยกว่า เพื่อที่จะทำให้เลขทั้งสองมีส่วนของ Exponent เท่ากัน
 <BR>
 <P>
 <!-- MATH
@@ -87,13 +87,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$1.610_{ten}\times 10^{-1} = 0.1610_{ten}\times 10^0 = 0.01610_{ten}\times 10^1$">
 
 <P>
-����Ţ <!-- MATH
+ซึ่งเลข <!-- MATH
  $0.01610_{ten}\times 10^1$
  -->
 <IMG
  WIDTH="136" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img192.png"
- ALT="$0.01610_{ten}\times 10^1$"> ����ǹ�ͧ Exponent ��ҡѺ��ǵ�� <!-- MATH
+ ALT="$0.01610_{ten}\times 10^1$"> มีส่วนของ Exponent เท่ากับตัวตั้ง <!-- MATH
  $9.999_{ten}\times 10^1$
  -->
 <IMG
@@ -102,7 +102,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$9.999_{ten}\times 10^1$"> 
 
 <P>
-�ѧ���㹢���á�зӡ������͹ Significant �ͧ�Ţ�����¡���价ҧ��Ҩ���з�觤�Ңͧ Exponent �դ����ҡѺ��ҷ���˭���� ���ͧ�ҡ Significant ����§�����ѡ��ѧ�ҡ�������͹����
+ดังนั้นในขั้นแรกจะทำการเลื่อน Significant ของเลขที่น้อยกว่าไปทางขวาจนกระทั่งค่าของ Exponent มีค่าเท่ากับค่าที่ใหญ่กว่า เนื่องจาก Significant มีเพียงสี่หลักหลังจากการเลื่อนจะได้
 
 <P>
 <!-- MATH
@@ -115,7 +115,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 2:</B> ����ҷӡ�úǡ Significands
+<LI><B>Step 2:</B> ต่อมาทำการบวก Significands
 
 <P>
 <PRE>
@@ -126,7 +126,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </PRE>
 
 <P>
-���Ѿ����� <!-- MATH
+ผลลัพธ์จะได้ <!-- MATH
  $10.015_{ten}\times 10^1$
  -->
 <IMG
@@ -136,7 +136,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 3:</B> �ҡ��鹷ӡ�� Normalized ����Ţ
+<LI><B>Step 3:</B> จากนั้นทำการ Normalized ตัวเลข
 
 <P>
 <!-- MATH
@@ -149,7 +149,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 4:</B> ���ͧ�ҡ Significant ����§�����ѡ ��觼��Ѿ�������դ���ҡ���Ҩӹǹ��ѡ�����
+<LI><B>Step 4:</B> เนื่องจาก Significant มีเพียงสี่หลัก ซึ่งผลลัพธ์ที่ได้มีค่ามากกว่าจำนวนหลักที่มี
 
 <P>
 <!-- MATH
@@ -161,7 +161,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$1.0015_{ten}\times 10^2$">
 
 <P>
-�ӡ�ûѴ��ɨ���
+ทำการปัดเศษจะได้
 
 <P>
 <!-- MATH
@@ -174,13 +174,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </LI>
 </UL>
 <P>
-<I>�ٻ <A HREF="#fig:binaryFloatAdd">3.14</A> �ʴ�����º�Ըա�úǡ�Ţ亹��� Floating-Point 㹢�鹵͹��� 1 ��� 2 ���ѡɳФ���¡Ѻ������ҧ������ʴ���鹵�  �¡�û�Ѻ��� Exponent �ͧ�Ţ�����¡�������դ����ҡѺ�Ţ����ҡ���� 㹢�鹵͹��� 3 �ӡ�� Normalized ���Ѿ�� ��з��ͺ overflow ��� underflow
+<I>รูป <A HREF="#fig:binaryFloatAdd">3.14</A> แสดงระเบียบวิธีการบวกเลขไบนารี Floating-Point ในขั้นตอนที่ 1 และ 2 มีลักษณะคล้ายกับตัวอย่างที่ได้แสดงขั้นต้น  โดยการปรับค่า Exponent ของเลขที่น้อยกว่าให้มีค่าเท่ากับเลขที่มากกว่า ในขั้นตอนที่ 3 ทำการ Normalized ผลลัพธ์ และทดสอบ overflow และ underflow
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:binaryFloatAdd"></A><A NAME="16303"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.14:</STRONG>
-�ʴ�����º�Ըա�úǡ�Ţ亹��� Floating-Point</CAPTION>
+แสดงระเบียบวิธีการบวกเลขไบนารี Floating-Point</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER"><IMG
  WIDTH="460" HEIGHT="907" ALIGN="BOTTOM" BORDER="0"
@@ -190,13 +190,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 </DIV>
 <P>
-<I>�ٻ <A HREF="#fig:floatingPointAddHardware">3.15</A> �ʴ��ç���ҧ�ͧ������������Ѻ�ǡ�Ţ Floating Point
+<I>รูป <A HREF="#fig:floatingPointAddHardware">3.15</A> แสดงโครงสร้างของฮาร์ดแวร์สำหรับบวกเลข Floating Point
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:floatingPointAddHardware"></A><A NAME="16304"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.15:</STRONG>
-������������Ѻ�ǡ�Ţ Floating-Point</CAPTION>
+ฮาร์ดแวร์สำหรับบวกเลข Floating-Point</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER"><IMG
  WIDTH="689" HEIGHT="665" ALIGN="BOTTOM" BORDER="0"

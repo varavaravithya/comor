@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>���ص� Branch Not Taken</TITLE>
-<META NAME="description" CONTENT="���ص� Branch Not Taken">
+<TITLE>สมมุติ Branch Not Taken</TITLE>
+<META NAME="description" CONTENT="สมมุติ Branch Not Taken">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,7 +48,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2493"
-  HREF="node134.html">���Ŵ Delay �ͧ Branch</A>
+  HREF="node134.html">การลด Delay ของ Branch</A>
 <B> Up:</B> <A NAME="tex2html2487"
   HREF="node132.html">Branch Hazard</A>
 <B> Previous:</B> <A NAME="tex2html2481"
@@ -62,11 +62,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00870100000000000000">
-���ص� Branch Not Taken</A>
+สมมุติ Branch Not Taken</A>
 </H3>
 <P>
-<I>�������ö�Ѵ��áѺ�ѭ�Ңͧ Branch Hazard ���ҧ�����¡�����ص���� Branch Not Taken �� 
-��� Fetch ����觵���ҵ���ӴѺ ����Դ Branch Taken ��зӡ��ź����觷����ѧ�ӡ�� Decode ����� ��觨�����觼š�з��� �Ѻ��÷ӧҹ���ͧ�ҡ����觷�������ѧ������ʶҹТͧ�������� ������§��ҹ��ҨҴ�ը��������ҹ�� ��觷����¡������¹�ѭ�ҳ�Ǻ����� 0 ��൷ ID ������ ���¤��������Ҩе�ͧ����ö Flush ����觷�����൷ IF, ID, ��� EX ��
+<I>เราสามารถจัดการกับปัญหาของ Branch Hazard อย่างง่ายโดยการสมมุติให้ Branch Not Taken โดย 
+การ Fetch คำสั่งต่อมาตามลำดับ ถ้าเกิด Branch Taken ก็จะทำการลบคำสั่งที่กำลังทำการ Decode อยู่ไป ซึ่งจะไม่ส่งผลกระทบใดๆ กับการทำงานเนื่องจากคำสั่งที่ตามมายังไม่แก้ไขสถานะของโปรเซสเซอร์ เพราะเพียงอ่านค่าจาดรีจีสเตอร์เท่านั้น ซึ่งทำได้โดยการเปลี่ยนสัญญาณควบคุมเป็น 0 ในสเตท ID ให้หมด หมายความว่าเราจะต้องสามารถ Flush คำสั่งทิ้งไปในสเตท IF, ID, และ EX ได้
 </I>
 <P>
 <BR><HR>

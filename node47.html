@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>�ŧ��������ҧ�ǡź</TITLE>
-<META NAME="description" CONTENT="�ŧ��������ҧ�ǡź">
+<TITLE>แปลงค่าระหว่างบวกลบ</TITLE>
+<META NAME="description" CONTENT="แปลงค่าระหว่างบวกลบ">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1198"
-  HREF="node48.html">��÷� Sign Extension</A>
+  HREF="node48.html">การทำ Sign Extension</A>
 <B> Up:</B> <A NAME="tex2html1192"
-  HREF="node44.html">��èѴ��áѺ�Ţ�ǡ ź 㹤���������</A>
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
 <B> Previous:</B> <A NAME="tex2html1186"
-  HREF="node46.html">���º��º�к��Ţ Signed ��� Unsigned</A>
+  HREF="node46.html">เปรียบเทียบระบบเลข Signed และ Unsigned</A>
  &nbsp; <B>  <A NAME="tex2html1194"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1196"
@@ -62,16 +62,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00530300000000000000">
-�ŧ��������ҧ�ǡź</A>
+แปลงค่าระหว่างบวกลบ</A>
 </H3>
 <P>
-<I>�ӡ���ŧ��� <IMG
+<I>ทำการแปลงค่า <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ����� <IMG
+ ALT="$2_{ten}$"> ให้เป็น <IMG
  WIDTH="53" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img101.png"
- ALT="$-2_{tem}$"> ��е�Ǩ�ͺ���Ѿ��
+ ALT="$-2_{tem}$"> และตรวจสอบผลลัพธ์
 <BR></I>
 <P>
 <I><!-- MATH
@@ -83,7 +83,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$2_{ten} = 0000 0000 0000 0000 0000 0000 0000 0010$">
 </I>
 <P>
-<I>�ӡ���ŧ��� �� Invert �Ե ��кǡ 1 
+<I>ทำการแปลงค่า โดย Invert บิต และบวก 1 
 </I>
 <P><PRE>
                    1111 1111 1111 1111 1111 1111 1111 1101 
@@ -93,13 +93,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
               =  -2
 </PRE>
 <P>
-<I>�ҡ��鹷���͹��Ѻ
+<I>จากนั้นทำย้อนกลับ
 </I>
 <P><PRE>
                    1111 1111 1111 1111 1111 1111 1111 1110
 </PRE>
 <P>
-<I>�ӡ���ŧ��� �� Invert �Ե ��кǡ 1 
+<I>ทำการแปลงค่า โดย Invert บิต และบวก 1 
 </I>
 <P><PRE>
                    0000 0000 0000 0000 0000 0000 0000 0001 
@@ -109,25 +109,25 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
               =  2
 </PRE>
 <P>
-<I>�Ըա�õ���� �������ö�ŧ���亹���� <IMG
+<I>วิธีการต่อมา เราสามารถแปลงค่าไบนารี่ <IMG
  WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
  SRC="img103.png"
- ALT="$n$"> �Ե ��繤��亹�������բ�Ҵ�ҡ���� <IMG
+ ALT="$n$"> บิต ไปเป็นค่าไบนารี่ที่มีขนาดมากกว่า <IMG
  WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
  SRC="img103.png"
- ALT="$n$"> �Ե  ������ҧ�蹤����㹪ش�ͧ i-type ����դ�ҵ�ҧ� �� ��Ҥ���� ��Ҵ 16 �Ե ����ʴ����  <IMG
+ ALT="$n$"> บิต  ตัวอย่างเช่นคำสั่งในชุดของ i-type ที่มีค่าต่างๆ เช่น ค่าคงที่ ขนาด 16 บิต ที่แสดงค่า  <IMG
  WIDTH="95" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img104.png"
  ALT="$-32,768_{ten}$"> <IMG
  WIDTH="58" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img105.png"
- ALT="$(-2^{15})$"> �֧  <IMG
+ ALT="$(-2^{15})$"> ถึง  <IMG
  WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img106.png"
  ALT="$32,768_{ten}$"> <IMG
  WIDTH="76" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img107.png"
- ALT="$(2^{15}-1)$"> 㹡�÷ӡ�äӹǳ㹤��������� MIPS �е�ͧ�ӡ���ŧ��Ҩҡ 16 �Ե ����� 32 �Ե �¡�ùӤ�� Sign bit ����� Most Significant Bit �ͧ��ҷ����¡��� ��й����繤�Ңͧ�Ե��������㹪�ͧ���ӡ�â��ºԵ�͡���� Word ���� �Ըչ�����¡��� Sign Extension
+ ALT="$(2^{15}-1)$"> ในการทำการคำนวณในคอมพิวเตอร์ MIPS จะต้องทำการแปลงค่าจาก 16 บิต ให้เป็น 32 บิต โดยการนำค่า Sign bit ที่เป็น Most Significant Bit ของค่าที่น้อยกว่า และนำมาเป็นค่าของบิตที่เหลือในช่องที่ทำการขยายบิตออกมาเป็น Word ใหม่ วิธีนี้เรียกว่า Sign Extension
 </I>
 <P>
 <BR><HR>

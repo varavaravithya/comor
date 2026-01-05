@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>��÷� Sign Extension</TITLE>
-<META NAME="description" CONTENT="��÷� Sign Extension">
+<TITLE>การทำ Sign Extension</TITLE>
+<META NAME="description" CONTENT="การทำ Sign Extension">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1210"
-  HREF="node49.html">��úǡ ��� ���ź</A>
+  HREF="node49.html">การบวก และ การลบ</A>
 <B> Up:</B> <A NAME="tex2html1204"
-  HREF="node44.html">��èѴ��áѺ�Ţ�ǡ ź 㹤���������</A>
+  HREF="node44.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
 <B> Previous:</B> <A NAME="tex2html1200"
-  HREF="node47.html">�ŧ��������ҧ�ǡź</A>
+  HREF="node47.html">แปลงค่าระหว่างบวกลบ</A>
  &nbsp; <B>  <A NAME="tex2html1206"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1208"
@@ -61,46 +61,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00530400000000000000">
-��÷� Sign Extension</A>
+การทำ Sign Extension</A>
 </H3>
 <P>
-<I>���ӡ���ŧ���亹���袹Ҵ 16 �Ե�ͧ <IMG
+<I>จงทำการแปลงค่าไบนารี่ขนาด 16 บิตของ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ���  <IMG
+ ALT="$2_{ten}$"> และ  <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
- ALT="$-2_{ten}$"> ������Ţ亹���袹Ҵ 32 �Ե
+ ALT="$-2_{ten}$"> ให้เป็นเลขไบนารี่ขนาด 32 บิต
 </I>
 <P>
-<I>�Ţ亹���袹Ҵ 16 �Ե�ͧ <IMG
+<I>เลขไบนารี่ขนาด 16 บิตของ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> �դ����ҡѺ
+ ALT="$2_{ten}$"> มีค่าเท่ากับ
 </I>
 <P><PRE>
    0000 0000 0000 0010
 </PRE>
 <P>
-<I>����ŧ����Ţ 16 �Ե ����� 32 �Ե ���¡�äѴ�͡��� 0 ����� Most Significant Bit �ͧ�Ţ亹���袹Ҵ 16 �Ե�ͧ <IMG
+<I>การแปลงค่าเลข 16 บิต ให้เป็น 32 บิต ทำโดยการคัดลอกค่า 0 ที่เป็น Most Significant Bit ของเลขไบนารี่ขนาด 16 บิตของ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ��ѧ 16 �Ե�ҧ��ҹ���¢ͧ�Ţ亹���� 32 �Ե ����
+ ALT="$2_{ten}$"> ไปยัง 16 บิตทางด้านซ้ายของเลขไบนารี่ 32 บิต จะได้
 </I>
 <P><PRE>
    0000 0000 0000 0000 0000 0000 0000 0010
 </PRE>
 <P>
-<I>����դ����ҡѺ  <IMG
+<I>ที่มีค่าเท่ากับ  <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
  ALT="$2_{ten}$"> 
 </I>
 <P>
-<I>���ǹ����ͧ������ҡ����ŧ���  <IMG
+<I>ในส่วนที่สองเริ่มจากการแปลงค่า  <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ����� <IMG
+ ALT="$2_{ten}$"> ให้เป็น <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
  ALT="$-2_{ten}$"> 
@@ -109,7 +109,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
    0000 0000 0000 0010
 </PRE>
 <P>
-<I>�ӡ�� Invert �Ե ��кǡ 1 ����
+<I>ทำการ Invert บิต และบวก 1 จะได้
 </I><PRE>
    1111 1111 1111 1101
  +                   1
@@ -117,16 +117,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  = 1111 1111 1111 1110
 </PRE>
 <P>
-<I>����ŧ����Ţ 16 �Ե ����� 32 �Ե ���¡�äѴ�͡��� 1 ����� Most Significant Bit �ͧ�Ţ亹���袹Ҵ 16 �Ե�ͧ <IMG
+<I>การแปลงค่าเลข 16 บิต ให้เป็น 32 บิต ทำโดยการคัดลอกค่า 1 ที่เป็น Most Significant Bit ของเลขไบนารี่ขนาด 16 บิตของ <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
- ALT="$-2_{ten}$"> ��ѧ 16 �Ե�ҧ��ҹ���¢ͧ�Ţ亹���� 32 �Ե ����
+ ALT="$-2_{ten}$"> ไปยัง 16 บิตทางด้านซ้ายของเลขไบนารี่ 32 บิต จะได้
 </I>
 <P><PRE>
   1111 1111 1111 1111 1111 1111 1111 1110
 </PRE>
 <P>
-<I>����դ����ҡѺ  <IMG
+<I>ที่มีค่าเท่ากับ  <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
  ALT="$-2_{ten}$"> 

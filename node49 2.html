@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>การทำ Sign Extension</TITLE>
-<META NAME="description" CONTENT="การทำ Sign Extension">
+<TITLE>เธเธฒเธฃเธเธณ Sign Extension</TITLE>
+<META NAME="description" CONTENT="เธเธฒเธฃเธเธณ Sign Extension">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1226"
-  HREF="node50.html">การบวก และ การลบ</A>
+  HREF="node50.html">เธเธฒเธฃเธเธงเธ เนเธฅเธฐ เธเธฒเธฃเธฅเธ</A>
 <B> Up:</B> <A NAME="tex2html1220"
-  HREF="node45.html">การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+  HREF="node45.html">เธเธฒเธฃเธเธฑเธเธเธฒเธฃเธเธฑเธเนเธฅเธเธเธงเธ เธฅเธ เนเธเธเธญเธกเธเธดเธงเนเธเธญเธฃเน</A>
 <B> Previous:</B> <A NAME="tex2html1216"
-  HREF="node48.html">แปลงค่าระหว่างบวกลบ</A>
+  HREF="node48.html">เนเธเธฅเธเธเนเธฒเธฃเธฐเธซเธงเนเธฒเธเธเธงเธเธฅเธ</A>
  &nbsp; <B>  <A NAME="tex2html1222"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1224"
@@ -61,48 +61,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00530400000000000000">
-การทำ Sign Extension</A>
+เธเธฒเธฃเธเธณ Sign Extension</A>
 </H3><I></I>
 <P>
-<I><FONT SIZE="-1">จงทำการแปลงค่าไบนารี่ขนาด 16 บิตของ <IMG
+<I><FONT SIZE="-1">เธเธเธเธณเธเธฒเธฃเนเธเธฅเธเธเนเธฒเนเธเธเธฒเธฃเธตเนเธเธเธฒเธ 16 เธเธดเธเธเธญเธ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> และ  <IMG
+ ALT="$2_{ten}$"> เนเธฅเธฐ  <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
- ALT="$-2_{ten}$"> ให้เป็นเลขไบนารี่ขนาด 32 บิต
+ ALT="$-2_{ten}$"> เนเธซเนเนเธเนเธเนเธฅเธเนเธเธเธฒเธฃเธตเนเธเธเธฒเธ 32 เธเธดเธ
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">เลขไบนารี่ขนาด 16 บิตของ <IMG
+<I><FONT SIZE="-1">เนเธฅเธเนเธเธเธฒเธฃเธตเนเธเธเธฒเธ 16 เธเธดเธเธเธญเธ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> มีค่าเท่ากับ
+ ALT="$2_{ten}$"> เธกเธตเธเนเธฒเนเธเนเธฒเธเธฑเธ
 </FONT></I>
 <P>
 <I></I><PRE>
    0000 0000 0000 0010
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">การแปลงค่าเลข 16 บิต ให้เป็น 32 บิต ทำโดยการคัดลอกค่า 0 ที่เป็น Most Significant Bit ของเลขไบนารี่ขนาด 16 บิตของ <IMG
+<I><FONT SIZE="-1">เธเธฒเธฃเนเธเธฅเธเธเนเธฒเนเธฅเธ 16 เธเธดเธ เนเธซเนเนเธเนเธ 32 เธเธดเธ เธเธณเนเธเธขเธเธฒเธฃเธเธฑเธเธฅเธญเธเธเนเธฒ 0 เธเธตเนเนเธเนเธ Most Significant Bit เธเธญเธเนเธฅเธเนเธเธเธฒเธฃเธตเนเธเธเธฒเธ 16 เธเธดเธเธเธญเธ <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ไปยัง 16 บิตทางด้านซ้ายของเลขไบนารี่ 32 บิต จะได้
+ ALT="$2_{ten}$"> เนเธเธขเธฑเธ 16 เธเธดเธเธเธฒเธเธเนเธฒเธเธเนเธฒเธขเธเธญเธเนเธฅเธเนเธเธเธฒเธฃเธตเน 32 เธเธดเธ เธเธฐเนเธเน
 </FONT></I>
 <P>
 <I></I><PRE>
    0000 0000 0000 0000 0000 0000 0000 0010
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">ที่มีค่าเท่ากับ  <IMG
+<I><FONT SIZE="-1">เธเธตเนเธกเธตเธเนเธฒเนเธเนเธฒเธเธฑเธ  <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
  ALT="$2_{ten}$"> 
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">ในส่วนที่สองเริ่มจากการแปลงค่า  <IMG
+<I><FONT SIZE="-1">เนเธเธชเนเธงเธเธเธตเนเธชเธญเธเนเธฃเธดเนเธกเธเธฒเธเธเธฒเธฃเนเธเธฅเธเธเนเธฒ  <IMG
  WIDTH="34" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img100.png"
- ALT="$2_{ten}$"> ให้เป็น <IMG
+ ALT="$2_{ten}$"> เนเธซเนเนเธเนเธ <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
  ALT="$-2_{ten}$"> 
@@ -112,7 +112,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
    0000 0000 0000 0010
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">ทำการ Invert บิต และบวก 1 จะได้
+<I><FONT SIZE="-1">เธเธณเธเธฒเธฃ Invert เธเธดเธ เนเธฅเธฐเธเธงเธ 1 เธเธฐเนเธเน
 </FONT></I><PRE>
    1111 1111 1111 1101
  +                   1
@@ -120,17 +120,17 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  = 1111 1111 1111 1110
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">การแปลงค่าเลข 16 บิต ให้เป็น 32 บิต ทำโดยการคัดลอกค่า 1 ที่เป็น Most Significant Bit ของเลขไบนารี่ขนาด 16 บิตของ <IMG
+<I><FONT SIZE="-1">เธเธฒเธฃเนเธเธฅเธเธเนเธฒเนเธฅเธ 16 เธเธดเธ เนเธซเนเนเธเนเธ 32 เธเธดเธ เธเธณเนเธเธขเธเธฒเธฃเธเธฑเธเธฅเธญเธเธเนเธฒ 1 เธเธตเนเนเธเนเธ Most Significant Bit เธเธญเธเนเธฅเธเนเธเธเธฒเธฃเธตเนเธเธเธฒเธ 16 เธเธดเธเธเธญเธ <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
- ALT="$-2_{ten}$"> ไปยัง 16 บิตทางด้านซ้ายของเลขไบนารี่ 32 บิต จะได้
+ ALT="$-2_{ten}$"> เนเธเธขเธฑเธ 16 เธเธดเธเธเธฒเธเธเนเธฒเธเธเนเธฒเธขเธเธญเธเนเธฅเธเนเธเธเธฒเธฃเธตเน 32 เธเธดเธ เธเธฐเนเธเน
 </FONT></I>
 <P>
 <I></I><PRE>
   1111 1111 1111 1111 1111 1111 1111 1110
 </PRE><I></I>
 <P>
-<I><FONT SIZE="-1">ที่มีค่าเท่ากับ  <IMG
+<I><FONT SIZE="-1">เธเธตเนเธกเธตเธเนเธฒเนเธเนเธฒเธเธฑเธ  <IMG
  WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img108.png"
  ALT="$-2_{ten}$"> 

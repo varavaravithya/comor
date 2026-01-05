@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>����ʴ��Ţ Floating-Point</TITLE>
-<META NAME="description" CONTENT="����ʴ��Ţ Floating-Point">
+<TITLE>การแสดงเลข Floating-Point</TITLE>
+<META NAME="description" CONTENT="การแสดงเลข Floating-Point">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1401"
-  HREF="node62.html">����ŧ亹�������Ţ�ҹ�Ժ</A>
+  HREF="node62.html">การแปลงไบนารี่เป็นเลขฐานสิบ</A>
 <B> Up:</B> <A NAME="tex2html1395"
-  HREF="node59.html">�Ţ�ȹ��� (Floating Point)</A>
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
 <B> Previous:</B> <A NAME="tex2html1389"
-  HREF="node60.html">�ٻẺ��ù��ʹ� Floating-Point</A>
+  HREF="node60.html">รูปแบบการนำเสนอ Floating-Point</A>
  &nbsp; <B>  <A NAME="tex2html1397"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1399"
@@ -62,16 +62,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00570200000000000000">
-����ʴ��Ţ Floating-Point</A>
+การแสดงเลข Floating-Point</A>
 </H3>
 <P>
-<I>���ʴ��Ţ Floating Point �ͧ <IMG
+<I>จงแสดงเลข Floating Point ของ <IMG
  WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img174.png"
- ALT="$-0.75_{ten}$"> ��ٻẺ�ͧ Single Precision ��� Double Precision
+ ALT="$-0.75_{ten}$"> ในรูปแบบของ Single Precision และ Double Precision
 </I>
 <P>
-<I>������ѡ�ͧ�Ţ Floating Point �դ�Ҵѧ���仹��
+<I>แต่ละหลักของเลข Floating Point มีค่าดังต่อไปนี้
 </I>
 <P>
 <I><!-- MATH
@@ -93,16 +93,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 2^{-8} = 0.00390625, \ldots$">
 </I>
 <P>
-<I>�Ţ Floating Point <IMG
+<I>เลข Floating Point <IMG
  WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img174.png"
- ALT="$-0.75_{ten}$"> ����ö�ʴ����� <!-- MATH
+ ALT="$-0.75_{ten}$"> สามารถแสดงได้เป็น <!-- MATH
  $\frac{-3}{4_{ten}}$
  -->
 <IMG
  WIDTH="34" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
  SRC="img176.png"
- ALT="$\frac{-3}{4_{ten}}$"> ���� <!-- MATH
+ ALT="$\frac{-3}{4_{ten}}$"> หรือ <!-- MATH
  $\frac{-3}{2^2_{ten}}$
  -->
 <IMG
@@ -111,19 +111,19 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$\frac{-3}{2^2_{ten}}$">
 </I>
 <P>
-<I>������ö�ʴ����� <!-- MATH
+<I>โดยสามารถแสดงได้เป็น <!-- MATH
  $\frac{-11_{two}}{2^2_{ten}}$
  -->
 <IMG
  WIDTH="53" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
  SRC="img178.png"
- ALT="$\frac{-11_{two}}{2^2_{ten}}$"> ���� <IMG
+ ALT="$\frac{-11_{two}}{2^2_{ten}}$"> หรือ <IMG
  WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img179.png"
  ALT="$-0.11_{two}$">
 </I>
 <P>
-<I>� Scientific Notation ����ö��¹���� <!-- MATH
+<I>ใน Scientific Notation สามารถเขียนได้เป็น <!-- MATH
  $-0.11_{two}\times 2^0$
  -->
 <IMG
@@ -132,7 +132,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$-0.11_{two}\times 2^0$">
 </I>
 <P>
-<I>�ӡ�� Normalized ���� <!-- MATH
+<I>ทำการ Normalized จะได้ <!-- MATH
  $-1.1_{two}\times 2^{-1}$
  -->
 <IMG
@@ -141,7 +141,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$-1.1_{two}\times 2^{-1}$">
 </I>
 <P>
-<I>��Ţ Floating Point Ẻ Single Precision ����ö�ʴ���
+<I>ในเลข Floating Point แบบ Single Precision สามารถแสดงโดย
 </I>
 <P>
 <I><!-- MATH
@@ -153,13 +153,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$(-1)^S\times (1+Fraction)\times 2^{(Exponent-127)}$">
 </I>
 <P>
-<I>����ͷӡ��ź��� Bias �ҡ Exponent �ͧ <!-- MATH
+<I>เมื่อทำการลบค่า Bias จาก Exponent ของ <!-- MATH
  $-1.1_{two}\times 2^{-1}$
  -->
 <IMG
  WIDTH="117" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img181.png"
- ALT="$-1.1_{two}\times 2^{-1}$"> ������ҡѺ
+ ALT="$-1.1_{two}\times 2^{-1}$"> จะได้เท่ากับ
 </I>
 <P>
 <I><!-- MATH
@@ -171,10 +171,10 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$(-1)^1\times (1+ .1000 0000 0000 0000 0000 000_{two})\times 2^{(126-127)}$">
 </I>
 <P>
-<I>�Ţ Floating Point <IMG
+<I>เลข Floating Point <IMG
  WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img174.png"
- ALT="$-0.75_{ten}$"> ��ٻ�ͧ亹�������
+ ALT="$-0.75_{ten}$"> ในรูปของไบนารี่จะได้
 <BR></I>
 <P>
 <I>
@@ -184,7 +184,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="\includegraphics[width=6in]{fig/float3.eps}">
 </I>
 <P>
-<I>��ǹ�ͧ Double Precision ����
+<I>ส่วนของ Double Precision จะได้
 </I>
 <P>
 <I><!-- MATH

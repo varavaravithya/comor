@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>��äٳ Floating-Point</TITLE>
-<META NAME="description" CONTENT="��äٳ Floating-Point">
+<TITLE>การคูณ Floating-Point</TITLE>
+<META NAME="description" CONTENT="การคูณ Floating-Point">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1443"
-  HREF="node65.html">����� Floating-Point � MIPS</A>
+  HREF="node65.html">คำสั่ง Floating-Point ใน MIPS</A>
 <B> Up:</B> <A NAME="tex2html1437"
-  HREF="node59.html">�Ţ�ȹ��� (Floating Point)</A>
+  HREF="node59.html">เลขทศนิยม (Floating Point)</A>
 <B> Previous:</B> <A NAME="tex2html1431"
-  HREF="node63.html">��úǡ�Ţ Floating-Point</A>
+  HREF="node63.html">การบวกเลข Floating-Point</A>
  &nbsp; <B>  <A NAME="tex2html1439"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1441"
@@ -62,20 +62,20 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00570500000000000000">
-��äٳ Floating-Point</A>
+การคูณ Floating-Point</A>
 </H3>
 <P>
-<I>��ѧ�ҡ��úǡ ������繡���ʴ���äٳ�Ţ Floating Point �����ҧ <!-- MATH
+<I>หลังจากการบวก ต่อมาเป็นการแสดงการคูณเลข Floating Point ระหว่าง <!-- MATH
  $1.110_{ten}\times 10^10 \times 9.200_{ten}\times 10^{-5}$
  -->
 <IMG
  WIDTH="273" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
  SRC="img201.png"
- ALT="$1.110_{ten}\times 10^10 \times 9.200_{ten}\times 10^{-5}$"> �����ص��������§�����ѡ����Ѻ Significant ��� 2 ��ѡ ����Ѻ Exponent
+ ALT="$1.110_{ten}\times 10^10 \times 9.200_{ten}\times 10^{-5}$"> โดยสมมุติให้มีเพียงสี่หลักสำหรับ Significant และ 2 หลัก สำหรับ Exponent
 </I>
 <P>
 <UL>
-<LI><B>Step 1:</B> ��äٳ������ҡ��úǡ��ǹ�ͧ Exponent ��Ҵ��¡ѹ����
+<LI><B>Step 1:</B> การคูณเริ่มจากการบวกส่วนของ Exponent เข้าดัวยกันจะได้
 
 <P>
 <!-- MATH
@@ -87,19 +87,19 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$New Exponent = 10 + (-5) = 5$">
 
 <P>
-�������ö�Ԩ�ó�����ѡɳТͧ Biased Exponent ���� <!-- MATH
+เราสามารถพิจารณาได้ในลักษณะของ Biased Exponent จะได้ <!-- MATH
  $10 + 127 = 137$
  -->
 <IMG
  WIDTH="128" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img203.png"
- ALT="$10 + 127 = 137$"> ��� <!-- MATH
+ ALT="$10 + 127 = 137$"> และ <!-- MATH
  $-5 + 127 = 122$
  -->
 <IMG
  WIDTH="133" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img204.png"
- ALT="$-5 + 127 = 122$"> ���Щй�� 
+ ALT="$-5 + 127 = 122$"> เพราะฉะนั้น 
 
 <P>
 <!-- MATH
@@ -111,7 +111,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$New Exponent = 137 + 122 = 259$">
 
 <P>
-��觤�� Exponent �բ�Ҵ�˭��Թ���Ң�Ҵ������ 8 �Ե ���ͧ�ҡ��úǡ Exponent �դ�� Bias ��͹����֧�ͧ����
+ซึ่งค่า Exponent มีขนาดใหญ่เกินกว่าขนาดข้อมูล 8 บิต เนื่องจากการบวก Exponent มีค่า Bias ซ่อนอยู่ถึงสองครั้ง
 
 <P>
 <!-- MATH
@@ -123,7 +123,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$New Exponent = (10 + 127) + (-5 + 127) = (5 +2\times 127) = 259$">
 
 <P>
-�ѧ�����ҵ�ͧź��� Biased �͡˹�觤���������ҷ��١��ͧ
+ดังนั้นเราต้องลบค่า Biased ออกหนึ่งครั้งให้ได้ค่าที่ถูกต้อง
 
 <P>
 <!-- MATH
@@ -136,7 +136,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 2:</B> �ҡ��鹷ӡ�äٳ Significant
+<LI><B>Step 2:</B> จากนั้นทำการคูณ Significant
 <PRE>
                1.110
              x 9.200
@@ -150,7 +150,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </PRE>
 
 <P>
-�ҡ����Ǥٳ�շȹ��������ѡ�ͧ��Ǥٳ����ͧ���  ���Щй�鹨����Ţ�ȹ��� 6 ��ѡ ������Ѿ����ҡѺ
+จากที่ตัวคูณมีทศนิยมสามหลักของตัวคูณทั้งสองตัว  เพราะฉะนั้นจะมีเลขทศนิยม 6 หลัก จะได้ผลลัพธ์เท่ากับ
 
 <P>
 <!-- MATH
@@ -162,14 +162,14 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$10.212000_{ten}$">
 
 <P>
-���ص��������§�����ѡ��ѧ�ش�ȹ��� ��Ҩ���Ťٳ <IMG
+สมมุติให้มีเพียงสามหลักหลังจุดทศนิยม เราจะได้ผลคูณ <IMG
  WIDTH="77" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img209.png"
  ALT="$10.212_{ten}$">
 
 <P>
 </LI>
-<LI><B>Step 3: �ӡ�� Normalized</B>
+<LI><B>Step 3: ทำการ Normalized</B>
 
 <P>
 <!-- MATH
@@ -182,7 +182,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 4:</B>������ص��������§�����ѡ
+<LI><B>Step 4:</B>เราสมมุติให้มีเพียงสี่หลัก
 
 <P>
 <!-- MATH
@@ -194,7 +194,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  ALT="$1.0212_{ten}\times 10^6$">
 
 <P>
-�ӡ�ûѴ��ɨ��� 
+ทำการปัดเศษจะได้ 
 
 <P>
 <!-- MATH
@@ -207,7 +207,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <P>
 </LI>
-<LI><B>Step 5:</B> ����ͧ���¢ͧ���Ѿ��������Ѻ��Ǥٳ����ͧ �������ͧ���¢ͧ��ǡ�зӷ���ͧ����͹�ѹ ���Ѿ����դ���繺ǡ �������ͧ���¢ͧ��ǡ�зӷ���ͧ��ҧ�ѹ  ���Ѿ����դ����ź �ѧ��鹼��Ѿ�����
+<LI><B>Step 5:</B> เครื่องหมายของผลลัพธ์ขึ้นอยู่กับตัวคูณทั้งสอง ถ้าเครื่องหมายของตัวกระทำทั้งสองเหมือนกัน ผลลัพธ์จะมีค่าเป็นบวก และเครื่องหมายของตัวกระทำทั้งสองต่างกัน  ผลลัพธ์จะมีค่าเป็นลบ ดังนั้นผลลัพธ์จะได้
 
 <P>
 <!-- MATH
@@ -220,13 +220,13 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </LI>
 </UL>
 <P>
-<I>�ٻ <A HREF="#fig:FloatingPointMultiplication">3.16</A> �ʴ���鹵͹��äٳ Floating Point
+<I>รูป <A HREF="#fig:FloatingPointMultiplication">3.16</A> แสดงขั้นตอนการคูณ Floating Point
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:FloatingPointMultiplication"></A><A NAME="16307"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.16:</STRONG>
-��鹵͹��äٳ Floating Point</CAPTION>
+ขั้นตอนการคูณ Floating Point</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER"><IMG
  WIDTH="460" HEIGHT="1019" ALIGN="BOTTOM" BORDER="0"

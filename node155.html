@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>������ҧ�к�ᤪ: Intrinsity FastMATH Processor</TITLE>
-<META NAME="description" CONTENT="������ҧ�к�ᤪ: Intrinsity FastMATH Processor">
+<TITLE>ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</TITLE>
+<META NAME="description" CONTENT="ตัวอย่างระบบแคช: Intrinsity FastMATH Processor">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2826"
-  HREF="node156.html">����͡Ẻ˹�¤������ͧ�Ѻ��÷ӧҹᤪ</A>
+  HREF="node156.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
 <B> Up:</B> <A NAME="tex2html2820"
-  HREF="node150.html">�ǤԴ�ͧ˹��¤�����ᤪ</A>
+  HREF="node150.html">แนวคิดของหน่วยความจำแคช</A>
 <B> Previous:</B> <A NAME="tex2html2814"
-  HREF="node154.html">��èѴ��áѺ��� Write</A>
+  HREF="node154.html">การจัดการกับการ Write</A>
  &nbsp; <B>  <A NAME="tex2html2822"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2824"
@@ -62,31 +62,31 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00930500000000000000">
-������ҧ�к�ᤪ: Intrinsity FastMATH Processor</A>
+ตัวอย่างระบบแคช: Intrinsity FastMATH Processor</A>
 </H3>
 <P>
-<I>�������� Intrinsity FastMATH ��Ẻ侾���¹� 12 �൷ �ٻ <A HREF="#fig:7.9">7.8</A> �ʴ� Data Cache �ͧ��������ѧ����� ����Сͺ���� 16KB, 4K Words ����� Block ��Ҵ 16 Words
+<I>โปรเซสเซอร์ Intrinsity FastMATH เป็นแบบไพพ์ลายน์ 12 สเตท รูป <A HREF="#fig:7.9">7.8</A> แสดง Data Cache ของโปรเซสเซอร์ดังกล่าว ที่ประกอบดัวย 16KB, 4K Words และมี Block ขนาด 16 Words
 </I>
 <P>
-<I>㹡����ҹ�����Ũҡᤪ��͹��ҧ�ç仵ç�� ���բ�鹵͹�ѧ���仹��
+<I>ในการอ่านข้อมูลจากแคชค่อนข้างตรงไปตรงมา โดยมีขั้นตอนดังต่อไปนี้
 </I>
 <P>
 <OL>
-<LI>���ʹ�����ѧᤪ
+<LI>ส่งแอดเดรสไปยังแคช
 </LI>
-<LI>������ѭ�ҳ Hit, Word �����ͧ�ͨ������� Data Lines ���ͧ�ҡ˹�� Block �� 16 Words �֧��ͧ�� Multiplexer 㹡�����͡��ҷ��١��ͧ 
+<LI>ถ้ามีสัญญาณ Hit, Word ที่ร้องขอจะอยู่ที่ Data Lines เนื่องจากหนึ่ง Block มี 16 Words จึงต้องใช้ Multiplexer ในการเลือกค่าที่ถูกต้อง 
 </LI>
-<LI>㹡óշ���Դ��� Miss ��Ҩ����ʹ�����ѧ˹��¤�������ѡ �������������Ҩзӡ����¹ŧ�ᤪ�����ҹ��ҵ���
+<LI>ในกรณีที่เกิดการ Miss เราจะส่งแอดเดรสไปยังหน่วยความจำหลัก เมื่อได้ข้อมูลมาจะทำการเขียนลงในแคชและอ่านค่าต่อไป
 </LI>
 </OL>
 <P>
-<I>㹡óբͧ Intrinsity FastMATH �ͧ�Ѻ��÷ӧҹ��� Write Through ��� Write Back ��觢������Ѻ�к���Ժѵԡ��㹡�����͡ ����� Write Buffer ˹�觷��
+<I>ในกรณีของ Intrinsity FastMATH รองรับการทำงานทั้ง Write Through และ Write Back ซึ่งขึ้นอยู่กับระบบปฏิบัติการในการเลือก และมี Write Buffer หนึ่งที่
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:7.9"></A><A NAME="34989"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 7.8:</STRONG>
- Data Cache �ͧ�������� Intrinsity FastMATH </CAPTION>
+ Data Cache ของโปรเซสเซอร์ Intrinsity FastMATH </CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER">
 <IMG

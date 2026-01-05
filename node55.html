@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>������ҧ�Ըա�äٳ</TITLE>
-<META NAME="description" CONTENT="������ҧ�Ըա�äٳ">
+<TITLE>ตัวอย่างวิธีการคูณ</TITLE>
+<META NAME="description" CONTENT="ตัวอย่างวิธีการคูณ">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -47,11 +47,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1309"
-  HREF="node56.html">������</A>
+  HREF="node56.html">การหาร</A>
 <B> Up:</B> <A NAME="tex2html1303"
-  HREF="node52.html">��äٳ</A>
+  HREF="node52.html">การคูณ</A>
 <B> Previous:</B> <A NAME="tex2html1299"
-  HREF="node54.html">��������ͧ��äٳẺ�ӴѺ</A>
+  HREF="node54.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
  &nbsp; <B>  <A NAME="tex2html1305"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1307"
@@ -61,16 +61,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00550300000000000000">
-������ҧ�Ըա�äٳ</A>
+ตัวอย่างวิธีการคูณ</A>
 </H3>
 <P>
-<I>�ӡ�äٳ�Ţ <!-- MATH
+<I>ทำการคูณเลข <!-- MATH
  $2_{ten}\times 3_{ten}$
  -->
 <IMG
  WIDTH="87" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img128.png"
- ALT="$2_{ten}\times 3_{ten}$"> ����  <!-- MATH
+ ALT="$2_{ten}\times 3_{ten}$"> หรือ  <!-- MATH
  $0010_{two}\times 0011_{two}$
  -->
 <IMG
@@ -177,13 +177,13 @@ Iteration </I></TD>
 <TD ALIGN="LEFT">&nbsp;</TD></TR>
 </TABLE>
 <P>
-<I>�������ö�͡Ẻ����������ӡ�äٳ �������ö�ٳ���Ǵ���Ǣ���¡������������������Ѻ��úǡ����кԵ�ͧ��Ǥٳ  �·��ӡ�úǡ��ǵ�駷��ӡ�� AND �Ѻ�Ե�ͧ��Ǥٳ ��м��Ѿ��ͧ��Ǥٳ��͹˹�� �ѧ�ʴ���ٻ <A HREF="#fig:fig3.9">3.8</A>
+<I>เราสามารถออกแบบฮาร์ดแวร์ที่ทำการคูณ ให้สามารถคูณได้รวดเร็วขึ้นโดยการเพิ่มฮาร์ดแวร์สำหรับการบวกในแต่ละบิตของตัวคูณ  โดยที่ทำการบวกตัวตั้งที่ทำการ AND กับบิตของตัวคูณ และผลลัพธ์ของตัวคูณก่อนหน้า ดังแสดงในรูป <A HREF="#fig:fig3.9">3.8</A>
 </I>
 <P>
 <DIV ALIGN="CENTER"><A NAME="fig:fig3.9"></A><A NAME="16281"></A>
 <TABLE>
 <CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.8:</STRONG>
-���������äٳ����դ��������٧</CAPTION>
+ฮาร์ดแวร์การคูณที่มีความเร็วสูง</CAPTION>
 <TR><TD>
 <DIV ALIGN="CENTER"><IMG
  WIDTH="491" HEIGHT="798" ALIGN="BOTTOM" BORDER="0"
@@ -193,7 +193,7 @@ Iteration </I></TD>
 </TABLE>
 </DIV>
 <P>
-<I>㹤��������� MIPS �դ��������Ѻ��äٳ�ѧ���仹�� multiply <TT>(mult)</TT> ��� multiply unsigned <TT>(multu)</TT> �����  move from lo (<TT>mflo</TT>) �繡�����¡��Ҽ��Ѿ�� 32 �Ե ��� ����� <TT>mflo</TT> ��� <TT>mfhi</TT> �繤���觷��йӤ�Ҽ��Ѿ���������ը���������ͧ���
+<I>ในคอมพิวเตอร์ MIPS มีคำสั่งสำหรับการคูณดังต่อไปนี้ multiply <TT>(mult)</TT> และ multiply unsigned <TT>(multu)</TT> คำสั่ง  move from lo (<TT>mflo</TT>) เป็นการเรียกค่าผลลัพธ์ 32 บิต และ คำสั่ง <TT>mflo</TT> และ <TT>mfhi</TT> เป็นคำสั่งที่จะนำค่าผลลัพธ์เก็บไว้ในรีจีสเตอร์ที่ต้องการ
 <A NAME="14255"></A><A NAME="14256"></A><A NAME="14257"></A><A NAME="14258"></A>
 </I>
 <P><HR>
@@ -220,11 +220,11 @@ Iteration </I></TD>
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html1309"
-  HREF="node56.html">������</A>
+  HREF="node56.html">การหาร</A>
 <B> Up:</B> <A NAME="tex2html1303"
-  HREF="node52.html">��äٳ</A>
+  HREF="node52.html">การคูณ</A>
 <B> Previous:</B> <A NAME="tex2html1299"
-  HREF="node54.html">��������ͧ��äٳẺ�ӴѺ</A>
+  HREF="node54.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
  &nbsp; <B>  <A NAME="tex2html1305"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html1307"

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>การปรับปรุงประสิทธิภาพของแคช</TITLE>
-<META NAME="description" CONTENT="การปรับปรุงประสิทธิภาพของแคช">
+<TITLE>เธเธฒเธฃเธเธฃเธฑเธเธเธฃเธธเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ</TITLE>
+<META NAME="description" CONTENT="เธเธฒเธฃเธเธฃเธฑเธเธเธฃเธธเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2868"
-  HREF="node159.html">การคำนวณประสิทธิภาพของแคช</A>
+  HREF="node159.html">เธเธฒเธฃเธเธณเธเธงเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ</A>
 <B> Up:</B> <A NAME="tex2html2862"
-  HREF="node148.html">หน่วยความจำ</A>
+  HREF="node148.html">เธซเธเนเธงเธขเธเธงเธฒเธกเธเธณ</A>
 <B> Previous:</B> <A NAME="tex2html2856"
-  HREF="node157.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+  HREF="node157.html">เธเธฒเธฃเธญเธญเธเนเธเธเธซเธเธงเธขเธเธงเธฒเธกเธเธณเธฃเธญเธเธฃเธฑเธเธเธฒเธฃเธเธณเธเธฒเธเนเธเธ</A>
  &nbsp; <B>  <A NAME="tex2html2864"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2866"
@@ -62,10 +62,10 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H1><A NAME="SECTION00940000000000000000">
-การปรับปรุงประสิทธิภาพของแคช</A>
+เธเธฒเธฃเธเธฃเธฑเธเธเธฃเธธเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ</A>
 </H1><I></I>
 <P>
-<I><FONT SIZE="-1">เมื่อพิจารณาการ Stall ที่เกิดจาก Miss ค่าประสิทธิภาพของคอมพิวเตอร์ในรูปแบบของ CPU time จะเท่ากับ 
+<I><FONT SIZE="-1">เนเธกเธทเนเธญเธเธดเธเธฒเธฃเธเธฒเธเธฒเธฃ Stall เธเธตเนเนเธเธดเธเธเธฒเธ Miss เธเนเธฒเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเธเธญเธกเธเธดเธงเนเธเธญเธฃเนเนเธเธฃเธนเธเนเธเธเธเธญเธ CPU time เธเธฐเนเธเนเธฒเธเธฑเธ 
 </FONT></I>
 <P>
 <I></I>
@@ -104,7 +104,7 @@ CPU~time &=& CPU~execution~clock~cycles + Memory stall~clock~cycles)\\
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P><I></I>
 <P>
-<I><FONT SIZE="-1">ซึ่งวงรอบของ Memory Stall ส่วนใหญ่เกิดจาก Cache Miss โดยสามารถนิยามได้ดังนี้ 
+<I><FONT SIZE="-1">เธเธถเนเธเธงเธเธฃเธญเธเธเธญเธ Memory Stall เธชเนเธงเธเนเธซเธเนเนเธเธดเธเธเธฒเธ Cache Miss เนเธเธขเธชเธฒเธกเธฒเธฃเธเธเธดเธขเธฒเธกเนเธเนเธเธฑเธเธเธตเน 
 </FONT></I>
 <P>
 <I></I>
@@ -130,7 +130,7 @@ Memory&nbsp;stall&nbsp;clock&nbsp;cycles = Read&nbsp;stall&nbsp;cycles + Write&n
 <A NAME="34641"></A>
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">ซึ่งสามารถเขียนตามความสัมพันธ์ของ Miss rate ได้ดังนี้
+<I><FONT SIZE="-1">เธเธถเนเธเธชเธฒเธกเธฒเธฃเธเนเธเธตเธขเธเธเธฒเธกเธเธงเธฒเธกเธชเธฑเธกเธเธฑเธเธเนเธเธญเธ Miss rate เนเธเนเธเธฑเธเธเธตเน
 </FONT></I>
 <P>
 <I></I>
@@ -155,7 +155,7 @@ Read&nbsp;stall&nbsp;cycles = \frac{Reads}{Program} \times Read&nbsp;miss&nbsp;r
 <BR CLEAR="ALL"></DIV><P></P><I><FONT SIZE="-1"> 
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">ในแคชแบบ Write Through ค่าการ Stall สามารถคำนวณได้จาก
+<I><FONT SIZE="-1">เนเธเนเธเธเนเธเธ Write Through เธเนเธฒเธเธฒเธฃ Stall เธชเธฒเธกเธฒเธฃเธเธเธณเธเธงเธเนเธเนเธเธฒเธ
 </FONT></I>
 <P>
 <I></I>
@@ -194,7 +194,7 @@ Write~stall~cycles &=& \left ( \frac{Writes}{Program} \times Write~miss~rate \ti
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P><I></I>
 <P>
-<I><FONT SIZE="-1">ในแคชแบบ Write Through ส่วนใหญ่แล้ว Miss Penalty มีค่าใกล้เคียงกันสำหรับทั้งการ Read และ Write โดยสามารถ พิจารณา ค่า Miss rate เพียงค่าเดียว แสดงโดยสมการ
+<I><FONT SIZE="-1">เนเธเนเธเธเนเธเธ Write Through เธชเนเธงเธเนเธซเธเนเนเธฅเนเธง Miss Penalty เธกเธตเธเนเธฒเนเธเธฅเนเนเธเธตเธขเธเธเธฑเธเธชเธณเธซเธฃเธฑเธเธเธฑเนเธเธเธฒเธฃ Read เนเธฅเธฐ Write เนเธเธขเธชเธฒเธกเธฒเธฃเธ เธเธดเธเธฒเธฃเธเธฒ เธเนเธฒ Miss rate เนเธเธตเธขเธเธเนเธฒเนเธเธตเธขเธง เนเธชเธเธเนเธเธขเธชเธกเธเธฒเธฃ
 </FONT></I>
 <P>
 <I></I>
@@ -249,9 +249,9 @@ Memory&nbsp;stall&nbsp;clock&nbsp;cycles = \frac{Instructions}{Program} \times \
 <UL>
 <LI><UL>
 <LI><A NAME="tex2html2869"
-  HREF="node159.html">การคำนวณประสิทธิภาพของแคช</A>
+  HREF="node159.html">เธเธฒเธฃเธเธณเธเธงเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ</A>
 <LI><A NAME="tex2html2870"
-  HREF="node160.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+  HREF="node160.html">เธฅเธเธญเธฑเธเธฃเธฒเธเธญเธ Cache Miss เนเธเธขเนเธซเนเธชเธฒเธกเธฒเธฃเธเนเธฅเธทเธญเธเธฅเธเธเนเธญเธเนเธเนเธกเธฒเธเธเธถเนเธ</A>
 </UL></UL>
 <!--End of Table of Child-Links-->
 <HR>
@@ -278,11 +278,11 @@ Memory&nbsp;stall&nbsp;clock&nbsp;cycles = \frac{Instructions}{Program} \times \
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2868"
-  HREF="node159.html">การคำนวณประสิทธิภาพของแคช</A>
+  HREF="node159.html">เธเธฒเธฃเธเธณเธเธงเธเธเธฃเธฐเธชเธดเธเธเธดเธ เธฒเธเธเธญเธเนเธเธ</A>
 <B> Up:</B> <A NAME="tex2html2862"
-  HREF="node148.html">หน่วยความจำ</A>
+  HREF="node148.html">เธซเธเนเธงเธขเธเธงเธฒเธกเธเธณ</A>
 <B> Previous:</B> <A NAME="tex2html2856"
-  HREF="node157.html">การออกแบบหนวยความจำรองรับการทำงานแคช</A>
+  HREF="node157.html">เธเธฒเธฃเธญเธญเธเนเธเธเธซเธเธงเธขเธเธงเธฒเธกเธเธณเธฃเธญเธเธฃเธฑเธเธเธฒเธฃเธเธณเธเธฒเธเนเธเธ</A>
  &nbsp; <B>  <A NAME="tex2html2864"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2866"

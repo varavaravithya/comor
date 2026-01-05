@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ตัวอย่างจำนวนบิตในแคช</TITLE>
-<META NAME="description" CONTENT="ตัวอย่างจำนวนบิตในแคช">
+<TITLE>เธเธฑเธงเธญเธขเนเธฒเธเธเธณเธเธงเธเธเธดเธเนเธเนเธเธ</TITLE>
+<META NAME="description" CONTENT="เธเธฑเธงเธญเธขเนเธฒเธเธเธณเธเธงเธเธเธดเธเนเธเนเธเธ">
 <META NAME="keywords" CONTENT="comor">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -48,11 +48,11 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
  SRC="icons/index.png"></A> 
 <BR>
 <B> Next:</B> <A NAME="tex2html2786"
-  HREF="node153.html">การหาตำแหน่งของแอดเดรสในแคชในกรณีที่หนึ่ง Block มีหลาย Word</A>
+  HREF="node153.html">เธเธฒเธฃเธซเธฒเธเธณเนเธซเธเนเธเธเธญเธเนเธญเธเนเธเธฃเธชเนเธเนเธเธเนเธเธเธฃเธเธตเธเธตเนเธซเธเธถเนเธ Block เธกเธตเธซเธฅเธฒเธข Word</A>
 <B> Up:</B> <A NAME="tex2html2780"
-  HREF="node151.html">แนวคิดของหน่วยความจำแคช</A>
+  HREF="node151.html">เนเธเธงเธเธดเธเธเธญเธเธซเธเนเธงเธขเธเธงเธฒเธกเธเธณเนเธเธ</A>
 <B> Previous:</B> <A NAME="tex2html2774"
-  HREF="node151.html">แนวคิดของหน่วยความจำแคช</A>
+  HREF="node151.html">เนเธเธงเธเธดเธเธเธญเธเธซเธเนเธงเธขเธเธงเธฒเธกเธเธณเนเธเธ</A>
  &nbsp; <B>  <A NAME="tex2html2782"
   HREF="node1.html">Contents</A></B> 
  &nbsp; <B>  <A NAME="tex2html2784"
@@ -62,28 +62,28 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00930100000000000000">
-ตัวอย่างจำนวนบิตในแคช</A>
+เธเธฑเธงเธญเธขเนเธฒเธเธเธณเธเธงเธเธเธดเธเนเธเนเธเธ</A>
 </H3><I></I>
 <P>
-<I><FONT SIZE="-1">จงคำนวณจำนวนบิตในแคชสำหรับแคชแบบ Direct Mapping ที่มีขนาด 16KB สำหรับ Data และ Block ขนาด 4 Words โดยสมมุติให้ใช้แอดเดรสขนาด 32 บิต
+<I><FONT SIZE="-1">เธเธเธเธณเธเธงเธเธเธณเธเธงเธเธเธดเธเนเธเนเธเธเธชเธณเธซเธฃเธฑเธเนเธเธเนเธเธ Direct Mapping เธเธตเนเธกเธตเธเธเธฒเธ 16KB เธชเธณเธซเธฃเธฑเธ Data เนเธฅเธฐ Block เธเธเธฒเธ 4 Words เนเธเธขเธชเธกเธกเธธเธเธดเนเธซเนเนเธเนเนเธญเธเนเธเธฃเธชเธเธเธฒเธ 32 เธเธดเธ
 </FONT></I>
 <P>
-<I><FONT SIZE="-1">16 KB มีขนาดเท่ากับ 4K Words ซึ่งมีขนาดเท่ากับ <IMG
+<I><FONT SIZE="-1">16 KB เธกเธตเธเธเธฒเธเนเธเนเธฒเธเธฑเธ 4K Words เธเธถเนเธเธกเธตเธเธเธฒเธเนเธเนเธฒเธเธฑเธ <IMG
  WIDTH="28" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
  SRC="img414.png"
- ALT="$2^{12}$"> Words จากที่มีขนาด Block เท่ากับ 4 Words <IMG
+ ALT="$2^{12}$"> Words เธเธฒเธเธเธตเนเธกเธตเธเธเธฒเธ Block เนเธเนเธฒเธเธฑเธ 4 Words <IMG
  WIDTH="22" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
  SRC="img415.png"
  ALT="$2^2$">, <IMG
  WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
  SRC="img416.png"
- ALT="$2^10$"> Blocks แต่ละ Block มี <IMG
+ ALT="$2^10$"> Blocks เนเธเนเธฅเธฐ Block เธกเธต <IMG
  WIDTH="56" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img417.png"
- ALT="$4\times 32$"> หรือ 128 bits เป็นข้อมูลบวก Tag ซึ่งเท่ากับ <IMG
+ ALT="$4\times 32$"> เธซเธฃเธทเธญ 128 bits เนเธเนเธเธเนเธญเธกเธนเธฅเธเธงเธ Tag เธเธถเนเธเนเธเนเธฒเธเธฑเธ <IMG
  WIDTH="131" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="img418.png"
- ALT="$32-10-2-2$"> บิต และเพิ่ม Valid บิตอีกหนึ่งบิต ซึางจะเท่ากับ 
+ ALT="$32-10-2-2$"> เธเธดเธ เนเธฅเธฐเนเธเธดเนเธก Valid เธเธดเธเธญเธตเธเธซเธเธถเนเธเธเธดเธ เธเธถเธฒเธเธเธฐเนเธเนเธฒเธเธฑเธ 
 </FONT></I>
 <P>
 <I></I>
@@ -107,7 +107,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 </TABLE>
 <BR CLEAR="ALL"></DIV><P></P><I></I>
 <P>
-<I><FONT SIZE="-1">หรือเท่ากับ 18 KB สำหรับ แคชขนาด 16 KB ที่มีอัตราส่วนเป็น 1.15
+<I><FONT SIZE="-1">เธซเธฃเธทเธญเนเธเนเธฒเธเธฑเธ 18 KB เธชเธณเธซเธฃเธฑเธ เนเธเธเธเธเธฒเธ 16 KB เธเธตเนเธกเธตเธญเธฑเธเธฃเธฒเธชเนเธงเธเนเธเนเธ 1.15
 </FONT></I>
 <P>
 <I></I>
