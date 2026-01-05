@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การส่งคำสั่งไปยังอุปกรณ์ I/O</TITLE>
+<META NAME="description" CONTENT="การส่งคำสั่งไปยังอุปกรณ์ I/O">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node192.html">
+<LINK REL="previous" HREF="node190.html">
+<LINK REL="up" HREF="node190.html">
+<LINK REL="next" HREF="node192.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3375"
+  HREF="node192.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3369"
+  HREF="node190.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3363"
+  HREF="node190.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3371"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3373"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3376"
+  HREF="node192.html">การติดต่อสื่อสารกับหน่วยประมวลผล</A>
+<B> Up:</B> <A NAME="tex2html3370"
+  HREF="node190.html">การเชื่อมต่ออุปกรณ์</A>
+<B> Previous:</B> <A NAME="tex2html3364"
+  HREF="node190.html">การเชื่อมต่ออุปกรณ์</A>
+ &nbsp; <B>  <A NAME="tex2html3372"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3374"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001051000000000000000">
+การส่งคำสั่งไปยังอุปกรณ์ I/O</A>
+</H2><I></I>
+<P>
+<I><FONT SIZE="-1">ในการส่งคำสั่งติดต่อไปยังอุปกรณ์ หน่วยประมวลผลต้องสามารถเข้าถึงแอดเดรสของอุปกรณ์และจัดเตรียมหนึ่งคำสั่งหรือมากกว่า วิธีการที่ใช้ในการอ้างถึงแอดเดรสของอุปกรณ์มี 2 วิธี คือ memory-mapped I/O และ special I/O instructions ใน memory-mapped I/O แอดเดรสส่วนที่ว่างจะถูกใช้โดยอุปกรณ์ I/O การอ่านและเขียนไปยังแอดเดรสนั้นจะถูกตีความเป็นคำสั่งส่งไปยังอุปกรณ์
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ตัวอย่างเช่น กระบวนการเขียนสามารถใช้ส่งข้อมูลไปยังอุปกรณ์ที่ซึ่งข้อมูลจะถูกตีความในรูปของคำสั่ง เมื่อหน่วยประมวลผลวางแอดเดรสและข้อมูลบนบัสของหน่วยความจำ ระบบหน่วยความจำจะปฏิเสธการทำงานเพราะแอดเดรสที่บ่งชี้ไปยังส่วนของพื้นที่ว่างในหน่วยความจำถูกใช้สำหรับ I/O อย่างไรก็ตาม device controller จะบันทึกข้อมูลนั้น และส่งไปยังอุปกรณ์ในลักษณะของคำสั่ง โปรแกรมของผู้ใช้จะถูกหลีกเลี่ยงจากการทำงานกับ I/O โดยตรงเพราะระบบปฏิบัติการไม่ได้จัดเตรียมการเข้าถึงแอดเดรสส่วนที่ว่างที่ใช้โดยอุปกรณ์ และแอดเดรสก็ถูกป้องกันด้วยวิธีการแปลงแอดเดรส วิธีการ memory-mapped I/O จะถูกใช้ส่งข้อมูลโดยการเขียนหรืออ่านไปยังแอดเดรสที่เลือกไว้ อุปกรณ์ที่ใช้แอดเดรสนั้นจะหาว่าเป็นคำสั่งแบบไหน และข้อมูลอาจจะเตรียมไว้โดยการเขียนหรือได้รับจากการอ่าน ในหลายๆ กรณี แอดเดรสมีการเข้ารหัสไว้ทั้ง ID ของอุปกรณ์และประเภทของการส่งผ่านระหว่างหน่วยประมวลผลกับอุปกรณ์ I/O
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในการทำงานจริงสำหรับการอ่านและเขียนข้อมูล โปรแกรมจะมีการทำงานร่วมกับอุปกรณ์หลายตัว หน่วยประมวลผลอาจจะต้องมีตัวบอกสถานะของอุปกรณ์ โดยจะเป็นคำสั่งเฉพาะเพื่อหาว่าคำสั่งที่ส่งไปทำงานนั้นเสร็จสมบูรณ์หรือไม่ ตัวอย่างเช่นเครื่องพิมพ์ที่ต้องมี I/O register ขนาดหนึ่งบิท ที่ใช้เก็บสถานะของเครื่องพิมพ์เพื่อแจ้งต่อหน่วยประมวลผลว่าพิมพ์สำเร็จหรือเกิดความผิดพลาดขึ้น
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">อีกวิธีการหนึ่งในการทำ memory-mapped I/O คือใช้วิธีการส่ง I/O instructions ให้กับหน่วยประมวลผล ซึ่ง I/O instructions เหล่านี้สามารถระบุทั้งจำนวนอุปกรณ์และชุดคำสั่งหรือตำแหน่งของชุดคำสั่งในหน่วยความจำ ตัวอย่างคอมพิวเตอร์ที่ใช้ I/O instructions ได้แก่ Intel IA-32 และ IBM 370
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

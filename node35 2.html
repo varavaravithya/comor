@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</TITLE>
+<META NAME="description" CONTENT="การเก็บข้อมูลที่สร้างใหม่ลงในสแตก">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node30.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1004"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html998"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html992"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1000"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1002"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1005"
+  HREF="node36.html">การจัดสรรพื้นที่เก็บข้อมูลที่สร้างใหม่ในส่วนของ Heap</A>
+<B> Up:</B> <A NAME="tex2html999"
+  HREF="node30.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html993"
+  HREF="node34.html">การแปลงภาษา C สำหรับฟังก์ชั่น Recursive</A>
+ &nbsp; <B>  <A NAME="tex2html1001"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1003"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00470500000000000000">
+การเก็บข้อมูลที่สร้างใหม่ลงในสแตก</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">นอกจากที่เราใช้สแตกในการเก็บตัวแปรต่างๆ ที่รักษาค่าในรีจีสเตอร์ให้ฟังก์ชั่นสามารถทำงานได้ถูกต้องนั้น เราสามารถใช้สแตกในการเก็บค่า local variable ที่ไม่สามารถเก็บไว้ในรีจีสเตอร์ได้ทั้งหมด  เช่นการเก็บอาร์เรย์ หรือ โครงสร้างข้อมูลแบบต่างๆ ส่วนของสแตกที่เก็บค่า local variables และ รีจีสเตอร์ที่เก็บไว้ในการเรียกฟังก์ชั่นเรียกว่า procedure frame หรือ activation record รูป <A HREF="#fig:activationRecord">2.7</A> แสดงสถานะของสแตก ก่อน ระหว่าง และหลังการเรียกฟังก์ชั่น
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:activationRecord"></A><A NAME="10929"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.7:</STRONG>
+ค่าในสแตก ก่อน ระหว่าง และหลังการเรียกฟังก์ชั่น a) ก่อน b) ระหว่าง c) หลัง การเรียกฟังก์ชั่นเมื่อมีการใช้ frame pointer</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="688" HEIGHT="314" ALIGN="BOTTOM" BORDER="0"
+ SRC="img68.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_2/Figure_2.16.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I></I>
+<P>
+<I><FONT SIZE="-1">ในซอฟต์แวร์ของ MIPS บางครั้งเราใช้ frame pointer $fp ในการชี้ไปยัง word แรกของเฟรมที่เป็นของฟังก์ชั่นนั้นๆ  $sp อาจมีการเปลี่ยนแปลงระหว่างการทำงานของฟังก์ชั่น $fp จะเป็นตัวบอกตำแหน่งอ้างอิงของการตัวแปรในสแตกของฟังก์ชั่นนั้นๆ  
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

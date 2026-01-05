@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การทำให้หน่วยความจำเสมือนมีความปลอดภัย</TITLE>
+<META NAME="description" CONTENT="การทำให้หน่วยความจำเสมือนมีความปลอดภัย">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node169.html">
+<LINK REL="previous" HREF="node167.html">
+<LINK REL="up" HREF="node161.html">
+<LINK REL="next" HREF="node169.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3013"
+  HREF="node169.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3007"
+  HREF="node161.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3001"
+  HREF="node167.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3009"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3011"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3014"
+  HREF="node169.html">การดำเนินการกับ TLB ที่ขาดหายไป และ</A>
+<B> Up:</B> <A NAME="tex2html3008"
+  HREF="node161.html">หน่วยความจำเสมือน</A>
+<B> Previous:</B> <A NAME="tex2html3002"
+  HREF="node167.html">การรวมหน่วยความจำเสมือน, TLB และแคช</A>
+ &nbsp; <B>  <A NAME="tex2html3010"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3012"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00955000000000000000">
+การทำให้หน่วยความจำเสมือนมีความปลอดภัย</A>
+</H2><I></I>
+<P>
+<I><FONT SIZE="-1">วิธีการเพื่อความปลอดภัยในหน่วยความจำเสมือน จะต้องทำให้โปรเซลหลายโปรเซสสามารถใช้หน่วยความจำหลักร่วมกันได้ โดยที่โปรเซสหนึ่งต้องไม่สามารถเขียนข้อมูลลงในพื้นที่ในหน่วยความจำของโปรเซสอื่นหรือเขียนลงในระบบปฏิบัติการได้ 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ฮาร์ดแวร์จะต้องมีความสามารถพื้นฐานสามประการ ดังนี้ 
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>รองรับอย่างน้อยสองโหมด คือ โหมดสำหรับโปรเซสของผู้ใช้ และโหมดสำหรับโปรเซสของระบบปฏิบัติการ ซึ่งมักเรียกว่า โปรเซสผู้ความคุม (Supervisor Process) หรือ Kernel Process 
+</LI>
+<LI>มีส่วนของสถานะของตัวดำเนินการ ซึ่งโปรเซสของผู้ใช้สามารถอ่านได้แต่ไม่สามารถเขียนได้ รวมถึงบิทที่แสดงให้เห็นว่าตัวดำเนินการนั้นทำงานอยู่ในโหมดผู้ใช้หรือโหมดผู้ควบคุม 
+</LI>
+<LI>ต้องมีวิธีการที่จะทำให้ตัวดำเนินการสามารถเปลี่ยนจากโหมดผู้ใช้ไปเป็นโหมดผู้ควบคุม ซึ่งเรียกว่า System Call และเปลี่ยนจากโหมดผู้ควบคุมกลับมาเป็นโหมดผู้ใช้ได้ 
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">นอกจากนั้นควรมีการป้องกันโปรเซสจากการอ่านข้อมูลของโปรเซสอื่นด้วย โดยการวางตารางเพจไว้ในพื้นที่ป้องกันของระบบปฏิบัติการ เมื่อโปรเซสต้องการใช้ข้อมูลร่วมกันกับโปรเซสอื่นโดยไม่ต้องการให้ข้อมูลถูกเขียนทับ บิทที่ใช้ในการอนุญาตให้เขียนข้อมูลจะถูกนำมาใช้เพื่อจำกัดให้ข้อมูลสามารถอ่านได้อย่างเดียว โดยบิทนี้สามารถเปลี่ยนค่าได้ด้วยระบบปฏิบัติการเท่านั้น 
+เมื่อระบบปฏิบัติการต้องการเปลี่ยนจากการดำเนินการจากโปรเซสหนึ่ง ไปเป็นอีกโปรเซสหนึ่ง ที่เรียกว่า การสับเปลี่ยนโครงสร้างแวดล้อม (Context Switch) หรือ การสับเปลี่ยนโปรเซส (Process Switch) จะต้องทำการลบล้างข้อมูลใน TLB ของโปรเซสแรก และโหลด TLB ของโปรเซสที่ต้องการ แต่ถ้ามีการสับเปลี่ยนบ่อยครั้ง วิธีการนี้จะไม่มีประสิทธิภาพ 
+แนวทางอีกแนวทางหนึ่ง คือ การขยายพื้นที่ตำแหน่งอ้างอิงเสมือน โดยการเพิ่มตัวแสดงโปรเซส (Process Identifier) หรือตัวแสดงภาระงาน (Task Identifier) เพื่อแสดงโปรเซสที่กำลังทำงานอยู่ โดยการเพิ่มบิทจำนวนหนึ่งสำหรับเก็บตัวบันทึกที่ถูกโหลด โดยระบบปฏิบัติการเมื่อเกิดการสับเปลี่ยนโปรเซส 
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

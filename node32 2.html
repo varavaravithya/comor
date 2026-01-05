@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น</TITLE>
+<META NAME="description" CONTENT="การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node30.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html962"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html956"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html950"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html958"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html960"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html963"
+  HREF="node33.html">ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+<B> Up:</B> <A NAME="tex2html957"
+  HREF="node30.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html951"
+  HREF="node31.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+ &nbsp; <B>  <A NAME="tex2html959"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html961"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00470200000000000000">
+การแปลงฟังก์ชั่นภาษา C ที่ไม่มีการเรียกฟังก์ชั่นอื่น</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">พิจารณาฟังก์ชั่นภาษา C ดังต่อไปนี้ 
+</FONT></I>
+<P>
+<I></I><PRE>
+int leaf_example(int g, int h, int i, int j)
+{
+   int f;
+  
+   f = (g + h) - (i + j);
+   return f;
+}
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">จงแปลงเป็นภาษาแอสแซมบลีของ MIPS
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ตัวแปรพารามิเตอร์ g, h, i, และ j จะอยู่ในอาร์กูเมนต์รีจีสเตอร์ $a0, $a1, $a2, และ $a3 ส่วน f อยู่ในรีจีสเตอร์ $s0 การแปลงฟังก์ชั่นนี้เป็นภาษา MIPS เริ่มจากการทำเครื่องหมาย
+</FONT></I>
+<P>
+<I></I><PRE>
+leaf_example:
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ในขั้นตอนต่อมาเป็นการเก็บค่าในรีจีสเตอร์ที่จะถูกใช้ในฟังก์ชั่น เพื่อที่จะไม่ให้กระทบกับการทำงานของ caller เมื่อทำงานในฟังก์ชั่นเสร็จสิ้น  เราต้องการใช้งานรีจีสเตอร์ชั่วคราวสองตัว ดังนั้นจะต้องเก็บค่าในรีจีสเตอร์สามตัวได้แก่ $s0, $t0, และ $t1 เพื่อดำเนินการดังกล่าว เราทำการ push ค่าลงในสแตก เริ่มจากการสร้างพื้นที่สำหรับเก็บค่า 3 word และเก็บค่าลงไป จากคำสั่งต่อไปนี้
+</FONT></I>
+<P>
+<I></I><PRE>
+addi $sp, $sp, -12 # adjust stack to make room for 3 items
+sw $t1, 8($sp) # save register $t1 for use afterwards
+sw $t0, 4($sp) # save register $t0 for use afterwards
+sw $s0, 0($sp) # save register $s0 for use afterwards
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:stack">2.6</A> แสดงค่าในสแตก ก่อน ระหว่าง และหลังการเรียกฟังก์ชั่น คำสั่งต่อไปสามคำสั่งเป็นคำสั่งที่เป็นการทำงานของฟังก์ชั่น 
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:stack"></A><A NAME="10925"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.6:</STRONG>
+ค่าในสแตก ก่อน ระหว่าง และหลังการเรียกฟังก์ชั่น a) ก่อน b) ระหว่าง c) หลัง การเรียกฟังก์ชั่น</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="687" HEIGHT="251" ALIGN="BOTTOM" BORDER="0"
+ SRC="img67.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_2/Figure_2.14.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I></I>
+<P>
+<I></I><PRE>
+add $t0, $a0, $a1 # register $t0 contains g + h
+add $t1, $a2, $a3 # register $t1 contains i + j
+sub $s0, $t0, $t1 # f = $t0 - $t1, which is (g + h) - (i + j)
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ต่อมาเป็นการเก็บค่า f ไว้ใน $ra เพื่อคืนค่าให้ caller
+</FONT></I>
+<P>
+<I></I><PRE>
+add $v0, $s0, $zero # return f ($v0 = $s0 +0)
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ก่อนการคืนการควบคุมไปยัง caller ต้องทำการเรียกคืนค่าในสแตกกลับมาก่อนเพื่อเป็นการจัดค่าในรีจีสเตอร์ให้เป็นค่าเดิม ก่อนการเรียกฟังก์ชั่นของ caller
+</FONT></I>
+<P>
+<I></I><PRE>
+lw $s0, 0($sp) # restore register $s0 for caller
+lw $t0, 4($sp) # restore register $t0 for caller
+lw $t1, 8($sp) # restore register $t1 for caller
+addi $sp, $sp, 12 # adjust stack to delete 3 items
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">จากนั้นเป็นการเสร็จสิ้นการเรียกฟังก์ชั่น โดยการเรียก jump ไปยัง jump register
+</FONT></I>
+<P>
+<I></I><PRE>
+jr $ra # jump back to calling routine
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">จากตัวอย่างขั้นต้นจึงมีความจำเป็นต้องกำหนดการรักษาค่าก่อนและหลังการเรียกฟังก์ชั่นอย่างเป็นระบบ เพื่อป้องกันการเก็บค่ารีจีสเตอร์ที่ไม่ได้มีการใช้งานเมื่อเรียกฟังก์ชั่น  โดยที่ ซอฟต์แวร์ของ MIPS แบ่งรีจีสเตอร์ 18 ตัวออกเป็นสองกลุ่มได้แก่
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>$t0-$t9: เป็น 10 รีจีสเตอร์ชั่วคราวที่ไม่ได้รับการรักษาค่าโดย callee ในกรณีที่ caller ต้องการใช้งานจำเป็นจะต้องเป็นผู้เก็บค่าลงในสแตกเอง
+</LI>
+<LI>$s0-$s7: เป็น 8 รีจีสเตอร์เก็บค่าที่ได้รับการรักษาค่าโดย callee ซึ่ง callee จะ save และ restore เมื่อถูกใช้งาน 
+</LI>
+</UL><I></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html962"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html956"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html950"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html958"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html960"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html963"
+  HREF="node33.html">ฟังก์ชั่นที่มีการเรียกฟังก์ชั่นอื่น</A>
+<B> Up:</B> <A NAME="tex2html957"
+  HREF="node30.html">การเรียกฟังก์ชั่นในฮาร์ดแวร์</A>
+<B> Previous:</B> <A NAME="tex2html951"
+  HREF="node31.html">Stack: เมื่อต้องการใช้งานรีจีสเตอร์เพิ่มขึ้น</A>
+ &nbsp; <B>  <A NAME="tex2html959"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html961"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

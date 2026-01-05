@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การจัดการกับ Exception</TITLE>
+<META NAME="description" CONTENT="การจัดการกับ Exception">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node113.html">
+<LINK REL="previous" HREF="node109.html">
+<LINK REL="up" HREF="node92.html">
+<LINK REL="next" HREF="node113.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2159"
+  HREF="node113.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2153"
+  HREF="node92.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2147"
+  HREF="node111.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2155"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2157"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2160"
+  HREF="node113.html">กิจกรรม</A>
+<B> Up:</B> <A NAME="tex2html2154"
+  HREF="node92.html">โปรเซสเซอร์: การควบคุมและเส้นทางข้อมูล</A>
+<B> Previous:</B> <A NAME="tex2html2148"
+  HREF="node111.html">ค่า CPI ในโปรเซสเซอร์แบบหลายวงรอบสัญญาณนาฬิกา</A>
+ &nbsp; <B>  <A NAME="tex2html2156"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2158"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00770000000000000000">
+การจัดการกับ Exception</A>
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">ในการออกแบบโปรเซสเซอร์ จำเป็นต้องรองรับ Exception การเกิด Exception จะเกิดขึ้นในกรณีของการเกิด Overflow ในส่วนของการเกิด Interrupt จะเป็นการเกิดจากสิ่งเร้าภายนอกเช่น keyboard, mouse หรืออุปกรณ์อื่นๆ การเกิด Exception หรือ Interrupt โปรเซสเซอร์จะต้องหยุดทำงานโปรแกรมนั้นๆ และย้ายทำงานไปยัง Exception Program Counter (EPC) อีกวิธีหนึ่งทำโดยการเทคนิคของ Vector Interrupt ที่ระบบคำสั่งที่รองรับทำงานของ Interrupt ปรือ Exception นั้นๆ <A NAME="26362"></A><A NAME="26363"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในโปรเซสเซอร์ที่พิจารณาในบทนี้ สามารถเกิด Exception ได้สองลักษณะ
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>Undefined Instruction
+</LI>
+<LI>Arithmetic Overflow
+</LI>
+</UL><I><FONT SIZE="-1"> 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.39">5.34</A> แสดงการปรับปรุงเส้นทางข้อมูลสำหรับรองรับ Exception ในโปรเซสเซอร์
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.39"></A><A NAME="26500"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.34:</STRONG>
+การปรับปรุงเส้นทางข้อมูลสำหรับรองรับ Exception ในโปรเซสเซอร์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="689" HEIGHT="493" ALIGN="BOTTOM" BORDER="0"
+ SRC="img330.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_5/Figure_5.39.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.40">5.35</A> แสดงแผนภูมิการกำหนดการทำงานของสถานะในการควบคุมคอมพิวเตอร์ของโปรเซสเซอร์ที่ทำงานหลายวงรอบสัญญาณนาฬิกา
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.40"></A><A NAME="26501"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.35:</STRONG>
+แผนภูมิการกำหนดการทำงานของสถานะในการควบคุมคอมพิวเตอร์ของโปรเซสเซอร์ที่ทำงานหลายวงรอบสัญญาณนาฬิกา</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="785" ALIGN="BOTTOM" BORDER="0"
+ SRC="img331.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_5/Figure_5.40.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node121.html">
+<LINK REL="previous" HREF="node118.html">
+<LINK REL="up" HREF="node118.html">
+<LINK REL="next" HREF="node120.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2294"
+  HREF="node120.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2288"
+  HREF="node118.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2282"
+  HREF="node118.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2290"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2292"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2295"
+  HREF="node120.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2289"
+  HREF="node118.html">กล่าวนำ</A>
+<B> Previous:</B> <A NAME="tex2html2283"
+  HREF="node118.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html2291"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2293"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00821000000000000000">
+การเปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์</A>
+</H2><I></I>
+<P>
+<I><FONT SIZE="-1">พิจารณาคำสั่งใน MIPS แปดคำสั่ง ได้แก่ load word <TT>(lw)</TT>, store word <TT>(sw)</TT>, add <TT>(add)</TT>, subtract <TT>(sub)</TT>, and <TT>(and)</TT>, or <TT>(or)</TT>, set-less-than <TT>(slt)</TT>, and branch-on-equal <TT>(beq)</TT> 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จงเปรียบเทียบเวลาเฉลี่ยของการประมวลผลคำสั่งระหว่างโปรเซสเซอร์แบบวงรอบเดียวกับแบบไพพ์ลายน์ โดยสมมุติให้การทำงานของส่วนประกอบต่างๆ ใช้เวลาดังนี้  Memory Access 200 ps, ALU Operation 200 ps, และ Register File Read/Write 100 ps 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:6.2">6.2</A> แสดงเวลาที่ใช้ในการประมวลผลทั้งแปดคำสั่ง โดยโปรเซสเซอร์ที่ทำงานวงรอบเดียวจะมีวงรอบของสัญญาณนาฬิกาเท่ากับเวลาในการประมวลผลคำสั่งที่นานที่สุด ในที่นี้คือคำสั่ง load ที่ใช้เวลาทั้งหมด 800 ps รูป <A HREF="#fig:6.3">6.3</A> แสดงการทำงานที่โปรเซสเซอร์วงรอบเดียวที่ใช้เวลาการประมวลผลทั้งสิ้น <!-- MATH
+ $3\times 800~ps$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img333.png"
+ ALT="$3\times 800&nbsp;ps$"> หรือ 2400 ps ถึงแม้ว่าบางคำสั่งจะสามารถประมวลผลได้ใน 500 ps, 600 ps, หรือ 700 ps สัญญาณนาฬิกายังต้องครอบคลุม 800 ps ในการทำงาน 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ทุกสเตทของไพพ์ลายน์จะทำงานในหนึ่งวงรอบสัญญาณนาฬิกา โดยวงรอบสัญญาณนาฬิกาในที่นี้จะเท่ากับการทำงานของส่วนประกอบที่ช้าที่สุด ในที่นี้คือ 200 ps ถึงแม้ว่าการใช้งาน Register File จะใช้เวลาเพียง 100 psก็ตาม โปรเซสเซอร์แบบไพพ์ลายน์สามารถประมวลผลสามคำสั่งเสร็จสิ้นใน 1400 ps
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.2"></A><A NAME="31409"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.2:</STRONG>
+เวลาที่ใช้ในการทำงานของแต่ละคำสั่ง</CAPTION>
+<TR><TD><IMG
+ WIDTH="644" HEIGHT="186" BORDER="0"
+ SRC="img334.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{lcccccc}\toprule
+&amp; Instructi...
+...&amp; 200 ps &amp; 100 ps &amp; 200 ps &amp; &amp; &amp; 500 ps \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.3"></A><A NAME="31410"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.3:</STRONG>
+เปรียบเทียบการทำงานแบบวงรอบเดียวกับแบบไพพ์ลายน์ ในการประมวลผลสามคำสั่ง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="689" HEIGHT="471" ALIGN="BOTTOM" BORDER="0"
+ SRC="img335.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_6/Figure_6.3.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในกรณีที่ทุกสเตทของไพพ์ลายน์มีปริมาณงานเท่ากัน เราสามารถคำนวณความเร็วที่เพิ่มขึ้นจาก
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Time~between~instruction_{pipelined} = \frac{Time~between~instruction_{nonpipelined}}{Number~of~pipe~stages}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="594" HEIGHT="50" BORDER="0"
+ SRC="img336.png"
+ ALT="\begin{displaymath}
+Time&nbsp;between&nbsp;instruction_{pipelined} = \frac{Time&nbsp;between&nbsp;instruction_{nonpipelined}}{Number&nbsp;of&nbsp;pipe&nbsp;stages}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ในสภาวะอุดมคติ ความเร็วที่เพิ่มขึ้นของโปรเซสเซอร์แบบไพพ์ลายน์จะเท่ากับจำนวนสเตทของไพพ์ลายน์ ซึ่งในกรณีนี้เท่ากับห้าสเตท
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จากตัวอย่างขั้นต้น วงรอบนาฬิการของโปรเซสเซอร์ที่ทำงานในวงรอบเดียวเท่ากับ 800 ps ถ้าโปรเซสเซอร์แบบไพพ์ลายน์มี 5 สเตท วงรอบนาฬิกาจะต้องมีค่าเท่ากับ 160 ps แต่เนื่องจากแต่ละสเตทไม่สมดุล (สเตท Register File Access ใช้เวลาน้อยกว่า) จึงได้ค่าอัตราการเพิ่มขึ้นของความเร็วต่ำกว่าการทำงานในสภาวะอุดมคติ
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ถ้าสมมุติให้โปรเซสเซอร์ทำงานทั้งสิ้น 1,000,003 คำสั่ง จะสามารถคำนวณความเร็วที่เพิ่มขึ้นได้เท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+\frac{1,000,003\times 800~ps}{1,000,003\times 200~ps} = \frac{800,002,400~ps}{200,001,400~ps}\approx 4.00 \approx \frac{800~ps}{200~ps}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="455" HEIGHT="50" BORDER="0"
+ SRC="img337.png"
+ ALT="\begin{displaymath}
+\frac{1,000,003\times 800&nbsp;ps}{1,000,003\times 200&nbsp;ps} = \fra...
+...ps}{200,001,400&nbsp;ps}\approx 4.00 \approx \frac{800&nbsp;ps}{200&nbsp;ps}
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6.2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ซึ่งค่าที่ได้มีความไกล้เคียงกับสภาวะอุดมคติมากขึ้น
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">โปรเซสเซอร์แบบไพพ์ลายน์เพิ่มอัตราความสำเร็จของงาน ซึ่งมิได้ลดเวลาการทำงานของแต่ละคำสั่งแต้อย่างใด
+</FONT></I>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2296"
+  HREF="node120.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2294"
+  HREF="node120.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2288"
+  HREF="node118.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2282"
+  HREF="node118.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2290"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2292"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2295"
+  HREF="node120.html">สถาปัตยกรรมคำสั่งของโปรเซสเซอร์แบบไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2289"
+  HREF="node118.html">กล่าวนำ</A>
+<B> Previous:</B> <A NAME="tex2html2283"
+  HREF="node118.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html2291"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2293"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

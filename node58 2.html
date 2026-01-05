@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</TITLE>
+<META NAME="description" CONTENT="ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node59.html">
+<LINK REL="previous" HREF="node57.html">
+<LINK REL="up" HREF="node57.html">
+<LINK REL="next" HREF="node59.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1354"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1348"
+  HREF="node57.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1342"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1350"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1352"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1355"
+  HREF="node59.html">ตัวอย่างการหาร</A>
+<B> Up:</B> <A NAME="tex2html1349"
+  HREF="node57.html">การหาร</A>
+<B> Previous:</B> <A NAME="tex2html1343"
+  HREF="node57.html">การหาร</A>
+ &nbsp; <B>  <A NAME="tex2html1351"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1353"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00560100000000000000">
+ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+</H3><I><FONT SIZE="-1">
+<A NAME="16342"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ตัวตั้งหาร: Dividend, ตัวหาร: Divisor, ผลลัพธ์: Quotient, เศษ: Remainder
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ซึ่งค่าต่างๆ มีความสัมพันธ์ดังต่อไปนี้
+</FONT></I>
+<P>
+<I><FONT SIZE="-1"><!-- MATH
+ $Dividend = Quotient \times Divisor + Remainder$
+ -->
+<IMG
+ WIDTH="388" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img132.png"
+ ALT="$Dividend = Quotient \times Divisor + Remainder $">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">โดยที่เศษจะน้อยกว่าตัวหาร ซึ่งการคำนวณในหลายลักษณะจะมีการคำนวณเอาเศษ มากกว่าผลลัพธ์ <A NAME="tex2html42"
+  HREF="footnode.html#foot16343"><SUP>3.1</SUP></A> ในเบื้องต้นจะทำการสมมุติให้ตัวตั้ง กับตัวหารเป็นบวก ดังนั้นค่าผลลัพธ์ และเศษก็เป็นค่าบวกเช่นเดียวกัน   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:fig3.10">3.9</A> แสดงฮาร์ดแวร์ที่ทำการหารตามวิธีการปกติที่เรียนกันในระดับประถมศึกษา โดยเริ่มจากการตั้งค่าผลลัพธ์เป็น 0 ทั้ง 32 บิต ในแต่ละขั้นตอนของการดำเนินการตัวหารจะถูกเลื่อนไปทางขวาครั้งละ 1 บิต โดยเริ่มจากนำตัวหารใส่ไว้ในทางซ้ายของรีจีสเตอร์ขนาด 64 บิต การเลื่อนทางขวาของตัวหารจะเลื่อนให้สอดคล้องกับ ตัวตั้งหาร  ในรีจีสเตอร์ของ Remainder จะถูกตั้งค่าเริ่มแรกให้เป็นตัวตั้งหาร รูป <A HREF="#fig:fig3.11">3.10</A> แสดงขั้นตอนต่างๆ สามขั้นตอนในการหาร เริ่มจากขั้นตอนแรกโดยการลบตัวหารออกจากตัวตั้งหารใน Remainder Register และเก็บผลลัพธ์ไว้ใน Remainder Register จากนั้นทำการหาว่าตัวตั้งหารน้อยกว่าตัวหารหรือไม่ ถ้าค่าเศษมีค่ามากกว่าศูนย์ หมายถึงตัวตั้งหารมีค่ามากกว่าหรือเท่ากับตัวหาร เราจึงใส่ค่า 1 ที่ ผลลัพธ์ (2a) ถ้าค่า Remainder มีค่าเป็นลบ ฮาร์ดแวร์จะทำการคืนค่าเก่าโดยบวกตัวหารกลับเข้าไปในเศษ และใส่ค่า 1 ที่ ผลลัพธ์ (2b) ตัวหารจะถูกเลื่อนไปทางขวา และเริ่มกระบวนการอีกครั้งหนึ่ง โดยที่ผลลัพธ์จะอยู่ในรีจีสเตอร์ต่างๆ หลังกระบวนการเสร็จสิ้น  
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.10"></A><A NAME="16344"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.9:</STRONG>
+ฮาร์ดแวร์สำหรับการหารชนิดแรก</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="517" HEIGHT="299" ALIGN="BOTTOM" BORDER="0"
+ SRC="img133.png"
+ ALT="\includegraphics[width=4.5in]{fig/Chapter_3/Figure_3.10.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:fig3.11"></A><A NAME="16345"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.10:</STRONG>
+ระเบียบวิธีการหารสำหรับฮาร์ดแวร์ในรูป <A HREF="#fig:fig3.10">3.9</A> ถ้าค่า Remainder มีค่าเป็นบวก ค่าตัวหารน้อยกว่าตัวตั้งหาร จึงใส่ค่าหนึ่งที่ผลลัพธ์ ถ้าค่าเศษมีค่าเป็นลบ หมายถึงค่าตัวหารมีค่าน้อยกว่าตัวตั้งหาร  ในขั้นตอน 2b จึงใส่ค่าศูนย์ลงในผลลัพธ์  ในขั้นตอนการหารทั้งหมดมี 33 ขั้นตอน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="573" HEIGHT="757" ALIGN="BOTTOM" BORDER="0"
+ SRC="img134.png"
+ ALT="\includegraphics[width=4.99in]{fig/Chapter_3/Figure_3.11.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

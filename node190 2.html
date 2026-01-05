@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเชื่อมต่ออุปกรณ์</TITLE>
+<META NAME="description" CONTENT="การเชื่อมต่ออุปกรณ์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node196.html">
+<LINK REL="previous" HREF="node187.html">
+<LINK REL="up" HREF="node173.html">
+<LINK REL="next" HREF="node191.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3356"
+  HREF="node191.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3350"
+  HREF="node173.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3344"
+  HREF="node189.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3352"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3354"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3357"
+  HREF="node191.html">การส่งคำสั่งไปยังอุปกรณ์ I/O</A>
+<B> Up:</B> <A NAME="tex2html3351"
+  HREF="node173.html">อุปกรณ์เก็บข้อมูลขนาดใหญ่</A>
+<B> Previous:</B> <A NAME="tex2html3345"
+  HREF="node189.html">ระบบบัสและเน็ตเวิร์กของ Pentium 4</A>
+ &nbsp; <B>  <A NAME="tex2html3353"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3355"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001050000000000000000">
+การเชื่อมต่ออุปกรณ์</A>
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">บัสหรือเน็ตเวิร์กโปรโตคอลนิยามจากข้อมูลที่มีขนาดเป็น word หรือ block ว่าควรจะติดต่อสื่อสารกันบนสายได้อย่างไร สิ่งเหล่านี้ยังได้กล่าวอ้างไปถึงงานอื่นๆ ที่จำเป็นต้องมีการส่งข้อมูลจากอุปกรณ์และจากภายในแอดเดรสว่างในหน่วยความจำของบางโปรแกรมของผู้ใช้ ในบทนี้เราจะเน้นถึงงานเหล่านี้และการตอบคำถามที่ว่า
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>ผู้ใช้เปลี่ยนการร้องขอให้อยู่ในรูปคำสั่งสำหรับอุปกรณ์และทำการติดต่อสื่อสารกับอุปกรณ์ได้อย่างไร?
+</LI>
+<LI>ข้อมูลถูกส่งไปหรือกลับจากตำแหน่งในหน่วยความจำได้อย่างไร?
+</LI>
+<LI>อะไรคือบทบาทของระบบปฏิบัติการ?
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">จะเห็นว่าในการจะตอบคำถามเหล่านี้ ระบบปฏิบัติการจะเป็นตัวหลักในการทำงานร่วมกับอุปกรณ์ I/O ทำหน้าที่ในการประสานระหว่าง hardware กับโปรแกรมที่เรียกใช้อุปกรณ์ I/O
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ภาระหน้าที่ของระบบปฏิบัติการได้จากคุณลักษณะของระบบ I/O 3 ประการ
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>โปรแกรมหลายตัวใช้ระบบ I/O ร่วมกันโดยทำงานผ่านหน่วยประมวลผล
+</LI>
+<LI>ระบบ I/O บ่อยครั้งที่ใช้การ interrupt เพื่อส่งข้อมูลเกี่ยวกับการทำงานของ I/O เพราะว่า interrupt จะส่งไปยัง kernel หรือ supervisor mode ซึ่งต้องทำงานผ่านระบบปฏิบัติการ
+</LI>
+<LI>การควบคุมในระดับล่างกับอุปกรณ์มีความซับซ้อน เพราะว่าต้องจัดการกับ concurrent event ที่เกิดขึ้น และเพราะบ่อยครั้งที่การร้องขอสำหรับการควบคุมอุปกรณ์ที่ถูกต้องมีรายละเอียดมาก
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">จากคุณลักษณะของระบบ I/O ที่กล่าวถึงตามข้างต้นได้นำไปสู่ฟังก์ชั่นต่างๆ ที่ระบบปฏิบัติการจำเป็นต้องเตรียมไว้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>ระบบปฏิบัติการต้องรับประกันว่าโปรแกรมของผู้ใช้เข้าถึงได้เฉพาะส่วนของอุปกรณ์ที่ซึ่งผู้ใช้มีสิทธิ์เท่านั้น เช่น ระบบปฏิบัติการต้องไม่อนุญาตให้โปรแกรมอ่านหรือเขียนไฟล์บนดิสก์ถ้าเจ้าของไฟล์ไม่ได้ใช้งานโปรแกรมนี้อยู่ ในระบบที่มีการใช้อุปกรณ์ร่วมกัน การป้องกันจะไม่สามารถกระทำได้ถ้าผู้ใช้โปรแกรมสามารถเข้าถึงอุปกรณ์ได้โดยตรง
+</LI>
+<LI>ระบบปฏิบัติการจัดเตรียม concept สำหรับการเข้าถึงอุปกรณ์โดยจัดเตรียม routines ที่ทำงานกับอุปกรณ์ในระดับล่าง
+</LI>
+<LI>ระบบปฏิบัติการเรียกใช้ interrupt ที่สร้างโดยอุปกรณ์ I/O เหมือนกับที่เรียกใช้ exception ที่สร้างโดยโปรแกรม
+</LI>
+<LI>ระบบปฏิบัติเข้าใช้งานทรัพยากร I/O ร่วมกันอย่างยุติธรรมให้ดีเท่ากับตารางการเข้าถึงตามลำดับเพื่อเพิ่ม throughput ของระบบ
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">ในการปฏิบัติตามฟังก์ชั่นเหล่านี้ให้เป็นประโยชน์ต่อโปรแกรมของผู้ใช้ ระบบปฏิบัติการจำเป็นต้องมีการติดต่อกับอุปกรณ์ I/O และหลีกเลี่ยงให้โปรแกรมของผู้ใช้ทำการติดต่อกับอุปกรณ์โดยตรง การติดต่อสื่อสาร 3 ลักษณะที่จำเป็นคือ
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>ระบบปฏิบัติการจำเป็นต้องส่งคำสั่งไปยังอุปกรณ์ ซึ่งคำสั่งเหล่านี้ไม่ได้รวมถึงเฉพาะแค่การทำงานเช่นอ่านและเขียน แต่รวมไปถึงการทำงานต่างๆ ที่เกิดขึ้นบนอุปกรณ์ เช่น การค้นหาดิสก์ (disk seek)
+</LI>
+<LI>อุปกรณ์จำเป็นต้องแจ้งระบบปฏิบัติการเมื่ออุปกรณ์ทำงานเสร็จสมบูรณ์หรือเกิดความผิดพลาดขึ้น
+</LI>
+<LI>ข้อมูลจำเป็นต้องถูกส่งระหว่างหน่วยความจำกับอุปกรณ์ I/O
+</LI>
+</OL><I></I>
+<P>
+<I></I>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html3358"
+  HREF="node191.html">การส่งคำสั่งไปยังอุปกรณ์ I/O</A>
+<LI><A NAME="tex2html3359"
+  HREF="node192.html">การติดต่อสื่อสารกับหน่วยประมวลผล</A>
+<LI><A NAME="tex2html3360"
+  HREF="node193.html">ระดับความสำคัญในการ Interrupt</A>
+<LI><A NAME="tex2html3361"
+  HREF="node194.html">การส่งข้อมูลระหว่างอุปกรณ์กับหน่วยความจำ</A>
+<LI><A NAME="tex2html3362"
+  HREF="node195.html">Direct Memory Access กับ Memory System</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การดำเนินการกับ TLB ที่ขาดหายไป และ เพจฟอล์ท</TITLE>
+<META NAME="description" CONTENT="การดำเนินการกับ TLB ที่ขาดหายไป และ เพจฟอล์ท">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node168.html">
+<LINK REL="up" HREF="node161.html">
+<LINK REL="next" HREF="node170.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3025"
+  HREF="node170.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html3019"
+  HREF="node161.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html3015"
+  HREF="node168.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html3021"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html3023"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html3026"
+  HREF="node170.html">กิจกรรม</A>
+<B> Up:</B> <A NAME="tex2html3020"
+  HREF="node161.html">หน่วยความจำเสมือน</A>
+<B> Previous:</B> <A NAME="tex2html3016"
+  HREF="node168.html">การทำให้หน่วยความจำเสมือนมีความปลอดภัย</A>
+ &nbsp; <B>  <A NAME="tex2html3022"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html3024"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00956000000000000000">
+การดำเนินการกับ TLB ที่ขาดหายไป และ เพจฟอล์ท</A>
+</H2><I></I>
+<P>
+<I><FONT SIZE="-1">เมื่อไม่มีตำแหน่งอ้างอิงแท้จริงที่ต้องการใน TLB แล้ว จะต้องระบุให้ได้ว่า มีเพจอยู่ในหน่วยความจำหลักหรือไม่ ดังนั้นสิ่งแรกที่จะทำคือค้นหาเพจที่สอดคล้องกันในตารางเพจ ถ้าช่องข้อมูลในตารางเพจที่สอดคล้องกันนั้นมีแวลิดบิทเป็นหนึ่ง นั่นคือ เกิดเพียงแค่การแปลงตำแหน่งอ้างอิงไม่ได้ถูกบันทึกไว้ใน TLB หรือ ถ้าแวลิดบิทเป็นศูนย์ นั่นแสดงว่าเกิดเพจฟอล์ท ในกรณีที่การแปลงตำแหน่งอ้างอิงไม่ได้ถูกบันทึกไว้ใน TLB จะสามารถดำเนินการโดยซอฟท์แวร์หรือฮาร์ดแวร์ก็ได้ เนื่องจากมีการดำเนินการไม่ซับซ้อน เพียงแค่คัดลอกช่องข้อมูลในตารางเพจจากหน่วยความจำมาไว้ใน TLB เท่านั้น 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">แต่ในกรณีที่เกิดเพจฟอล์ทจะต้องมีวิธีการเพื่อหยุดการทำงานที่ดำเนินอยู่ แล้วให้ระบบปฏิบัติการเข้ามาดำเนินการในกรณีพิเศษ (Exception) ซึ่งหลังจากดำเนินการกับเพจฟอล์ทแล้ว จะต้องเริ่มทำงานตามคำสั่งที่ทำให้เกิดเพจฟอล์ทนั้นอีกครั้ง โดยต้องมีการเก็บค่าตัวนับของโปรแกรม ซึ่งเรียกว่า Exception Program Counter (EPC) นอกจากนี้ยังต้องป้องกันการเขียนลงในหน่วยความจำในระหว่างที่เกิดเพจฟอล์ทด้วยการไม่อนุญาตให้มีการเขียนลงในหน่วยความจำในขณะนั้น 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในระหว่างที่ระบบปฏิบัติการกำลังดำเนินการกับเพจฟอล์ทหนึ่ง ถ้ามีการเรียกการดำเนินการในกรณีพิเศษซ้อนขึ้นมา ซึ่งจะมีการเขียนทับค่าตัวนับของโปรแกรมเดิม และทำให้ไม่สามารถกลับไปทำงานในคำสั่งที่ทำให้เกิดเพจฟอล์ทได้ ดังนั้นตัวดำเนินการจึงต้องทำการเซ็ทบิทซึ่งสามารถห้ามการเรียกการดำเนินการในกรณีพิเศษได้ (Enable Exception) 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ขั้นตอนในการดำเนินการกับเพจฟอล์ท
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>ค้นหาช่องข้อมูลในตารางเพจด้วยตำแหน่งอ้างอิงเสมือน และค้นหาตำแหน่งของเพจนั้นบนแผ่นจานบันทึก 
+</LI>
+<LI>เลือกเพจแท้จริงเพื่อทำการแทนที่ ถ้าเพจนั้นมีเดอร์ทีบิท จะต้องเขียนกลับลงไปยังแผ่นจานบันทึกก่อนที่จะนำเพจใหม่มาแทนที่ 
+</LI>
+<LI>อ่านเพจจากแผ่นจานบันทึกมายังเพจที่จริงที่เลือกไว้ 
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">หลังจากดำเนินการกับเพจฟอล์ทแล้ว ตัวดำเนินการจำต้องย้อนกลับไปดำเนินการคำสั่งที่ทำให้เกิดเพจฟอล์ทนั้นอีกครั้ง แต่ในกรณีที่คำสั่งนั้นมีความซับซ้อน ซึ่งจะมีการเรียกใช้หน่วยความจำ และเขียนข้อมูลอยู่บ่อยๆ และอาจทำให้เกิดเพจฟอล์ทในระหว่างดำเนินการกับคำสั่ง ดังนั้นการย้อนกลับไปดำเนินการกับคำสั่งนั้นอีกครั้งจึงเป็นเรื่องยาก แทนที่จะย้อนกลับไปดำเนินการตามคำสั่งนั้นอีกครั้ง คำสั่งนั้นควรมีการหยุดการดำเนินการชั่วคราว แล้วให้เริ่มการดำเนินต่อในตอนกลางของคำสั่ง ซึ่งการกระทำดังนี้จะต้องมีการเก็บสถานะพิเศษบางสถานะ แล้วดำเนินการกับเพจฟอล์ท จากนั้นจึงคืนสถานะพิเศษกลับมาอีกครั้ง เพื่อดำเนินการต่อไป 
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</TITLE>
+<META NAME="description" CONTENT="การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node50.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node42.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1167"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1161"
+  HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node46.html">การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+<B> Up:</B> <A NAME="tex2html1162"
+  HREF="node42.html">การคำนวณ</A>
+<B> Previous:</B> <A NAME="tex2html1156"
+  HREF="node44.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html1164"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1166"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00530000000000000000">
+การจัดการกับเลขบวก ลบ ในคอมพิวเตอร์</A>
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">ตัวเลขสามารถแสดงในฐานใดๆ ก็ได้ ในขณะที่มนุษย์ใช้งานเลขฐานสิบเป็นหลัก ส่วนคอมพิวเตอร์นั้นชอบใช้เลขฐานสอง  ในเลขฐานใดๆ ค่าของหลักที่ <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> ที่มีค่าเท่ากับ <IMG
+ WIDTH="14" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img72.png"
+ ALT="$d$"> มีค่าเท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+d\times Base^i
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="78" HEIGHT="34" BORDER="0"
+ SRC="img73.png"
+ ALT="\begin{displaymath}
+d\times Base^i
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(3.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">โดยที่  <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> มีค่าเริ่มจากศูนย์ ที่มีการเพิ่มจากทางขวามาทางด้านซ้าย ตัวอย่างเช่น <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$1011_{two}$"> แสดงค่า
+<A NAME="12144"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">
+<!-- MATH
+ $(1\times 2^3)+(0\times 2^2)+(1\times2^1)+(1\times2^0)_{ten}\\
+= (1\times 8)+(0\times 4)+(1\times 2)+(1\times 1)_{ten}\\
+= 8 + 0 + 2 + 1_{ten}\\
+= 11_{ten}$
+ -->
+<IMG
+ WIDTH="905" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$(1\times 2^3)+(0\times 2^2)+(1\times2^1)+(1\times2^0)_{ten}\\
+= (1\times 8)+(0\times 4)+(1\times 2)+(1\times 1)_{ten}\\
+= 8 + 0 + 2 + 1_{ten}\\
+= 11_{ten}$">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">การแสดงเลข <IMG
+ WIDTH="44" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.png"
+ ALT="$11_{ten}$"> หรือ <IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$1011_{two}$"> ในคอมพิวเตอร์ MIPS แสดงโดยเลขฐานสองขนาด 32 ดังต่อไปนี้
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">
+<IMG
+ WIDTH="624" HEIGHT="34" ALIGN="BOTTOM" BORDER="0"
+ SRC="img91.png"
+ ALT="\includegraphics[width=5.5in]{fig/11.eps}">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จากที่ข้อมูลหนึ่ง Word ที่เขียนในแนวนอนนั้นอาจเกิดความสับสนว่า เริ่มจากทางด้านใด โดยทั่วไปเรานิยาม ``Most Significant Bit'' ว่าเป็นบิตทางซ้ายมือสุด และ ``Least Significant Bit'' ว่าเป็นบิตทางขวามือสุด 
+<A NAME="12189"></A>
+<A NAME="12190"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ขนาด Word ของ MIPS ที่มีขนาดเท่ากับ 32 บิต สามารถแสดงตัวเลขตั้งแต่ 0 ถึง <IMG
+ WIDTH="61" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img77.png"
+ ALT="$2^{32} - 1$"> <!-- MATH
+ $(4,294,967,295_{ten})$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.png"
+ ALT="$(4,294,967,295_{ten})$"> เริ่มจาก
+</FONT></I>
+<P>
+<I></I><PRE>
+0000 0000 0000 0000 0000 0000 0000 0000 = 0 
+0000 0000 0000 0000 0000 0000 0000 0001 = 1
+0000 0000 0000 0000 0000 0000 0000 0010 = 2
+...
+1111 1111 1111 1111 1111 1111 1111 1101 = 4,294,967,293 
+1111 1111 1111 1111 1111 1111 1111 1110 = 4,294,967,294 
+1111 1111 1111 1111 1111 1111 1111 1111 = 4,294,967,295
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ค่าในบิตต่างๆ ตามตำแหน่งสามารถแสดงค่าโดยนำค่าตำแหน่งยกกำลังสอง คูณกับบิตในค่านั้นๆ ถ้าให้ <IMG
+ WIDTH="22" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img79.png"
+ ALT="$xi$"> เป็นค่าบิตในตำแหน่งที่ <IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.png"
+ ALT="$i$"> ค่าที่แสดงฐานสิบของ Word จะสามารถคำนวณได้จาก
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1"><!-- MATH
+ $(x31 \times 2^{31})+ (x30 \times 2^{30}) + (x29 \times 2^{29}) + \ldots + (x1 \times 2^{1})  + (x0 \times 2^{0})$
+ -->
+<IMG
+ WIDTH="560" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$(x31 \times 2^{31})+ (x30 \times 2^{30}) + (x29 \times 2^{29}) + \ldots + (x1 \times 2^{1}) + (x0 \times 2^{0})$">
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">การแสดงค่าตัวเลขในไบนารี่นั้นสามารถแสดงค่าได้มากกว่า การแสดงค่าตัวเลขเป็นเลขฐานสิบในรูปของ ASCII และเก็บค่า 
+Byte เป็นตัวอักษรในหน่วยความจำ  ค่าแสดงตัวเลขไบนารี่ที่แสดงขั้นต้นเป็นเพียงการแสดงค่าที่เป็นค่าเฉพาะช่วงที่คอมพิวเตอร์สามารถแสดงผลได้เท่านั้น ลองคิดดูว่าค่าตัวเลขในความเป็นจริงมีการขยายจากลบอนันต์ ถึง บวกอนันต์ คอมพิวเตอร์ สามารถแสเงค่าได้เพียงช่วงหนึ่งเท่านั้น
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">เมื่อคอมพิวเตอร์ทำการประมวลผลต่างๆ เช่นการบวก ลบ คูณ หาร ตัวเลขไบนารี่ต่างๆ มีความเป็นไปได้ที่ผลลัพธ์จากการคำนวณไม่สามารถแสดงได้อย่างเหมาะสมในการนำเสนอที่มีอยู่ เช่น มีค่ามากเกินกว่าที่จะบรรจุในบิตที่มีอยู่ได้ ลักษณะดังกล่าวเรียกว่าเกิด ``overflow''  ซึ่งขึ้นอยู่กับระบบปฏิบัติการ การเขียนโปรแกรม และฮาร์ดแวร์ว่าจะตัดสินใจจัดการกับ overflow อย่างไร
+<A NAME="12377"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">โปรแกรมคอมพิวเตอร์ทำการคำนวณทั้ง เลขบวก และ เลขลบ ดังนั้นคอมพิวเตอร์จะต้องมีวิธีการนำเสนอเลขให้ได้ครอบคลุมเลขทั้งสองลักษณะ  โดยทั่วไป การทำงานจะใช้บิตหนึ่งบิต แสดงเป็นเครื่องหมาย โดยมีชื่อเรียกว่า ``Sign and Magnitude'' <A NAME="12411"></A> อย่างไรก็ตามการที่กำหนดหนึ่งบิตเป็นสำหรับเครื่องหมายมีความสับสนพอควร เช่น บิตเครื่องหมายจะอยู่ด้านซ้าย หรือ ด้านขวา หรือการที่มีเครื่องหมายจะเกิดศูนย์ลบ และศูนย์บวกขึ้น  ซึ่งจะเกิดความสับสนในการเขียนโปรแกรมขึ้น  จากปัญหาดังกล่าวการนำเสนอเลขบวกลบโดยใช้ Sign and Magnitude จึงไม่ได้รับความนิยม
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในคอมพิวเตอร์การนำเสนอมักจะใช้ <EM>two's complement representation (2's)</EM> ที่เลขบวกนำด้วย 0 และเลขลบนำด้วย 1 ดังนี้
+</FONT></I>
+<P>
+<I><FONT SIZE="-1"><A NAME="12480"></A>
+</FONT></I>
+<P>
+<I></I><PRE>
+0000 0000 0000 0000 0000 0000 0000 0000 = 0 
+0000 0000 0000 0000 0000 0000 0000 0001 = 1
+0000 0000 0000 0000 0000 0000 0000 0010 = 2
+...
+0111 1111 1111 1111 1111 1111 1111 1101 = 2,147,483,645
+0111 1111 1111 1111 1111 1111 1111 1110 = 2,147,483,646
+0111 1111 1111 1111 1111 1111 1111 1111 = 2,147,483,647
+1000 0000 0000 0000 0000 0000 0000 0000 = -2,147,483,648  
+1000 0000 0000 0000 0000 0000 0000 0001 = -2,147,483,647  
+1000 0000 0000 0000 0000 0000 0000 0010 = -2,147,483,646  
+...
+1111 1111 1111 1111 1111 1111 1111 1101 = -3 
+1111 1111 1111 1111 1111 1111 1111 1110 = -2
+1111 1111 1111 1111 1111 1111 1111 1111 = -1
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">การนำเสนอแบบ 2's สามารถแสดงค่าเลขที่มากกว่าศูนย์จาก 0 ถึง <!-- MATH
+ $2,147,483,647_{ten}$
+ -->
+<IMG
+ WIDTH="144" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$2,147,483,647_{ten}$"> <IMG
+ WIDTH="76" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.png"
+ ALT="$(2^{31}-1)$"> โดยที่กลุ่มของบิต <!-- MATH
+ $(1000\ldots 0000_{two})$
+ -->
+<IMG
+ WIDTH="145" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$(1000\ldots 0000_{two})$"> แสดงค่าลบที่น้อยที่สุด  <!-- MATH
+ $-2,147,483,648_{ten}$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img84.png"
+ ALT="$-2,147,483,648_{ten}$"> และเริ่มเพิ่มค่าเป็น จนถึง  
+<!-- MATH
+ $-2,147,483,647_{ten}$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.png"
+ ALT="$-2,147,483,647_{ten}$"> <!-- MATH
+ $(1000\ldots 0001_{two})$
+ -->
+<IMG
+ WIDTH="145" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img86.png"
+ ALT="$(1000\ldots 0001_{two})$"> จนถึง <IMG
+ WIDTH="49" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img87.png"
+ ALT="$-1_{ten}$"> (<!-- MATH
+ $1111\ldots 1111_{two})$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img88.png"
+ ALT="$1111\ldots 1111_{two})$">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จะสามารถสังเกตได้ว่าค่าในเลขลบมีมากกว่าค่าในเลขบวกหนึ่งตัวคือ -2,147,483,648 ความไม่สมดุลดังกล่าวอาจมีปํญหาสำหรับนักเขียนโปรแกรม อย่างไรก็ตามถ้าเราใช้ Sign and Magnitude การออกแบบดังกล่าวมีปัญหาทั้งนักเขียนโปรแกรมและการออกแบบฮาร์ดแวร์  คอมพิวเตอร์ในปัจจุบันจึงใช้งาน 2's ในการแสดงค่าตัวเลข
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ข้อดีของระบบเลข 2's คือในเลขลบทั้งหมด มีค่าของ Most Significant Bit เป็น 1 ฮาร์ดแวร์สามารถตรวจสอบเลขบวกลบได้โดยตรวจสอบจาก Most Significant Bit ซึ่งบิตนี้มักจะถูกเรียกว่า <EM>sign bit</EM> ดังนั้นเราสามารถแสดงเลขบวก และเลขลบในสมการร่วมกันได้ดังนี้
+</FONT></I>
+<P>
+<I><FONT SIZE="-1"><!-- MATH
+ $(x31 \times -2^{31})+ (x30 \times 2^{30}) + (x29 \times 2^{29}) + \ldots + (x1 \times 2^{1})  + (x0 \times 2^{0})$
+ -->
+<IMG
+ WIDTH="575" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$(x31 \times -2^{31})+ (x30 \times 2^{30}) + (x29 \times 2^{29}) + \ldots + (x1 \times 2^{1}) + (x0 \times 2^{0})$">
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">โดยที่ Sign Bit จะถูกคูณด้วย <IMG
+ WIDTH="43" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img90.png"
+ ALT="$-2^{31}$"> ส่วนที่เหลือจะเหมือนกับการแปลงเลขฐานสองธรรมดา
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><UL>
+<LI><A NAME="tex2html1169"
+  HREF="node46.html">การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+<LI><A NAME="tex2html1170"
+  HREF="node47.html">เปรียบเทียบระบบเลข Signed และ Unsigned</A>
+<LI><A NAME="tex2html1171"
+  HREF="node48.html">แปลงค่าระหว่างบวกลบ</A>
+<LI><A NAME="tex2html1172"
+  HREF="node49.html">การทำ Sign Extension</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1167"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1161"
+  HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1155"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1163"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1168"
+  HREF="node46.html">การแปลงค่าระหว่างไบนารี่และเลขฐานสิบ</A>
+<B> Up:</B> <A NAME="tex2html1162"
+  HREF="node42.html">การคำนวณ</A>
+<B> Previous:</B> <A NAME="tex2html1156"
+  HREF="node44.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html1164"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1166"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

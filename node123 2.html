@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Data Hazard</TITLE>
+<META NAME="description" CONTENT="Data Hazard">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node124.html">
+<LINK REL="previous" HREF="node122.html">
+<LINK REL="up" HREF="node121.html">
+<LINK REL="next" HREF="node124.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2352"
+  HREF="node124.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2346"
+  HREF="node121.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2340"
+  HREF="node122.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2348"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2350"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2353"
+  HREF="node124.html">การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+<B> Up:</B> <A NAME="tex2html2347"
+  HREF="node121.html">Pipeline Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2341"
+  HREF="node122.html">Structural Hazard</A>
+ &nbsp; <B>  <A NAME="tex2html2349"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2351"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00822200000000000000"></A>
+<A NAME="27755"></A>
+<BR>
+Data Hazard
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">Data Hazard เกิดในกรณีที่ไพพ์ลายน์ต้องหยุดทำงานเพื่อให้คำสั่งก่อนหน้าทำงานเสร็จก่อนที่จะดำเนินการประมวลผลคำสั่งปัจจุบัน ในโปรเซสเซอร์ การเกิด Data Hazard เกิดจากการที่คำสั่งที่ตามมาต้องใช้ผลลัพธ์ที่เกิดขึ้นจากการประมวลผลของคำสั่งก่อนหน้าที่ยังอยู่ในไพพ์ลายน์ (Data Dependency) <A NAME="27804"></A> ตัวอย่างเช่น
+</FONT></I>
+<P>
+<I></I><PRE>
+   add  $s0, $t0, $t1
+   sub  $t2, $s0, $t3
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ถ้าไม่มีการจัดการอย่างหนึ่งอย่างใด การเกิด Data Hazard จะส่งผลต่อประสิทธิภาพของโปรเซสเซอร์เป็นอย่างมาก เนื่องจาก Data Dependency เกิดขึ้นมากในโปรแกรมทั่วไป อย่างไรก็ตามในหลายกรณี เราไม่จำเป็นต้องรอให้คำสั่งก่อนหน้าทำงานจนเสร็จสิ้นก่อนที่จะประมวลผลคำสั่งปัจจุบัน โดยการป้อนกลับค่าที่พึ่งประมวลผลเาร็จกลับเข้ามาให้คำสั่งก่อนหน้า ซึ่งวิธีการนี้เรียกว่า การทำ Forwarding หรือ Bypassing
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

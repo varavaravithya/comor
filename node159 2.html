@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การคำนวณประสิทธิภาพของแคช</TITLE>
+<META NAME="description" CONTENT="การคำนวณประสิทธิภาพของแคช">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node160.html">
+<LINK REL="previous" HREF="node158.html">
+<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node160.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2883"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2877"
+  HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2871"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2879"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2881"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2884"
+  HREF="node160.html">ลดอัตราของ Cache Miss โดยให้สามารถเลือกลงช่องได้มากขึ้น</A>
+<B> Up:</B> <A NAME="tex2html2878"
+  HREF="node158.html">การปรับปรุงประสิทธิภาพของแคช</A>
+<B> Previous:</B> <A NAME="tex2html2872"
+  HREF="node158.html">การปรับปรุงประสิทธิภาพของแคช</A>
+ &nbsp; <B>  <A NAME="tex2html2880"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2882"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00940100000000000000">
+การคำนวณประสิทธิภาพของแคช</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">สมมุติให้ Instruction Cache Miss Rate สำหรับโปรแกรมหนึ่งๆ เท่ากับ 2% และ Data Cache Miss Rate เท่ากับ 4%  ถ้าโปรเซสเซอร์มี CPI เท่ากับ 2 โดยไม่เกิดการ Stall ของหน่วยความจำ และเมื่อเกิด Miss จะมี Miss Penalty เท่ากับ 100 วงรอบการทำงาน จงหาว่าโปรเซสเซอร์ทำงานเร็วขึ้นเป็นกี่เท่าเมื่อไม่เกิดการ Miss เลย โดยใช้ความถี่ของคำสั่งจาก SPECint2000 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จากจำนวนของวงรอบการทำงานที่เกิด Miss ในตัวแปรของจำนวนคำสั่ง I จะสามารถได้ว่า
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Instruction~miss~cycles = I\times 2\% \times 100 = 2.00\times I
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="425" HEIGHT="37" BORDER="0"
+ SRC="img443.png"
+ ALT="\begin{displaymath}
+Instruction&nbsp;miss&nbsp;cycles = I\times 2\% \times 100 = 2.00\times I
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.17)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ในการวัดปริมาณคำสั่งแบบต่างๆ ใน SPECint2000 เกิดการ loads และ stores เท่ากับ 36% ดังนั้นเราสามารถคำนวณวงรอบที่เกิดการ Miss จากการเรียกใช้หน่วยความจำเท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+Data~miss~cycles = I\times 36\% \times 4\% \times 100 = 1.44\times I
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="428" HEIGHT="37" BORDER="0"
+ SRC="img444.png"
+ ALT="\begin{displaymath}
+Data&nbsp;miss&nbsp;cycles = I\times 36\% \times 4\% \times 100 = 1.44\times I
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.18)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ดังนั้นจำนวนของ Memory Stall Cycle ทั้งหมดเท่ากับ <!-- MATH
+ $2.00I +1.44 I = 3.44 I$
+ -->
+<IMG
+ WIDTH="182" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img445.png"
+ ALT="$2.00I +1.44 I = 3.44 I$"> ซึ่ง CPI เมื่อเกิด Memory Stall เท่ากับ <!-- MATH
+ $2 + 3.44 = 5.44$
+ -->
+<IMG
+ WIDTH="129" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img446.png"
+ ALT="$2 + 3.44 = 5.44$"> อัตราส่วนของ CPI เท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\frac{CPU~time~with~stalls}{CPU~time~with~perfect~cache} & = & \frac{I\times CPU\times Clock~cycle}{I\times CPU_{perfect}\times Clock~cycle}\\
+& = & \frac{CPI_{stall}}{CPI_{perfect}} =\frac{5.44}{2}
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="264" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img447.png"
+ ALT="$\displaystyle \frac{CPU&nbsp;time&nbsp;with&nbsp;stalls}{CPU&nbsp;time&nbsp;with&nbsp;perfect&nbsp;cache}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="248" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img448.png"
+ ALT="$\displaystyle \frac{I\times CPU\times Clock&nbsp;cycle}{I\times CPU_{perfect}\times Clock&nbsp;cycle}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.19)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="154" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img449.png"
+ ALT="$\displaystyle \frac{CPI_{stall}}{CPI_{perfect}} =\frac{5.44}{2}$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(7.20)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ประสิทธิภาพของระบบแบบ Perfect Cache มีค่าสูงกว่าเท่ากับ  <!-- MATH
+ $\frac{5.44}{2} = 2.72$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img450.png"
+ ALT="$\frac{5.44}{2} = 2.72$">
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

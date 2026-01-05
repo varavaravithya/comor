@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ</TITLE>
+<META NAME="description" CONTENT="เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node138.html">
+<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node140.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2576"
+  HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2570"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2566"
+  HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2572"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2574"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2577"
+  HREF="node140.html">Exception บนไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2571"
+  HREF="node133.html">Branch Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2567"
+  HREF="node138.html">Branch Delay Slot</A>
+ &nbsp; <B>  <A NAME="tex2html2573"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2575"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00870600000000000000">
+เปรียบเทียบประสิทธิภาพการทำงานของการควบคุมแบบต่างๆ</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">ทำการเปรียบเทียบประสิทธิภาพของการควบคุม Single-Cycle, Multicycle และ แบบ Pipeline โดยใช้ค่าเฉลี่ยของชุดคำสั่งที่ได้มาจากโปรแกรม SPECTINT2000 สมมุติให้ครึ่งหนึ่งของคำสั่ง load มีคำสั่งที่ตามมาใช้ผลจากการ load นั้น และการเกิด Branch Delay 1 วงรอบการทำงาน และหนึ่งในสี่ของการทำ Branch มีการคาดเดาผิด สมมุติให้คำสั่ง jump มีการ Delay หนึ่งวงรอบ ดังนั้นมีใช้เวลาเฉลี่ยสองวงรอบการทำงาน และไม่คำนึงถึง Hazard อื่นๆ 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ให้ส่วนประกอบแต่ละส่วนใช้เวลาทำงานดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>200 ps สำหรับ Memory Access
+</LI>
+<LI>100 ps  สำหรับ ALU Operation
+</LI>
+<LI>50 ps  สำหรับ Register File Read/Write
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">สำหรับ Single-Cycle จะมีวงรอบการทำงานเท่ากับ 
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+200 +5 + 100 +200 + 50 = 600~ps
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="281" HEIGHT="37" BORDER="0"
+ SRC="img372.png"
+ ALT="\begin{displaymath}
+200 +5 + 100 +200 + 50 = 600&nbsp;ps
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6.3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">และแต่ละประเถทคำสั่งมีความถี่ดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>20% loads
+</LI>
+<LI>10% stores
+</LI>
+<LI>11% branches
+</LI>
+<LI>2% jumps
+</LI>
+<LI>52
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">วงรอบการทำงานของโปรเซสเซอร์แบบ Multicycle และ Pipeline เท่ากับ <IMG
+ WIDTH="58" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img373.png"
+ ALT="$200&nbsp;ps$">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">สำหรับโปรเซสเซอร์ Pipeline คำสั่ง load ใช้เวลา 1 วงรอบ ในกรณีที่ไม่มี Dependence และ 2 วงรอบในกรณีที่มี Dependence  จึงได้ค่าเฉลี่ยเท่ากับ 2 สำหรับคำสั่ง Branch มีค่าเฉลี่ยเท่ากับ 1.25 วงรอบการทำงาน  
+<!-- MATH
+ $(0.75\times 1 + 0.25\times 2)$
+ -->
+<IMG
+ WIDTH="174" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img374.png"
+ ALT="$(0.75\times 1 + 0.25\times 2)$"> ALU ใช้ 1 วงรอบการทำงาน และ jump ใช้สองวงรอบการทำงาน จะสามารถคำนวณ CPI ได้เท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+1.5\times 25\% + 1\times 10\% + 1\times 52\% + 1.25\times 11\% +2\times 2\% = 1.17
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="513" HEIGHT="34" BORDER="0"
+ SRC="img375.png"
+ ALT="\begin{displaymath}
+1.5\times 25\% + 1\times 10\% + 1\times 52\% + 1.25\times 11\% +2\times 2\% = 1.17
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(6.4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">โดยเวลาเฉลี่ยในการประมวลผลของโปรเซสเซอร์ไพพ์ลายน์เท่ากับ <!-- MATH
+ $200\times 1.17 = 243~ps$
+ -->
+<IMG
+ WIDTH="168" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img376.png"
+ ALT="$200\times 1.17 = 243&nbsp;ps$"> ในขณะที่แบบ Single Cycle เท่ากับ <IMG
+ WIDTH="58" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img377.png"
+ ALT="$600&nbsp;ps$"> และ Multicycle เท่ากับ <!-- MATH
+ $200\times 4.12 = 824~ps$
+ -->
+<IMG
+ WIDTH="168" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img378.png"
+ ALT="$200\times 4.12 = 824&nbsp;ps$">
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:6.41">6.39</A> แสดงเส้นทางข้อมูลของโปรเซสเซอร์แบบไพพ์ลายน์ที่สมบูรณ์
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.41"></A><A NAME="31457"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.39:</STRONG>
+เส้นทางข้อมูลของโปรเซสเซอร์แบบไพพ์ลายน์ที่สมบูรณ์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="457" ALIGN="BOTTOM" BORDER="0"
+ SRC="img379.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.41.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2576"
+  HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2570"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2566"
+  HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2572"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2574"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2577"
+  HREF="node140.html">Exception บนไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2571"
+  HREF="node133.html">Branch Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2567"
+  HREF="node138.html">Branch Delay Slot</A>
+ &nbsp; <B>  <A NAME="tex2html2573"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2575"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

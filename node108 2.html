@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว</TITLE>
+<META NAME="description" CONTENT="ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node107.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node109.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2103"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2097"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2093"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2099"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2101"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2104"
+  HREF="node109.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Up:</B> <A NAME="tex2html2098"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2094"
+  HREF="node107.html">ทำไมการออกแบบสร้างโปรเซสเซอร์แบบทำงานในวงรอบเดียวถึงไม่ถูกใช้ในปัจจุบัน</A>
+ &nbsp; <B>  <A NAME="tex2html2100"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2102"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00750700000000000000">
+ประสิทธิภาพของโปรเซสเซอร์แบบทำงานในวงรอบเดียว</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">สมมุติให้ส่วนประกอบต่างๆ ของโปรเซสเซอร์มีประสิทธิภาพดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>Memory Units: 200 picoseconds (ps)
+</LI>
+<LI>ALU and adders: 100 ps
+</LI>
+<LI>Register file (Read or Write): 50 ps
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">โดยสมมุติให้ส่วนประกอบอื่นได้แก่ Multiplexers, Control Unit, PC Access, Sign Extension, และ สายสัญญาณ ไม่มี Delay จงเปรียบเทียบการออกแบบสร้างโปรเซสเซอร์ดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>ออกแบบโปรเซสเซอร์ให้สามารถทำงานได้ในวงรอบสัญญาณนาฬิกาเดียว 
+</LI>
+<LI>ออกแบบโปรเซสเซอร์ให้สามารถทำงานได้ในวงรอบสัญญาณนาฬิกาเดียว แต่สัญญาณนาฬิกาสามารถปรับค่าได้ โดยปรับความยาวของวงรอบตามความจำเป็นที่ต้องใช้งาน
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">ในการเปรียบเทียบประสิทธิภาพ เราพิจารณาโปรแกรมที่มีอัตราส่วนของคำสั่ง load 25%, store 10%, ALU instruction 45%, branch 15%, และ jumps 5%
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">การเปรียบเทียบประสิทธิภาพ เปรียบเทียบจากเวลาที่ใช้ในการประมวลผล โดยใช้สมการ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~execution~time = Instruction~count\times CPI\times Clock~cycle~time
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="554" HEIGHT="37" BORDER="0"
+ SRC="img312.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;execution&nbsp;time = Instruction&nbsp;count\times CPI\times Clock&nbsp;cycle&nbsp;time
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">เนื่องจาก CPI มีค่าเท่ากับ 1 เราสามารถหาจัดรูปสมการได้ดังนี้
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+CPU~execution~time = Instruction~count\times Clock~cycle~time
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="514" HEIGHT="37" BORDER="0"
+ SRC="img313.png"
+ ALT="\begin{displaymath}
+CPU&nbsp;execution&nbsp;time = Instruction&nbsp;count\times Clock&nbsp;cycle&nbsp;time
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">ในคำสั่งรูปแบบต่างๆ มีการใชังานส่วนประกอบของโปรเซสเซอร์ดังนี้
+<BR></FONT></I>
+<P>
+<I></I><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1">
+Instruction </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+class </FONT></I></TD>
+<TD ALIGN="CENTER" COLSPAN=5><I><FONT SIZE="-1"> Functional units used by the instruction class</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+R-Type </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Inst. Fetch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Register Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> ALU </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Register Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Load word </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Inst. Fetch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Register Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> ALU </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Memory Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Register Access  </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Store word </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Inst. Fetch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Register Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> ALU </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Memory Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Branch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Inst. Fetch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Register Access </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> ALU </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Jump </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> Inst. Fetch </FONT></I></TD>
+<TD ALIGN="LEFT"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1">  </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+</FONT></I></TD>
+<TD ALIGN="LEFT"><I></I></TD>
+<TD ALIGN="LEFT"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+</TR>
+</TABLE><I></I>
+<P>
+<I><FONT SIZE="-1">โดยสามารถคำนวณเวลาในการประมวลผลได้ดังนี้
+</FONT></I>
+<P>
+<I></I><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1">
+Instruction </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Instruction </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Register </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> ALU</FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Data</FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1">Register </FONT></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+class </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> memory </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> read </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> operation </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> memory </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> write </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Total</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+R-Type </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 100 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 0 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 400 ps </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Load word </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 100 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 600 ps</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Store word </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 100 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 550 ps</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Branch </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 50 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 100 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 0 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 350 ps</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+Jump </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 200ps</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I><FONT SIZE="-1"> 
+</FONT></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+</TR>
+</TABLE><I></I>
+<P>
+<I><FONT SIZE="-1">ฉะนั้นจะสามารถคำนวณเวลาเฉลี่ยต่อคำสั่งจะเท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+CPU~Clock~Cycle &=&  600\times 25\% + 550\times 10\% + 400\times 45\% +\\
+&& 350\times 15\% + 200\times 5\% \\&=& 447.5~ps
+\nonumber
+\end{eqnarray}
+ -->
+<TABLE ALIGN="CENTER" CELLPADDING="0" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="158" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img314.png"
+ ALT="$\displaystyle CPU&nbsp;Clock&nbsp;Cycle$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="322" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img315.png"
+ ALT="$\displaystyle 600\times 25\% + 550\times 10\% + 400\times 45\% +$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.3)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="190" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img316.png"
+ ALT="$\displaystyle 350\times 15\% + 200\times 5\%$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.4)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="19" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img317.png"
+ ALT="$\displaystyle 447.5&nbsp;ps$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">โดยจะได้อัตราส่วนของประสิทธิภาพเท่ากับ
+</FONT></I>
+<P>
+<I></I>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+=\frac{600}{447.5} = 1.34
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="123" HEIGHT="46" BORDER="0"
+ SRC="img318.png"
+ ALT="\begin{displaymath}
+=\frac{600}{447.5} = 1.34
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(5.5)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P><I></I>
+<P>
+<I><FONT SIZE="-1">โดยโปรเซสเซอร์แบบปรับวงรอบการทำงานสัญญาณนาฬิกามีความเร็วกว่า 1.34 เท่า แต่การออกแบบสร้างโปรเซสเซอร์ในลักษณะดังกล่าวทำได้ยากมาก
+</FONT></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2103"
+  HREF="node109.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2097"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2093"
+  HREF="node107.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2099"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2101"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2104"
+  HREF="node109.html">โปรเซสเซอร์แบบทำงานหลายวงรอบ</A>
+<B> Up:</B> <A NAME="tex2html2098"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2094"
+  HREF="node107.html">ทำไมการออกแบบสร้างโปรเซสเซอร์แบบทำงานในวงรอบเดียวถึงไม่ถูกใช้ในปัจจุบัน</A>
+ &nbsp; <B>  <A NAME="tex2html2100"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2102"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

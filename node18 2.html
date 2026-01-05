@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การทำงานของคอมพิวเตอร์ฮาร์ดแวร์</TITLE>
+<META NAME="description" CONTENT="การทำงานของคอมพิวเตอร์ฮาร์ดแวร์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html755"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html749"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html743"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html751"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html753"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html756"
+  HREF="node19.html">การเก็บตัวแปรการคำนวณในคอมพิวเตอร์ฮาร์ดแวร์</A>
+<B> Up:</B> <A NAME="tex2html750"
+  HREF="node15.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html744"
+  HREF="node17.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html752"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html754"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00430000000000000000">
+การทำงานของคอมพิวเตอร์ฮาร์ดแวร์</A>
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">เราใช้งานคอมพิวเตอร์ในงานหลักใหญ่อยู่สามประการได้แก่ การคำนวณ การทำงานซ้ำ และการตัดสินใจเลือกตามข้อมูล
+และวิธีการต่างๆ ประการแรกที่สำคัญคือการคำนวณ การที่จะให้เครื่องคอมพิวเตอร์ที่ใช้ชุดคำสั่ง MIPS ทำการคำนวณ ทำได้โดยใช้ชุดของสัญญลักษณ์ที่เป็นคำสั่งดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I><PRE>
+add a, b, c
+</PRE><I><FONT SIZE="-1">
+โดยคำสั่งจะทำการบวกค่าในตัวแปร <TT>b</TT> และ <TT>c</TT> ลงใน <TT>a</TT> คำสั่งของการทำการคำนวณบวกลบคูณหาร ของ MIPS จะตัวแปรจำกัดเพียงสามตัว และจะกระทำการทางคณิตศาสตร์เพียงหนึ่งอย่าง ถ้าเราต้องการบวกตัวแปร 
+<TT>b, c, d,</TT> และ <TT>e</TT> ลงในตัวแปร  <TT>a</TT> 
+<A NAME="5649"></A>
+</FONT></I>
+<P>
+<I></I><PRE>
+add a, b, c # The sum of b and c is placed in a.
+add a, a, d # The sum of b, c, and d is placed in a.
+add a, a, e # The sum of b, c, d, and e is placed in a.
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">จากชุดคำสั่งขั้นต้นจะเป็นการบวกตัวแปรสี่ตัวเข้าด้วยกัน
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">คำอธิบายหลังเครื่องหมาย # จะไม่มีผลกับการทำงานของโปรแกรม คำ หรือ ประโยคที่ตามมามีไว้สำหรับเป็นการบันทึกขั้นตอนทำให้สามารถเข้าใจการทำงานให้ดียิ่งขึ้น   (Comment) การเขียนคอมเมนต์สำคัญมาก และควรฝึกเป็นนิสัยในการพัฒนาโปรแกรมใดๆ  การคอมเมนต์จะถือว่าสิ้นสุดเมื่อจบบรรทัด ซึ่งจะต่างจากภาษา C ที่ต้องมีการปิด
+<A NAME="5726"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จำนวนของตัวแปรดำเนินการหรือเรียกว่า Operand ในการคำนวณมีจำกัดเพียงสามตัว  เลขสองตัวจะถูกบวกเข้าด้วยกัน และนำมาใส่ไว้ที่ตัวแปรตัวแรก  การที่กำหนดให้มีตัวแปรเพียงสามตัวเท่านั้นเป็นการกำหนดเพื่อให้มีความสอดคล้องกับการออกแบบฮาร์ดแวร์ ซึ่งการออกแบบฮาร์ดแวร์ที่รองรับตัวแปรที่มีจำนวนไม่คงที่ทำได้ยากกว่า และมีความซับซ้อนกว่าการออกแบบฮารด์แวร์ สำหรับคำสั่งที่มีตัวแปรคงที่  จากเหตุผลดังกล่าว จึงเป็นที่มาของหลักการพื้นฐานในการออกแบบคอมพิวเตอร์ซึ่งได้แก่ 
+</FONT></I>
+<P>
+<I></I>
+<BLOCKQUOTE><I><FONT SIZE="-1">Design Principle 1: Simplicity favors regularity. 
+</FONT></I></BLOCKQUOTE><I></I>
+<P>
+<I><FONT SIZE="-1">การแปลงภาษา C เป็น MIPS
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">การทำการคำนวณทางคณิตศาสตร์กับตัวแปรห้าตัว a, b, c, d, และ e สามารถแสดงจากภาษาระดับสูงดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I><PRE>
+a = b + c;
+d = a - e;
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">จากการทำการแปลงให้เป็นภาษาแอสแซมบลีของ MIPS โดยตัวแปลงภาษา ซึ่งคำสั่ง MIPS จะดำเนินการกับตัวแปรทั้งสองตัว และนำผลลัพธ์ที่ได้ไปใส่ไว้ในตัวแปรผลลัพธ์ จากคำสั่งของภาษาข้างบนสามารถแปลงออกมาเป็นคำสั่งแอสแซมบลีของ MIPS ได้ดังต่อไปนี้  
+</FONT></I>
+<P>
+<I></I><PRE>
+add a, b, c
+sub d, a, e
+</PRE><I><FONT SIZE="-1">
+<A NAME="5885"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">การแปลงชุดของภาษาระดับสูงที่มีความซับซ้อนขึ้น โดยมีตัวแปรเป็น f, g, h, i, และ j
+</FONT></I>
+<P>
+<I></I><PRE>
+f = (g + h) - (i + j);
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ตัวแปลงภาษาจะทำการแยกออกเป็นหลายคำสั่งเนื่องจากหนึ่งคำสั่งของภาษาแอสแซมบลีของ MIPS กระทำการเพียงหนึ่งการทำงาน โดยที่คำสั่งแรกจะทำการคำนวณผลบวกของ <TT>g</TT> และ <TT>h</TT> ซึ่งเราจะเก็บค่าผลลัพธ์ไว้ในตัวแปรชั่วคราว ชื่อว่า <TT>t0</TT>
+</FONT></I>
+<P>
+<I></I><PRE>
+add t0, g, h # temporary variable t0 contains g + h
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">หลังจากที่ทำการบวกในนิพจน์แรกแล้ว เราสามารถทำการบวก  <TT>i</TT> กับ  <TT>j</TT> เข้าด้วยกัน 
+และรวมผลไว้ใน  <TT>t1</TT> ก่อนทำการลบค่าเพื่อให้ได้ผลลัพธ์
+</FONT></I>
+<P>
+<I></I><PRE>
+add t1, i, j # temporary variable t1 contains i + j
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ในขั้นตอนสุดท้าย เราสามารถทำการลบค่าผลบวกที่ได้ทำการคำนวณในตอนแรก และนำมาใส่ในตัวแปร  <TT>f</TT>
+</FONT></I><PRE>
+sub f, t0, t1 # f gets  t0 - t1, which is (g + h)-(i + j)
+</PRE><I></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html755"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html749"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html743"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html751"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html753"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html756"
+  HREF="node19.html">การเก็บตัวแปรการคำนวณในคอมพิวเตอร์ฮาร์ดแวร์</A>
+<B> Up:</B> <A NAME="tex2html750"
+  HREF="node15.html">คำสั่ง: ภาษาของคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html744"
+  HREF="node17.html">กล่าวนำ</A>
+ &nbsp; <B>  <A NAME="tex2html752"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html754"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

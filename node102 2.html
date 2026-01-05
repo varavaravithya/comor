@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ชุดควบคุม ALU</TITLE>
+<META NAME="description" CONTENT="ชุดควบคุม ALU">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node103.html">
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node103.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2021"
+  HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2015"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2019"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2022"
+  HREF="node103.html">การสร้างชุดควบคุมหลัก</A>
+<B> Up:</B> <A NAME="tex2html2016"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2010"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+ &nbsp; <B>  <A NAME="tex2html2018"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2020"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00750100000000000000">
+ชุดควบคุม ALU</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">จากการออกแบบ ALU มีการควบคุมดังต่อไปนี้ 
+</FONT></I>
+<P>
+<I></I><TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+ALU Control Line </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> Function </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+0000 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> AND </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+0001 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> OR </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+0010 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> add</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+0110 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> subtract</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+0111 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> set on less than</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+1100 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> NOR</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><I><FONT SIZE="-1"> 
+</FONT></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+</TR>
+</TABLE><I><FONT SIZE="-1"> 
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">ซึ่งขึ้นอยู่กับประเภทของคำสั่ง ALU จะกระทำตามฟังก์ชั่นต่างๆ กัน  สำหรับคำสั่ง <TT>lw</TT> และ <TT>sw</TT> ALU จะทำการบวก ส่วนของคำสั่ง R-Type ALU จะทำฟังก์ชั่นตามฟิลด์ <TT>funct</TT> ที่มีขนาด 6 บิต ที่เป็นส่วนหนึ่งของคำสั่ง  จากที่ ALU มีสายสัญญาณควบคุมขนาด 4 บิต เราสามารถสร้างวงจรลอจิกเล็กๆ สำหรับควบคุมการทำงานของ ALU โดยมีอินพุตเป็น 6 บิต ของ <TT>funct</TT> ฟิลด์ และ 2 บิตจาก Control ฟิลด์ ซึ่งเรียกว่า <TT>ALUOp</TT> ที่เป็นตัวระบุการกระทำของ ALU ที่เหมาะสม โดยที่ ALUOp เท่ากับ 00 จะทำการบวก สำหรับ คำสั่ง <TT>lw</TT> และ <TT>sw</TT> เมื่อ ALUOp เท่ากับ 01 ALU จะทำการลบ สำหรับ <TT>beq</TT> และทำตาม ฟิลด์ <TT>funct</TT>เมื่อ ALUOp เท่ากับ 10
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.12">5.15</A> แสดงค่าต่างๆ ของ ALUop และ functional code ที่มีขนาด 6 บิต ซึ่งเราใช้การแปลงสัญญารควบคุมหลายขั้น โดยมีจุดประสงค์ให้วงจรควบคุมมีขนาดเล็ก เพื่อให้มีความเร็วสูง ในการออกแบบวงจรควบคุม เราสามารถสร้าง Truth Table ได้ แสดงในรูป <A HREF="#fig:5.13"
+ NAME="22995">5.16</A>
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.12"></A><A NAME="24087"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.15:</STRONG>
+การตั้งค่า ALUOp สำหรับคำสั่งแบบ R-Type</CAPTION>
+<TR><TD><IMG
+ WIDTH="714" HEIGHT="297" BORDER="0"
+ SRC="img299.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{llllll} \toprule
+\multicolu...
+...than &amp; 101010 &amp; set on less than &amp; 0111 \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.13"></A><A NAME="24088"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.16:</STRONG>
+Truth Table สำหรับการออกแบบวงจรควบคุม  ALU</CAPTION>
+<TR><TD><IMG
+ WIDTH="511" HEIGHT="279" BORDER="0"
+ SRC="img300.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{llccccccc} \toprule
+\multic...
+...\
+1 &amp; X &amp; X &amp; X &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0111 \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2021"
+  HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2015"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2019"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2022"
+  HREF="node103.html">การสร้างชุดควบคุมหลัก</A>
+<B> Up:</B> <A NAME="tex2html2016"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2010"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+ &nbsp; <B>  <A NAME="tex2html2018"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2020"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

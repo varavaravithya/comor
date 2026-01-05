@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การควบคุมไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="การควบคุมไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node130.html">
+<LINK REL="previous" HREF="node127.html">
+<LINK REL="up" HREF="node116.html">
+<LINK REL="next" HREF="node130.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2433"
+  HREF="node130.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2427"
+  HREF="node116.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2421"
+  HREF="node128.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2429"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2431"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2434"
+  HREF="node130.html">Data Hazards และ Forwarding</A>
+<B> Up:</B> <A NAME="tex2html2428"
+  HREF="node116.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2422"
+  HREF="node128.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2430"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2432"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00840000000000000000"></A>
+<A NAME="29501"></A>
+<BR>
+การควบคุมไพพ์ลายน์
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">เราสามารถเพิ่มชุดควบคุมเข้าลงไปในเส้นทางข้อมูลแบบไพพ์ลายน์ได้โดยตรง และส่งผ่านสัญญาณควบคุมผ่านไปยังสเตทต่างๆ ตามลำดับการทำงาน รูป <A HREF="#fig:6.22">6.22</A> แสดงสายสัญญาณควบคุมตามจุดต่างๆ ของเส้นทางข้อมูลแบบไพพ์ลายน์
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.22"></A><A NAME="31436"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.22:</STRONG>
+สายสัญญาณควบคุมตามจุดต่างๆ ของเส้นทางข้อมูลแบบไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="508" ALIGN="BOTTOM" BORDER="0"
+ SRC="img356.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.22.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:6.23">6.23</A> และ <A HREF="#fig:6.25">6.24</A> แสดงการตั้งค่าสัญญาณควบคุมสำหรับคำสั่ง R-Type ที่มีการทำงานเหมือนกับโปรเซสเซอร์ที่ทำงานในวงรอบนาฬิกาเดียว
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในการควบคุมไพพ์ลายน์ เราเพียงกำหนดสัญญาณควบคุมในสเตทนั้นๆ เนื่องจากสัญญาณควบคุมใช้งานเฉพาะสเตทนั้นๆ เท่านั้น เราสามารถแบ่งการควบคุมออกเป็นห้ากลุ่มได้ดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.23"></A><A NAME="31437"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.23:</STRONG>
+การตั้งค่า ALUOp สำหรับคำสั่งแบบ R-Type</CAPTION>
+<TR><TD><IMG
+ WIDTH="714" HEIGHT="297" BORDER="0"
+ SRC="img299.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{llllll} \toprule
+\multicolu...
+...than &amp; 101010 &amp; set on less than &amp; 0111 \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.25"></A><A NAME="31438"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.24:</STRONG>
+Truth Table สำหรับชุดควบคุมโปรเซสเซอร์ MIPS</CAPTION>
+<TR><TD><IMG
+ WIDTH="742" HEIGHT="242" BORDER="0"
+ SRC="img357.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{cccccccccc}\toprule
+&amp; \multi...
+...beq &amp; X &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; x\ \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI><I>Instruction Fetch:</I> ในสเตทนี้การอ่านหน่วยความจำ และการเขียน PC มีการทำงานทุกวงรอบนาฬิกา จึงไม่ต้องการการสัญญาณควบคุมพิเศษใยสเตทนี้ 
+
+<P>
+</LI>
+<LI><I>Instruction Decode และ Register File Read:</I> เช่นเดียวกับสเตทก่อนหน้า ทุกคำสั่งมีการทำงานทุกสัญญาณวงรอบนาฬิกา   จึงไม่ต้องการการสัญญาณควบคุมพิเศษใยสเตทนี้ 
+
+<P>
+</LI>
+<LI><I>Execute และ Adders Calculation:</I> ในสเตทนี้มีสัญญาณที่ต้องตั้งค่าได้แก่ RegDst, ALUop, และ ALUSrc ซึ่งสัญญาณเลือก Result Register, เลือกการทำงาน ALU, และ Read data หรือ  ทำ Sign-Extended
+
+<P>
+</LI>
+<LI><I>Memory Access:</I> สัญญาณในกลุ่มนี้ได้แก่ Branch, MemRead, และ MemWrite ซึ่งสัญญาณเหล่านี้ถูกตั้งค่าสำหรับ branch equal, load, และ store 
+
+<P>
+</LI>
+<LI><I>Write Back:</I> ในสเตทนี้มีสัญญาณควบคุมสองสายได้แก่ MemtoReg และ RegWrite 
+
+<P>
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:6.26">6.25</A> แสดงสายสัญญาณควบคุมที่ต้องส่งผ่านไปยังสเตทหลังตามลำดับ และ 
+รูป <A HREF="#fig:6.27">6.26</A> แสดงเส้นทางข้อมูลที่มีความสมบูรณ์ทั้งรีจีสเตอร์ไพพ์ลายน์ และ สายสัญญาณควบคุม
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.26"></A><A NAME="31439"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.25:</STRONG>
+สายสัญญาณควบคุมสำหรับสามสเตทหลัง</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="574" HEIGHT="355" ALIGN="BOTTOM" BORDER="0"
+ SRC="img358.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_6/Figure_6.26.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.27"></A><A NAME="31440"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.26:</STRONG>
+เส้นทางข้อมูลที่มีความสมบูรณ์ทั้งรีจีสเตอร์ไพพ์ลายน์ และ สายสัญญาณควบคุม</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="525" ALIGN="BOTTOM" BORDER="0"
+ SRC="img359.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.27.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">  
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2433"
+  HREF="node130.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2427"
+  HREF="node116.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2421"
+  HREF="node128.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2429"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2431"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2434"
+  HREF="node130.html">Data Hazards และ Forwarding</A>
+<B> Up:</B> <A NAME="tex2html2428"
+  HREF="node116.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2422"
+  HREF="node128.html">แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2430"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2432"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

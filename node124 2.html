@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การทำการ Forwarding กับคำสั่งสองคำสั่ง</TITLE>
+<META NAME="description" CONTENT="การทำการ Forwarding กับคำสั่งสองคำสั่ง">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node125.html">
+<LINK REL="previous" HREF="node123.html">
+<LINK REL="up" HREF="node121.html">
+<LINK REL="next" HREF="node125.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2366"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2360"
+  HREF="node121.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2354"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2362"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2364"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2367"
+  HREF="node125.html">การจัดเรียงคำสั่งใหม่เพื่อหลีกเลี่ยงการ Stall</A>
+<B> Up:</B> <A NAME="tex2html2361"
+  HREF="node121.html">Pipeline Hazard</A>
+<B> Previous:</B> <A NAME="tex2html2355"
+  HREF="node123.html">Data Hazard</A>
+ &nbsp; <B>  <A NAME="tex2html2363"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2365"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00822300000000000000">
+การทำการ Forwarding กับคำสั่งสองคำสั่ง</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">จากตัวอย่างขั้นต้น เราสามารถเขียนการทำงานของไพพ์ลายน์ได้ดังรูป <A HREF="#fig:6.4">6.4</A> ที่แสดงภาพการทำงานของโปรเซสเซอร์ไพพ์ลายน์ของคำสั่ง    add  $s0, $t0, $t1 ในรูป <A HREF="#fig:6.5">6.5</A> แสดงการทำการ forward ค่าที่คำนวณได้จากเอาท์พุทของ ALU ของคำสั่ง add ไปยังคำสั่ง sub
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.4"></A><A NAME="31414"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.4:</STRONG>
+การทำงานของโปรเซสเซอร์ไพพ์ลายน์ของคำสั่ง    add  $s0, $t0, $t1</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="686" HEIGHT="119" ALIGN="BOTTOM" BORDER="0"
+ SRC="img338.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_6/Figure_6.4.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.5"></A><A NAME="31415"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.5:</STRONG>
+การ forward ค่าที่คำนวณได้จากเอาท์พุทของ ALU ของคำสั่ง add ไปยังคำสั่ง sub</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="630" HEIGHT="222" ALIGN="BOTTOM" BORDER="0"
+ SRC="img339.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_6/Figure_6.5.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ถึงแม้ว่าการทำ Forward จะสามารถใช้งานได้ดีในตัวอย่างขั้นต้น แต่เราจะไม่สามารถ Forward ค่าจากการ Load memory ให้กับอินพุทของ ALU ในคำสั่งที่ติดกันได้เนื่องจากจะเป็นการ Forward ที่ย้อนเวลา ดังนั้นในการทำการ load และ มี Data Dependency ยังคงต้องหยุดไพพ์ลายน์ หรือเรียกว่า Pipeline Stall <A NAME="27983"></A> หรือมีชื่อเล่นว่า Bubble ซึ่งแสดงตัวอย่างในรูป <A HREF="#fig:6.6">6.6</A>
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.6"></A><A NAME="31416"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.6:</STRONG>
+การ load และ มี Data Dependency ต้องทำการหยุดไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="687" HEIGHT="271" ALIGN="BOTTOM" BORDER="0"
+ SRC="img340.png"
+ ALT="\includegraphics[width=6in]{fig/Chapter_6/Figure_6.6.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

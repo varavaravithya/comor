@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การเกิด Data Hazards และ Stalls</TITLE>
+<META NAME="description" CONTENT="การเกิด Data Hazards และ Stalls">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node133.html">
+<LINK REL="previous" HREF="node130.html">
+<LINK REL="up" HREF="node116.html">
+<LINK REL="next" HREF="node133.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2474"
+  HREF="node133.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2468"
+  HREF="node116.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2462"
+  HREF="node131.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2470"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2472"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2475"
+  HREF="node133.html">Branch Hazard</A>
+<B> Up:</B> <A NAME="tex2html2469"
+  HREF="node116.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2463"
+  HREF="node131.html">การตรวจจับ Dependence</A>
+ &nbsp; <B>  <A NAME="tex2html2471"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2473"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00860000000000000000">
+การเกิด Data Hazards และ Stalls</A>
+</H1><I></I>
+<P>
+<I><FONT SIZE="-1">ในหลายกรณีเช่นการทำ load หรือ branch การ Forward ไม่สามารถที่จะแก้ไขปัญหา Hazard ได้ในรูป <A HREF="node141.html#fig:6.43">6.41</A> แสดงลักษณะการเกิดปัญหาดังกล่าว ที่ข้อมูลถูกอ่านจากหน่วยความจำในวงรอบที่ 4 ในขณะที่ ALU กำลังทำการคำนวณสำหรับคำสั่งที่ตามมา เราจำเป็นต้อง Stall ไพพ์ลายน์เพื่อให้โปรแกรมทำงานได้ถูกต้อง
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.34"></A><A NAME="31448"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.32:</STRONG>
+ลักษณะการเกิดปัญหาที่การ Forward ไม่สามารถที่จะแก้ไขปัญหา Hazard ได้</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="521" ALIGN="BOTTOM" BORDER="0"
+ SRC="img365.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.34.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1"> 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ดังนั้นนอกเหนือจากส่วนควบคุมการ Forward  เราจำเป็นต้องมีส่วน Hazard Detection ที่จะทำการในส่วนของสเตท ID และแทรกการ Stall หลังการ load ที่มี Dependency  การตรวจสอบมีเงื่อนไขดังนี้
+<A NAME="30377"></A>
+</FONT></I>
+<P>
+<I></I><PRE>
+   if (ID/EX.MemRead and
+      ((ID/EX.RegisterRt = IF/ID.RegisterRs) or
+        (ID/EX.RegisterRt = IF/ID.RegisterRt)))
+         stall the pipeline
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ในบรรทัดแรกเป็นการตรวจสอบ การ load ค่าจากหน่วยความจำที่สเตท EX ว่ามีค่ารีจีสเตอร์ Destination ตรงกับค่า Rs หรือ Rt ในสเตท ID/EX ถ้าเป็นจริงจะทำการ Stall หนึ่งวงรอบการทำงาน และจากนั้นให้ส่วนการทำงาน Forward ดำเนินการต่อไป 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">เมื่อทำการ Stall ในสเตท ID เราจะต้องทำการหยุดสเตท IF ด้วย มิฉะนั้นคำสั่งที่กำลัง Fetch อยู่ในสเตท IF จะหายไป ซึ่งสามารถทำได้โดยให้ค่า PC มีค่าเดิม ซึ่งการทำงานใน IF ก็จะอ่านค่าเดิมขึ้นมา ซึ่งในการหยุดดังกล่าว ชุดควบคุมจะใส่คำสั่งที่ไม่มีการประมวลผลใดๆ ที่เรียกว่า ``nop'' <A NAME="30458"></A> รูป <A HREF="#fig:6.35">6.33</A> แสดงการทำงานที่ Stall ไพพ์ลายน์ คำสั่ง and จะถูกชะลอไว้หนึ่งวงรอบการทำงาน
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.35"></A><A NAME="30473"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.33:</STRONG>
+การ Stall ไพพ์ลายน์</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="636" HEIGHT="406" ALIGN="BOTTOM" BORDER="0"
+ SRC="img366.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.35.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.36"></A><A NAME="31449"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.34:</STRONG>
+ชุดควบคุมโปรเซสเซอร์แบบไพพ์ลายน์ที่มีส่วน Forward และ Hazard Detection</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="746" HEIGHT="460" ALIGN="BOTTOM" BORDER="0"
+ SRC="img367.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.36.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2474"
+  HREF="node133.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2468"
+  HREF="node116.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2462"
+  HREF="node131.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2470"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2472"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2475"
+  HREF="node133.html">Branch Hazard</A>
+<B> Up:</B> <A NAME="tex2html2469"
+  HREF="node116.html">การเพิ่มประสิทธิภาพโดยเทคนิคไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2463"
+  HREF="node131.html">การตรวจจับ Dependence</A>
+ &nbsp; <B>  <A NAME="tex2html2471"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2473"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

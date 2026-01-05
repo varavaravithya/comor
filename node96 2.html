@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ภาพรวมของการออกแบบสร้าง</TITLE>
+<META NAME="description" CONTENT="ภาพรวมของการออกแบบสร้าง">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node95.html">
+<LINK REL="up" HREF="node94.html">
+<LINK REL="next" HREF="node97.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1932"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1926"
+  HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1922"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1928"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1930"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1933"
+  HREF="node97.html">หลักการออกแบบวงจรลอจิก</A>
+<B> Up:</B> <A NAME="tex2html1927"
+  HREF="node94.html">กล่าวนำ</A>
+<B> Previous:</B> <A NAME="tex2html1923"
+  HREF="node95.html">การสร้างคอมพิวเตอร์ MIPS พื้นฐาน</A>
+ &nbsp; <B>  <A NAME="tex2html1929"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1931"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00720200000000000000">
+ภาพรวมของการออกแบบสร้าง</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">ในบทที่ 2 และ 3 เราได้อรรถาธิบายถึงคำสั่งพื้นฐานที่จำเป็นต่อการทำงานของ MIPS ที่ประกอบด้วย คำสั่งประมวลผลทางคณิตศาสตร์และตรรกะของเลขจำนวนเต็ม คำสั่งถ่ายโอนข้อมูลระหว่างรีจีสเตอร์และหน่วยความจำ และคำสั่งที่ใช้ในการตัดสินใจได้แก่ คำสั่ง branch ต่างๆ  โดยการออกแบบสร้างจะพิจารณาการเป็นชุดคำสั่ง โดยในเบื้องต้นทุกคำสั่งจะมีขั้นตอนที่เหมือนกันสองขั้นตอนได้แก่
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>ส่งค่าใน Program Counter หรือ PC <A NAME="20969"></A> ไปยังหน่วยความจำเพื่อทำการเรียกคำสั่งปัจจุบันมาทำการประมวลผล
+</LI>
+<LI>อ่านค่ารีจีสเตอร์โดยใช้ค่าฟิลด์ในชุดคำสั่ง ซึ่งขึ้นอยู่กับประเภทของคำสั่งที่ คำสั่ง R-Type จะอ่านค่ารีจีสเตอร์สองตัว ในขณะที่คำสั่ง lw อ่านรีจีสเตอร์เพียงตัวเดียว
+</LI>
+</OL><I><FONT SIZE="-1"> 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">หลังจากขั้นตอนทั้งสองขั้นต้น การทำงานของ MIPS จะขึ้นอยู่กับชุดคำสั่งที่ทำการประมวลผล โดยเราสามารถแบ่งคำสั่งออกเป็นสามชุดได้แก่ Memory Reference, Arithmetic-Logical, และ Branch ซึ่งการทำงานจะคล้ายกัน
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ถึงแม้ว่าจะมีการแบ่งคำสั่งออกเป็นชุดๆ ทุกคำสั่งยกเว้น jump ใช้งาน ALU ด้วยกันทั้งหมดทั้งสิ้น หลังจากการอ่านรีจีสเตอร์ โดยที่คำสั่ง Memory Reference ใช้ในการคำนวณตำแหน่งของหน่วจความจำ, คำสั่ง Arithmetic-Logical ใช้ในการคำนวณค่า, และ คำสั่ง Branch ใช้ในการเปรียบเทียบ จะเห็นว่าการออกแบบให้แต่ละคำสั่งมีการทำงานคล้ายกันจะทำให้คอมพิวเตอร์มีความง่ายและเป็นพื้นฐาน
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">หลังจากใช้งาน ALU แต่ละคำสั่งจะมีการทำงานต่างกัน คำสั่ง
+Memory Reference จะเข้าใช้งานหน่วยความจำโดยการอ่าน หรือเขียน, คำสั่ง Arithmetic-Logical จะทำการเขียนค่าที่ได้ลงในรีจีสเตอร์, และ คำสั่ง Branch จะทำการเปลี่ยนค่าตำแหน่งคำสั่งต่อไปที่จะทำการประมวลผลที่อยู่ใน PC ไปที่ตำแหน่งที่ต้องการ หรืออาจเป็นเพียงเพิ่มค่า <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> เพื่อไปที่คำสั่งต่อไป
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.1">5.1</A> แสดงภาพรวมของการออกแบบสร้างโปรเซสเซอร์ MIPS ที่ประกอบด้วยส่วนต่างๆ และการต่อเชื่อมให้มีการไหลของข้อมูลผ่านไปในโปรเซสเซอร์
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ใน รูป <A HREF="#fig:5.1">5.1</A> มีการแสดงการต่อเชื่อมข้อมูลเข้าจากหลายแหล่ง การเลือกข้อมูลต่างกันทำโดยใช้อุปกรณ์ที่เรียกว่า Multiplexer เช่น ค่าที่เข้ามายัง PC มาจาก ALU หรือจาก Data Memory 
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.1"></A><A NAME="24068"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.1:</STRONG>
+ภาพรวมของการออกแบบสร้างโปรเซสเซอร์ MIPS </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="575" HEIGHT="311" ALIGN="BOTTOM" BORDER="0"
+ SRC="img279.png"
+ ALT="\includegraphics[width=5in]{fig/Chapter_5/Figure_5.1.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ซึ่ง Multiplexer ประกอบด้วยอุปกรณ์พื้นฐาน ในรูป  <A HREF="#fig:b.2.1">5.2</A> แสดงเกตพื้นฐานที่ประกอบด้วย and, or, และ not และ 
+เกตพื้นฐานที่มีการ negate อินพุทหรือการรวมต่อ not ที่อินพุต
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:b.2.1"></A><A NAME="24069"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.2:</STRONG>
+เกตพื้นฐาน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="286" HEIGHT="36" ALIGN="BOTTOM" BORDER="0"
+ SRC="img280.png"
+ ALT="\includegraphics[width=2.5in]{fig/Appendix_B/Figure_B.2.1.eps}">
+<IMG
+ WIDTH="287" HEIGHT="36" ALIGN="BOTTOM" BORDER="0"
+ SRC="img281.png"
+ ALT="\includegraphics[width=2.5in]{fig/Appendix_B/Figure_B.2.2.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:b.3.2">5.3</A> แสดงพื้นฐานการทำงานของ Multiplexer <A NAME="21260"></A>
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:b.3.2"></A><A NAME="24070"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.3:</STRONG>
+พื้นฐานการทำงานของ Multiplexer</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+ WIDTH="366" HEIGHT="135" ALIGN="BOTTOM" BORDER="0"
+ SRC="img282.png"
+ ALT="\includegraphics[width=3.2in]{fig/Appendix_B/Figure_B.3.2.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">
+<A NAME="21268"></A>
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">นอกจาก Multiplexer แล้วจะต้องมีการควบคุมให้รีจีสเตอร์ ทำงานตามความต้องการเช่นการอ่านเขียน หรือ Data Memory ในการทำการอ่านหรือเขียน หรือ ALU ต้องทำการคำนวณต่างๆ กัน เช่น บวก ลบ คูณ หาร ซึ่งการทำงานต้องๆ กันนั้นในโปรเซสเซอร์ต้องมีสายสัญญาณควบคุม หรือเรียกว่า Control Line ซึ่งหลายสายสามารถต่อเชื่อมโดยตรงกับฟิลด์ต่างๆ ในคำสั่ง
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.2">5.4</A> แสดง Datapath ในรูป <A HREF="#fig:5.2">5.4</A> ที่เพิ่ม Multiplexer สามชุด และสายควบตุมไปยังอุปกรณ์หลัก ชุดควบคุม (Control Unit)<A NAME="21335"></A> จะมีคำสั่งเป็นอินพุท เพื่อจะสามารถสร้างสัญาณควบคุมสำหรับ ALU และ Multiplexer สองตัว Mux ตัวที่สาม มีไว้สำหรับการเลือกว่าจะใชั <IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img278.png"
+ ALT="$PC+4$"> เป็นคำสั่งต่อไปหรือใช้ค่า Branch Destination Address เป็นตัวชี้ตำแหน่งของคำสั่งค่อไป ที่จะถูกเขียนลง PC  โดย Branch จะทำการตัดสินใจจากเอาท์พุท zero ของ ALU ในการออกแบบที่แสดงนี้คำสั่งเริ่มทำงานจากจุดเริ่มของสัญญาณนาฬิกา (Clock Edge) ถึงสิ้นสุดสัญญาณนาฬิกา
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.2"></A><A NAME="24071"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.4:</STRONG>
+Datapath ของโปรเซสเซอร์แบบ Single Cycle ที่มีรายละเอียดเพิ่มขึ้นในส่วนของ Multiplexer และ ส่วนสายสัญญาณควบคุม</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="632" HEIGHT="474" ALIGN="BOTTOM" BORDER="0"
+ SRC="img283.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.2.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ในการออกแบบสร้าง Single Cycle Datapath จำเป็นต้องแยก Instruction Memory และ Data Memory ออกจากกันเนื่องจาก
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>รูปแบบของคำสั่งกับข้อมูลแตกต่างกัน
+</LI>
+<LI>ในการผลิต หน่วยความจำแยกออกจากกันมีราคาถูกกว่า
+</LI>
+<LI>โปรเซสเซอร์ที่ทำงานในวงรอบนาฬิกาเดียว ไม่่สามารถใช้งาน Port ของหน่วยความจำในการเข้าใช้งานหน่วยความจำสองครั้งในวงรอบนาฬิกาเดียวได้
+</LI>
+</OL><I></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1932"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1926"
+  HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1922"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1928"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1930"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1933"
+  HREF="node97.html">หลักการออกแบบวงจรลอจิก</A>
+<B> Up:</B> <A NAME="tex2html1927"
+  HREF="node94.html">กล่าวนำ</A>
+<B> Previous:</B> <A NAME="tex2html1923"
+  HREF="node95.html">การสร้างคอมพิวเตอร์ MIPS พื้นฐาน</A>
+ &nbsp; <B>  <A NAME="tex2html1929"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1931"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

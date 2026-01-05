@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การสร้างชุดควบคุมหลัก</TITLE>
+<META NAME="description" CONTENT="การสร้างชุดควบคุมหลัก">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node104.html">
+<LINK REL="previous" HREF="node102.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node104.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2035"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2029"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2023"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2031"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2033"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2036"
+  HREF="node104.html">การทำงานของเส้นทางข้อมูล</A>
+<B> Up:</B> <A NAME="tex2html2030"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2024"
+  HREF="node102.html">ชุดควบคุม ALU</A>
+ &nbsp; <B>  <A NAME="tex2html2032"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2034"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00750200000000000000">
+การสร้างชุดควบคุมหลัก</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">หลังจากที่ได้อธิบายการควบคุมของ ALU สำหรับคำสั่งต่างๆ ที่ใช้ <TT>funct</TT> ฟิลด์ และประเภทของคำสั่งในการกำหนดสัญญาณควบคุม ในการควบคุมโปรเซสเซอร์ทั้งหมด เริ่มจากการพิจารณารูปแบบของคำสั่งต่างๆ ได้แก่ R-Type lw/sw และ Branch ซึ่งต้องเข้าใจการทำงานของฟิลด์ต่างๆ ที่จะสามารถส่งสัญญาณควบคุมได้ถูกต้อง
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.14"></A><A NAME="24090"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.17:</STRONG>
+รูปแบบของคำสั่ง R-Type, load-store, และ Branch</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="343" HEIGHT="240" ALIGN="BOTTOM" BORDER="0"
+ SRC="img301.png"
+ ALT="\includegraphics[width=3in]{fig/isaformatDatapath.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">จากรูปแบบของคำสั่ง มีข้อสังเกตดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>ฟิลด์ opcode อยู่ในบิต 31-26 โดยทุกคำสั่งอยู่ตำแหน่งเดียวกัน และเรียกว่า <TT>OP[5:0]</TT>
+</LI>
+<LI>คำสั่งที่มีการอ่านรีจีสเตอร์ ระบุค่ารีจีสเตอร์อยู่ในฟิลด์ rs และ rt ที่บิต 25:21 และ 20:16 ตามลำดับ ซึ่งครอบคลุมทั้ง R-Type, Branch, Load และ Store
+</LI>
+<LI>ค่าของ Base Register อยู่ในตำแหน่ง rs ที่บิต 25:21
+</LI>
+<LI>ค่า Offset 16 บิตสำหรับทำ Offset สำหรับการทำ Branch, Load, หรือ Store อยู่ในตำแหน่งเดียวกันที่บิต 15:0
+</LI>
+<LI>ค่า Destination Register อยู่ที่ rt (20:16) สำหรับคำสั่ง Load และอยู่ที่ rd (15:11) สำหรับคำสสั่ง R-Type
+</LI>
+</UL><I></I>
+<P>
+<I><FONT SIZE="-1">จากข้อมูลขั้นต้น เราสามารถเขียนกำหนดรายละเอียดของคำสั่ง และเพิ่ม Multiplexer เข้ากับ Datapath ที่แสดงก่อนหน้า  
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.15">5.18</A> แสดงการเพิ่มส่วนประกอบดังกล่าว อีกทั้งสัญญาณควบคุมที่เกี่ยวข้อง ในส่วนของชุดควบคุม มีสัญาณควบคุมทั้งสิ้น 7 เส้น รวมกับ ALUOp อีกสองเส้น โดยมีรายละเอียดดัวนี้
+</FONT></I>
+<P>
+<I></I>
+<UL>
+<LI>RegDst: select Destination Register
+</LI>
+<LI>RegWrite: write register
+</LI>
+<LI>ALUSrc: select ALU source
+</LI>
+<LI>PCSrc: select PC Source (for branch)
+</LI>
+<LI>MemRead: read memory
+</LI>
+<LI>MemWrite: write control for memory
+</LI>
+<LI>MemtoReg: select memory or alu to register
+</LI>
+</UL><I></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.15"></A><A NAME="24091"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.18:</STRONG>
+เส้นทางข้อมูลสำหรับโปรเซสเซอร์ MIPS โดยมี Multiplexer และ สัญญาณควบคุมที่จำเป็น</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="632" HEIGHT="395" ALIGN="BOTTOM" BORDER="0"
+ SRC="img302.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.15.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.17"></A><A NAME="24092"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.19:</STRONG>
+เส้นทางข้อมูลสำหรับโปรเซสเซอร์ MIPS ที่ประกอบกับชุดควบคุม</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="632" HEIGHT="491" ALIGN="BOTTOM" BORDER="0"
+ SRC="img303.png"
+ ALT="\includegraphics[width=5.5in]{fig/Chapter_5/Figure_5.17.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:5.17">5.19</A> แสดงเส้นทางข้อมูลสำหรับโปรเซสเซอร์ MIPS ที่ประกอบกับชุดควบคุม เราสามารถเขียน 
+Truth Table สำหรับชุดควบคุมได้ในรูปที่ <A HREF="#fig:5.18">5.20</A>
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:5.18"></A><A NAME="24093"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.20:</STRONG>
+Truth Table สำหรับชุดควบคุมโปรเซสเซอร์ MIPS</CAPTION>
+<TR><TD><IMG
+ WIDTH="770" HEIGHT="186" BORDER="0"
+ SRC="img304.png"
+ ALT="\begin{figure}\centering
+\noindent
+\begin{tabular}{cccccccccc}\toprule
+&amp; &amp; &amp; Me...
+...beq &amp; X &amp; 0 &amp; X &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \bottomrule
+\end{tabular}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2035"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2029"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2023"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2031"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2033"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2036"
+  HREF="node104.html">การทำงานของเส้นทางข้อมูล</A>
+<B> Up:</B> <A NAME="tex2html2030"
+  HREF="node101.html">การออกแบบสร้างโปรเซสเซอร์พื้นฐาน</A>
+<B> Previous:</B> <A NAME="tex2html2024"
+  HREF="node102.html">ชุดควบคุม ALU</A>
+ &nbsp; <B>  <A NAME="tex2html2032"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2034"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

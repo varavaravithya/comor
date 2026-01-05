@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</TITLE>
+<META NAME="description" CONTENT="การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html829"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html823"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html817"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html825"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html827"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html830"
+  HREF="node24.html">แนวคิด ``Store Program''</A>
+<B> Up:</B> <A NAME="tex2html824"
+  HREF="node20.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html818"
+  HREF="node22.html">ฟิลด์ของคำสั่ง MIPS</A>
+ &nbsp; <B>  <A NAME="tex2html826"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html828"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00450300000000000000">
+การแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">ตัวอย่างนี้เป็นการแสดงการแปลงคำสั่งภาษา MIPS มาเป็นภาษาเครื่อง ให้ $t1 เป็นตำแหน่งอ้างอิงของอาเรย์ A และ $s2 เก็บค่า h จากบรรทัดของภาษาคอมพิวเตอร์ระดับสูง
+</FONT></I>
+<P>
+<I></I><PRE>
+A[300] = h + A[300];
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">แปลงเป็น
+</FONT></I>
+<P>
+<I></I><PRE>  
+lw  $t0, 1200($t1) # Temporary reg $t0 gets A[300]
+add $t0, $s2, $t0  # Temporary reg $t0 gets h + A[300]
+sw  $t0, 1200($t1) # Stores h + A[300] back to A[300]
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">ในตารางข้างล่างเป็นการแสดงภาษาเครื่องสำหรับภาษาแอสแซมบลี่ที่ได้แสดงไว้ก่อนหน้า
+<BR></FONT></I>
+<P>
+<I></I><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+ </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> address/ </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=58><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+op </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rs </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rt </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rd </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> shamt </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=58><I><FONT SIZE="-1"> funct</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+35 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 9 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 8 </FONT></I></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I><FONT SIZE="-1"> 1200</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+0 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 18 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 8 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 8 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 0 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=58><I><FONT SIZE="-1"> 32</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+43 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 9 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 8 </FONT></I></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I><FONT SIZE="-1">  1200</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+
+</FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=58><I></I></TD>
+</TR>
+</TABLE><I></I>
+<P>
+<I><FONT SIZE="-1">คำสั่ง lw มีค่า opcode เท่ากับ 35 ค่ารีจีสเตอร์อ้างอิง $t1 แสดงด้วยค่า 9  และแสดงในฟิลด์ rs ในรีจีสเตอร์สำหรับเก็บค่าการโหลด rt มีค่าเท่ากับ 8 ที่เป็นชื่อเรียกของรีจีสเตอร์ $t0 ค่าตำแหน่ง A[300] ระบุโดย 1200 (<!-- MATH
+ $1200 = 300\times 4$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$1200 = 300\times 4$">)
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">คำสั่ง add มีค่า opcode เท่ากับ 0 และ ค่า 32 ในฟิลด์ funct เป็นการระบุว่าคำสั่งนี้เป็นคำสั่งบวก รีจีสเตอร์สำหรับเก็บตัวแปรและผลลัพธ์ rs, rt, และ rd สำหรับการเก็บค่า $s2, $t0, และ $t0 มีค่าเท่ากับ 18, 8, และ 8 ตามลำดับ
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">คำสั่ง sw มีค่า opcode เท่ากับ 43 ส่วนท้ายของคำสั่งเหมือนกับคำสั่ง load word
+<BR></FONT></I>
+<P>
+<I><FONT SIZE="-1">ตารางข้างล่างแสดงชุดของคำสั่งที่เป็นไบนารี่
+<BR></FONT></I>
+<P>
+<I></I><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+ </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> address/ </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=104><I><FONT SIZE="-1"> </FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+op </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rs </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rt </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> rd </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> shamt </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=104><I><FONT SIZE="-1"> funct</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+100011 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01001 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01000 </FONT></I></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I><FONT SIZE="-1"> 0000 0100 1011 0000</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+000000 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 10010 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01000 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01000 </FONT></I></TD>
+<TD ALIGN="CENTER"><I><FONT SIZE="-1"> 00000 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=104><I><FONT SIZE="-1"> 100000</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+101011 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01001 </FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 01000 </FONT></I></TD>
+<TD ALIGN="CENTER" COLSPAN=3><I><FONT SIZE="-1">  0000 0100 1011 0000</FONT></I></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I><FONT SIZE="-1"> 
+
+</FONT></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=32><I></I></TD>
+<TD ALIGN="CENTER"><I></I></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=104><I></I></TD>
+</TR>
+</TABLE><I></I>
+<P>
+<I><FONT SIZE="-1">โดยที่ค่าไบนารี่ 0000 0100 1011 0000 มีค่าเท่ากับ 1200
+</FONT></I>
+<P>
+<I></I><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html829"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html823"
+  HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html817"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html825"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html827"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html830"
+  HREF="node24.html">แนวคิด ``Store Program''</A>
+<B> Up:</B> <A NAME="tex2html824"
+  HREF="node20.html">การแสดงคำสั่งในคอมพิวเตอร์</A>
+<B> Previous:</B> <A NAME="tex2html818"
+  HREF="node22.html">ฟิลด์ของคำสั่ง MIPS</A>
+ &nbsp; <B>  <A NAME="tex2html826"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html828"
+  HREF="node200.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

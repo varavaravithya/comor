@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</TITLE>
+<META NAME="description" CONTENT="ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node53.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1298"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html1292"
+  HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html1286"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html1294"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html1296"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1299"
+  HREF="node55.html">ฮาร์ดแวร์ของการคูณแบบลำดับ</A>
+<B> Up:</B> <A NAME="tex2html1293"
+  HREF="node53.html">การคูณ</A>
+<B> Previous:</B> <A NAME="tex2html1287"
+  HREF="node53.html">การคูณ</A>
+ &nbsp; <B>  <A NAME="tex2html1295"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1297"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00550100000000000000">
+ศัพท์ภาษาคณิตศาสตร์ที่เราไม่ค่อยคุ้นเคย</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">Multiplicand: ตัวตั้ง <IMG
+ WIDTH="20" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img121.png"
+ ALT="$\times$"> Multiplier: ตัวคูณ = ผลลัพธ์ Product
+</FONT></I>
+<P>
+<I></I><PRE>
+Multiplicant                                 1000
+Multiplier                           x       1001
+                                         --------
+                                             1000
+                                            0000
+                                           0000
+                                          1000
+                                         --------
+Product                                   1001000
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">วิธีการคูณเลขเป็นวิธีการคูณธรรมดาที่อยู่ในการเรียนระดับประถมศึกษา  ถ้าเราไม่คำนึงถึง Sign bit การคูณเลข Multiplicand   <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิต กับ เลข Multiplier <IMG
+ WIDTH="21" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img122.png"
+ ALT="$m$"> บิต จะได้ผลลัพธ์ที่เป็น Product <IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$m+n$"> บิต  โดยที่ขนาดของ  <IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img123.png"
+ ALT="$m+n$"> จะสามารถครอบคลุมผลลัพธ์ที่เป็นไปได้ทั้งหมดของการคูณเลข  <IMG
+ WIDTH="16" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img103.png"
+ ALT="$n$"> บิต และ <IMG
+ WIDTH="21" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img122.png"
+ ALT="$m$"> บิต เข้าด้วยกัน เช่นเดียวกับการบวก การคูณ ต้องคำนึงถึงเรื่อง Overflow เช่นเดียวกัน
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">ถ้าเรากำหนดตัวเลข 0 และ 1 ในการคูณ จะสามารถเขียนขั้นตอนในการคูณได้ดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I>
+<OL>
+<LI>ทำการตั้งค่าของตัวตั้ง Multiplicand ในตำแหน่งที่เหมาะสมในหลักของการคูณที่มีบิตในหลักของ Multiplier เท่ากับ 1         
+</LI>
+<LI>ใส่ค่า 0 ในตำแหน่งที่เหมาะสมในหลักของการคูณที่มีบิตในหลักของ Multiplier เท่ากับ 0         
+</LI>
+</OL><I></I>
+<P>
+<I><FONT SIZE="-1">ซึ่งการคูณทั้งระบบเลขฐานสิบ และเลขฐานสองสามารถใช้วิธีการเดียวกัน จากวิธีการดังกล่าว เราสามารถจะสามารถฮาร์ดแวร์สำหรับการคูณได้ในแบบต่างๆ กัน โดยในเบื้องต้นจะคำนึงถึงการคูณเลขบวกก่อน
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>

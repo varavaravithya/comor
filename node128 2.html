@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>แผนภาพแสดงการทำงานของไพพ์ลายน์</TITLE>
+<META NAME="description" CONTENT="แผนภาพแสดงการทำงานของไพพ์ลายน์">
+<META NAME="keywords" CONTENT="comor">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="comor.css">
+
+<LINK REL="previous" HREF="node127.html">
+<LINK REL="up" HREF="node127.html">
+<LINK REL="next" HREF="node129.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2419"
+  HREF="node129.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html2413"
+  HREF="node127.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html2409"
+  HREF="node127.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A> 
+<A NAME="tex2html2415"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="icons/contents.png"></A> 
+<A NAME="tex2html2417"
+  HREF="node200.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2420"
+  HREF="node129.html">การควบคุมไพพ์ลายน์</A>
+<B> Up:</B> <A NAME="tex2html2414"
+  HREF="node127.html">เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+<B> Previous:</B> <A NAME="tex2html2410"
+  HREF="node127.html">เส้นทางข้อมูลแบบไพพ์ลายน์</A>
+ &nbsp; <B>  <A NAME="tex2html2416"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2418"
+  HREF="node200.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00830100000000000000">
+แผนภาพแสดงการทำงานของไพพ์ลายน์</A>
+</H3><I></I>
+<P>
+<I><FONT SIZE="-1">ทางครั้งการทำงานของไพพ์ลายน์มีความยากในการทำความเข้าใจ เนื่องจากมีหลายคำสั่งทำงานพร้อมกัน การอธิบายจึงใช้แผนภาพประกอบการทำงานไพพ์ลายน์ ซึ่งมีแผนภาพที่เป็นที่นิยมอยู่สองลักษณะได้แก่ แผนภาพไพพ์ลายน์แบบ Multiple-clock-cycle และ แผนภาพไพพ์ลายน์แบบ Single-clock-cycle เช่นในรูป <A HREF="node127.html#fig:6.12">6.12</A> ถึง <A HREF="node127.html#fig:6.16">6.16</A> 
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">พิจารณาคำสั่ง 5 คำสั่งดังต่อไปนี้
+</FONT></I>
+<P>
+<I></I><PRE>
+  lw   $10, 20($1)
+  sub  $11, $2, $3
+  add  $12, $3, $4
+  lw   $13, 249($1)
+  add  $14, $5, $6
+</PRE><I></I>
+<P>
+<I><FONT SIZE="-1">รูป <A HREF="#fig:6.19">6.19</A> แสดงแผนภาพไพพ์ลายน์แบบ Multiple-clock-cycle ในการประมวลผลคำสั่งทั้ง 5 ขั้นต้น  โดยเวลาการประมวลผลเริ่มจากซ้ายไปขวา และคำสั่งเรียงจากบนลงล่าง รูป <A HREF="#fig:6.20">6.20</A> แสดงแผนภาพไพพ์ลายน์แบบ Multiple-clock-cycle ที่แสดงชื่อของแต่ละสเตทในการทำงานแทนการแสดงด้วยรูปของส่วนประกอบนั้นๆ แทน 
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.19"></A><A NAME="31432"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.19:</STRONG>
+แผนภาพไพพ์ลายน์แบบ Multiple-clock-cycle ในการประมวลผลคำสั่ง lw, sub, add, lw, และ add</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="521" ALIGN="BOTTOM" BORDER="0"
+ SRC="img353.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.19.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.20"></A><A NAME="31433"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.20:</STRONG>
+แผนภาพไพพ์ลายน์แบบ Multiple-clock-cycle ที่แสดงชื่อของแต่ละสเตทในการทำงาน</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="301" ALIGN="BOTTOM" BORDER="0"
+ SRC="img354.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.20.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1">   
+</FONT></I>
+<P>
+<I><FONT SIZE="-1">แผนภาพไพพ์ลายน์แบบ Single-clock-cycle สามารถแสดงรายละเอียดได้มากกว่าในส่วนของเส้นทางข้อมูล โดยการทำงานของคำสั่งจะแสดงอยู่เหนือสเตทที่กำลังทำการประมวลผลอยู่ ซึ่งในรูป <A HREF="#fig:6.21">6.21</A> แสดง แผนภาพไพพ์ลายน์แบบ Single-clock-cycle ในการประมวลผลคำสั่ง lw, sub, add, lw, และ add ตามลำดับ อย่างไรก็ตาม แผนภาพไพพ์ลายน์แบบ Single-clock-cycle  ใช้พื้นที่ในการนำเสนอมากกว่า
+</FONT></I>
+<P>
+<I></I>
+<DIV ALIGN="CENTER"><A NAME="fig:6.21"></A><A NAME="31434"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.21:</STRONG>
+แผนภาพไพพ์ลายน์แบบ Single-clock-cycle ในการประมวลผลคำสั่ง lw, sub, add, lw, และ add ตามลำดับ</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="747" HEIGHT="405" ALIGN="BOTTOM" BORDER="0"
+ SRC="img355.png"
+ ALT="\includegraphics[width=6.5in]{fig/Chapter_6/Figure_6.21.eps}">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+<I><FONT SIZE="-1"> 
+
+</FONT></I>
+<P>
+<I></I>
+<BR><HR>
+<ADDRESS>
+Vara Varavithya
+2006-11-06
+</ADDRESS>
+</BODY>
+</HTML>
